@@ -1,8 +1,8 @@
 /* 
- * File:   main.c
+ * File:   newmain.c
  * Author: archi
  *
- * Created on 16 octobre 2014, 17:36
+ * Created on 16 octobre 2014, 17:50
  */
 
 #include <stdio.h>

@@ -5,7 +5,7 @@
             <name>cube_slave</name>
             <creation-uuid>0487788d-c8af-42b7-955e-958fa9b5fe5d</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions/>
+            <c-extensions>c</c-extensions>
             <cpp-extensions/>
             <header-extensions/>
             <asminc-extensions/>
