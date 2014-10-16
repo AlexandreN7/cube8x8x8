@@ -178,10 +178,10 @@ text0 7FF6 7FF9 CODE 7FF6 0
 dist/default/production/cube_slave.X.production.obj
 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
 main.c
-26 7FF6 0 CODE 0
-23 7FF6 0 CODE 0
-26 7FF6 0 CODE 0
-/tmp/cgtSIyc7o
+27 7FF6 0 CODE 0
+24 7FF6 0 CODE 0
+27 7FF6 0 CODE 0
+/tmp/cgt9Cwegm
 1088 7FFA 0 CODE 0
 1090 7FFA 0 CODE 0
 1093 7FFA 0 CODE 0

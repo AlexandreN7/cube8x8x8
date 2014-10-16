@@ -15,6 +15,7 @@
 #include <xc.h>
 #include <timers.h>
 #include <portb.h>
+#include <usart.h>
 
 
 /*

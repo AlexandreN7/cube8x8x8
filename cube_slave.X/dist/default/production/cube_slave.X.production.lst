@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.33 build 59893 
-                                                                                               Thu Oct 16 16:06:39 2014
+                                                                                               Thu Oct 16 16:36:30 2014
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 59893
      1                           	processor	18F25K80
@@ -20,7 +20,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
     14 ;;
     15 ;; *************** function _main *****************
     16 ;; Defined at:
-    17 ;;		line 23 in file "main.c"
+    17 ;;		line 24 in file "main.c"
     18 ;; Parameters:    Size  Location     Type
     19 ;;  argc            2    0[COMRAM] int 
     20 ;;  argv            3    2[COMRAM] PTR PTR unsigned char 
@@ -58,7 +58,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
     47  007FF6                     _main:
     48                           	opt stack 31
     49                           
-    50                           ;main.c: 25: return (0);
+    50                           ;main.c: 26: return (0);
     51                           ;	Return value of _main is never used
     52                           
     53                           ;incstack = 0
@@ -253,7 +253,7 @@ SFR                  0      0       0      40        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.33 build 59893 
-Symbol Table                                                                                   Thu Oct 16 16:06:39 2014
+Symbol Table                                                                                   Thu Oct 16 16:36:30 2014
 
            __CFG_IESO$ON 000000            __CFG_FCMEN$ON 000000                     _main 7FF6  
                    start 0000                    ?_main 0001           __CFG_EBTRB$OFF 000000  
