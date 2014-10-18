@@ -1,5 +1,71 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
+"22 main.c
+[v _UART_Init `(uc ~T0 @X0 0 ef1`Cl ]
+"23
+[v _UART_Write `(v ~T0 @X0 0 ef1`uc ]
+"35361 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
+[s S2300 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2300 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"35371
+[s S2301 :1 `uc 1 :5 `uc 1 :1 `uc 1 ]
+[n S2301 . TXD8 . TX8_9 ]
+"35376
+[s S2302 :6 `uc 1 :1 `uc 1 ]
+[n S2302 . . NOT_TX8 ]
+"35380
+[s S2303 :6 `uc 1 :1 `uc 1 ]
+[n S2303 . . nTX8 ]
+"35384
+[s S2304 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2304 . TX9D1 TRMT1 BRGH1 SENDB1 SYNC1 TXEN1 TX91 CSRC1 ]
+"35360
+[u S2299 `S2300 1 `S2301 1 `S2302 1 `S2303 1 `S2304 1 ]
+[n S2299 . . . . . . ]
+"35395
+[v _TXSTA1bits `VS2299 ~T0 @X0 0 e@4012 ]
+"35711
+[v _SPBRG1 `Vuc ~T0 @X0 0 e@4015 ]
+"32337
+[v _SPBRGH1 `Vuc ~T0 @X0 0 e@3965 ]
+"35024
+[s S2284 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2284 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"35034
+[s S2285 :1 `uc 1 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S2285 . RCD8 . ADEN . RC9 ]
+"35041
+[s S2286 :6 `uc 1 :1 `uc 1 ]
+[n S2286 . . NOT_RC8 ]
+"35045
+[s S2287 :6 `uc 1 :1 `uc 1 ]
+[n S2287 . . nRC8 ]
+"35049
+[s S2288 :6 `uc 1 :1 `uc 1 ]
+[n S2288 . . RC8_9 ]
+"35053
+[s S2289 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2289 . RX9D1 OERR1 FERR1 ADDEN1 CREN1 SREN1 RX91 SPEN1 ]
+"35063
+[s S2290 :5 `uc 1 :1 `uc 1 ]
+[n S2290 . . SRENA ]
+"35023
+[u S2283 `S2284 1 `S2285 1 `S2286 1 `S2287 1 `S2288 1 `S2289 1 `S2290 1 ]
+[n S2283 . . . . . . . . ]
+"35068
+[v _RCSTA1bits `VS2283 ~T0 @X0 0 e@4011 ]
+"44855
+[v _TRISC7 `Vb ~T0 @X0 0 e@31911 ]
+"44853
+[v _TRISC6 `Vb ~T0 @X0 0 e@31910 ]
+"41885
+[v _CREN1 `Vb ~T0 @X0 0 e@32092 ]
+"45571
+[v _TXEN1 `Vb ~T0 @X0 0 e@32101 ]
+"44857
+[v _TRMT1 `Vb ~T0 @X0 0 e@32097 ]
+"35642
+[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
 "8 main.c
 [p x XINST=OFF ]
 [p x SOSCSEL=DIG ]
@@ -17394,19 +17460,178 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-"24 main.c
+[; ;main.c: 22: char UART_Init(const long int baudrate);
+[; ;main.c: 23: void UART_Write(char data);
+"25 main.c
+[v _Rxdata `uc ~T0 @X0 -> 25 `i e ]
+[; ;main.c: 25: unsigned char Rxdata[25];
+"26
+[v _Txdata `uc ~T0 @X0 -> 0 `x e ]
+[i _Txdata
+:U ..
+-> 77 `c
+-> 73 `c
+-> 67 `c
+-> 82 `c
+-> 79 `c
+-> 67 `c
+-> 72 `c
+-> 73 `c
+-> 80 `c
+-> 95 `c
+-> 85 `c
+-> 83 `c
+-> 65 `c
+-> 82 `c
+-> 84 `c
+-> 0 `c
+..
+]
+[; ;main.c: 26: unsigned char Txdata[] = "MICROCHIP_USART";
+"32
 [v _main `(i ~T0 @X0 1 ef2`i`**uc ]
 {
-[; ;main.c: 24: int main(int argc, char** argv) {
+[; ;main.c: 32: int main(int argc, char** argv) {
 [e :U _main ]
 [v _argc `i ~T0 @X0 1 r1 ]
 [v _argv `**uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;main.c: 26: return (0);
-"26
-[e ) -> 0 `i ]
-[e $UE 2639  ]
-[; ;main.c: 27: }
-"27
+[; ;main.c: 33: UART_Init(9600);
+"33
+[e ( _UART_Init (1 -> -> 9600 `i `l ]
+[; ;main.c: 34: while(1) {
+"34
+[e :U 2641 ]
+{
+[; ;main.c: 35: UART_Write('A');
+"35
+[e ( _UART_Write (1 -> -> 65 `ui `uc ]
+[; ;main.c: 36: for(int i= 0 ; i<100000; i++) {}
+"36
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < -> _i `l -> 100000 `l 2643  ]
+[e $U 2644  ]
+[e :U 2643 ]
+{
+}
+[e ++ _i -> 1 `i ]
+[e $ < -> _i `l -> 100000 `l 2643  ]
+[e :U 2644 ]
+}
+"37
+}
+[e :U 2640 ]
+"34
+[e $U 2641  ]
+[e :U 2642 ]
+[; ;main.c: 37: }
+[; ;main.c: 40: }
+"40
 [e :UE 2639 ]
+}
+"42
+[v _UART_Init `(uc ~T0 @X0 1 ef1`Cl ]
+"43
+{
+[; ;main.c: 42: char UART_Init(const long int baudrate)
+[; ;main.c: 43: {
+[e :U _UART_Init ]
+"42
+[v _baudrate `Cl ~T0 @X0 1 r1 ]
+"43
+[f ]
+"44
+[v _x `ui ~T0 @X0 1 a ]
+[; ;main.c: 44: unsigned int x;
+[; ;main.c: 45: x = (8000000 - baudrate*64)/(baudrate*64);
+"45
+[e = _x -> / - -> 8000000 `l * _baudrate -> -> 64 `i `l * _baudrate -> -> 64 `i `l `ui ]
+[; ;main.c: 46: if(x>255)
+"46
+[e $ ! > _x -> -> 255 `i `ui 2647  ]
+[; ;main.c: 47: {
+"47
+{
+[; ;main.c: 48: x = (8000000 - baudrate*16)/(baudrate*16);
+"48
+[e = _x -> / - -> 8000000 `l * _baudrate -> -> 16 `i `l * _baudrate -> -> 16 `i `l `ui ]
+[; ;main.c: 50: TXSTA1bits.BRGH = 1;
+"50
+[e = . . _TXSTA1bits 0 2 -> -> 1 `i `uc ]
+"51
+}
+[e :U 2647 ]
+[; ;main.c: 51: }
+[; ;main.c: 52: if(x<256)
+"52
+[e $ ! < _x -> -> 256 `i `ui 2648  ]
+[; ;main.c: 53: {
+"53
+{
+[; ;main.c: 56: SPBRG1 = 12;
+"56
+[e = _SPBRG1 -> -> 12 `i `uc ]
+[; ;main.c: 57: SPBRGH1 =0;
+"57
+[e = _SPBRGH1 -> -> 0 `i `uc ]
+[; ;main.c: 58: TXSTA1bits.SYNC = 0;
+"58
+[e = . . _TXSTA1bits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 59: RCSTA1bits.SPEN = 1;
+"59
+[e = . . _RCSTA1bits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 60: TRISC7 = 1;
+"60
+[e = _TRISC7 -> -> 1 `i `b ]
+[; ;main.c: 61: TRISC6 = 1;
+"61
+[e = _TRISC6 -> -> 1 `i `b ]
+[; ;main.c: 62: CREN1 = 1;
+"62
+[e = _CREN1 -> -> 1 `i `b ]
+[; ;main.c: 63: TXEN1 = 1;
+"63
+[e = _TXEN1 -> -> 1 `i `b ]
+[; ;main.c: 64: return 1;
+"64
+[e ) -> -> 1 `i `uc ]
+[e $UE 2646  ]
+"65
+}
+[e :U 2648 ]
+[; ;main.c: 65: }
+[; ;main.c: 66: return 0;
+"66
+[e ) -> -> 0 `i `uc ]
+[e $UE 2646  ]
+[; ;main.c: 67: }
+"67
+[e :UE 2646 ]
+}
+"70
+[v _UART_Write `(v ~T0 @X0 1 ef1`uc ]
+"71
+{
+[; ;main.c: 70: void UART_Write(char data)
+[; ;main.c: 71: {
+[e :U _UART_Write ]
+"70
+[v _data `uc ~T0 @X0 1 r1 ]
+"71
+[f ]
+[; ;main.c: 72: while(!TRMT1);
+"72
+[e $U 2650  ]
+[e :U 2651 ]
+[e :U 2650 ]
+[e $ ! _TRMT1 2651  ]
+[e :U 2652 ]
+[; ;main.c: 73: TXREG = data;
+"73
+[e = _TXREG _data ]
+[; ;main.c: 74: }
+"74
+[e :UE 2649 ]
 }
