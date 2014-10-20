@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "usart.c"
 
 # 21 "/opt/microchip/xc8/v1.33/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -21933,111 +21933,51 @@ char msg[80];
 # 96
 unsigned char readAddress();
 
-
-# 18 "main.c"
-#pragma config RETEN = 0
-#pragma config INTOSCSEL = HIGH
-#pragma config SOSCSEL = DIG
-#pragma config XINST = 0
-
-
-#pragma config FOSC = INTIO2
-#pragma config PLLCFG = 0
-#pragma config FCMEN = 0
-#pragma config IESO = 0
-
-
-#pragma config PWRTEN = 0
-#pragma config BOREN = SBORDIS
-#pragma config BORV = 3
-#pragma config BORPWR = ZPBORMV
-
-
-#pragma config WDTEN = 0
-#pragma config WDTPS = 1048576
-
-
-#pragma config CANMX = PORTB
-#pragma config MSSPMSK = MSK7
-#pragma config MCLRE = 0
-
-
-#pragma config STVREN = 1
-#pragma config BBSIZ = BB2K
-
-
-#pragma config CP0 = 0
-#pragma config CP1 = 0
-#pragma config CP2 = 0
-#pragma config CP3 = 0
-
-
-#pragma config CPB = 0
-#pragma config CPD = 0
-
-
-#pragma config WRT0 = 0
-#pragma config WRT1 = 0
-#pragma config WRT2 = 0
-#pragma config WRT3 = 0
-
-
-#pragma config WRTC = 0
-#pragma config WRTB = 0
-#pragma config WRTD = 0
-
-
-#pragma config EBTR0 = 0
-#pragma config EBTR1 = 0
-#pragma config EBTR2 = 0
-#pragma config EBTR3 = 0
-
-
-#pragma config EBTRB = 0
-
-
-void main(void)
+# 6 "usart.c"
+void initComms()
 {
-unsigned char address = 0;
-char msg1[80] = "Test émission uart \n \r";
 
-char msg2[80];
+# 22
+TXSTA2bits.CSRC = 0;
+TXSTA2bits.TX9 = 0;
+TXSTA2bits.TXEN = 1;
+TXSTA2bits.SYNC = 0;
+TXSTA2bits.SENDB = 0;
+TXSTA2bits.BRGH = 1;
+TXSTA2bits.TRMT = 1;
+TXSTA2bits.TX9D = 0;
+
+RCSTA2bits.SPEN = 1;
+RCSTA2bits.RX9 = 0;
+RCSTA2bits.SREN = 0;
+RCSTA2bits.CREN = 1;
+RCSTA2bits.ADDEN = 0;
+RCSTA2bits.FERR = 0;
+RCSTA2bits.OERR = 0;
+RCSTA2bits.RX9D = 0;
+
+BAUDCON2bits.ABDOVF = 0;
+BAUDCON2bits.RCIDL = 1;
+BAUDCON2bits.RXDTP = 0;
+BAUDCON2bits.TXCKP = 0;
+BAUDCON2bits.BRG16 = 1;
+BAUDCON2bits.WUE = 0;
+BAUDCON2bits.ABDEN = 0;
+
+SPBRGH2 = 0;
+SPBRG = 103;
+
+SPBRG2 = 25;
 
 
 
-initPorts();
-initComms();
+}
 
-GIE = 1;
-PEIE = 1;
-
-
-
-
-address = readAddress();
-
-writeStringToUART (msg);
-
-while(1){
-
-
-if (PIR3bits.RC2IF == 1)
+void writeStringToUART (const char *msg)
 {
-TXREG2 = RCREG2 ;
-PIR3bits.RC2IF =0;
-
-for (int i = 0 ; i< 100 ; i++) {}
+while(*msg) {
+while(PIR3bits.TX2IF == 0) {}
+TXREG2 = *msg++;
+}
 }
 
-}
-
-
-
-
-}
-
-# 123
-unsigned char readAddress()
-{
-return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
-}

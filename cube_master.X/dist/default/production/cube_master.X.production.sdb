@@ -125,16 +125,191 @@
 [v ___asftsub __asftsub `(f  1 e 3 0 ]
 "6 /opt/microchip/xc8/v1.33/sources/pic18/aslmul.c
 [v ___aslmul __aslmul `(ul  1 e 4 0 ]
+"18 /opt/microchip/xc8/v1.33/sources/pic18/plib/USART/u1baud.c
+[v _baud1USART baud1USART `(v  1 e 0 0 ]
+"124 /opt/microchip/xc8/v1.33/sources/pic18/plib/USART/u1open.c
+[v _Open1USART Open1USART `(v  1 e 0 0 ]
+"14 /opt/microchip/xc8/v1.33/sources/pic18/plib/USART/u1write.c
+[v _Write1USART Write1USART `(v  1 e 0 0 ]
 "32 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_master.X/main.c
 [v _main main `(i  1 e 2 0 ]
-"22
+"32337 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
+[v _SPBRGH1 SPBRGH1 `VEuc  1 e 1 @3965 ]
+"33494
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"33550
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"33611
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+[s S200 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 TMR1GIE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"33934
+[s S208 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+]
+"33934
+[u S212 . 1 `S200 1 . 1 0 `S208 1 . 1 0 ]
+"33934
+"33934
+[v _PIE1bits PIE1bits `VES212  1 e 1 @3997 ]
+"34641
+[v _BAUDCON1 BAUDCON1 `VEuc  1 e 1 @4007 ]
+"35013
+[v _RCSTA1 RCSTA1 `VEuc  1 e 1 @4011 ]
+[s S119 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"35068
+[s S128 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :2:1 
+`uc 1 ADEN 1 0 :1:3 
+`uc 1 . 1 0 :2:4 
+`uc 1 RC9 1 0 :1:6 
+]
+"35068
+[s S134 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 NOT_RC8 1 0 :1:6 
+]
+"35068
+[s S137 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+"35068
+[s S140 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+"35068
+[s S143 . 1 `uc 1 RX9D1 1 0 :1:0 
+`uc 1 OERR1 1 0 :1:1 
+`uc 1 FERR1 1 0 :1:2 
+`uc 1 ADDEN1 1 0 :1:3 
+`uc 1 CREN1 1 0 :1:4 
+`uc 1 SREN1 1 0 :1:5 
+`uc 1 RX91 1 0 :1:6 
+`uc 1 SPEN1 1 0 :1:7 
+]
+"35068
+[s S152 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+"35068
+[u S155 . 1 `S119 1 . 1 0 `S128 1 . 1 0 `S134 1 . 1 0 `S137 1 . 1 0 `S140 1 . 1 0 `S143 1 . 1 0 `S152 1 . 1 0 ]
+"35068
+"35068
+[v _RCSTA1bits RCSTA1bits `VES155  1 e 1 @4011 ]
+"35350
+[v _TXSTA1 TXSTA1 `VEuc  1 e 1 @4012 ]
+[s S56 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"35395
+[s S65 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 TX8_9 1 0 :1:6 
+]
+"35395
+[s S69 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 NOT_TX8 1 0 :1:6 
+]
+"35395
+[s S72 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nTX8 1 0 :1:6 
+]
+"35395
+[s S75 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 SENDB1 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+"35395
+[u S84 . 1 `S56 1 . 1 0 `S65 1 . 1 0 `S69 1 . 1 0 `S72 1 . 1 0 `S75 1 . 1 0 ]
+"35395
+"35395
+[v _TXSTA1bits TXSTA1bits `VES84  1 e 1 @4012 ]
+"35637
+[v _TXREG1 TXREG1 `VEuc  1 e 1 @4013 ]
+"35711
+[v _SPBRG1 SPBRG1 `VEuc  1 e 1 @4015 ]
+"37162
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"37271
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+"38445
+[v _WDTCON WDTCON `VEuc  1 e 1 @4049 ]
+"38575
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"42291
+[v _GIE GIE `VEb  1 e 0 @32663 ]
+"42689
+[v _PEIE PEIE `VEb  1 e 0 @32662 ]
+[s S287 . 1 `uc 1 RX_NINE 1 0 :1:0 
+`uc 1 TX_NINE 1 0 :1:1 
+`uc 1 FRAME_ERROR 1 0 :1:2 
+`uc 1 OVERRUN_ERROR 1 0 :1:3 
+`uc 1 fill 1 0 :4:4 
+]
+"8 /opt/microchip/xc8/v1.33/sources/pic18/plib/USART/u1defs.c
+[u S293 USART1 1 `uc 1 val 1 0 `S287 1 . 1 0 ]
+[v _USART1_Status USART1_Status `S293  1 e 1 0 ]
+"22 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_master.X/main.c
 [v _Rxdata Rxdata `[25]uc  1 e 25 0 ]
 "23
 [v _Txdata Txdata `[16]uc  1 e 16 0 ]
 "32
 [v _main main `(i  1 e 2 0 ]
 {
-[v main@argc argc `i  1 p 2 0 ]
-[v main@argv argv `*.2*.2uc  1 p 3 2 ]
-"54
+[v main@argc argc `i  1 p 2 6 ]
+[v main@argv argv `*.2*.2uc  1 p 3 8 ]
+"78
+} 0
+"18 /opt/microchip/xc8/v1.33/sources/pic18/plib/USART/u1baud.c
+[v _baud1USART baud1USART `(v  1 e 0 0 ]
+{
+[v baud1USART@baudconfig baudconfig `uc  1 a 1 wreg ]
+[v baud1USART@baudconfig baudconfig `uc  1 a 1 wreg ]
+"20
+[v baud1USART@baudconfig baudconfig `uc  1 a 1 0 ]
+"21
+} 0
+"14 /opt/microchip/xc8/v1.33/sources/pic18/plib/USART/u1write.c
+[v _Write1USART Write1USART `(v  1 e 0 0 ]
+{
+[v Write1USART@data data `uc  1 a 1 wreg ]
+[v Write1USART@data data `uc  1 a 1 wreg ]
+"16
+[v Write1USART@data data `uc  1 a 1 0 ]
+"24
+} 0
+"124 /opt/microchip/xc8/v1.33/sources/pic18/plib/USART/u1open.c
+[v _Open1USART Open1USART `(v  1 e 0 0 ]
+{
+[v Open1USART@config config `uc  1 a 1 wreg ]
+[v Open1USART@config config `uc  1 a 1 wreg ]
+[v Open1USART@spbrg spbrg `ui  1 p 2 0 ]
+"126
+[v Open1USART@config config `uc  1 a 1 5 ]
+"169
 } 0

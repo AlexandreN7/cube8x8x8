@@ -1,6 +1,7 @@
-___aldiv: CODE, 32168 0 252
-_UART_Init: CODE, 32420 0 348
-_main: CODE, 32078 0 40
-__initialization: CODE, 32118 0 44
-_UART_Write: CODE, 32050 0 12
-Total: 696
+_main: CODE, 32672 0 96
+_initPorts: CODE, 32350 0 44
+__initialization: CODE, 32394 0 50
+_readAddress: CODE, 32590 0 82
+_initComms: CODE, 32450 0 60
+_writeStringToUART: CODE, 32312 0 38
+Total: 370

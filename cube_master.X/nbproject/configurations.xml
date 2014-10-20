@@ -55,7 +55,8 @@
       <HI-TECH-COMP>
         <property key="asmlist" value="true"/>
         <property key="define-macros" value=""/>
-        <property key="extra-include-directories" value=""/>
+        <property key="extra-include-directories"
+                  value="../../../../../../opt/microchip/xc8/v1.33/include/plib"/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="free"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>

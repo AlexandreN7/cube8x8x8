@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "port.c"
 
 # 21 "/opt/microchip/xc8/v1.33/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -21933,111 +21933,26 @@ char msg[80];
 # 96
 unsigned char readAddress();
 
-
-# 18 "main.c"
-#pragma config RETEN = 0
-#pragma config INTOSCSEL = HIGH
-#pragma config SOSCSEL = DIG
-#pragma config XINST = 0
-
-
-#pragma config FOSC = INTIO2
-#pragma config PLLCFG = 0
-#pragma config FCMEN = 0
-#pragma config IESO = 0
-
-
-#pragma config PWRTEN = 0
-#pragma config BOREN = SBORDIS
-#pragma config BORV = 3
-#pragma config BORPWR = ZPBORMV
-
-
-#pragma config WDTEN = 0
-#pragma config WDTPS = 1048576
-
-
-#pragma config CANMX = PORTB
-#pragma config MSSPMSK = MSK7
-#pragma config MCLRE = 0
-
-
-#pragma config STVREN = 1
-#pragma config BBSIZ = BB2K
-
-
-#pragma config CP0 = 0
-#pragma config CP1 = 0
-#pragma config CP2 = 0
-#pragma config CP3 = 0
-
-
-#pragma config CPB = 0
-#pragma config CPD = 0
-
-
-#pragma config WRT0 = 0
-#pragma config WRT1 = 0
-#pragma config WRT2 = 0
-#pragma config WRT3 = 0
-
-
-#pragma config WRTC = 0
-#pragma config WRTB = 0
-#pragma config WRTD = 0
-
-
-#pragma config EBTR0 = 0
-#pragma config EBTR1 = 0
-#pragma config EBTR2 = 0
-#pragma config EBTR3 = 0
-
-
-#pragma config EBTRB = 0
-
-
-void main(void)
-{
-unsigned char address = 0;
-char msg1[80] = "Test émission uart \n \r";
-
-char msg2[80];
+# 7 "port.c"
+void initPorts(void) {
 
 
 
-initPorts();
-initComms();
-
-GIE = 1;
-PEIE = 1;
+OSCCON = 0x30;
 
 
+ANCON0 = 0b00010000;
+ADCON1 = 0b00000111;
+ADCON2 = 0xBC;
+ADON = 1;
 
 
-address = readAddress();
+PORTA = 0b00000000;
+TRISA = 0b11111111;
 
-writeStringToUART (msg);
+PORTB = 0b01001000;
+TRISB = 0b10010011;
 
-while(1){
-
-
-if (PIR3bits.RC2IF == 1)
-{
-TXREG2 = RCREG2 ;
-PIR3bits.RC2IF =0;
-
-for (int i = 0 ; i< 100 ; i++) {}
-}
-
-}
-
-
-
-
-}
-
-# 123
-unsigned char readAddress()
-{
-return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
+PORTC = 0b00000000;
+TRISC = 0b11100000;
 }
