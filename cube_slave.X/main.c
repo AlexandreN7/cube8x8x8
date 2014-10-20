@@ -30,7 +30,7 @@ unsigned char Txdata[] = "MICROCHIP_USART";
 
 
 int main(int argc, char** argv) {
-    UART_Init(9600);
+   UART_Init(9600);
     while(1) {
         UART_Write('A');
         for(int i= 0 ; i<100000; i++) {}

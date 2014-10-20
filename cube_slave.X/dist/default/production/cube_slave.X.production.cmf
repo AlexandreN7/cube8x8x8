@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/cgtJy25pD.obj
+$/tmp/cgtgdWoe3.obj
 end_init CODE 0 0 0 4 1
 idloc IDLOC 0 200000 200000 8 1
 config CONFIG 0 300000 300000 E 1
@@ -78,32 +78,32 @@ $dist/default/production/cube_slave.X.production.obj
 "/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":33 7D4E text0 CODE
 "/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":35 7D62 text0 CODE
 "/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":36 7D68 text0 CODE
-"/tmp/cgtyW6FZ3":1131 7D76 cinit CODE
-"/tmp/cgtyW6FZ3":1133 7D76 cinit CODE
-"/tmp/cgtyW6FZ3":1136 7D76 cinit CODE
-"/tmp/cgtyW6FZ3":1158 7D76 cinit CODE
-"/tmp/cgtyW6FZ3":1159 7D7A cinit CODE
-"/tmp/cgtyW6FZ3":1160 7D7C cinit CODE
-"/tmp/cgtyW6FZ3":1161 7D7C cinit CODE
-"/tmp/cgtyW6FZ3":1162 7D7E cinit CODE
-"/tmp/cgtyW6FZ3":1163 7D80 cinit CODE
-"/tmp/cgtyW6FZ3":1168 7D82 cinit CODE
-"/tmp/cgtyW6FZ3":1169 7D84 cinit CODE
-"/tmp/cgtyW6FZ3":1170 7D86 cinit CODE
-"/tmp/cgtyW6FZ3":1171 7D88 cinit CODE
-"/tmp/cgtyW6FZ3":1172 7D8A cinit CODE
-"/tmp/cgtyW6FZ3":1173 7D8C cinit CODE
-"/tmp/cgtyW6FZ3":1174 7D8E cinit CODE
-"/tmp/cgtyW6FZ3":1175 7D92 cinit CODE
-"/tmp/cgtyW6FZ3":1176 7D96 cinit CODE
-"/tmp/cgtyW6FZ3":1177 7D96 cinit CODE
-"/tmp/cgtyW6FZ3":1178 7D98 cinit CODE
-"/tmp/cgtyW6FZ3":1179 7D9C cinit CODE
-"/tmp/cgtyW6FZ3":1180 7D9E cinit CODE
-"/tmp/cgtyW6FZ3":1181 7DA0 cinit CODE
-"/tmp/cgtyW6FZ3":1187 7DA2 cinit CODE
-"/tmp/cgtyW6FZ3":1188 7DA2 cinit CODE
-"/tmp/cgtyW6FZ3":1189 7DA4 cinit CODE
+"/tmp/cgt2J3X3B":1131 7D76 cinit CODE
+"/tmp/cgt2J3X3B":1133 7D76 cinit CODE
+"/tmp/cgt2J3X3B":1136 7D76 cinit CODE
+"/tmp/cgt2J3X3B":1158 7D76 cinit CODE
+"/tmp/cgt2J3X3B":1159 7D7A cinit CODE
+"/tmp/cgt2J3X3B":1160 7D7C cinit CODE
+"/tmp/cgt2J3X3B":1161 7D7C cinit CODE
+"/tmp/cgt2J3X3B":1162 7D7E cinit CODE
+"/tmp/cgt2J3X3B":1163 7D80 cinit CODE
+"/tmp/cgt2J3X3B":1168 7D82 cinit CODE
+"/tmp/cgt2J3X3B":1169 7D84 cinit CODE
+"/tmp/cgt2J3X3B":1170 7D86 cinit CODE
+"/tmp/cgt2J3X3B":1171 7D88 cinit CODE
+"/tmp/cgt2J3X3B":1172 7D8A cinit CODE
+"/tmp/cgt2J3X3B":1173 7D8C cinit CODE
+"/tmp/cgt2J3X3B":1174 7D8E cinit CODE
+"/tmp/cgt2J3X3B":1175 7D92 cinit CODE
+"/tmp/cgt2J3X3B":1176 7D96 cinit CODE
+"/tmp/cgt2J3X3B":1177 7D96 cinit CODE
+"/tmp/cgt2J3X3B":1178 7D98 cinit CODE
+"/tmp/cgt2J3X3B":1179 7D9C cinit CODE
+"/tmp/cgt2J3X3B":1180 7D9E cinit CODE
+"/tmp/cgt2J3X3B":1181 7DA0 cinit CODE
+"/tmp/cgt2J3X3B":1187 7DA2 cinit CODE
+"/tmp/cgt2J3X3B":1188 7DA2 cinit CODE
+"/tmp/cgt2J3X3B":1189 7DA4 cinit CODE
 "/opt/microchip/xc8/v1.33/sources/common/aldiv.c":8 7DA8 text3 CODE
 "/opt/microchip/xc8/v1.33/sources/common/aldiv.c":14 7DA8 text3 CODE
 "/opt/microchip/xc8/v1.33/sources/common/aldiv.c":15 7DAC text3 CODE
@@ -162,8 +162,8 @@ __S2 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/default/production/cube_slave.X.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/default/production/cube_slave.X.production.obj
 _main 7D4E 0 CODE 0 text0 dist/default/production/cube_slave.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/cgtJy25pD.obj
-start 0 0 CODE 0 init /tmp/cgtJy25pD.obj
+___sp 0 0 STACK 2 stack /tmp/cgtgdWoe3.obj
+start 0 0 CODE 0 init /tmp/cgtgdWoe3.obj
 _CREN1 7D5C 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _TXEN1 7D65 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _TRMT1 7D61 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
@@ -226,10 +226,10 @@ __Hdata 0 0 ABS 0 data dist/default/production/cube_slave.X.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production/cube_slave.X.production.obj
 _Rxdata 28 0 COMRAM 1 bssCOMRAM dist/default/production/cube_slave.X.production.obj
 _Txdata 41 0 COMRAM 1 dataCOMRAM dist/default/production/cube_slave.X.production.obj
-stackhi 9FF 0 ABS 0 - /tmp/cgtJy25pD.obj
+stackhi 9FF 0 ABS 0 - /tmp/cgtgdWoe3.obj
 __Htemp 0 0 COMRAM 1 temp dist/default/production/cube_slave.X.production.obj
 __Ltemp 0 0 COMRAM 1 temp dist/default/production/cube_slave.X.production.obj
-stacklo 60 0 ABS 0 - /tmp/cgtJy25pD.obj
+stacklo 60 0 ABS 0 - /tmp/cgtgdWoe3.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production/cube_slave.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production/cube_slave.X.production.obj
 __Hinit 0 0 CODE 0 init dist/default/production/cube_slave.X.production.obj
@@ -322,9 +322,9 @@ __Lcinit 0 0 ABS 0 cinit dist/default/production/cube_slave.X.production.obj
 ___aldiv 7DA8 0 CODE 0 text3 dist/default/production/cube_slave.X.production.obj
 __pcinit 7D76 0 CODE 0 cinit dist/default/production/cube_slave.X.production.obj
 __CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
-__ramtop F00 0 RAM 0 ramtop /tmp/cgtJy25pD.obj
+__ramtop F00 0 RAM 0 ramtop /tmp/cgtgdWoe3.obj
 UART_Write@data 1 0 COMRAM 1 cstackCOMRAM dist/default/production/cube_slave.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtJy25pD.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtgdWoe3.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 __Hconst 0 0 CODE 0 const dist/default/production/cube_slave.X.production.obj
 __Lconst 0 0 CODE 0 const dist/default/production/cube_slave.X.production.obj
@@ -341,28 +341,28 @@ __Lbank14 0 0 ABS 0 bank14 dist/default/production/cube_slave.X.production.obj
 __CFG_SOSCSEL$DIG 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _RCSTA1bits FAB 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _TXSTA1bits FAC 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
-___inthi_sp 0 0 STACK 2 stack /tmp/cgtJy25pD.obj
+___inthi_sp 0 0 STACK 2 stack /tmp/cgtgdWoe3.obj
 __CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
-___intlo_sp 0 0 STACK 2 stack /tmp/cgtJy25pD.obj
+___intlo_sp 0 0 STACK 2 stack /tmp/cgtgdWoe3.obj
 __Hend_init 4 0 CODE 0 end_init dist/default/production/cube_slave.X.production.obj
 __Lend_init 0 0 CODE 0 end_init dist/default/production/cube_slave.X.production.obj
 ___aldiv@divisor 5 0 COMRAM 1 cstackCOMRAM dist/default/production/cube_slave.X.production.obj
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production/cube_slave.X.production.obj
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production/cube_slave.X.production.obj
 __pidataCOMRAM 7D3E 0 CODE 0 idataCOMRAM dist/default/production/cube_slave.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtJy25pD.obj
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtgdWoe3.obj
 __Hreset_vec 0 0 CODE 0 reset_vec dist/default/production/cube_slave.X.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production/cube_slave.X.production.obj
-__accesstop 60 0 ABS 0 - /tmp/cgtJy25pD.obj
+__accesstop 60 0 ABS 0 - /tmp/cgtgdWoe3.obj
 __size_of___aldiv 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/cube_slave.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/cube_slave.X.production.obj
 __size_of_UART_Write 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
-intlevel0 0 0 CODE 0 text /tmp/cgtJy25pD.obj
-intlevel1 0 0 CODE 0 text /tmp/cgtJy25pD.obj
+intlevel0 0 0 CODE 0 text /tmp/cgtgdWoe3.obj
+intlevel1 0 0 CODE 0 text /tmp/cgtgdWoe3.obj
 __end_of_UART_Write 7D3E 0 CODE 0 text1 dist/default/production/cube_slave.X.production.obj
-intlevel2 0 0 CODE 0 text /tmp/cgtJy25pD.obj
-intlevel3 0 0 CODE 0 text /tmp/cgtJy25pD.obj
+intlevel2 0 0 CODE 0 text /tmp/cgtgdWoe3.obj
+intlevel3 0 0 CODE 0 text /tmp/cgtgdWoe3.obj
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production/cube_slave.X.production.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production/cube_slave.X.production.obj
 __pdataCOMRAM 41 0 COMRAM 1 dataCOMRAM dist/default/production/cube_slave.X.production.obj

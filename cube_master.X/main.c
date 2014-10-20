@@ -13,91 +13,43 @@
 #include <stdlib.h>
 #include <p18f25k80.h>
 #include <xc.h>
-#include "i2c.h"
 #include <timers.h>
 #include <portb.h>
 #include <usart.h>
 
 
 
-unsigned char I2C_Send[21] = "MICROCHIP:I2C_MASTER" ;
-unsigned char I2C_Recv[21];
+unsigned char Rxdata[25];
+unsigned char Txdata[] = "MICROCHIP_USART";
+
+// BAUD_RATE_GEN is calculated as  = [Fosc / (64 * Desired Baudrate)] - 1
+// It needs to be changed depending upon oscillator frequency.
+//  8MHz / (64 * 2400) - 1 = 51 (approx.)
+#define BAUD_RATE_GEN 51
 
 
 
 int main(int argc, char** argv) {
 
-    unsigned char sync_mode=0, slew=0, add1,w,data,status,length;
+  //-------------------------configure USART ---------------------------------------------------------
+    // API configures USART for desired parameters:
+    //  - TX/RX interrupts turned off
+    //  - Asynchronous mode
+    //  - 8 bits
+    //  - Continuous Receive Enabled
+    //  - Low speed baud rate generator mode (Fosc / 16)
+    OpenUSART(USART_TX_INT_OFF | USART_RX_INT_OFF | USART_ASYNCH_MODE | USART_EIGHT_BIT | USART_CONT_RX | USART_BRGH_LOW, BAUD_RATE_GEN);
+    baudUSART(BAUD_8_BIT_RATE | BAUD_AUTO_OFF);
 
-for(w=0;w<20;w++)
-I2C_Recv[w]=0;
+//------------USART Transmission ----------------------------------------------------------------
+    putsUSART((char *)Txdata);             // transmit the string
 
-add1=0xA2;		//address of the device (slave) under communication
+//-----------USART Reception ---------------------------------------------------------------------
+    getsUSART((char *)Rxdata, 24);         // receive data up to 24 bytes
+    Rxdata[24] = 0;                         // NULL terminate the string for putsUSART call.
+    putsUSART((char *)Rxdata);             // echo back the data recieved back to host
 
-	CloseI2C();	//close i2c if was operating earlier
-
-//------------------------INITIALISE THE I2C MODULE FOR MASTER MODE WITH 100KHz ---------------------------
-	sync_mode = MASTER;
-	slew = SLEW_OFF;
-
-	OpenI2C(sync_mode,slew);
-
-SSPADD=0x0A;			 //400kHz Baud clock(9) @8MHz
-
-//check for bus idle condition in multi master communication
-	IdleI2C();
-//--------------------START I2C---------------
-	StartI2C();
-
-//**************write the address of the device for communication************
-		data = SSPBUF;		//read any previous stored content in buffer to clear buffer full status
-	do
-	{
-	status = WriteI2C( add1 | 0x00 );	//write the address of slave
-		if(status == -1)		//check if bus collision happened
-		{
-			data = SSPBUF;		//upon bus collision detection clear the buffer,
-			SSPCON1bits.WCOL=0;	// clear the bus collision status bit
-		}
-	}
-	while(status!=0);		//write untill successful communication
-//R/W BIT IS '0' FOR FURTHER WRITE TO SLAVE
-
-//***********WRITE THE THE DATA TO BE SENT FOR SLAVE****************
-while(putsI2C(I2C_Send)!=0);	//write string of data to be transmitted to slave
-
-//-------------TERMINATE COMMUNICATION FROM MASTER SIDE---------------
-	IdleI2C();
-
-//-----------------RESTART I2C COMMUNICATION---------------------------------------
-	RestartI2C();
-	IdleI2C();
-//**************write the address of the device for communication************
-		data = SSPBUF;		//read any previous stored content in buffer to clear buffer full status
-
-//R/W BIT IS '1' FOR READ FROM SLAVE
-add1 = 0xA2;
-	do
-	{
-	status = WriteI2C( add1 | 0x01 );  //write the address of slave
-		if(status == -1)		//check if bus collision happened
-		{
-			data = SSPBUF;		//upon bus collision detection clear the buffer,
-			SSPCON1bits.WCOL=0;	// clear the bus collision status bit
-		}
-	}
-	while(status!=0);			//write untill successful communication
-
-//******************* Recieve data from slave ******************************
-	while( getsI2C(I2C_Recv,20) );		//recieve data string of lenght 20 from slave
-	I2C_Recv[20] = '\0' ;
-
-		NotAckI2C();					//send the end of transmission signal through nack
-		while( SSPCON2bits.ACKEN!=0);		//wait till ack sequence is complete
-
-//********************* close I2C *****************************************
-CloseI2C();								//close I2C module
-
-while(1);						//End of program
+    CloseUSART();
+    while(1);  			//End of program
 }
 
