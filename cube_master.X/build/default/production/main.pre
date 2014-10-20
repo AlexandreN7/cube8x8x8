@@ -21910,19 +21910,6 @@ unsigned char Txdata[] = "MICROCHIP_USART";
 # 32
 int main(int argc, char** argv) {
 
-# 41
-OpenUSART(0b01111111 | 0b10111111 | 0b11111110 | 0b11111101 | 0b11111111 | 0b11101111, 51);
-baudUSART(0b11110111 | 0b11111110);
-
-
-putsUSART((char *)Txdata);
-
-
-getsUSART((char *)Rxdata, 24);
-Rxdata[24] = 0;
-putsUSART((char *)Rxdata);
-
-CloseUSART();
-while(1);
+# 54
 }
 

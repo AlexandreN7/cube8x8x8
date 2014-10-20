@@ -17,7 +17,7 @@
 #include <portb.h>
 #include <usart.h>
 
-
+//#define USE_OR_MASKS
 
 unsigned char Rxdata[25];
 unsigned char Txdata[] = "MICROCHIP_USART";
@@ -30,7 +30,7 @@ unsigned char Txdata[] = "MICROCHIP_USART";
 
 
 int main(int argc, char** argv) {
-
+   // while(1) {
   //-------------------------configure USART ---------------------------------------------------------
     // API configures USART for desired parameters:
     //  - TX/RX interrupts turned off
@@ -38,18 +38,18 @@ int main(int argc, char** argv) {
     //  - 8 bits
     //  - Continuous Receive Enabled
     //  - Low speed baud rate generator mode (Fosc / 16)
-    OpenUSART(USART_TX_INT_OFF | USART_RX_INT_OFF | USART_ASYNCH_MODE | USART_EIGHT_BIT | USART_CONT_RX | USART_BRGH_LOW, BAUD_RATE_GEN);
-    baudUSART(BAUD_8_BIT_RATE | BAUD_AUTO_OFF);
+  //  Open1USART((USART_TX_INT_OFF | USART_RX_INT_OFF | USART_ASYNCH_MODE | USART_EIGHT_BIT | USART_CONT_RX | USART_BRGH_LOW) , BAUD_RATE_GEN);
+ //   baud1USART(BAUD_8_BIT_RATE | BAUD_AUTO_OFF);
 
 //------------USART Transmission ----------------------------------------------------------------
-    putsUSART((char *)Txdata);             // transmit the string
+  //  puts1USART((char *)Txdata);             // transmit the string
 
 //-----------USART Reception ---------------------------------------------------------------------
-    getsUSART((char *)Rxdata, 24);         // receive data up to 24 bytes
-    Rxdata[24] = 0;                         // NULL terminate the string for putsUSART call.
-    putsUSART((char *)Rxdata);             // echo back the data recieved back to host
+ ///   getsUSART((char *)Rxdata, 24);         // receive data up to 24 bytes
+ //   Rxdata[24] = 0;                         // NULL terminate the string for putsUSART call.
+ //   putsUSART((char *)Rxdata);             // echo back the data recieved back to host
 
-    CloseUSART();
-    while(1);  			//End of program
+ //   CloseUSART();
+   // }
 }
 
