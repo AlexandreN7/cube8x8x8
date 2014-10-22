@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"88 main.h
+"89 main.h
 [c E19139 0 1 .. ]
 [n E19139 . STATE_BOOT STATE_MONITOR  ]
 [p mainexit ]
@@ -7,33 +7,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _initPorts `(v ~T0 @X0 0 ef ]
 "4 usart.h
 [v _initComms `(v ~T0 @X0 0 ef ]
-"42291 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
-[v _GIE `Vb ~T0 @X0 0 e@32663 ]
-"42689
-[v _PEIE `Vb ~T0 @X0 0 e@32662 ]
-"96 main.h
+"97 main.h
 [v _readAddress `(uc ~T0 @X0 0 ef ]
 "5 usart.h
 [v _writeStringToUART `(v ~T0 @X0 0 ef1`*Cuc ]
-"34386 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
-[s S2238 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2238 . . CCP1IF CCP2IF CTMUIF TX2IF RC2IF ]
-"34394
-[s S2239 :1 `uc 1 :1 `uc 1 ]
-[n S2239 . . RXBNIF ]
-"34398
-[s S2240 :4 `uc 1 :1 `uc 1 ]
-[n S2240 . . TXBNIF ]
-"34385
-[u S2237 `S2238 1 `S2239 1 `S2240 1 ]
-[n S2237 . . . . ]
-"34403
-[v _PIR3bits `VS2237 ~T0 @X0 0 e@4004 ]
-"32261
-[v _TXREG2 `Vuc ~T0 @X0 0 e@3961 ]
-"32280
-[v _RCREG2 `Vuc ~T0 @X0 0 e@3962 ]
-"42725
+"42725 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
 [v _RA3 `Vb ~T0 @X0 0 e@31747 ]
 "42723
 [v _RA2 `Vb ~T0 @X0 0 e@31746 ]
@@ -17427,31 +17405,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.h: 1: void initPorts(void);
 [; ;usart.h: 4: void initComms();
 [; ;usart.h: 5: void writeStringToUART (const char* msg);
-[; ;main.h: 68: enum {
-[; ;main.h: 70: STATE_BOOT, STATE_MONITOR
-[; ;main.h: 71: };
-[; ;main.h: 76: enum {
-[; ;main.h: 77: SENSOR_A, SENSOR_B
-[; ;main.h: 78: };
-[; ;main.h: 83: enum {
-[; ;main.h: 84: OUTPUT_TYPE_LOW_LED, OUTPUT_TYPE_HIGH_LED, OUTPUT_TYPE_SSR
-[; ;main.h: 85: };
-"88 main.h
+[; ;main.h: 69: enum {
+[; ;main.h: 71: STATE_BOOT, STATE_MONITOR
+[; ;main.h: 72: };
+[; ;main.h: 77: enum {
+[; ;main.h: 78: SENSOR_A, SENSOR_B
+[; ;main.h: 79: };
+[; ;main.h: 84: enum {
+[; ;main.h: 85: OUTPUT_TYPE_LOW_LED, OUTPUT_TYPE_HIGH_LED, OUTPUT_TYPE_SSR
+[; ;main.h: 86: };
+"89 main.h
 [v _state `uc ~T0 @X0 1 e ]
 [i _state
 -> . `E19139 0 `uc
 ]
-[; ;main.h: 88: unsigned char state = STATE_BOOT;
-"89
+[; ;main.h: 89: unsigned char state = STATE_BOOT;
+"90
 [v _delay_ticks `ui ~T0 @X0 1 e ]
 [i _delay_ticks
 -> -> 0 `i `ui
 ]
-[; ;main.h: 89: unsigned int delay_ticks = 0;
-"90
+[; ;main.h: 90: unsigned int delay_ticks = 0;
+"91
 [v _msg `uc ~T0 @X0 -> 80 `i e ]
-[; ;main.h: 90: char msg[80];
-[; ;main.h: 96: unsigned char readAddress();
+[; ;main.h: 91: char msg[80];
+[; ;main.h: 97: unsigned char readAddress();
 "18 main.c
 [p x RETEN=ON ]
 "19
@@ -17526,39 +17504,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x EBTR3=ON ]
 "76
 [p x EBTRB=ON ]
-"79
+"78
+[v _test `uc ~T0 @X0 1 e ]
+[i _test
+-> -> 107 `ui `uc
+]
+[; ;main.c: 78: char test = 'k';
+"98
 [v _main `(v ~T0 @X0 1 ef ]
-"80
 {
-[; ;main.c: 79: void main(void)
-[; ;main.c: 80: {
+[; ;main.c: 98: void main(void) {
 [e :U _main ]
 [f ]
-"81
+"99
 [v _address `uc ~T0 @X0 1 a ]
-[; ;main.c: 81: unsigned char address = 0;
+[; ;main.c: 99: unsigned char address = 0;
 [e = _address -> -> 0 `i `uc ]
-[v F19157 `uc ~T0 @X0 -> 80 `i s ]
-[i F19157
+[v F19158 `uc ~T0 @X0 -> 80 `i s ]
+[i F19158
 :U ..
--> 84 `c
--> 101 `c
--> 115 `c
--> 116 `c
--> 32 `c
--> -23 `c
--> 109 `c
--> 105 `c
--> 115 `c
--> 115 `c
--> 105 `c
--> 111 `c
--> 110 `c
--> 32 `c
--> 117 `c
+-> 83 `c
+-> 108 `c
 -> 97 `c
--> 114 `c
--> 116 `c
+-> 118 `c
+-> 101 `c
+-> 32 `c
+-> 49 `c
+-> 32 `c
+-> 82 `c
+-> 101 `c
+-> 97 `c
+-> 100 `c
+-> 121 `c
 -> 32 `c
 -> 10 `c
 -> 32 `c
@@ -17566,89 +17543,69 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"82
+"100
 [v _msg1 `uc ~T0 @X0 -> 80 `i a ]
-[; ;main.c: 82: char msg1[80] = "Test émission uart \n \r";
-[e = _msg1 F19157 ]
-"84
+[; ;main.c: 100: char msg1[80] = "Slave 1 Ready \n \r";
+[e = _msg1 F19158 ]
+"102
 [v _msg2 `uc ~T0 @X0 -> 80 `i a ]
-[; ;main.c: 84: char msg2[80];
-[; ;main.c: 88: initPorts();
-"88
+[; ;main.c: 102: char msg2[80];
+[; ;main.c: 107: initPorts();
+"107
 [e ( _initPorts ..  ]
-[; ;main.c: 89: initComms();
-"89
+[; ;main.c: 108: initComms();
+"108
 [e ( _initComms ..  ]
-[; ;main.c: 91: GIE = 1;
-"91
-[e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 92: PEIE = 1;
-"92
-[e = _PEIE -> -> 1 `i `b ]
-[; ;main.c: 97: address = readAddress();
-"97
+[; ;main.c: 115: address = readAddress();
+"115
 [e = _address ( _readAddress ..  ]
-[; ;main.c: 99: writeStringToUART (msg);
-"99
-[e ( _writeStringToUART (1 -> &U _msg `*Cuc ]
-[; ;main.c: 101: while(1){
-"101
+[; ;main.c: 118: while (1) {
+"118
 [e :U 2641 ]
 {
-[; ;main.c: 104: if (PIR3bits.RC2IF == 1)
-"104
-[e $ ! == -> . . _PIR3bits 0 5 `i -> 1 `i 2643  ]
-[; ;main.c: 105: {
-"105
-{
-[; ;main.c: 106: TXREG2 = RCREG2 ;
-"106
-[e = _TXREG2 _RCREG2 ]
-[; ;main.c: 107: PIR3bits.RC2IF =0;
-"107
-[e = . . _PIR3bits 0 5 -> -> 0 `i `uc ]
-[; ;main.c: 109: for (int i = 0 ; i< 100 ; i++) {}
-"109
+[; ;main.c: 119: for (int i = 0; i < 100; i++) {
+"119
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 100 `i 2644  ]
-[e $U 2645  ]
-[e :U 2644 ]
-{
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 100 `i 2644  ]
-[e :U 2645 ]
-}
-"110
-}
+[e $ < _i -> 100 `i 2643  ]
+[e $U 2644  ]
 [e :U 2643 ]
-"112
+{
+"120
+}
+"119
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 100 `i 2643  ]
+[e :U 2644 ]
+"120
+}
+[; ;main.c: 120: }
+[; ;main.c: 122: writeStringToUART(msg1);
+"122
+[e ( _writeStringToUART (1 -> &U _msg1 `*Cuc ]
+"124
 }
 [e :U 2640 ]
-"101
+"118
 [e $U 2641  ]
 [e :U 2642 ]
-[; ;main.c: 110: }
-[; ;main.c: 112: }
-[; ;main.c: 117: }
-"117
+[; ;main.c: 124: }
+[; ;main.c: 125: }
+"125
 [e :UE 2639 ]
 }
-"123
+"127
 [v _readAddress `(uc ~T0 @X0 1 ef ]
-"124
 {
-[; ;main.c: 123: unsigned char readAddress()
-[; ;main.c: 124: {
+[; ;main.c: 127: unsigned char readAddress() {
 [e :U _readAddress ]
 [f ]
-[; ;main.c: 125: return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
-"125
+[; ;main.c: 128: return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
+"128
 [e ) -> | | | << -> ! _RA3 `i -> 3 `i << -> ! _RA2 `i -> 2 `i << -> ! _RA2 `i -> 1 `i -> ! _RA0 `i `uc ]
-[e $UE 2647  ]
-[; ;main.c: 126: }
-"126
-[e :UE 2647 ]
+[e $UE 2646  ]
+[; ;main.c: 129: }
+"129
+[e :UE 2646 ]
 }

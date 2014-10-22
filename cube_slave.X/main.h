@@ -1,4 +1,5 @@
 #include <xc.h>
+#include <pic18f25k80.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "port.h"

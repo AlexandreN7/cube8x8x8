@@ -3,7 +3,7 @@
 #include "main.h"
 //=============================================================================
 // Filename: Main.c
-//=============================================================================
+//================================================================github=============
 // Revision: 1.0
 //
 //=============================================================================
@@ -75,52 +75,55 @@
 // CONFIG7H
 #pragma config EBTRB = OFF      // Table Read Protect Boot (Disabled)
 
+char test = 'k';
 
-void main(void)
-{
+//void interrupt bouarg() {
+ //   if (PIR3bits.RC2IF && PIE3bits.TX2IE) {
+//       test = RCREG2;
+//        if (test == 'a') {
+//            PORTA = 0b10000000;
+//
+//        } else if (test == 'b') {
+//            PORTA = 0b01000000;
+//        } else if (test == 'c') {
+//            PORTA = 0b00100000;
+//        } else {
+//            PORTA = 0b00000000;
+//        }
+   //         PIR3bits.RC2IF = 0;
+ //  }
+
+//}
+
+void main(void) {
     unsigned char address = 0;
-   char msg1[80] = "Test émission uart \n \r";
-    
+    char msg1[80] = "Slave 1 Ready \n \r";
+
     char msg2[80];
 
+    
     /***Initialization***/
     //SWDTEN = 1;       // Enable the watchdog
-    initPorts();        // Initialize ports to startup state
-    initComms();        // Initialize the serial port
+    initPorts(); // Initialize ports to startup state
+    initComms(); // Initialize the serial port
 
-    GIE = 1;
-    PEIE = 1;
+
 
 
 
     //Read Address setting
     address = readAddress();
-   // sprintf (msg, "Address = %d\n", address);
-    writeStringToUART (msg);
+    // sprintf (msg, "Address = %d\n", address);
 
-    while(1){
-       // writeStringToUART (msg1);
-
-        if (PIR3bits.RC2IF  == 1)
-        {
-            TXREG2 = RCREG2 ;
-           PIR3bits.RC2IF =0;
-            //writeStringToUART (msg);
-            for (int i = 0 ; i< 100 ; i++) {}
+    while (1) {
+        for (int i = 0; i < 100; i++) {
         }
-
+      //  msg1[0] = test;
+        writeStringToUART(msg1);
+        //   writeStringToUART ('test');
     }
-
-
-
- 
 }
 
-
-
-
-
-unsigned char readAddress()
-{
+unsigned char readAddress() {
     return !nADDR3 << 3 | !nADDR2 << 2 | !nADDR2 << 1 | !nADDR0;
 }

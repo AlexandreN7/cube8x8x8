@@ -46,10 +46,21 @@ void initComms()
     BAUDCON2bits.ABDEN = 0;
 
     SPBRGH2 = 0;
-    SPBRG = 103;
 
-    SPBRG2 = 25;                    //((FCY/16)/BAUD) - 1; // set baud to 9600  FCY=4000000
+    //////////////////////////SETTING BAUDRATE////////////////
+    //((FCY/16)/BAUD) - 1; // set baud to 9600  FCY=4000000
+   // SPBRG = 103;      => à choper dans la datasheet
+   //SPBRG2 = 25;      // 9600
 
+
+
+//    SPBRG = 51;   // 19200
+//    SPBRG2 = 12;
+
+    SPBRG = 51;  // 57600
+    SPBRG2 = 12;
+
+    PIE3bits.TX2IE = 1;
 
 
 }

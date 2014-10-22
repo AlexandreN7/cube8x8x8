@@ -1,7 +1,7 @@
-_main: CODE, 32672 0 96
-_initPorts: CODE, 32350 0 44
-__initialization: CODE, 32394 0 50
-_readAddress: CODE, 32590 0 82
-_initComms: CODE, 32450 0 60
-_writeStringToUART: CODE, 32312 0 38
-Total: 370
+_main: CODE, 32526 0 80
+_initPorts: CODE, 32336 0 54
+__initialization: CODE, 32452 0 68
+_readAddress: CODE, 32686 0 82
+_initComms: CODE, 32390 0 62
+_writeStringToUART: CODE, 32298 0 38
+Total: 384

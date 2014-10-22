@@ -21905,7 +21905,7 @@ void initPorts(void);
 void initComms();
 void writeStringToUART (const char* msg);
 
-# 68 "main.h"
+# 69 "main.h"
 enum {
 
 STATE_BOOT, STATE_MONITOR
@@ -21930,7 +21930,7 @@ unsigned char state = STATE_BOOT;
 unsigned int delay_ticks = 0;
 char msg[80];
 
-# 96
+# 97
 unsigned char readAddress();
 
 # 6 "usart.c"
@@ -21965,10 +21965,12 @@ BAUDCON2bits.WUE = 0;
 BAUDCON2bits.ABDEN = 0;
 
 SPBRGH2 = 0;
-SPBRG = 103;
 
-SPBRG2 = 25;
+# 60
+SPBRG = 51;
+SPBRG2 = 12;
 
+PIE3bits.TX2IE = 1;
 
 
 }

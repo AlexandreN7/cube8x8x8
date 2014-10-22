@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"88 main.h
+"89 main.h
 [c E19139 0 1 .. ]
 [n E19139 . STATE_BOOT STATE_MONITOR  ]
 "36517 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
@@ -86,6 +86,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
 "32299
 [v _SPBRG2 `Vuc ~T0 @X0 0 e@3963 ]
+"34288
+[s S2230 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2230 . . CCP1IE CCP2IE CTMUIE TX2IE RC2IE ]
+"34296
+[s S2231 :1 `uc 1 :1 `uc 1 ]
+[n S2231 . . RXB1IE ]
+"34300
+[s S2232 :1 `uc 1 :1 `uc 1 ]
+[n S2232 . . RXBNIE ]
+"34304
+[s S2233 :2 `uc 1 :1 `uc 1 ]
+[n S2233 . . TXB0IE ]
+"34308
+[s S2234 :3 `uc 1 :1 `uc 1 ]
+[n S2234 . . TXB1IE ]
+"34312
+[s S2235 :4 `uc 1 :1 `uc 1 ]
+[n S2235 . . TXB2IE ]
+"34316
+[s S2236 :4 `uc 1 :1 `uc 1 ]
+[n S2236 . . TXBNIE ]
+"34287
+[u S2229 `S2230 1 `S2231 1 `S2232 1 `S2233 1 `S2234 1 `S2235 1 `S2236 1 ]
+[n S2229 . . . . . . . . ]
+"34321
+[v _PIE3bits `VS2229 ~T0 @X0 0 e@4003 ]
 "34386
 [s S2238 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2238 . . CCP1IF CCP2IF CTMUIF TX2IF RC2IF ]
@@ -17490,31 +17516,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.h: 1: void initPorts(void);
 [; ;usart.h: 4: void initComms();
 [; ;usart.h: 5: void writeStringToUART (const char* msg);
-[; ;main.h: 68: enum {
-[; ;main.h: 70: STATE_BOOT, STATE_MONITOR
-[; ;main.h: 71: };
-[; ;main.h: 76: enum {
-[; ;main.h: 77: SENSOR_A, SENSOR_B
-[; ;main.h: 78: };
-[; ;main.h: 83: enum {
-[; ;main.h: 84: OUTPUT_TYPE_LOW_LED, OUTPUT_TYPE_HIGH_LED, OUTPUT_TYPE_SSR
-[; ;main.h: 85: };
-"88 main.h
+[; ;main.h: 69: enum {
+[; ;main.h: 71: STATE_BOOT, STATE_MONITOR
+[; ;main.h: 72: };
+[; ;main.h: 77: enum {
+[; ;main.h: 78: SENSOR_A, SENSOR_B
+[; ;main.h: 79: };
+[; ;main.h: 84: enum {
+[; ;main.h: 85: OUTPUT_TYPE_LOW_LED, OUTPUT_TYPE_HIGH_LED, OUTPUT_TYPE_SSR
+[; ;main.h: 86: };
+"89 main.h
 [v _state `uc ~T0 @X0 1 e ]
 [i _state
 -> . `E19139 0 `uc
 ]
-[; ;main.h: 88: unsigned char state = STATE_BOOT;
-"89
+[; ;main.h: 89: unsigned char state = STATE_BOOT;
+"90
 [v _delay_ticks `ui ~T0 @X0 1 e ]
 [i _delay_ticks
 -> -> 0 `i `ui
 ]
-[; ;main.h: 89: unsigned int delay_ticks = 0;
-"90
+[; ;main.h: 90: unsigned int delay_ticks = 0;
+"91
 [v _msg `uc ~T0 @X0 -> 80 `i e ]
-[; ;main.h: 90: char msg[80];
-[; ;main.h: 96: unsigned char readAddress();
+[; ;main.h: 91: char msg[80];
+[; ;main.h: 97: unsigned char readAddress();
 "6 usart.c
 [v _initComms `(v ~T0 @X0 1 ef ]
 "7
@@ -17595,32 +17621,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.c: 48: SPBRGH2 = 0;
 "48
 [e = _SPBRGH2 -> -> 0 `i `uc ]
-[; ;usart.c: 49: SPBRG = 103;
-"49
-[e = _SPBRG -> -> 103 `i `uc ]
-[; ;usart.c: 51: SPBRG2 = 25;
-"51
-[e = _SPBRG2 -> -> 25 `i `uc ]
-[; ;usart.c: 55: }
-"55
+[; ;usart.c: 60: SPBRG = 51;
+"60
+[e = _SPBRG -> -> 51 `i `uc ]
+[; ;usart.c: 61: SPBRG2 = 12;
+"61
+[e = _SPBRG2 -> -> 12 `i `uc ]
+[; ;usart.c: 63: PIE3bits.TX2IE = 1;
+"63
+[e = . . _PIE3bits 0 4 -> -> 1 `i `uc ]
+[; ;usart.c: 66: }
+"66
 [e :UE 2639 ]
 }
-"57
+"68
 [v _writeStringToUART `(v ~T0 @X0 1 ef1`*Cuc ]
-"58
+"69
 {
-[; ;usart.c: 57: void writeStringToUART (const char *msg)
-[; ;usart.c: 58: {
+[; ;usart.c: 68: void writeStringToUART (const char *msg)
+[; ;usart.c: 69: {
 [e :U _writeStringToUART ]
 [v _msg `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;usart.c: 59: while(*msg) {
-"59
+[; ;usart.c: 70: while(*msg) {
+"70
 [e $U 2641  ]
 [e :U 2642 ]
 {
-[; ;usart.c: 60: while(PIR3bits.TX2IF == 0) {}
-"60
+[; ;usart.c: 71: while(PIR3bits.TX2IF == 0) {}
+"71
 [e $U 2644  ]
 [e :U 2645 ]
 {
@@ -17628,17 +17657,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 2644 ]
 [e $ == -> . . _PIR3bits 0 4 `i -> 0 `i 2645  ]
 [e :U 2646 ]
-[; ;usart.c: 61: TXREG2 = *msg++;
-"61
+[; ;usart.c: 72: TXREG2 = *msg++;
+"72
 [e = _TXREG2 *U ++ _msg * -> -> 1 `i `x -> -> # *U _msg `i `x ]
-"62
+"73
 }
 [e :U 2641 ]
-"59
+"70
 [e $ != -> *U _msg `i -> -> -> 0 `i `Cuc `i 2642  ]
 [e :U 2643 ]
-[; ;usart.c: 62: }
-[; ;usart.c: 63: }
-"63
+[; ;usart.c: 73: }
+[; ;usart.c: 74: }
+"74
 [e :UE 2640 ]
 }

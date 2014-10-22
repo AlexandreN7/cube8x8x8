@@ -21905,7 +21905,7 @@ void initPorts(void);
 void initComms();
 void writeStringToUART (const char* msg);
 
-# 68 "main.h"
+# 69 "main.h"
 enum {
 
 STATE_BOOT, STATE_MONITOR
@@ -21930,7 +21930,7 @@ unsigned char state = STATE_BOOT;
 unsigned int delay_ticks = 0;
 char msg[80];
 
-# 96
+# 97
 unsigned char readAddress();
 
 
@@ -21995,49 +21995,34 @@ unsigned char readAddress();
 
 #pragma config EBTRB = 0
 
+char test = 'k';
 
-void main(void)
-{
+# 98
+void main(void) {
 unsigned char address = 0;
-char msg1[80] = "Test émission uart \n \r";
+char msg1[80] = "Slave 1 Ready \n \r";
 
 char msg2[80];
+
 
 
 
 initPorts();
 initComms();
 
-GIE = 1;
-PEIE = 1;
-
-
-
-
+# 115
 address = readAddress();
 
-writeStringToUART (msg);
 
-while(1){
-
-
-if (PIR3bits.RC2IF == 1)
-{
-TXREG2 = RCREG2 ;
-PIR3bits.RC2IF =0;
-
-for (int i = 0 ; i< 100 ; i++) {}
+while (1) {
+for (int i = 0; i < 100; i++) {
 }
 
-}
-
-
-
+writeStringToUART(msg1);
 
 }
+}
 
-# 123
-unsigned char readAddress()
-{
+unsigned char readAddress() {
 return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
 }
