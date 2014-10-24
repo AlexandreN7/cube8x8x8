@@ -60,7 +60,8 @@ void initComms()
     SPBRG = 51;  // 57600
     SPBRG2 = 12;
 
-    PIE3bits.TX2IE = 1;
+    PIE3bits.RC2IE = 1;
+    RCONbits.IPEN   = 1; // ENABLE interrupt priority
 
 
 }

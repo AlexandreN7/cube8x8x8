@@ -21905,32 +21905,10 @@ void initPorts(void);
 void initComms();
 void writeStringToUART (const char* msg);
 
-# 69 "main.h"
-enum {
-
-STATE_BOOT, STATE_MONITOR
-};
-
-
-
-
-enum {
-SENSOR_A, SENSOR_B
-};
-
-
-
-
-enum {
-OUTPUT_TYPE_LOW_LED, OUTPUT_TYPE_HIGH_LED, OUTPUT_TYPE_SSR
-};
-
-
-unsigned char state = STATE_BOOT;
-unsigned int delay_ticks = 0;
+# 66 "main.h"
 char msg[80];
 
-# 97
+# 72
 unsigned char readAddress();
 
 # 7 "port.c"
@@ -21940,10 +21918,7 @@ void initPorts(void) {
 
 OSCCON = 0x30;
 
-
-ANCON0 = 0b00010000;
-ADCON1 = 0b00000111;
-ADCON2 = 0xBC;
+# 17
 ADON = 1;
 
 
@@ -21960,4 +21935,8 @@ TRISC = 0b11100000;
 GIE = 1;
 PEIE = 1;
 INTCON =0b11000000;
+
+
+
+
 }

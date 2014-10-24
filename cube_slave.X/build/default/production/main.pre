@@ -21905,32 +21905,10 @@ void initPorts(void);
 void initComms();
 void writeStringToUART (const char* msg);
 
-# 69 "main.h"
-enum {
-
-STATE_BOOT, STATE_MONITOR
-};
-
-
-
-
-enum {
-SENSOR_A, SENSOR_B
-};
-
-
-
-
-enum {
-OUTPUT_TYPE_LOW_LED, OUTPUT_TYPE_HIGH_LED, OUTPUT_TYPE_SSR
-};
-
-
-unsigned char state = STATE_BOOT;
-unsigned int delay_ticks = 0;
+# 66 "main.h"
 char msg[80];
 
-# 97
+# 72
 unsigned char readAddress();
 
 
@@ -21995,9 +21973,32 @@ unsigned char readAddress();
 
 #pragma config EBTRB = 0
 
-char test = 'k';
+char test = 1;
 
-# 98
+
+
+
+void interrupt low_priority high_isr(void) {
+if (RC2IF ) {
+test = RCREG2;
+if (test == 'r') {
+PORTA = 0b10000000;
+
+} else if (test == 'b') {
+PORTA = 0b01000000;
+} else if (test == 't') {
+PORTA = 0b00100000;
+} else if (test == 'v') {
+PORTA = 0b11100000;
+} else {
+PORTA = 0b00000000;
+}
+
+
+}
+RC2IF = 0;
+}
+
 void main(void) {
 unsigned char address = 0;
 char msg1[80] = "Slave 1 Ready \n \r";
@@ -22010,7 +22011,7 @@ char msg2[80];
 initPorts();
 initComms();
 
-# 115
+# 121
 address = readAddress();
 
 

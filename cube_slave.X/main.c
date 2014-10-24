@@ -75,25 +75,31 @@
 // CONFIG7H
 #pragma config EBTRB = OFF      // Table Read Protect Boot (Disabled)
 
-char test = 'k';
+char test = 1;
 
-//void interrupt bouarg() {
- //   if (PIR3bits.RC2IF && PIE3bits.TX2IE) {
-//       test = RCREG2;
-//        if (test == 'a') {
-//            PORTA = 0b10000000;
-//
-//        } else if (test == 'b') {
-//            PORTA = 0b01000000;
-//        } else if (test == 'c') {
-//            PORTA = 0b00100000;
-//        } else {
-//            PORTA = 0b00000000;
-//        }
-   //         PIR3bits.RC2IF = 0;
- //  }
 
-//}
+
+
+void interrupt low_priority high_isr(void) {
+   if (RC2IF /*&& PIE3bits.TX2IE*/) {
+       test = RCREG2;
+        if (test == 'r') {
+            PORTA = 0b10000000;
+
+        } else if (test == 'b') {
+            PORTA = 0b01000000;
+        } else if (test == 't') {
+            PORTA = 0b00100000;
+        } else if (test == 'v') {
+            PORTA = 0b11100000;
+        } else {
+            PORTA = 0b00000000;
+        }
+
+
+  }
+RC2IF = 0;
+}
 
 void main(void) {
     unsigned char address = 0;

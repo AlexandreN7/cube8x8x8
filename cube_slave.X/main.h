@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "port.h"
-#include "delays.h"
+//#include "delays.h"
 #include "usart.h"
 
 
@@ -54,10 +54,6 @@
 
 #define SPARE                           RC5
 
-
-#define ADC_SCALING_FACTOR              36
-#define POLLING_DELAY                   40          //ms to wait between state machine cycles
-
 #define TRUE                1
 #define FALSE               0
 
@@ -65,29 +61,8 @@
 #define OFF                 0
 
 
-// States for the Main State Machine
-enum {
-    /* Operational states */
-    STATE_BOOT, STATE_MONITOR
-};
-
-#define NUM_SENSORS                     2
-#define SENSOR_DATA_SIZE                100
-#define THRESHOLD_DATA_SIZE             20
-enum {
-    SENSOR_A, SENSOR_B
-};
-
-#define SENSOR_CHANNEL(s)               (s==SENSOR_A?SENSOR_A_CHANNEL:SENSOR_B_CHANNEL)
-#define THRESHOLD_CHANNEL(s)            (s==SENSOR_A?THRESHOLD_A_CHANNEL:THRESHOLD_B_CHANNEL)
-
-enum {
-    OUTPUT_TYPE_LOW_LED, OUTPUT_TYPE_HIGH_LED, OUTPUT_TYPE_SSR
-};
-
 // Global variables
-unsigned char state = STATE_BOOT;
-unsigned int delay_ticks = 0;
+
 char msg[80];
 
 // Function prototypes

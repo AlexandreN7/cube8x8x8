@@ -1,7 +1,4 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"89 main.h
-[c E19139 0 1 .. ]
-[n E19139 . STATE_BOOT STATE_MONITOR  ]
 "36517 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
 [s S2369 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2369 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
@@ -112,6 +109,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S2229 . . . . . . . . ]
 "34321
 [v _PIE3bits `VS2229 ~T0 @X0 0 e@4003 ]
+"38299
+[s S2474 :1 `uc 1 ]
+[n S2474 . NOT_BOR ]
+"38302
+[s S2475 :1 `uc 1 :1 `uc 1 ]
+[n S2475 . . NOT_POR ]
+"38306
+[s S2476 :2 `uc 1 :1 `uc 1 ]
+[n S2476 . . NOT_PD ]
+"38310
+[s S2477 :3 `uc 1 :1 `uc 1 ]
+[n S2477 . . NOT_TO ]
+"38314
+[s S2478 :4 `uc 1 :1 `uc 1 ]
+[n S2478 . . NOT_RI ]
+"38318
+[s S2479 :5 `uc 1 :1 `uc 1 ]
+[n S2479 . . NOT_CM ]
+"38322
+[s S2480 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2480 . nBOR nPOR nPD nTO nRI nCM SBOREN IPEN ]
+"38332
+[s S2481 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2481 . BOR POR PD TO RI CM ]
+"38298
+[u S2473 `S2474 1 `S2475 1 `S2476 1 `S2477 1 `S2478 1 `S2479 1 `S2480 1 `S2481 1 ]
+[n S2473 . . . . . . . . . ]
+"38341
+[v _RCONbits `VS2473 ~T0 @X0 0 e@4048 ]
 "34386
 [s S2238 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2238 . . CCP1IF CCP2IF CTMUIF TX2IF RC2IF ]
@@ -17516,31 +17542,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.h: 1: void initPorts(void);
 [; ;usart.h: 4: void initComms();
 [; ;usart.h: 5: void writeStringToUART (const char* msg);
-[; ;main.h: 69: enum {
-[; ;main.h: 71: STATE_BOOT, STATE_MONITOR
-[; ;main.h: 72: };
-[; ;main.h: 77: enum {
-[; ;main.h: 78: SENSOR_A, SENSOR_B
-[; ;main.h: 79: };
-[; ;main.h: 84: enum {
-[; ;main.h: 85: OUTPUT_TYPE_LOW_LED, OUTPUT_TYPE_HIGH_LED, OUTPUT_TYPE_SSR
-[; ;main.h: 86: };
-"89 main.h
-[v _state `uc ~T0 @X0 1 e ]
-[i _state
--> . `E19139 0 `uc
-]
-[; ;main.h: 89: unsigned char state = STATE_BOOT;
-"90
-[v _delay_ticks `ui ~T0 @X0 1 e ]
-[i _delay_ticks
--> -> 0 `i `ui
-]
-[; ;main.h: 90: unsigned int delay_ticks = 0;
-"91
+"66 main.h
 [v _msg `uc ~T0 @X0 -> 80 `i e ]
-[; ;main.h: 91: char msg[80];
-[; ;main.h: 97: unsigned char readAddress();
+[; ;main.h: 66: char msg[80];
+[; ;main.h: 72: unsigned char readAddress();
 "6 usart.c
 [v _initComms `(v ~T0 @X0 1 ef ]
 "7
@@ -17627,29 +17632,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.c: 61: SPBRG2 = 12;
 "61
 [e = _SPBRG2 -> -> 12 `i `uc ]
-[; ;usart.c: 63: PIE3bits.TX2IE = 1;
+[; ;usart.c: 63: PIE3bits.RC2IE = 1;
 "63
-[e = . . _PIE3bits 0 4 -> -> 1 `i `uc ]
-[; ;usart.c: 66: }
-"66
+[e = . . _PIE3bits 0 5 -> -> 1 `i `uc ]
+[; ;usart.c: 64: RCONbits.IPEN = 1;
+"64
+[e = . . _RCONbits 6 7 -> -> 1 `i `uc ]
+[; ;usart.c: 67: }
+"67
 [e :UE 2639 ]
 }
-"68
-[v _writeStringToUART `(v ~T0 @X0 1 ef1`*Cuc ]
 "69
+[v _writeStringToUART `(v ~T0 @X0 1 ef1`*Cuc ]
+"70
 {
-[; ;usart.c: 68: void writeStringToUART (const char *msg)
-[; ;usart.c: 69: {
+[; ;usart.c: 69: void writeStringToUART (const char *msg)
+[; ;usart.c: 70: {
 [e :U _writeStringToUART ]
 [v _msg `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;usart.c: 70: while(*msg) {
-"70
+[; ;usart.c: 71: while(*msg) {
+"71
 [e $U 2641  ]
 [e :U 2642 ]
 {
-[; ;usart.c: 71: while(PIR3bits.TX2IF == 0) {}
-"71
+[; ;usart.c: 72: while(PIR3bits.TX2IF == 0) {}
+"72
 [e $U 2644  ]
 [e :U 2645 ]
 {
@@ -17657,17 +17665,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 2644 ]
 [e $ == -> . . _PIR3bits 0 4 `i -> 0 `i 2645  ]
 [e :U 2646 ]
-[; ;usart.c: 72: TXREG2 = *msg++;
-"72
-[e = _TXREG2 *U ++ _msg * -> -> 1 `i `x -> -> # *U _msg `i `x ]
+[; ;usart.c: 73: TXREG2 = *msg++;
 "73
+[e = _TXREG2 *U ++ _msg * -> -> 1 `i `x -> -> # *U _msg `i `x ]
+"74
 }
 [e :U 2641 ]
-"70
+"71
 [e $ != -> *U _msg `i -> -> -> 0 `i `Cuc `i 2642  ]
 [e :U 2643 ]
-[; ;usart.c: 73: }
 [; ;usart.c: 74: }
-"74
+[; ;usart.c: 75: }
+"75
 [e :UE 2640 ]
 }
