@@ -21904,6 +21904,7 @@ void initPorts(void);
 # 4 "usart.h"
 void initComms();
 void writeStringToUART (const char* msg);
+void writeDataToUART(char);
 
 # 66 "main.h"
 char msg[80];
@@ -21914,8 +21915,6 @@ unsigned char readAddress();
 # 6 "usart.c"
 void initComms()
 {
-
-# 22
 TXSTA2bits.CSRC = 0;
 TXSTA2bits.TX9 = 0;
 TXSTA2bits.TXEN = 1;
@@ -21944,12 +21943,14 @@ BAUDCON2bits.ABDEN = 0;
 
 SPBRGH2 = 0;
 
-# 60
+PIE3bits.RC2IE = 1;
+RCONbits.IPEN = 1;
+
+# 50
 SPBRG = 51;
 SPBRG2 = 12;
 
-PIE3bits.RC2IE = 1;
-RCONbits.IPEN = 1;
+
 
 
 }
@@ -21962,3 +21963,8 @@ TXREG2 = *msg++;
 }
 }
 
+void writeDataToUART(char data)
+{
+while(PIR3bits.TX2IF == 0) {}
+TXREG2 = data;
+}

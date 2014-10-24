@@ -2,9 +2,11 @@
 
 #include "main.h"
 //=============================================================================
-// Filename: Main.c
-//================================================================github=============
-// Revision: 1.0
+// 7ROBOT
+// Created by Alexandre Proux
+// Cube 8x8x8
+//============================================================github=============
+//
 //
 //=============================================================================
 
@@ -75,17 +77,29 @@
 // CONFIG7H
 #pragma config EBTRB = OFF      // Table Read Protect Boot (Disabled)
 
-char test = 1;
+char tampon = 0;
+char stock_led[128] = 0;
+int compteur;
 
 
 
 
 void interrupt low_priority high_isr(void) {
    if (RC2IF /*&& PIE3bits.TX2IE*/) {
-       test = RCREG2;
-        if (test == 'r') {
-            PORTA = 0b10000000;
+       tampon = RCREG2;
+       PORTA =tampon;
+      if (compteur < 128)
+        {
+       stock_led[compteur] = tampon;
+       compteur ++;
+        }
 
+      else {
+        compteur = 0;
+      }
+
+    /*    if (test == 'r') {
+            PORTA = 0b10000000;
         } else if (test == 'b') {
             PORTA = 0b01000000;
         } else if (test == 't') {
@@ -94,11 +108,10 @@ void interrupt low_priority high_isr(void) {
             PORTA = 0b11100000;
         } else {
             PORTA = 0b00000000;
-        }
-
+        }*/
 
   }
-RC2IF = 0;
+RC2IF = 0; // On met le flag à 0
 }
 
 void main(void) {
@@ -107,7 +120,7 @@ void main(void) {
 
     char msg2[80];
 
-    
+
     /***Initialization***/
     //SWDTEN = 1;       // Enable the watchdog
     initPorts(); // Initialize ports to startup state
@@ -122,7 +135,7 @@ void main(void) {
     // sprintf (msg, "Address = %d\n", address);
 
     while (1) {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
         }
       //  msg1[0] = test;
         writeStringToUART(msg1);

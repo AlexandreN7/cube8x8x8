@@ -3,5 +3,6 @@
 
 void initComms();
 void writeStringToUART (const char* msg);
+void writeDataToUART(char);
 
 #endif

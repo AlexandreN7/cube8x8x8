@@ -79,10 +79,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _BAUDCON2bits `VS2355 ~T0 @X0 0 e@4025 ]
 "32318
 [v _SPBRGH2 `Vuc ~T0 @X0 0 e@3964 ]
-"35716
-[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
-"32299
-[v _SPBRG2 `Vuc ~T0 @X0 0 e@3963 ]
 "34288
 [s S2230 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2230 . . CCP1IE CCP2IE CTMUIE TX2IE RC2IE ]
@@ -138,6 +134,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S2473 . . . . . . . . . ]
 "38341
 [v _RCONbits `VS2473 ~T0 @X0 0 e@4048 ]
+"35716
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"32299
+[v _SPBRG2 `Vuc ~T0 @X0 0 e@3963 ]
 "34386
 [s S2238 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2238 . . CCP1IF CCP2IF CTMUIF TX2IF RC2IF ]
@@ -17542,6 +17542,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.h: 1: void initPorts(void);
 [; ;usart.h: 4: void initComms();
 [; ;usart.h: 5: void writeStringToUART (const char* msg);
+[; ;usart.h: 6: void writeDataToUART(char);
 "66 main.h
 [v _msg `uc ~T0 @X0 -> 80 `i e ]
 [; ;main.h: 66: char msg[80];
@@ -17554,110 +17555,110 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.c: 7: {
 [e :U _initComms ]
 [f ]
-[; ;usart.c: 22: TXSTA2bits.CSRC = 0;
-"22
+[; ;usart.c: 8: TXSTA2bits.CSRC = 0;
+"8
 [e = . . _TXSTA2bits 0 7 -> -> 0 `i `uc ]
-[; ;usart.c: 23: TXSTA2bits.TX9 = 0;
-"23
+[; ;usart.c: 9: TXSTA2bits.TX9 = 0;
+"9
 [e = . . _TXSTA2bits 0 6 -> -> 0 `i `uc ]
-[; ;usart.c: 24: TXSTA2bits.TXEN = 1;
-"24
+[; ;usart.c: 10: TXSTA2bits.TXEN = 1;
+"10
 [e = . . _TXSTA2bits 0 5 -> -> 1 `i `uc ]
-[; ;usart.c: 25: TXSTA2bits.SYNC = 0;
-"25
+[; ;usart.c: 11: TXSTA2bits.SYNC = 0;
+"11
 [e = . . _TXSTA2bits 0 4 -> -> 0 `i `uc ]
-[; ;usart.c: 26: TXSTA2bits.SENDB = 0;
-"26
+[; ;usart.c: 12: TXSTA2bits.SENDB = 0;
+"12
 [e = . . _TXSTA2bits 0 3 -> -> 0 `i `uc ]
-[; ;usart.c: 27: TXSTA2bits.BRGH = 1;
-"27
+[; ;usart.c: 13: TXSTA2bits.BRGH = 1;
+"13
 [e = . . _TXSTA2bits 0 2 -> -> 1 `i `uc ]
-[; ;usart.c: 28: TXSTA2bits.TRMT = 1;
-"28
+[; ;usart.c: 14: TXSTA2bits.TRMT = 1;
+"14
 [e = . . _TXSTA2bits 0 1 -> -> 1 `i `uc ]
-[; ;usart.c: 29: TXSTA2bits.TX9D = 0;
-"29
+[; ;usart.c: 15: TXSTA2bits.TX9D = 0;
+"15
 [e = . . _TXSTA2bits 0 0 -> -> 0 `i `uc ]
-[; ;usart.c: 31: RCSTA2bits.SPEN = 1;
-"31
+[; ;usart.c: 17: RCSTA2bits.SPEN = 1;
+"17
 [e = . . _RCSTA2bits 0 7 -> -> 1 `i `uc ]
-[; ;usart.c: 32: RCSTA2bits.RX9 = 0;
-"32
+[; ;usart.c: 18: RCSTA2bits.RX9 = 0;
+"18
 [e = . . _RCSTA2bits 0 6 -> -> 0 `i `uc ]
-[; ;usart.c: 33: RCSTA2bits.SREN = 0;
-"33
+[; ;usart.c: 19: RCSTA2bits.SREN = 0;
+"19
 [e = . . _RCSTA2bits 0 5 -> -> 0 `i `uc ]
-[; ;usart.c: 34: RCSTA2bits.CREN = 1;
-"34
+[; ;usart.c: 20: RCSTA2bits.CREN = 1;
+"20
 [e = . . _RCSTA2bits 0 4 -> -> 1 `i `uc ]
-[; ;usart.c: 35: RCSTA2bits.ADDEN = 0;
-"35
+[; ;usart.c: 21: RCSTA2bits.ADDEN = 0;
+"21
 [e = . . _RCSTA2bits 0 3 -> -> 0 `i `uc ]
-[; ;usart.c: 36: RCSTA2bits.FERR = 0;
-"36
+[; ;usart.c: 22: RCSTA2bits.FERR = 0;
+"22
 [e = . . _RCSTA2bits 0 2 -> -> 0 `i `uc ]
-[; ;usart.c: 37: RCSTA2bits.OERR = 0;
-"37
+[; ;usart.c: 23: RCSTA2bits.OERR = 0;
+"23
 [e = . . _RCSTA2bits 0 1 -> -> 0 `i `uc ]
-[; ;usart.c: 38: RCSTA2bits.RX9D = 0;
-"38
+[; ;usart.c: 24: RCSTA2bits.RX9D = 0;
+"24
 [e = . . _RCSTA2bits 0 0 -> -> 0 `i `uc ]
-[; ;usart.c: 40: BAUDCON2bits.ABDOVF = 0;
-"40
+[; ;usart.c: 26: BAUDCON2bits.ABDOVF = 0;
+"26
 [e = . . _BAUDCON2bits 0 7 -> -> 0 `i `uc ]
-[; ;usart.c: 41: BAUDCON2bits.RCIDL = 1;
-"41
+[; ;usart.c: 27: BAUDCON2bits.RCIDL = 1;
+"27
 [e = . . _BAUDCON2bits 0 6 -> -> 1 `i `uc ]
-[; ;usart.c: 42: BAUDCON2bits.RXDTP = 0;
-"42
+[; ;usart.c: 28: BAUDCON2bits.RXDTP = 0;
+"28
 [e = . . _BAUDCON2bits 0 5 -> -> 0 `i `uc ]
-[; ;usart.c: 43: BAUDCON2bits.TXCKP = 0;
-"43
+[; ;usart.c: 29: BAUDCON2bits.TXCKP = 0;
+"29
 [e = . . _BAUDCON2bits 0 4 -> -> 0 `i `uc ]
-[; ;usart.c: 44: BAUDCON2bits.BRG16 = 1;
-"44
+[; ;usart.c: 30: BAUDCON2bits.BRG16 = 1;
+"30
 [e = . . _BAUDCON2bits 0 3 -> -> 1 `i `uc ]
-[; ;usart.c: 45: BAUDCON2bits.WUE = 0;
-"45
+[; ;usart.c: 31: BAUDCON2bits.WUE = 0;
+"31
 [e = . . _BAUDCON2bits 0 1 -> -> 0 `i `uc ]
-[; ;usart.c: 46: BAUDCON2bits.ABDEN = 0;
-"46
+[; ;usart.c: 32: BAUDCON2bits.ABDEN = 0;
+"32
 [e = . . _BAUDCON2bits 0 0 -> -> 0 `i `uc ]
-[; ;usart.c: 48: SPBRGH2 = 0;
-"48
+[; ;usart.c: 34: SPBRGH2 = 0;
+"34
 [e = _SPBRGH2 -> -> 0 `i `uc ]
-[; ;usart.c: 60: SPBRG = 51;
-"60
-[e = _SPBRG -> -> 51 `i `uc ]
-[; ;usart.c: 61: SPBRG2 = 12;
-"61
-[e = _SPBRG2 -> -> 12 `i `uc ]
-[; ;usart.c: 63: PIE3bits.RC2IE = 1;
-"63
+[; ;usart.c: 36: PIE3bits.RC2IE = 1;
+"36
 [e = . . _PIE3bits 0 5 -> -> 1 `i `uc ]
-[; ;usart.c: 64: RCONbits.IPEN = 1;
-"64
+[; ;usart.c: 37: RCONbits.IPEN = 1;
+"37
 [e = . . _RCONbits 6 7 -> -> 1 `i `uc ]
-[; ;usart.c: 67: }
-"67
+[; ;usart.c: 50: SPBRG = 51;
+"50
+[e = _SPBRG -> -> 51 `i `uc ]
+[; ;usart.c: 51: SPBRG2 = 12;
+"51
+[e = _SPBRG2 -> -> 12 `i `uc ]
+[; ;usart.c: 56: }
+"56
 [e :UE 2639 ]
 }
-"69
+"58
 [v _writeStringToUART `(v ~T0 @X0 1 ef1`*Cuc ]
-"70
+"59
 {
-[; ;usart.c: 69: void writeStringToUART (const char *msg)
-[; ;usart.c: 70: {
+[; ;usart.c: 58: void writeStringToUART (const char *msg)
+[; ;usart.c: 59: {
 [e :U _writeStringToUART ]
 [v _msg `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;usart.c: 71: while(*msg) {
-"71
+[; ;usart.c: 60: while(*msg) {
+"60
 [e $U 2641  ]
 [e :U 2642 ]
 {
-[; ;usart.c: 72: while(PIR3bits.TX2IF == 0) {}
-"72
+[; ;usart.c: 61: while(PIR3bits.TX2IF == 0) {}
+"61
 [e $U 2644  ]
 [e :U 2645 ]
 {
@@ -17665,17 +17666,44 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 2644 ]
 [e $ == -> . . _PIR3bits 0 4 `i -> 0 `i 2645  ]
 [e :U 2646 ]
-[; ;usart.c: 73: TXREG2 = *msg++;
-"73
+[; ;usart.c: 62: TXREG2 = *msg++;
+"62
 [e = _TXREG2 *U ++ _msg * -> -> 1 `i `x -> -> # *U _msg `i `x ]
-"74
+"63
 }
 [e :U 2641 ]
-"71
+"60
 [e $ != -> *U _msg `i -> -> -> 0 `i `Cuc `i 2642  ]
 [e :U 2643 ]
-[; ;usart.c: 74: }
-[; ;usart.c: 75: }
-"75
+[; ;usart.c: 63: }
+[; ;usart.c: 64: }
+"64
 [e :UE 2640 ]
+}
+"66
+[v _writeDataToUART `(v ~T0 @X0 1 ef1`uc ]
+"67
+{
+[; ;usart.c: 66: void writeDataToUART(char data)
+[; ;usart.c: 67: {
+[e :U _writeDataToUART ]
+"66
+[v _data `uc ~T0 @X0 1 r1 ]
+"67
+[f ]
+[; ;usart.c: 68: while(PIR3bits.TX2IF == 0) {}
+"68
+[e $U 2648  ]
+[e :U 2649 ]
+{
+}
+[e :U 2648 ]
+[e $ == -> . . _PIR3bits 0 4 `i -> 0 `i 2649  ]
+[e :U 2650 ]
+[; ;usart.c: 69: TXREG2 = data;
+"69
+[e = _TXREG2 _data ]
+[; ;usart.c: 70: }
+"70
+[e :UE 2647 ]
 }

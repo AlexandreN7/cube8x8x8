@@ -21904,6 +21904,7 @@ void initPorts(void);
 # 4 "usart.h"
 void initComms();
 void writeStringToUART (const char* msg);
+void writeDataToUART(char);
 
 # 66 "main.h"
 char msg[80];
@@ -21929,7 +21930,7 @@ PORTB = 0b01001000;
 TRISB = 0b10010011;
 
 PORTC = 0b00000000;
-TRISC = 0b11100000;
+TRISC = 0b00000000;
 
 
 GIE = 1;

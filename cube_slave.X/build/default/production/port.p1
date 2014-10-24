@@ -17409,6 +17409,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.h: 1: void initPorts(void);
 [; ;usart.h: 4: void initComms();
 [; ;usart.h: 5: void writeStringToUART (const char* msg);
+[; ;usart.h: 6: void writeDataToUART(char);
 "66 main.h
 [v _msg `uc ~T0 @X0 -> 80 `i e ]
 [; ;main.h: 66: char msg[80];
@@ -17440,9 +17441,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.c: 26: PORTC = 0b00000000;
 "26
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;port.c: 27: TRISC = 0b11100000;
+[; ;port.c: 27: TRISC = 0b00000000;
 "27
-[e = _TRISC -> -> 224 `i `uc ]
+[e = _TRISC -> -> 0 `i `uc ]
 [; ;port.c: 30: GIE = 1;
 "30
 [e = _GIE -> -> 1 `i `b ]

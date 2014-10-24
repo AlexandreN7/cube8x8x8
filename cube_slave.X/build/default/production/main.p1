@@ -17408,180 +17408,169 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.h: 1: void initPorts(void);
 [; ;usart.h: 4: void initComms();
 [; ;usart.h: 5: void writeStringToUART (const char* msg);
+[; ;usart.h: 6: void writeDataToUART(char);
 "66 main.h
 [v _msg `uc ~T0 @X0 -> 80 `i e ]
 [; ;main.h: 66: char msg[80];
 [; ;main.h: 72: unsigned char readAddress();
-"18 main.c
+"20 main.c
 [p x RETEN=ON ]
-"19
-[p x INTOSCSEL=HIGH ]
-"20
-[p x SOSCSEL=DIG ]
 "21
+[p x INTOSCSEL=HIGH ]
+"22
+[p x SOSCSEL=DIG ]
+"23
 [p x XINST=OFF ]
-"24
-[p x FOSC=INTIO2 ]
-"25
-[p x PLLCFG=OFF ]
 "26
-[p x FCMEN=OFF ]
+[p x FOSC=INTIO2 ]
 "27
+[p x PLLCFG=OFF ]
+"28
+[p x FCMEN=OFF ]
+"29
 [p x IESO=OFF ]
-"30
-[p x PWRTEN=ON ]
-"31
-[p x BOREN=SBORDIS ]
 "32
-[p x BORV=3 ]
+[p x PWRTEN=ON ]
 "33
+[p x BOREN=SBORDIS ]
+"34
+[p x BORV=3 ]
+"35
 [p x BORPWR=ZPBORMV ]
-"36
+"38
 [p x WDTEN=OFF ]
-"37
+"39
 [p x WDTPS=1048576 ]
-"40
-[p x CANMX=PORTB ]
-"41
-[p x MSSPMSK=MSK7 ]
 "42
+[p x CANMX=PORTB ]
+"43
+[p x MSSPMSK=MSK7 ]
+"44
 [p x MCLRE=OFF ]
-"45
+"47
 [p x STVREN=ON ]
-"46
+"48
 [p x BBSIZ=BB2K ]
-"49
-[p x CP0=ON ]
-"50
-[p x CP1=ON ]
 "51
-[p x CP2=ON ]
+[p x CP0=ON ]
 "52
+[p x CP1=ON ]
+"53
+[p x CP2=ON ]
+"54
 [p x CP3=ON ]
-"55
+"57
 [p x CPB=ON ]
-"56
+"58
 [p x CPD=ON ]
-"59
-[p x WRT0=ON ]
-"60
-[p x WRT1=ON ]
 "61
-[p x WRT2=ON ]
+[p x WRT0=ON ]
 "62
+[p x WRT1=ON ]
+"63
+[p x WRT2=ON ]
+"64
 [p x WRT3=ON ]
-"65
-[p x WRTC=ON ]
-"66
-[p x WRTB=ON ]
 "67
+[p x WRTC=ON ]
+"68
+[p x WRTB=ON ]
+"69
 [p x WRTD=ON ]
-"70
-[p x EBTR0=ON ]
-"71
-[p x EBTR1=ON ]
 "72
-[p x EBTR2=ON ]
+[p x EBTR0=ON ]
 "73
+[p x EBTR1=ON ]
+"74
+[p x EBTR2=ON ]
+"75
 [p x EBTR3=ON ]
-"76
-[p x EBTRB=ON ]
 "78
-[v _test `uc ~T0 @X0 1 e ]
-[i _test
--> -> 1 `i `uc
+[p x EBTRB=ON ]
+"80
+[v _tampon `uc ~T0 @X0 1 e ]
+[i _tampon
+-> -> 0 `i `uc
 ]
-[; ;main.c: 78: char test = 1;
-[v F19144 `(v ~T0 @X0 1 tf ]
-"83
-[v _high_isr `ILF19144 ~T0 @X0 1 e ]
+[; ;main.c: 80: char tampon = 0;
+"81
+[v _stock_led `uc ~T0 @X0 -> 128 `i e ]
+[i _stock_led
+:U ..
+-> -> 0 `i `uc
+..
+]
+[; ;main.c: 81: char stock_led[128] = 0;
+"82
+[v _compteur `i ~T0 @X0 1 e ]
+[; ;main.c: 82: int compteur;
+[v F19148 `(v ~T0 @X0 1 tf ]
+"87
+[v _high_isr `ILF19148 ~T0 @X0 1 e ]
 {
-[; ;main.c: 83: void interrupt low_priority high_isr(void) {
+[; ;main.c: 87: void interrupt low_priority high_isr(void) {
 [e :U _high_isr ]
 [f ]
-[; ;main.c: 84: if (RC2IF ) {
-"84
+[; ;main.c: 88: if (RC2IF ) {
+"88
 [e $ ! _RC2IF 2640  ]
 {
-[; ;main.c: 85: test = RCREG2;
-"85
-[e = _test _RCREG2 ]
-[; ;main.c: 86: if (test == 'r') {
-"86
-[e $ ! == -> _test `ui -> 114 `ui 2641  ]
-{
-[; ;main.c: 87: PORTA = 0b10000000;
-"87
-[e = _PORTA -> -> 128 `i `uc ]
+[; ;main.c: 89: tampon = RCREG2;
 "89
-}
-[; ;main.c: 89: } else if (test == 'b') {
-[e $U 2642  ]
-[e :U 2641 ]
-[e $ ! == -> _test `ui -> 98 `ui 2643  ]
-{
-[; ;main.c: 90: PORTA = 0b01000000;
+[e = _tampon _RCREG2 ]
+[; ;main.c: 90: PORTA =tampon;
 "90
-[e = _PORTA -> -> 64 `i `uc ]
+[e = _PORTA _tampon ]
+[; ;main.c: 91: if (compteur < 128)
 "91
-}
-[; ;main.c: 91: } else if (test == 't') {
-[e $U 2644  ]
-[e :U 2643 ]
-[e $ ! == -> _test `ui -> 116 `ui 2645  ]
-{
-[; ;main.c: 92: PORTA = 0b00100000;
+[e $ ! < _compteur -> 128 `i 2641  ]
+[; ;main.c: 92: {
 "92
-[e = _PORTA -> -> 32 `i `uc ]
-"93
-}
-[; ;main.c: 93: } else if (test == 'v') {
-[e $U 2646  ]
-[e :U 2645 ]
-[e $ ! == -> _test `ui -> 118 `ui 2647  ]
 {
-[; ;main.c: 94: PORTA = 0b11100000;
+[; ;main.c: 93: stock_led[compteur] = tampon;
+"93
+[e = *U + &U _stock_led * -> -> _compteur `ui `ux -> -> # *U &U _stock_led `ui `ux _tampon ]
+[; ;main.c: 94: compteur ++;
 "94
-[e = _PORTA -> -> 224 `i `uc ]
+[e ++ _compteur -> 1 `i ]
 "95
 }
-[; ;main.c: 95: } else {
-[e $U 2648  ]
-[e :U 2647 ]
-{
-[; ;main.c: 96: PORTA = 0b00000000;
-"96
-[e = _PORTA -> -> 0 `i `uc ]
+[; ;main.c: 95: }
+[e $U 2642  ]
 "97
+[e :U 2641 ]
+[; ;main.c: 97: else {
+{
+[; ;main.c: 98: compteur = 0;
+"98
+[e = _compteur -> 0 `i ]
+"99
 }
-[e :U 2648 ]
-[e :U 2646 ]
-[e :U 2644 ]
 [e :U 2642 ]
-"100
+"113
 }
 [e :U 2640 ]
-[; ;main.c: 97: }
-[; ;main.c: 100: }
-[; ;main.c: 101: RC2IF = 0;
-"101
+[; ;main.c: 99: }
+[; ;main.c: 113: }
+[; ;main.c: 114: RC2IF = 0;
+"114
 [e = _RC2IF -> -> 0 `i `b ]
-[; ;main.c: 102: }
-"102
+[; ;main.c: 115: }
+"115
 [e :UE 2639 ]
 }
-"104
+"117
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 104: void main(void) {
+[; ;main.c: 117: void main(void) {
 [e :U _main ]
 [f ]
-"105
+"118
 [v _address `uc ~T0 @X0 1 a ]
-[; ;main.c: 105: unsigned char address = 0;
+[; ;main.c: 118: unsigned char address = 0;
 [e = _address -> -> 0 `i `uc ]
-[v F19149 `uc ~T0 @X0 -> 80 `i s ]
-[i F19149
+[v F19153 `uc ~T0 @X0 -> 80 `i s ]
+[i F19153
 :U ..
 -> 83 `c
 -> 108 `c
@@ -17603,69 +17592,69 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"106
+"119
 [v _msg1 `uc ~T0 @X0 -> 80 `i a ]
-[; ;main.c: 106: char msg1[80] = "Slave 1 Ready \n \r";
-[e = _msg1 F19149 ]
-"108
-[v _msg2 `uc ~T0 @X0 -> 80 `i a ]
-[; ;main.c: 108: char msg2[80];
-[; ;main.c: 113: initPorts();
-"113
-[e ( _initPorts ..  ]
-[; ;main.c: 114: initComms();
-"114
-[e ( _initComms ..  ]
-[; ;main.c: 121: address = readAddress();
+[; ;main.c: 119: char msg1[80] = "Slave 1 Ready \n \r";
+[e = _msg1 F19153 ]
 "121
+[v _msg2 `uc ~T0 @X0 -> 80 `i a ]
+[; ;main.c: 121: char msg2[80];
+[; ;main.c: 126: initPorts();
+"126
+[e ( _initPorts ..  ]
+[; ;main.c: 127: initComms();
+"127
+[e ( _initComms ..  ]
+[; ;main.c: 134: address = readAddress();
+"134
 [e = _address ( _readAddress ..  ]
-[; ;main.c: 124: while (1) {
-"124
-[e :U 2651 ]
+[; ;main.c: 137: while (1) {
+"137
+[e :U 2645 ]
 {
-[; ;main.c: 125: for (int i = 0; i < 100; i++) {
-"125
+[; ;main.c: 138: for (int i = 0; i < 10000; i++) {
+"138
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 100 `i 2653  ]
-[e $U 2654  ]
-[e :U 2653 ]
+[e $ < _i -> 10000 `i 2647  ]
+[e $U 2648  ]
+[e :U 2647 ]
 {
-"126
+"139
 }
-"125
+"138
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 100 `i 2653  ]
-[e :U 2654 ]
-"126
+[e $ < _i -> 10000 `i 2647  ]
+[e :U 2648 ]
+"139
 }
-[; ;main.c: 126: }
-[; ;main.c: 128: writeStringToUART(msg1);
-"128
+[; ;main.c: 139: }
+[; ;main.c: 141: writeStringToUART(msg1);
+"141
 [e ( _writeStringToUART (1 -> &U _msg1 `*Cuc ]
-"130
+"143
 }
-[e :U 2650 ]
-"124
-[e $U 2651  ]
-[e :U 2652 ]
-[; ;main.c: 130: }
-[; ;main.c: 131: }
-"131
-[e :UE 2649 ]
+[e :U 2644 ]
+"137
+[e $U 2645  ]
+[e :U 2646 ]
+[; ;main.c: 143: }
+[; ;main.c: 144: }
+"144
+[e :UE 2643 ]
 }
-"133
+"146
 [v _readAddress `(uc ~T0 @X0 1 ef ]
 {
-[; ;main.c: 133: unsigned char readAddress() {
+[; ;main.c: 146: unsigned char readAddress() {
 [e :U _readAddress ]
 [f ]
-[; ;main.c: 134: return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
-"134
+[; ;main.c: 147: return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
+"147
 [e ) -> | | | << -> ! _RA3 `i -> 3 `i << -> ! _RA2 `i -> 2 `i << -> ! _RA2 `i -> 1 `i -> ! _RA0 `i `uc ]
-[e $UE 2656  ]
-[; ;main.c: 135: }
-"135
-[e :UE 2656 ]
+[e $UE 2650  ]
+[; ;main.c: 148: }
+"148
+[e :UE 2650 ]
 }
