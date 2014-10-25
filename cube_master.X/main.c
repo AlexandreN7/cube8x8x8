@@ -1,79 +1,148 @@
-/*
- * File:   main.c
- * Author: archi
- *
- * Created on 16 octobre 2014, 17:36
- */
-
-#pragma config XINST = OFF, SOSCSEL = DIG , CANMX = PORTB
-#pragma config FCMEN=ON, IESO=ON , WDTEN = OFF , EBTRB = OFF /*, FOSC = HS1*/
-
 #include <xc.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <p18f25k80.h>
 
-#include <timers.h>
-#include <portb.h>
-#include <usart.h>
+#include "main.h"
+//=============================================================================
+// 7ROBOT
+// Created by Alexandre Proux
+// Cube 8x8x8
+//============================================================github=============
+//
+//
+//=============================================================================
 
-//#define USE_OR_MASKS
+//****************************************************************************************
+//                    CONFIGURATION BITS PIC18F25K80
+//****************************************************************************************
 
-unsigned char Rxdata[25];
-unsigned char Txdata[] = "MICROCHIP_USART";
+// Configuration register
 
-// BAUD_RATE_GEN is calculated as  = [Fosc / (64 * Desired Baudrate)] - 1
-// It needs to be changed depending upon oscillator frequency.
-//  8MHz / (64 * 2400) - 1 = 51 (approx.)
-#define BAUD_RATE_GEN 25
+// CONFIG1L
+#pragma config RETEN = OFF      // VREG Sleep Enable bit (Ultra low-power regulator is Disabled (Controlled by REGSLP bit))
+#pragma config INTOSCSEL = HIGH // LF-INTOSC Low-power Enable bit (LF-INTOSC in High-power mode during Sleep)
+#pragma config SOSCSEL = DIG    // SOSC Power Selection and mode Configuration bits (Digital (SCLKI) mode)
+#pragma config XINST = OFF      // Extended Instruction Set (Disabled)
+
+// CONFIG1H
+#pragma config FOSC = INTIO2    // Oscillator (Internal RC oscillator)
+#pragma config PLLCFG = OFF     // PLL x4 Enable bit (Disabled)
+#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor (Disabled)
+#pragma config IESO = OFF       // Internal External Oscillator Switch Over Mode (Disabled)
+
+// CONFIG2L
+#pragma config PWRTEN = OFF     // Power Up Timer (Disabled)
+#pragma config BOREN = SBORDIS  // Brown Out Detect (Enabled in hardware, SBOREN disabled)
+#pragma config BORV = 3         // Brown-out Reset Voltage bits (1.8V)
+#pragma config BORPWR = ZPBORMV // BORMV Power level (ZPBORMV instead of BORMV is selected)
+
+// CONFIG2H
+#pragma config WDTEN = OFF      // Watchdog Timer (WDT disabled in hardware; SWDTEN bit disabled)
+#pragma config WDTPS = 1048576  // Watchdog Postscaler (1:1048576)
+
+// CONFIG3H
+#pragma config CANMX = PORTB    // ECAN Mux bit (ECAN TX and RX pins are located on RB2 and RB3, respectively)
+#pragma config MSSPMSK = MSK7   // MSSP address masking (7 Bit address masking mode)
+#pragma config MCLRE = OFF      // Master Clear Enable (MCLR Disabled, RG5 Enabled)
+
+// CONFIG4L
+#pragma config STVREN = ON      // Stack Overflow Reset (Enabled)
+#pragma config BBSIZ = BB2K     // Boot Block Size (2K word Boot Block size)
+
+// CONFIG5L
+#pragma config CP0 = OFF        // Code Protect 00800-01FFF (Disabled)
+#pragma config CP1 = OFF        // Code Protect 02000-03FFF (Disabled)
+#pragma config CP2 = OFF        // Code Protect 04000-05FFF (Disabled)
+#pragma config CP3 = OFF        // Code Protect 06000-07FFF (Disabled)
+
+// CONFIG5H
+#pragma config CPB = OFF        // Code Protect Boot (Disabled)
+#pragma config CPD = OFF        // Data EE Read Protect (Disabled)
+
+// CONFIG6L
+#pragma config WRT0 = OFF       // Table Write Protect 00800-03FFF (Disabled)
+#pragma config WRT1 = OFF       // Table Write Protect 04000-07FFF (Disabled)
+#pragma config WRT2 = OFF       // Table Write Protect 08000-0BFFF (Disabled)
+#pragma config WRT3 = OFF       // Table Write Protect 0C000-0FFFF (Disabled)
+
+// CONFIG6H
+#pragma config WRTC = OFF       // Config. Write Protect (Disabled)
+#pragma config WRTB = OFF       // Table Write Protect Boot (Disabled)
+#pragma config WRTD = OFF       // Data EE Write Protect (Disabled)
+
+// CONFIG7L
+#pragma config EBTR0 = OFF      // Table Read Protect 00800-03FFF (Disabled)
+#pragma config EBTR1 = OFF      // Table Read Protect 04000-07FFF (Disabled)
+#pragma config EBTR2 = OFF      // Table Read Protect 08000-0BFFF (Disabled)
+#pragma config EBTR3 = OFF      // Table Read Protect 0C000-0FFFF (Disabled)
+
+// CONFIG7H
+#pragma config EBTRB = OFF      // Table Read Protect Boot (Disabled)
+
+char tampon = 0;
+char stock_led[128] = 0;
+int compteur;
 
 
 
-int main(int argc, char** argv) {
+
+void interrupt low_priority high_isr(void) {
+   if (RC2IF /*&& PIE3bits.TX2IE*/) {
+       tampon = RCREG2;
+       PORTA =tampon;
+      if (compteur < 128)
+        {
+       stock_led[compteur] = tampon;
+       compteur ++;
+        }
+
+      else {
+        compteur = 0;
+      }
+
+    /*    if (test == 'r') {
+            PORTA = 0b10000000;
+        } else if (test == 'b') {
+            PORTA = 0b01000000;
+        } else if (test == 't') {
+            PORTA = 0b00100000;
+        } else if (test == 'v') {
+            PORTA = 0b11100000;
+        } else {
+            PORTA = 0b00000000;
+        }*/
+
+  }
+RC2IF = 0; // On met le flag Ã  0
+}
+
+void main(void) {
+    unsigned char address = 0;
+    char msg1[80] = "Slave 1 Ready \n \r";
+
+    char msg2[80];
 
 
-    //initialisations
-   // CMCON = 0b00000111; /* Désactive les comparateurs. */
-    ADCON0 = 0b00000000;
-    ADCON1 = 0b00001111;
-    WDTCON = 0;
-    OSCCON = 0b01111111;
-    //UCON = 0; /* Désactive l'USB. */
-    //UCFG = 0b00001000;
-    TRISC = 0b00000000;
-    TRISA = 0b11111111;
-    TRISB = 0b11111111;
-        GIE = 1;
-    PEIE = 1;
+    /***Initialization***/
+    //SWDTEN = 1;       // Enable the watchdog
+    initPorts(); // Initialize ports to startup state
+    initComms(); // Initialize the serial port
 
 
 
-    Open1USART((USART_TX_INT_OFF | USART_RX_INT_OFF | USART_ASYNCH_MODE | USART_EIGHT_BIT | USART_CONT_RX | USART_BRGH_LOW) , BAUD_RATE_GEN);
-    baud1USART(BAUD_8_BIT_RATE | BAUD_AUTO_OFF);
-
-    while(1) {
-  //-------------------------configure USART ---------------------------------------------------------
-    // API configures USART for desired parameters:
-    //  - TX/RX interrupts turned off
-    //  - Asynchronous mode
-    //  - 8 bits
-    //  - Continuous Receive Enabled
-    //  - Low speed baud rate generator mode (Fosc / 16)
 
 
-//------------USART Transmission ----------------------------------------------------------------
-  //  puts1USART((char *)Txdata);             // transmit the string
-   // while(Busy1USART());
-    Write1USART('a');
-    //putrs1USART('y');
+    //Read Address setting
+    address = readAddress();
+    // sprintf (msg, "Address = %d\n", address);
 
- //      for (int i =0 ; i<1000; i++) {}
-//-----------USART Reception ---------------------------------------------------------------------
- ///   getsUSART((char *)Rxdata, 24);         // receive data up to 24 bytes
- //   Rxdata[24] = 0;                         // NULL terminate the string for putsUSART call.
- //   putsUSART((char *)Rxdata);             // echo back the data recieved back to host
-
-//    CloseUSART();
+    while (1) {
+        for (int i = 0; i < 10000; i++) {
+        }
+      //  msg1[0] = test;
+        writeStringToUART(msg1);
+        //   writeStringToUART ('test');
     }
 }
 
+unsigned char readAddress() {
+    return !nADDR3 << 3 | !nADDR2 << 2 | !nADDR2 << 1 | !nADDR0;
+}

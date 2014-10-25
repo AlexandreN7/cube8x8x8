@@ -1,8 +1,0 @@
-_main: CODE, 234 0 96
-_high_isr: CODE, 24 0 206
-_initPorts: CODE, 624 0 40
-__initialization: CODE, 492 0 62
-_readAddress: CODE, 330 0 82
-_initComms: CODE, 560 0 64
-_writeStringToUART: CODE, 664 0 38
-Total: 588
