@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/cgtICgEJe.obj
+$/tmp/cgtN6Jca4.obj
 end_init CODE 0 E2 E2 4 1
 reset_vec CODE 0 0 0 4 1
 idloc IDLOC 0 200000 200000 8 1
@@ -83,114 +83,114 @@ STACK 000280-0009FF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/cube_slave.X.production.obj
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":91 18 intcodelo CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":56 18 intcodelo CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":92 5C intcodelo CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":93 60 intcodelo CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":95 64 intcodelo CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":97 78 intcodelo CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":98 8C intcodelo CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":99 90 intcodelo CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":102 92 intcodelo CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":105 9A intcodelo CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":106 9C intcodelo CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":108 E6 text0 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":109 E6 text0 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":110 EC text0 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":117 FE text0 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":118 102 text0 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":125 106 text0 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":136 10E text0 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":138 11E text0 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":140 144 text0 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":141 148 text0 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":145 14E text2 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/main.c":146 14E text2 CODE
-"/tmp/cgtYZwXti":3126 1F0 cinit CODE
-"/tmp/cgtYZwXti":3128 1F0 cinit CODE
-"/tmp/cgtYZwXti":3131 1F0 cinit CODE
-"/tmp/cgtYZwXti":3166 1F0 cinit CODE
-"/tmp/cgtYZwXti":3167 1F4 cinit CODE
-"/tmp/cgtYZwXti":3168 1F6 cinit CODE
-"/tmp/cgtYZwXti":3169 1F6 cinit CODE
-"/tmp/cgtYZwXti":3170 1F8 cinit CODE
-"/tmp/cgtYZwXti":3171 1FA cinit CODE
-"/tmp/cgtYZwXti":3174 1FC cinit CODE
-"/tmp/cgtYZwXti":3175 200 cinit CODE
-"/tmp/cgtYZwXti":3176 202 cinit CODE
-"/tmp/cgtYZwXti":3177 202 cinit CODE
-"/tmp/cgtYZwXti":3178 204 cinit CODE
-"/tmp/cgtYZwXti":3179 206 cinit CODE
-"/tmp/cgtYZwXti":3182 208 cinit CODE
-"/tmp/cgtYZwXti":3183 20A cinit CODE
-"/tmp/cgtYZwXti":3184 20C cinit CODE
-"/tmp/cgtYZwXti":3189 20E cinit CODE
-"/tmp/cgtYZwXti":3190 210 cinit CODE
-"/tmp/cgtYZwXti":3191 212 cinit CODE
-"/tmp/cgtYZwXti":3192 214 cinit CODE
-"/tmp/cgtYZwXti":3193 216 cinit CODE
-"/tmp/cgtYZwXti":3194 218 cinit CODE
-"/tmp/cgtYZwXti":3195 21A cinit CODE
-"/tmp/cgtYZwXti":3196 21E cinit CODE
-"/tmp/cgtYZwXti":3197 222 cinit CODE
-"/tmp/cgtYZwXti":3198 222 cinit CODE
-"/tmp/cgtYZwXti":3199 224 cinit CODE
-"/tmp/cgtYZwXti":3200 228 cinit CODE
-"/tmp/cgtYZwXti":3201 22A cinit CODE
-"/tmp/cgtYZwXti":3202 22C cinit CODE
-"/tmp/cgtYZwXti":3208 22E cinit CODE
-"/tmp/cgtYZwXti":3209 22E cinit CODE
-"/tmp/cgtYZwXti":3210 230 cinit CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":6 234 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":8 234 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":9 236 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":10 238 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":11 23A text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":12 23C text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":13 23E text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":14 240 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":15 242 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":17 244 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":18 246 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":19 248 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":20 24A text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":21 24C text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":22 24E text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":23 250 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":24 252 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":26 254 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":27 256 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":28 258 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":29 25A text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":30 25C text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":31 25E text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":32 260 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":34 262 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":36 266 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":37 268 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":50 26A text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":51 26E text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":56 272 text4 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":7 274 text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":11 274 text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":17 278 text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":20 27A text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":21 27E text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":23 282 text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":24 286 text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":26 28A text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":27 28E text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":30 292 text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":31 294 text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":32 296 text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/port.c":37 29A text3 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":58 29C text1 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":60 29C text1 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":61 29E text1 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":62 2A2 text1 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":60 2B2 text1 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":64 2BE text1 CODE
-"/home/archi/MPLABXProjects/cube_slave.X/usart.c":60 2C0 text1 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":91 18 intcodelo CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":56 18 intcodelo CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":92 5C intcodelo CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":93 60 intcodelo CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":95 64 intcodelo CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":97 78 intcodelo CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":98 8C intcodelo CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":99 90 intcodelo CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":102 92 intcodelo CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":105 9A intcodelo CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":106 9C intcodelo CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":108 E6 text0 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":109 E6 text0 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":110 EC text0 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":117 FE text0 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":118 102 text0 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":125 106 text0 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":136 10E text0 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":138 11E text0 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":140 144 text0 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":141 148 text0 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":145 14E text2 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c":146 14E text2 CODE
+"/tmp/cgtUy2d0F":3126 1F0 cinit CODE
+"/tmp/cgtUy2d0F":3128 1F0 cinit CODE
+"/tmp/cgtUy2d0F":3131 1F0 cinit CODE
+"/tmp/cgtUy2d0F":3166 1F0 cinit CODE
+"/tmp/cgtUy2d0F":3167 1F4 cinit CODE
+"/tmp/cgtUy2d0F":3168 1F6 cinit CODE
+"/tmp/cgtUy2d0F":3169 1F6 cinit CODE
+"/tmp/cgtUy2d0F":3170 1F8 cinit CODE
+"/tmp/cgtUy2d0F":3171 1FA cinit CODE
+"/tmp/cgtUy2d0F":3174 1FC cinit CODE
+"/tmp/cgtUy2d0F":3175 200 cinit CODE
+"/tmp/cgtUy2d0F":3176 202 cinit CODE
+"/tmp/cgtUy2d0F":3177 202 cinit CODE
+"/tmp/cgtUy2d0F":3178 204 cinit CODE
+"/tmp/cgtUy2d0F":3179 206 cinit CODE
+"/tmp/cgtUy2d0F":3182 208 cinit CODE
+"/tmp/cgtUy2d0F":3183 20A cinit CODE
+"/tmp/cgtUy2d0F":3184 20C cinit CODE
+"/tmp/cgtUy2d0F":3189 20E cinit CODE
+"/tmp/cgtUy2d0F":3190 210 cinit CODE
+"/tmp/cgtUy2d0F":3191 212 cinit CODE
+"/tmp/cgtUy2d0F":3192 214 cinit CODE
+"/tmp/cgtUy2d0F":3193 216 cinit CODE
+"/tmp/cgtUy2d0F":3194 218 cinit CODE
+"/tmp/cgtUy2d0F":3195 21A cinit CODE
+"/tmp/cgtUy2d0F":3196 21E cinit CODE
+"/tmp/cgtUy2d0F":3197 222 cinit CODE
+"/tmp/cgtUy2d0F":3198 222 cinit CODE
+"/tmp/cgtUy2d0F":3199 224 cinit CODE
+"/tmp/cgtUy2d0F":3200 228 cinit CODE
+"/tmp/cgtUy2d0F":3201 22A cinit CODE
+"/tmp/cgtUy2d0F":3202 22C cinit CODE
+"/tmp/cgtUy2d0F":3208 22E cinit CODE
+"/tmp/cgtUy2d0F":3209 22E cinit CODE
+"/tmp/cgtUy2d0F":3210 230 cinit CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":6 234 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":8 234 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":9 236 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":10 238 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":11 23A text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":12 23C text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":13 23E text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":14 240 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":15 242 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":17 244 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":18 246 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":19 248 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":20 24A text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":21 24C text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":22 24E text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":23 250 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":24 252 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":26 254 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":27 256 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":28 258 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":29 25A text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":30 25C text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":31 25E text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":32 260 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":34 262 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":36 266 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":37 268 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":50 26A text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":51 26E text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":56 272 text4 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":7 274 text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":11 274 text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":17 278 text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":20 27A text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":21 27E text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":23 282 text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":24 286 text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":26 28A text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":27 28E text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":30 292 text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":31 294 text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":32 296 text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c":37 29A text3 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":58 29C text1 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":60 29C text1 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":61 29E text1 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":62 2A2 text1 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":60 2B2 text1 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":64 2BE text1 CODE
+"/home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c":60 2C0 text1 CODE
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -220,8 +220,8 @@ __CFG_RETEN$ON 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _PEIE 7F96 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _ADON 7E10 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _main E6 0 CODE 0 text0 dist/default/production/cube_slave.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/cgtICgEJe.obj
-start E2 0 CODE 0 init /tmp/cgtICgEJe.obj
+___sp 0 0 STACK 2 stack /tmp/cgtN6Jca4.obj
+start E2 0 CODE 0 init /tmp/cgtN6Jca4.obj
 _RC2IF 7D25 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _TRISA F92 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _TRISB F93 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
@@ -302,13 +302,13 @@ __CFG_CPD$ON 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 main@F19153 150 0 BANK1 1 dataBANK1 dist/default/production/cube_slave.X.production.obj
 __Hdata 0 0 ABS 0 data dist/default/production/cube_slave.X.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production/cube_slave.X.production.obj
-stackhi 9FF 0 ABS 0 - /tmp/cgtICgEJe.obj
+stackhi 9FF 0 ABS 0 - /tmp/cgtN6Jca4.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production/cube_slave.X.production.obj
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production/cube_slave.X.production.obj
 __pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/default/production/cube_slave.X.production.obj
 __Htemp 0 0 COMRAM 1 temp dist/default/production/cube_slave.X.production.obj
 __Ltemp 0 0 COMRAM 1 temp dist/default/production/cube_slave.X.production.obj
-stacklo 280 0 ABS 0 - /tmp/cgtICgEJe.obj
+stacklo 280 0 ABS 0 - /tmp/cgtN6Jca4.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production/cube_slave.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production/cube_slave.X.production.obj
 __Hinit E2 0 CODE 0 init dist/default/production/cube_slave.X.production.obj
@@ -420,8 +420,8 @@ __Lnvbit 0 0 COMRAM 1 nvbit dist/default/production/cube_slave.X.production.obj
 __Hcinit 0 0 ABS 0 cinit dist/default/production/cube_slave.X.production.obj
 __Lcinit 0 0 ABS 0 cinit dist/default/production/cube_slave.X.production.obj
 __pcinit 1F0 0 CODE 0 cinit dist/default/production/cube_slave.X.production.obj
-__ramtop F00 0 RAM 0 ramtop /tmp/cgtICgEJe.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtICgEJe.obj
+__ramtop F00 0 RAM 0 ramtop /tmp/cgtN6Jca4.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtN6Jca4.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 __Hconst 0 0 CODE 0 const dist/default/production/cube_slave.X.production.obj
 __Lconst 0 0 CODE 0 const dist/default/production/cube_slave.X.production.obj
@@ -454,25 +454,25 @@ _TXSTA2bits FBA 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 __HidataBANK1 0 0 ABS 0 idataBANK1 dist/default/production/cube_slave.X.production.obj
 __LidataBANK1 0 0 ABS 0 idataBANK1 dist/default/production/cube_slave.X.production.obj
 __pidataBANK1 1A0 0 CODE 0 idataBANK1 dist/default/production/cube_slave.X.production.obj
-___inthi_sp 0 0 STACK 2 stack /tmp/cgtICgEJe.obj
+___inthi_sp 0 0 STACK 2 stack /tmp/cgtN6Jca4.obj
 __CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 __CFG_BORV$3 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
-___intlo_sp 0 0 STACK 2 stack /tmp/cgtICgEJe.obj
+___intlo_sp 0 0 STACK 2 stack /tmp/cgtN6Jca4.obj
 __end_of_initComms 274 0 CODE 0 text4 dist/default/production/cube_slave.X.production.obj
 __Hend_init E6 0 CODE 0 end_init dist/default/production/cube_slave.X.production.obj
 __Lend_init E2 0 CODE 0 end_init dist/default/production/cube_slave.X.production.obj
 __end_of_writeStringToUART 2C2 0 CODE 0 text1 dist/default/production/cube_slave.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtICgEJe.obj
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtN6Jca4.obj
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production/cube_slave.X.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production/cube_slave.X.production.obj
-__accesstop 60 0 ABS 0 - /tmp/cgtICgEJe.obj
+__accesstop 60 0 ABS 0 - /tmp/cgtN6Jca4.obj
 main@msg1 60 0 BANK0 1 cstackBANK0 dist/default/production/cube_slave.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/cube_slave.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/cube_slave.X.production.obj
-intlevel0 0 0 CODE 0 text /tmp/cgtICgEJe.obj
-intlevel1 0 0 CODE 0 text /tmp/cgtICgEJe.obj
-intlevel2 0 0 CODE 0 text /tmp/cgtICgEJe.obj
-intlevel3 0 0 CODE 0 text /tmp/cgtICgEJe.obj
+intlevel0 0 0 CODE 0 text /tmp/cgtN6Jca4.obj
+intlevel1 0 0 CODE 0 text /tmp/cgtN6Jca4.obj
+intlevel2 0 0 CODE 0 text /tmp/cgtN6Jca4.obj
+intlevel3 0 0 CODE 0 text /tmp/cgtN6Jca4.obj
 _BAUDCON2bits FB9 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 __CFG_EBTRB$ON 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 start_initialization 1F0 0 CODE 0 cinit dist/default/production/cube_slave.X.production.obj

@@ -125,15 +125,15 @@
 [v ___asftsub __asftsub `(f  1 e 3 0 ]
 "6 /opt/microchip/xc8/v1.33/sources/pic18/aslmul.c
 [v ___aslmul __aslmul `(ul  1 e 4 0 ]
-"91 /home/archi/MPLABXProjects/cube_slave.X/main.c
+"91 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c
 [v _high_isr high_isr `IIL(v  1 e 0 0 ]
 "108
 [v _main main `(v  1 e 0 0 ]
 "145
 [v _readAddress readAddress `(uc  1 e 1 0 ]
-"7 /home/archi/MPLABXProjects/cube_slave.X/port.c
+"7 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c
 [v _initPorts initPorts `(v  1 e 0 0 ]
-"6 /home/archi/MPLABXProjects/cube_slave.X/usart.c
+"6 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c
 [v _initComms initComms `(v  1 e 0 0 ]
 "58
 [v _writeStringToUART writeStringToUART `(v  1 e 0 0 ]
@@ -403,15 +403,15 @@
 [v _RA3 RA3 `VEb  1 e 0 @31747 ]
 "42773
 [v _RC2IF RC2IF `VEb  1 e 0 @32037 ]
-"84 /home/archi/MPLABXProjects/cube_slave.X/main.c
+"84 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c
 [v _tampon tampon `uc  1 e 1 0 ]
 "85
 [v _stock_led stock_led `[128]uc  1 e 128 0 ]
 "86
 [v _compteur compteur `i  1 e 2 0 ]
-"66 /home/archi/MPLABXProjects/cube_slave.X/main.h
+"66 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.h
 [v _msg msg `[80]uc  1 e 80 0 ]
-"108 /home/archi/MPLABXProjects/cube_slave.X/main.c
+"108 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c
 [v _main main `(v  1 e 0 0 ]
 {
 "138
@@ -423,29 +423,29 @@
 [v main@F19153 F19153 `[80]uc  1 s 80 F19153 ]
 "143
 } 0
-"58 /home/archi/MPLABXProjects/cube_slave.X/usart.c
+"58 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c
 [v _writeStringToUART writeStringToUART `(v  1 e 0 0 ]
 {
 "59
 [v writeStringToUART@msg msg `*.39Cuc  1 p 2 17 ]
 "64
 } 0
-"145 /home/archi/MPLABXProjects/cube_slave.X/main.c
+"145 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c
 [v _readAddress readAddress `(uc  1 e 1 0 ]
 {
 "147
 } 0
-"7 /home/archi/MPLABXProjects/cube_slave.X/port.c
+"7 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/port.c
 [v _initPorts initPorts `(v  1 e 0 0 ]
 {
 "37
 } 0
-"6 /home/archi/MPLABXProjects/cube_slave.X/usart.c
+"6 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/usart.c
 [v _initComms initComms `(v  1 e 0 0 ]
 {
 "56
 } 0
-"91 /home/archi/MPLABXProjects/cube_slave.X/main.c
+"91 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_slave.X/main.c
 [v _high_isr high_isr `IIL(v  1 e 0 0 ]
 {
 "106
