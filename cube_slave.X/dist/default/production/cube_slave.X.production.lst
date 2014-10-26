@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.33 build 59893 
-                                                                                               Sat Oct 25 15:49:15 2014
+                                                                                               Sun Oct 26 18:19:55 2014
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 59893
      1                           	processor	18F25K80
@@ -26,90 +26,90 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
     20                           	psect	rparam,global,class=COMRAM,space=1,delta=1
     21  0000                     
     22                           	psect	idataBANK1
-    23  0001A0                     __pidataBANK1:
+    23  00019E                     __pidataBANK1:
     24                           	opt stack 0
     25                           
     26                           ;initializer for main@F19153
-    27  0001A0  53                 	db	83
-    28  0001A1  6C                 	db	108
-    29  0001A2  61                 	db	97
-    30  0001A3  76                 	db	118
-    31  0001A4  65                 	db	101
-    32  0001A5  20                 	db	32
-    33  0001A6  31                 	db	49
-    34  0001A7  20                 	db	32
-    35  0001A8  52                 	db	82
-    36  0001A9  65                 	db	101
-    37  0001AA  61                 	db	97
-    38  0001AB  64                 	db	100
-    39  0001AC  79                 	db	121
-    40  0001AD  20                 	db	32
-    41  0001AE  0A                 	db	10
-    42  0001AF  20                 	db	32
-    43  0001B0  0D                 	db	13
-    44  0001B1  00                 	db	0
-    45  0001B2  00                 	db	0
-    46  0001B3  00                 	db	0
-    47  0001B4  00                 	db	0
-    48  0001B5  00                 	db	0
-    49  0001B6  00                 	db	0
-    50  0001B7  00                 	db	0
-    51  0001B8  00                 	db	0
-    52  0001B9  00                 	db	0
-    53  0001BA  00                 	db	0
-    54  0001BB  00                 	db	0
-    55  0001BC  00                 	db	0
-    56  0001BD  00                 	db	0
-    57  0001BE  00                 	db	0
-    58  0001BF  00                 	db	0
-    59  0001C0  00                 	db	0
-    60  0001C1  00                 	db	0
-    61  0001C2  00                 	db	0
-    62  0001C3  00                 	db	0
-    63  0001C4  00                 	db	0
-    64  0001C5  00                 	db	0
-    65  0001C6  00                 	db	0
-    66  0001C7  00                 	db	0
-    67  0001C8  00                 	db	0
-    68  0001C9  00                 	db	0
-    69  0001CA  00                 	db	0
-    70  0001CB  00                 	db	0
-    71  0001CC  00                 	db	0
-    72  0001CD  00                 	db	0
-    73  0001CE  00                 	db	0
-    74  0001CF  00                 	db	0
-    75  0001D0  00                 	db	0
-    76  0001D1  00                 	db	0
-    77  0001D2  00                 	db	0
-    78  0001D3  00                 	db	0
-    79  0001D4  00                 	db	0
-    80  0001D5  00                 	db	0
-    81  0001D6  00                 	db	0
-    82  0001D7  00                 	db	0
-    83  0001D8  00                 	db	0
-    84  0001D9  00                 	db	0
-    85  0001DA  00                 	db	0
-    86  0001DB  00                 	db	0
-    87  0001DC  00                 	db	0
-    88  0001DD  00                 	db	0
-    89  0001DE  00                 	db	0
-    90  0001DF  00                 	db	0
-    91  0001E0  00                 	db	0
-    92  0001E1  00                 	db	0
-    93  0001E2  00                 	db	0
-    94  0001E3  00                 	db	0
-    95  0001E4  00                 	db	0
-    96  0001E5  00                 	db	0
-    97  0001E6  00                 	db	0
-    98  0001E7  00                 	db	0
-    99  0001E8  00                 	db	0
-   100  0001E9  00                 	db	0
-   101  0001EA  00                 	db	0
-   102  0001EB  00                 	db	0
-   103  0001EC  00                 	db	0
-   104  0001ED  00                 	db	0
-   105  0001EE  00                 	db	0
-   106  0001EF  00                 	db	0
+    27  00019E  53                 	db	83
+    28  00019F  6C                 	db	108
+    29  0001A0  61                 	db	97
+    30  0001A1  76                 	db	118
+    31  0001A2  65                 	db	101
+    32  0001A3  20                 	db	32
+    33  0001A4  31                 	db	49
+    34  0001A5  20                 	db	32
+    35  0001A6  52                 	db	82
+    36  0001A7  65                 	db	101
+    37  0001A8  61                 	db	97
+    38  0001A9  64                 	db	100
+    39  0001AA  79                 	db	121
+    40  0001AB  20                 	db	32
+    41  0001AC  0A                 	db	10
+    42  0001AD  20                 	db	32
+    43  0001AE  0D                 	db	13
+    44  0001AF  00                 	db	0
+    45  0001B0  00                 	db	0
+    46  0001B1  00                 	db	0
+    47  0001B2  00                 	db	0
+    48  0001B3  00                 	db	0
+    49  0001B4  00                 	db	0
+    50  0001B5  00                 	db	0
+    51  0001B6  00                 	db	0
+    52  0001B7  00                 	db	0
+    53  0001B8  00                 	db	0
+    54  0001B9  00                 	db	0
+    55  0001BA  00                 	db	0
+    56  0001BB  00                 	db	0
+    57  0001BC  00                 	db	0
+    58  0001BD  00                 	db	0
+    59  0001BE  00                 	db	0
+    60  0001BF  00                 	db	0
+    61  0001C0  00                 	db	0
+    62  0001C1  00                 	db	0
+    63  0001C2  00                 	db	0
+    64  0001C3  00                 	db	0
+    65  0001C4  00                 	db	0
+    66  0001C5  00                 	db	0
+    67  0001C6  00                 	db	0
+    68  0001C7  00                 	db	0
+    69  0001C8  00                 	db	0
+    70  0001C9  00                 	db	0
+    71  0001CA  00                 	db	0
+    72  0001CB  00                 	db	0
+    73  0001CC  00                 	db	0
+    74  0001CD  00                 	db	0
+    75  0001CE  00                 	db	0
+    76  0001CF  00                 	db	0
+    77  0001D0  00                 	db	0
+    78  0001D1  00                 	db	0
+    79  0001D2  00                 	db	0
+    80  0001D3  00                 	db	0
+    81  0001D4  00                 	db	0
+    82  0001D5  00                 	db	0
+    83  0001D6  00                 	db	0
+    84  0001D7  00                 	db	0
+    85  0001D8  00                 	db	0
+    86  0001D9  00                 	db	0
+    87  0001DA  00                 	db	0
+    88  0001DB  00                 	db	0
+    89  0001DC  00                 	db	0
+    90  0001DD  00                 	db	0
+    91  0001DE  00                 	db	0
+    92  0001DF  00                 	db	0
+    93  0001E0  00                 	db	0
+    94  0001E1  00                 	db	0
+    95  0001E2  00                 	db	0
+    96  0001E3  00                 	db	0
+    97  0001E4  00                 	db	0
+    98  0001E5  00                 	db	0
+    99  0001E6  00                 	db	0
+   100  0001E7  00                 	db	0
+   101  0001E8  00                 	db	0
+   102  0001E9  00                 	db	0
+   103  0001EA  00                 	db	0
+   104  0001EB  00                 	db	0
+   105  0001EC  00                 	db	0
+   106  0001ED  00                 	db	0
    107  0000                     _BAUDCON2bits	set	4025
    108  0000                     _INTCON	set	4082
    109  0000                     _OSCCON	set	4051
@@ -140,56 +140,56 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    134                           ; #config settings
    135  0000                     
    136                           	psect	cinit
-   137  0001F0                     __pcinit:
+   137  0001EE                     __pcinit:
    138                           	opt stack 0
-   139  0001F0                     start_initialization:
+   139  0001EE                     start_initialization:
    140                           	opt stack 0
-   141  0001F0                     __initialization:
+   141  0001EE                     __initialization:
    142                           	opt stack 0
    143                           
-   144                           ; Clear objects allocated to BANK2 (128 bytes)
-   145  0001F0  EE02  F000         	lfsr	0,__pbssBANK2
-   146  0001F4  0E80               	movlw	128
-   147  0001F6                     clear_0:
-   148  0001F6  6AEE               	clrf	postinc0,c
-   149  0001F8  06E8               	decf	wreg,f,c
-   150  0001FA  E1FD               	bnz	clear_0
+   144                           ; Clear objects allocated to BANK2 (80 bytes)
+   145  0001EE  EE02  F000         	lfsr	0,__pbssBANK2
+   146  0001F2  0E50               	movlw	80
+   147  0001F4                     clear_0:
+   148  0001F4  6AEE               	clrf	postinc0,c
+   149  0001F6  06E8               	decf	wreg,f,c
+   150  0001F8  E1FD               	bnz	clear_0
    151                           
-   152                           ; Clear objects allocated to BANK1 (80 bytes)
-   153  0001FC  EE01  F000         	lfsr	0,__pbssBANK1
-   154  000200  0E50               	movlw	80
-   155  000202                     clear_1:
-   156  000202  6AEE               	clrf	postinc0,c
-   157  000204  06E8               	decf	wreg,f,c
-   158  000206  E1FD               	bnz	clear_1
+   152                           ; Clear objects allocated to BANK1 (128 bytes)
+   153  0001FA  EE01  F000         	lfsr	0,__pbssBANK1
+   154  0001FE  0E80               	movlw	128
+   155  000200                     clear_1:
+   156  000200  6AEE               	clrf	postinc0,c
+   157  000202  06E8               	decf	wreg,f,c
+   158  000204  E1FD               	bnz	clear_1
    159                           
    160                           ; Clear objects allocated to COMRAM (3 bytes)
-   161  000208  6A19               	clrf	(__pbssCOMRAM+2)& (0+255),c
-   162  00020A  6A18               	clrf	(__pbssCOMRAM+1)& (0+255),c
-   163  00020C  6A17               	clrf	__pbssCOMRAM& (0+255),c
+   161  000206  6A19               	clrf	(__pbssCOMRAM+2)& (0+255),c
+   162  000208  6A18               	clrf	(__pbssCOMRAM+1)& (0+255),c
+   163  00020A  6A17               	clrf	__pbssCOMRAM& (0+255),c
    164                           
    165                           ; Initialize objects allocated to BANK1 (80 bytes)
    166                           ; load TBLPTR registers with __pidataBANK1
-   167  00020E  0EA0               	movlw	low __pidataBANK1
-   168  000210  6EF6               	movwf	tblptrl,c
-   169  000212  0E01               	movlw	high __pidataBANK1
-   170  000214  6EF7               	movwf	tblptrh,c
-   171  000216  0E00               	movlw	low (__pidataBANK1 shr (0+16))
-   172  000218  6EF8               	movwf	tblptru,c
-   173  00021A  EE01  F050         	lfsr	0,__pdataBANK1
-   174  00021E  EE10 F050          	lfsr	1,80
-   175  000222                     copy_data0:
-   176  000222  0009               	tblrd		*+
-   177  000224  CFF5 FFEE          	movff	tablat,postinc0
-   178  000228  50E5               	movf	postdec1,w,c
-   179  00022A  50E1               	movf	fsr1l,w,c
-   180  00022C  E1FA               	bnz	copy_data0
-   181  00022E                     end_of_initialization:
+   167  00020C  0E9E               	movlw	low __pidataBANK1
+   168  00020E  6EF6               	movwf	tblptrl,c
+   169  000210  0E01               	movlw	high __pidataBANK1
+   170  000212  6EF7               	movwf	tblptrh,c
+   171  000214  0E00               	movlw	low (__pidataBANK1 shr (0+16))
+   172  000216  6EF8               	movwf	tblptru,c
+   173  000218  EE01  F080         	lfsr	0,__pdataBANK1
+   174  00021C  EE10 F050          	lfsr	1,80
+   175  000220                     copy_data0:
+   176  000220  0009               	tblrd		*+
+   177  000222  CFF5 FFEE          	movff	tablat,postinc0
+   178  000226  50E5               	movf	postdec1,w,c
+   179  000228  50E1               	movf	fsr1l,w,c
+   180  00022A  E1FA               	bnz	copy_data0
+   181  00022C                     end_of_initialization:
    182                           	opt stack 0
-   183  00022E                     __end_of__initialization:
+   183  00022C                     __end_of__initialization:
    184                           	opt stack 0
-   185  00022E  0100               	movlb	0
-   186  000230  EF73  F000         	goto	_main	;jump to C main() function
+   185  00022C  0100               	movlb	0
+   186  00022E  EF72  F000         	goto	_main	;jump to C main() function
    187                           tblptru	equ	0xFF8
    188                           tblptrh	equ	0xFF7
    189                           tblptrl	equ	0xFF6
@@ -220,9 +220,9 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    214                           	psect	bssBANK1
    215  000100                     __pbssBANK1:
    216                           	opt stack 0
-   217  000100                     _msg:
+   217  000100                     _stock_led:
    218                           	opt stack 0
-   219  000100                     	ds	80
+   219  000100                     	ds	128
    220                           tblptru	equ	0xFF8
    221                           tblptrh	equ	0xFF7
    222                           tblptrl	equ	0xFF6
@@ -233,11 +233,11 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    227                           fsr1l	equ	0xFE1
    228                           
    229                           	psect	dataBANK1
-   230  000150                     __pdataBANK1:
+   230  000180                     __pdataBANK1:
    231                           	opt stack 0
-   232  000150                     main@F19153:
+   232  000180                     main@F19153:
    233                           	opt stack 0
-   234  000150                     	ds	80
+   234  000180                     	ds	80
    235                           tblptru	equ	0xFF8
    236                           tblptrh	equ	0xFF7
    237                           tblptrl	equ	0xFF6
@@ -250,9 +250,9 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    244                           	psect	bssBANK2
    245  000200                     __pbssBANK2:
    246                           	opt stack 0
-   247  000200                     _stock_led:
+   247  000200                     _msg:
    248                           	opt stack 0
-   249  000200                     	ds	128
+   249  000200                     	ds	80
    250                           tblptru	equ	0xFF8
    251                           tblptrh	equ	0xFF7
    252                           tblptrl	equ	0xFF6
@@ -320,7 +320,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    314 ;;
    315 ;; *************** function _main *****************
    316 ;; Defined at:
-   317 ;;		line 108 in file "main.c"
+   317 ;;		line 110 in file "main.c"
    318 ;; Parameters:    Size  Location     Type
    319 ;;		None
    320 ;; Auto vars:     Size  Location     Type
@@ -359,90 +359,90 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    348 ;;
    349                           
    350                           	psect	text0
-   351  0000E6                     __ptext0:
+   351  0000E4                     __ptext0:
    352                           	opt stack 0
-   353  0000E6                     _main:
+   353  0000E4                     _main:
    354                           	opt stack 29
    355                           
-   356                           ;main.c: 109: unsigned char address = 0;
+   356                           ;main.c: 111: unsigned char address = 0;
    357                           
    358                           ;incstack = 0
-   359  0000E6  0E00               	movlw	0
-   360  0000E8  0100               	movlb	0	; () banked
-   361  0000EA  6FB0               	movwf	main@address& (0+255),b
+   359  0000E4  0E00               	movlw	0
+   360  0000E6  0100               	movlb	0	; () banked
+   361  0000E8  6FB0               	movwf	main@address& (0+255),b
    362                           
    363                           ; BSR set to: 0
-   364                           ;main.c: 110: char msg1[80] = "Slave 1 Ready \n \r";
-   365  0000EC  EE21  F050         	lfsr	2,main@F19153
-   366  0000F0  EE10  F060         	lfsr	1,main@msg1
-   367  0000F4  0E50               	movlw	80
-   368  0000F6                     u211:
-   369  0000F6  CFDE FFE6          	movff	postinc2,postinc1
-   370  0000FA  2EE8               	decfsz	wreg,f,c
-   371  0000FC  D7FC               	goto	u211
+   364                           ;main.c: 112: char msg1[80] = "Slave 1 Ready \n \r";
+   365  0000EA  EE21  F080         	lfsr	2,main@F19153
+   366  0000EE  EE10  F060         	lfsr	1,main@msg1
+   367  0000F2  0E50               	movlw	80
+   368  0000F4                     u211:
+   369  0000F4  CFDE FFE6          	movff	postinc2,postinc1
+   370  0000F8  2EE8               	decfsz	wreg,f,c
+   371  0000FA  D7FC               	goto	u211
    372                           
    373                           ; BSR set to: 0
-   374                           ;main.c: 112: char msg2[80];
-   375                           ;main.c: 117: initPorts();
-   376  0000FE  EC3A  F001         	call	_initPorts	;wreg free
+   374                           ;main.c: 114: char msg2[80];
+   375                           ;main.c: 119: initPorts();
+   376  0000FC  EC39  F001         	call	_initPorts	;wreg free
    377                           
-   378                           ;main.c: 118: initComms();
-   379  000102  EC1A  F001         	call	_initComms	;wreg free
+   378                           ;main.c: 120: initComms();
+   379  000100  EC19  F001         	call	_initComms	;wreg free
    380                           
-   381                           ;main.c: 125: address = readAddress();
-   382  000106  ECA7  F000         	call	_readAddress	;wreg free
-   383  00010A  0100               	movlb	0	; () banked
-   384  00010C  6FB0               	movwf	main@address& (0+255),b
-   385  00010E                     l820:
+   381                           ;main.c: 127: address = readAddress();
+   382  000104  ECA6  F000         	call	_readAddress	;wreg free
+   383  000108  0100               	movlb	0	; () banked
+   384  00010A  6FB0               	movwf	main@address& (0+255),b
+   385  00010C                     l828:
    386                           
    387                           ; BSR set to: 0
    388                           ;main.c: 136: writeStringToUART(msg1);
-   389  00010E  0100               	movlb	0	; () banked
-   390  000110  0E00               	movlw	high main@msg1
-   391  000112  6E13               	movwf	writeStringToUART@msg+1,c
-   392  000114  0100               	movlb	0	; () banked
-   393  000116  0E60               	movlw	low main@msg1
-   394  000118  6E12               	movwf	writeStringToUART@msg,c
-   395  00011A  EC4E  F001         	call	_writeStringToUART	;wreg free
+   389  00010C  0100               	movlb	0	; () banked
+   390  00010E  0E00               	movlw	high main@msg1
+   391  000110  6E13               	movwf	writeStringToUART@msg+1,c
+   392  000112  0100               	movlb	0	; () banked
+   393  000114  0E60               	movlw	low main@msg1
+   394  000116  6E12               	movwf	writeStringToUART@msg,c
+   395  000118  EC4D  F001         	call	_writeStringToUART	;wreg free
    396                           
    397                           ;main.c: 138: for (int i = 0; i < 100; i++) {}
-   398  00011E  0E00               	movlw	0
-   399  000120  0100               	movlb	0	; () banked
-   400  000122  6FB2               	movwf	(main@i+1)& (0+255),b
-   401  000124  0E00               	movlw	0
-   402  000126  0100               	movlb	0	; () banked
-   403  000128  6FB1               	movwf	main@i& (0+255),b
-   404  00012A                     
+   398  00011C  0E00               	movlw	0
+   399  00011E  0100               	movlb	0	; () banked
+   400  000120  6FB2               	movwf	(main@i+1)& (0+255),b
+   401  000122  0E00               	movlw	0
+   402  000124  0100               	movlb	0	; () banked
+   403  000126  6FB1               	movwf	main@i& (0+255),b
+   404  000128                     
    405                           ; BSR set to: 0
-   406  00012A  0100               	movlb	0	; () banked
-   407  00012C  51B2               	movf	(main@i+1)& (0+255),w,b
-   408  00012E  0A80               	xorlw	128
-   409  000130  0F80               	addlw	-128
-   410  000132  0E64               	movlw	100
-   411  000134  B4D8               	btfsc	status,2,c
-   412  000136  5DB1               	subwf	main@i& (0+255),w,b
-   413  000138  B0D8               	btfsc	status,0,c
-   414  00013A  D004               	goto	l43
+   406  000128  0100               	movlb	0	; () banked
+   407  00012A  51B2               	movf	(main@i+1)& (0+255),w,b
+   408  00012C  0A80               	xorlw	128
+   409  00012E  0F80               	addlw	-128
+   410  000130  0E64               	movlw	100
+   411  000132  B4D8               	btfsc	status,2,c
+   412  000134  5DB1               	subwf	main@i& (0+255),w,b
+   413  000136  B0D8               	btfsc	status,0,c
+   414  000138  D004               	goto	l43
    415                           
    416                           ; BSR set to: 0
    417                           
    418                           ; BSR set to: 0
    419                           
    420                           ; BSR set to: 0
-   421  00013C  0100               	movlb	0	; () banked
-   422  00013E  4BB1               	infsnz	main@i& (0+255),f,b
-   423  000140  2BB2               	incf	(main@i+1)& (0+255),f,b
-   424  000142  D7F3               	goto	L1
-   425  000144                     l43:
+   421  00013A  0100               	movlb	0	; () banked
+   422  00013C  4BB1               	infsnz	main@i& (0+255),f,b
+   423  00013E  2BB2               	incf	(main@i+1)& (0+255),f,b
+   424  000140  D7F3               	goto	L1
+   425  000142                     l43:
    426                           
    427                           ; BSR set to: 0
-   428                           ;main.c: 140: PORTA = stock_led[1];
-   429  000144  C201  FF80         	movff	_stock_led+1,3968	;volatile
+   428                           ;main.c: 140: PORTA = stock_led[0];
+   429  000142  C100  FF80         	movff	_stock_led,3968	;volatile
    430                           
-   431                           ;main.c: 141: PORTC = stock_led[1+1];
-   432  000148  C202  FF82         	movff	_stock_led+2,3970	;volatile
-   433  00014C  D7E0               	goto	l820
-   434  00014E                     __end_of_main:
+   431                           ;main.c: 141: PORTC = stock_led[0+1];
+   432  000146  C101  FF82         	movff	_stock_led+1,3970	;volatile
+   433  00014A  D7E0               	goto	l828
+   434  00014C                     __end_of_main:
    435                           	opt stack 0
    436                           tblptru	equ	0xFF8
    437                           tblptrh	equ	0xFF7
@@ -493,35 +493,35 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    477 ;;
    478                           
    479                           	psect	text1
-   480  00029C                     __ptext1:
+   480  00029A                     __ptext1:
    481                           	opt stack 0
-   482  00029C                     _writeStringToUART:
+   482  00029A                     _writeStringToUART:
    483                           	opt stack 29
    484                           
    485                           ;usart.c: 60: while(*msg) {
    486                           
    487                           ; BSR set to: 0
    488                           ;incstack = 0
-   489  00029C  D00A               	goto	l794
-   490  00029E                     l79:
-   491  00029E  A8A4               	btfss	4004,4,c	;volatile
-   492  0002A0  D7FE               	goto	l79
+   489  00029A  D00A               	goto	l798
+   490  00029C                     l79:
+   491  00029C  A8A4               	btfss	4004,4,c	;volatile
+   492  00029E  D7FE               	goto	l79
    493                           
    494                           ;usart.c: 62: TXREG2 = *msg++;
-   495  0002A2  C012  FFD9         	movff	writeStringToUART@msg,fsr2l
-   496  0002A6  C013  FFDA         	movff	writeStringToUART@msg+1,fsr2h
-   497  0002AA  50DF               	movf	indf2,w,c
-   498  0002AC  6E79               	movwf	3961,c	;volatile
-   499  0002AE  4A12               	infsnz	writeStringToUART@msg,f,c
-   500  0002B0  2A13               	incf	writeStringToUART@msg+1,f,c
-   501  0002B2                     l794:
-   502  0002B2  C012  FFD9         	movff	writeStringToUART@msg,fsr2l
-   503  0002B6  C013  FFDA         	movff	writeStringToUART@msg+1,fsr2h
-   504  0002BA  50DF               	movf	indf2,w,c
-   505  0002BC  B4D8               	btfsc	status,2,c
-   506  0002BE  0012               	return	
-   507  0002C0  D7EE               	goto	l79
-   508  0002C2                     __end_of_writeStringToUART:
+   495  0002A0  C012  FFD9         	movff	writeStringToUART@msg,fsr2l
+   496  0002A4  C013  FFDA         	movff	writeStringToUART@msg+1,fsr2h
+   497  0002A8  50DF               	movf	indf2,w,c
+   498  0002AA  6E79               	movwf	3961,c	;volatile
+   499  0002AC  4A12               	infsnz	writeStringToUART@msg,f,c
+   500  0002AE  2A13               	incf	writeStringToUART@msg+1,f,c
+   501  0002B0                     l798:
+   502  0002B0  C012  FFD9         	movff	writeStringToUART@msg,fsr2l
+   503  0002B4  C013  FFDA         	movff	writeStringToUART@msg+1,fsr2h
+   504  0002B8  50DF               	movf	indf2,w,c
+   505  0002BA  B4D8               	btfsc	status,2,c
+   506  0002BC  0012               	return	
+   507  0002BE  D7EE               	goto	l79
+   508  0002C0                     __end_of_writeStringToUART:
    509                           	opt stack 0
    510                           tblptru	equ	0xFF8
    511                           tblptrh	equ	0xFF7
@@ -574,64 +574,64 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    553 ;;
    554                           
    555                           	psect	text2
-   556  00014E                     __ptext2:
+   556  00014C                     __ptext2:
    557                           	opt stack 0
-   558  00014E                     _readAddress:
+   558  00014C                     _readAddress:
    559                           	opt stack 29
    560                           
    561                           ;main.c: 146: return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
    562                           
    563                           ;incstack = 0
-   564  00014E  B080               	btfsc	3968,0,c	;volatile
-   565  000150  D002               	goto	u130
-   566  000152  0E01               	movlw	1
-   567  000154  D001               	goto	u136
-   568  000156                     u130:
-   569  000156  0E00               	movlw	0
-   570  000158                     u136:
-   571  000158  6E12               	movwf	??_readAddress& (0+255),c
-   572  00015A  B480               	btfsc	3968,2,c	;volatile
-   573  00015C  D002               	goto	u140
-   574  00015E  0E01               	movlw	1
-   575  000160  D001               	goto	u146
-   576  000162                     u140:
-   577  000162  0E00               	movlw	0
-   578  000164                     u146:
-   579  000164  6E13               	movwf	(??_readAddress+1)& (0+255),c
-   580  000166  90D8               	bcf	status,0,c
-   581  000168  3413               	rlcf	??_readAddress+1,w,c
-   582  00016A  6E14               	movwf	(??_readAddress+2)& (0+255),c
-   583  00016C  B480               	btfsc	3968,2,c	;volatile
-   584  00016E  D002               	goto	u150
-   585  000170  0E01               	movlw	1
-   586  000172  D001               	goto	u156
-   587  000174                     u150:
-   588  000174  0E00               	movlw	0
-   589  000176                     u156:
-   590  000176  6E15               	movwf	(??_readAddress+3)& (0+255),c
-   591  000178  90D8               	bcf	status,0,c
-   592  00017A  3615               	rlcf	??_readAddress+3,f,c
-   593  00017C  90D8               	bcf	status,0,c
-   594  00017E  3615               	rlcf	??_readAddress+3,f,c
-   595  000180  B680               	btfsc	3968,3,c	;volatile
-   596  000182  D002               	goto	u160
-   597  000184  0E01               	movlw	1
-   598  000186  D001               	goto	u166
-   599  000188                     u160:
-   600  000188  0E00               	movlw	0
-   601  00018A                     u166:
-   602  00018A  6E16               	movwf	(??_readAddress+4)& (0+255),c
-   603  00018C  90D8               	bcf	status,0,c
-   604  00018E  3616               	rlcf	??_readAddress+4,f,c
-   605  000190  90D8               	bcf	status,0,c
-   606  000192  3616               	rlcf	??_readAddress+4,f,c
-   607  000194  90D8               	bcf	status,0,c
-   608  000196  3416               	rlcf	??_readAddress+4,w,c
-   609  000198  1015               	iorwf	??_readAddress+3,w,c
-   610  00019A  1014               	iorwf	??_readAddress+2,w,c
-   611  00019C  1012               	iorwf	??_readAddress,w,c
-   612  00019E  0012               	return	
-   613  0001A0                     __end_of_readAddress:
+   564  00014C  B080               	btfsc	3968,0,c	;volatile
+   565  00014E  D002               	goto	u130
+   566  000150  0E01               	movlw	1
+   567  000152  D001               	goto	u136
+   568  000154                     u130:
+   569  000154  0E00               	movlw	0
+   570  000156                     u136:
+   571  000156  6E12               	movwf	??_readAddress& (0+255),c
+   572  000158  B480               	btfsc	3968,2,c	;volatile
+   573  00015A  D002               	goto	u140
+   574  00015C  0E01               	movlw	1
+   575  00015E  D001               	goto	u146
+   576  000160                     u140:
+   577  000160  0E00               	movlw	0
+   578  000162                     u146:
+   579  000162  6E13               	movwf	(??_readAddress+1)& (0+255),c
+   580  000164  90D8               	bcf	status,0,c
+   581  000166  3413               	rlcf	??_readAddress+1,w,c
+   582  000168  6E14               	movwf	(??_readAddress+2)& (0+255),c
+   583  00016A  B480               	btfsc	3968,2,c	;volatile
+   584  00016C  D002               	goto	u150
+   585  00016E  0E01               	movlw	1
+   586  000170  D001               	goto	u156
+   587  000172                     u150:
+   588  000172  0E00               	movlw	0
+   589  000174                     u156:
+   590  000174  6E15               	movwf	(??_readAddress+3)& (0+255),c
+   591  000176  90D8               	bcf	status,0,c
+   592  000178  3615               	rlcf	??_readAddress+3,f,c
+   593  00017A  90D8               	bcf	status,0,c
+   594  00017C  3615               	rlcf	??_readAddress+3,f,c
+   595  00017E  B680               	btfsc	3968,3,c	;volatile
+   596  000180  D002               	goto	u160
+   597  000182  0E01               	movlw	1
+   598  000184  D001               	goto	u166
+   599  000186                     u160:
+   600  000186  0E00               	movlw	0
+   601  000188                     u166:
+   602  000188  6E16               	movwf	(??_readAddress+4)& (0+255),c
+   603  00018A  90D8               	bcf	status,0,c
+   604  00018C  3616               	rlcf	??_readAddress+4,f,c
+   605  00018E  90D8               	bcf	status,0,c
+   606  000190  3616               	rlcf	??_readAddress+4,f,c
+   607  000192  90D8               	bcf	status,0,c
+   608  000194  3416               	rlcf	??_readAddress+4,w,c
+   609  000196  1015               	iorwf	??_readAddress+3,w,c
+   610  000198  1014               	iorwf	??_readAddress+2,w,c
+   611  00019A  1012               	iorwf	??_readAddress,w,c
+   612  00019C  0012               	return	
+   613  00019E                     __end_of_readAddress:
    614                           	opt stack 0
    615                           tblptru	equ	0xFF8
    616                           tblptrh	equ	0xFF7
@@ -684,55 +684,55 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    658 ;;
    659                           
    660                           	psect	text3
-   661  000274                     __ptext3:
+   661  000272                     __ptext3:
    662                           	opt stack 0
-   663  000274                     _initPorts:
+   663  000272                     _initPorts:
    664                           	opt stack 29
    665                           
    666                           ;port.c: 11: OSCCON = 0x30;
    667                           
    668                           ;incstack = 0
-   669  000274  0E30               	movlw	48
-   670  000276  6ED3               	movwf	4051,c	;volatile
+   669  000272  0E30               	movlw	48
+   670  000274  6ED3               	movwf	4051,c	;volatile
    671                           
    672                           ;port.c: 17: ADON = 1;
-   673  000278  80C2               	bsf	4034,0,c	;volatile
+   673  000276  80C2               	bsf	4034,0,c	;volatile
    674                           
    675                           ;port.c: 20: PORTA = 0b00000000;
-   676  00027A  0E00               	movlw	0
-   677  00027C  6E80               	movwf	3968,c	;volatile
+   676  000278  0E00               	movlw	0
+   677  00027A  6E80               	movwf	3968,c	;volatile
    678                           
    679                           ;port.c: 21: TRISA = 0b00000000;
-   680  00027E  0E00               	movlw	0
-   681  000280  6E92               	movwf	3986,c	;volatile
+   680  00027C  0E00               	movlw	0
+   681  00027E  6E92               	movwf	3986,c	;volatile
    682                           
    683                           ;port.c: 23: PORTB = 0b01001000;
-   684  000282  0E48               	movlw	72
-   685  000284  6E81               	movwf	3969,c	;volatile
+   684  000280  0E48               	movlw	72
+   685  000282  6E81               	movwf	3969,c	;volatile
    686                           
    687                           ;port.c: 24: TRISB = 0b10010011;
-   688  000286  0E93               	movlw	147
-   689  000288  6E93               	movwf	3987,c	;volatile
+   688  000284  0E93               	movlw	147
+   689  000286  6E93               	movwf	3987,c	;volatile
    690                           
    691                           ;port.c: 26: PORTC = 0b00000000;
-   692  00028A  0E00               	movlw	0
-   693  00028C  6E82               	movwf	3970,c	;volatile
+   692  000288  0E00               	movlw	0
+   693  00028A  6E82               	movwf	3970,c	;volatile
    694                           
    695                           ;port.c: 27: TRISC = 0b00000000;
-   696  00028E  0E00               	movlw	0
-   697  000290  6E94               	movwf	3988,c	;volatile
+   696  00028C  0E00               	movlw	0
+   697  00028E  6E94               	movwf	3988,c	;volatile
    698                           
    699                           ;port.c: 30: GIE = 1;
-   700  000292  8EF2               	bsf	intcon,7,c	;volatile
+   700  000290  8EF2               	bsf	intcon,7,c	;volatile
    701                           
    702                           ;port.c: 31: PEIE = 1;
-   703  000294  8CF2               	bsf	intcon,6,c	;volatile
+   703  000292  8CF2               	bsf	intcon,6,c	;volatile
    704                           
    705                           ;port.c: 32: INTCON =0b11000000;
-   706  000296  0EC0               	movlw	192
-   707  000298  6EF2               	movwf	intcon,c	;volatile
-   708  00029A  0012               	return	
-   709  00029C                     __end_of_initPorts:
+   706  000294  0EC0               	movlw	192
+   707  000296  6EF2               	movwf	intcon,c	;volatile
+   708  000298  0012               	return	
+   709  00029A                     __end_of_initPorts:
    710                           	opt stack 0
    711                           tblptru	equ	0xFF8
    712                           tblptrh	equ	0xFF7
@@ -786,101 +786,101 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    755 ;;
    756                           
    757                           	psect	text4
-   758  000234                     __ptext4:
+   758  000232                     __ptext4:
    759                           	opt stack 0
-   760  000234                     _initComms:
+   760  000232                     _initComms:
    761                           	opt stack 29
    762                           
    763                           ;usart.c: 8: TXSTA2bits.CSRC = 0;
    764                           
    765                           ;incstack = 0
-   766  000234  9EBA               	bcf	4026,7,c	;volatile
+   766  000232  9EBA               	bcf	4026,7,c	;volatile
    767                           
    768                           ;usart.c: 9: TXSTA2bits.TX9 = 0;
-   769  000236  9CBA               	bcf	4026,6,c	;volatile
+   769  000234  9CBA               	bcf	4026,6,c	;volatile
    770                           
    771                           ;usart.c: 10: TXSTA2bits.TXEN = 1;
-   772  000238  8ABA               	bsf	4026,5,c	;volatile
+   772  000236  8ABA               	bsf	4026,5,c	;volatile
    773                           
    774                           ;usart.c: 11: TXSTA2bits.SYNC = 0;
-   775  00023A  98BA               	bcf	4026,4,c	;volatile
+   775  000238  98BA               	bcf	4026,4,c	;volatile
    776                           
    777                           ;usart.c: 12: TXSTA2bits.SENDB = 0;
-   778  00023C  96BA               	bcf	4026,3,c	;volatile
+   778  00023A  96BA               	bcf	4026,3,c	;volatile
    779                           
    780                           ;usart.c: 13: TXSTA2bits.BRGH = 1;
-   781  00023E  84BA               	bsf	4026,2,c	;volatile
+   781  00023C  84BA               	bsf	4026,2,c	;volatile
    782                           
    783                           ;usart.c: 14: TXSTA2bits.TRMT = 1;
-   784  000240  82BA               	bsf	4026,1,c	;volatile
+   784  00023E  82BA               	bsf	4026,1,c	;volatile
    785                           
    786                           ;usart.c: 15: TXSTA2bits.TX9D = 0;
-   787  000242  90BA               	bcf	4026,0,c	;volatile
+   787  000240  90BA               	bcf	4026,0,c	;volatile
    788                           
    789                           ;usart.c: 17: RCSTA2bits.SPEN = 1;
-   790  000244  8EA6               	bsf	4006,7,c	;volatile
+   790  000242  8EA6               	bsf	4006,7,c	;volatile
    791                           
    792                           ;usart.c: 18: RCSTA2bits.RX9 = 0;
-   793  000246  9CA6               	bcf	4006,6,c	;volatile
+   793  000244  9CA6               	bcf	4006,6,c	;volatile
    794                           
    795                           ;usart.c: 19: RCSTA2bits.SREN = 0;
-   796  000248  9AA6               	bcf	4006,5,c	;volatile
+   796  000246  9AA6               	bcf	4006,5,c	;volatile
    797                           
    798                           ;usart.c: 20: RCSTA2bits.CREN = 1;
-   799  00024A  88A6               	bsf	4006,4,c	;volatile
+   799  000248  88A6               	bsf	4006,4,c	;volatile
    800                           
    801                           ;usart.c: 21: RCSTA2bits.ADDEN = 0;
-   802  00024C  96A6               	bcf	4006,3,c	;volatile
+   802  00024A  96A6               	bcf	4006,3,c	;volatile
    803                           
    804                           ;usart.c: 22: RCSTA2bits.FERR = 0;
-   805  00024E  94A6               	bcf	4006,2,c	;volatile
+   805  00024C  94A6               	bcf	4006,2,c	;volatile
    806                           
    807                           ;usart.c: 23: RCSTA2bits.OERR = 0;
-   808  000250  92A6               	bcf	4006,1,c	;volatile
+   808  00024E  92A6               	bcf	4006,1,c	;volatile
    809                           
    810                           ;usart.c: 24: RCSTA2bits.RX9D = 0;
-   811  000252  90A6               	bcf	4006,0,c	;volatile
+   811  000250  90A6               	bcf	4006,0,c	;volatile
    812                           
    813                           ;usart.c: 26: BAUDCON2bits.ABDOVF = 0;
-   814  000254  9EB9               	bcf	4025,7,c	;volatile
+   814  000252  9EB9               	bcf	4025,7,c	;volatile
    815                           
    816                           ;usart.c: 27: BAUDCON2bits.RCIDL = 1;
-   817  000256  8CB9               	bsf	4025,6,c	;volatile
+   817  000254  8CB9               	bsf	4025,6,c	;volatile
    818                           
    819                           ;usart.c: 28: BAUDCON2bits.RXDTP = 0;
-   820  000258  9AB9               	bcf	4025,5,c	;volatile
+   820  000256  9AB9               	bcf	4025,5,c	;volatile
    821                           
    822                           ;usart.c: 29: BAUDCON2bits.TXCKP = 0;
-   823  00025A  98B9               	bcf	4025,4,c	;volatile
+   823  000258  98B9               	bcf	4025,4,c	;volatile
    824                           
    825                           ;usart.c: 30: BAUDCON2bits.BRG16 = 1;
-   826  00025C  86B9               	bsf	4025,3,c	;volatile
+   826  00025A  86B9               	bsf	4025,3,c	;volatile
    827                           
    828                           ;usart.c: 31: BAUDCON2bits.WUE = 0;
-   829  00025E  92B9               	bcf	4025,1,c	;volatile
+   829  00025C  92B9               	bcf	4025,1,c	;volatile
    830                           
    831                           ;usart.c: 32: BAUDCON2bits.ABDEN = 0;
-   832  000260  90B9               	bcf	4025,0,c	;volatile
+   832  00025E  90B9               	bcf	4025,0,c	;volatile
    833                           
    834                           ;usart.c: 34: SPBRGH2 = 0;
-   835  000262  0E00               	movlw	0
-   836  000264  6E7C               	movwf	3964,c	;volatile
+   835  000260  0E00               	movlw	0
+   836  000262  6E7C               	movwf	3964,c	;volatile
    837                           
    838                           ;usart.c: 36: PIE3bits.RC2IE = 1;
-   839  000266  8AA3               	bsf	4003,5,c	;volatile
+   839  000264  8AA3               	bsf	4003,5,c	;volatile
    840                           
    841                           ;usart.c: 37: RCONbits.IPEN = 1;
-   842  000268  8ED0               	bsf	4048,7,c	;volatile
+   842  000266  8ED0               	bsf	4048,7,c	;volatile
    843                           
    844                           ;usart.c: 50: SPBRG = 51;
-   845  00026A  0E33               	movlw	51
-   846  00026C  6EAF               	movwf	4015,c	;volatile
+   845  000268  0E33               	movlw	51
+   846  00026A  6EAF               	movwf	4015,c	;volatile
    847                           
    848                           ;usart.c: 51: SPBRG2 = 12;
-   849  00026E  0E0C               	movlw	12
-   850  000270  6E7B               	movwf	3963,c	;volatile
-   851  000272  0012               	return	
-   852  000274                     __end_of_initComms:
+   849  00026C  0E0C               	movlw	12
+   850  00026E  6E7B               	movwf	3963,c	;volatile
+   851  000270  0012               	return	
+   852  000272                     __end_of_initComms:
    853                           	opt stack 0
    854                           tblptru	equ	0xFF8
    855                           tblptrh	equ	0xFF7
@@ -959,7 +959,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    923                           
    924                           ;main.c: 92: if (RC2IF ) {
    925  00005C  AAA4               	btfss	4004,5,c	;volatile
-   926  00005E  D01D               	goto	i1l808
+   926  00005E  D01C               	goto	i1l816
    927                           
    928                           ;main.c: 93: tampon = RCREG2;
    929  000060  CF7A F019          	movff	3962,_tampon	;volatile
@@ -973,133 +973,139 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    937  00006E  0E80               	movlw	128
    938  000070  B4D8               	btfsc	status,2,c
    939  000072  5C17               	subwf	_compteur,w,c
-   940  000074  B0D8               	btfsc	status,0,c
-   941  000076  D00D               	goto	i1l806
+   940  000074  A0D8               	btfss	status,0,c
+   941  000076  D004               	goto	L2
    942                           
-   943                           ;main.c: 96: {
-   944                           ;main.c: 97: stock_led[compteur] = tampon;
-   945  000078  0102               	movlb	2	; () banked
-   946  00007A  0E00               	movlw	low _stock_led
-   947  00007C  2417               	addwf	_compteur,w,c
-   948  00007E  6ED9               	movwf	fsr2l,c
-   949  000080  0102               	movlb	2	; () banked
-   950  000082  0E02               	movlw	high _stock_led
-   951  000084  2018               	addwfc	_compteur+1,w,c
-   952  000086  6EDA               	movwf	fsr2h,c
-   953  000088  C019  FFDF         	movff	_tampon,indf2
-   954                           
-   955                           ; BSR set to: 2
-   956                           ;main.c: 98: compteur ++;
-   957  00008C  4A17               	infsnz	_compteur,f,c
-   958  00008E  2A18               	incf	_compteur+1,f,c
-   959                           
-   960                           ;main.c: 99: }
-   961  000090  D004               	goto	i1l808
-   962  000092                     i1l806:
-   963                           
-   964                           ;main.c: 101: else {
-   965                           ;main.c: 102: compteur = 0;
-   966  000092  0E00               	movlw	0
-   967  000094  6E18               	movwf	_compteur+1,c
-   968  000096  0E00               	movlw	0
-   969  000098  6E17               	movwf	_compteur,c
-   970  00009A                     i1l808:
+   943                           ;main.c: 101: else {
+   944                           ;main.c: 102: compteur = 0;
+   945                           
+   946                           ; BSR set to: 1
+   947                           
+   948                           ;main.c: 99: }
+   949                           
+   950                           ; BSR set to: 1
+   951                           ;main.c: 98: compteur ++;
+   952                           
+   953                           ;main.c: 96: {
+   954                           ;main.c: 97: stock_led[compteur] = tampon;
+   955  000078  0E00               	movlw	0
+   956  00007A  6E18               	movwf	_compteur+1,c
+   957  00007C  0E00               	movlw	0
+   958  00007E  6E17               	movwf	_compteur,c
+   959  000080                     L2:
+   960                           
+   961                           ;main.c: 103: stock_led[compteur] = tampon;
+   962  000080  0101               	movlb	1	; () banked
+   963  000082  0E00               	movlw	low _stock_led
+   964  000084  2417               	addwf	_compteur,w,c
+   965  000086  6ED9               	movwf	fsr2l,c
+   966  000088  0101               	movlb	1	; () banked
+   967  00008A  0E01               	movlw	high _stock_led
+   968  00008C  2018               	addwfc	_compteur+1,w,c
+   969  00008E  6EDA               	movwf	fsr2h,c
+   970  000090  C019  FFDF         	movff	_tampon,indf2
    971                           
-   972                           ;main.c: 103: }
-   973                           ;main.c: 104: }
-   974                           ;main.c: 105: RC2IF = 0;
-   975  00009A  9AA4               	bcf	4004,5,c	;volatile
-   976  00009C  C011  FFF5         	movff	??_high_isr+16,tablat
-   977  0000A0  C010  FFF8         	movff	??_high_isr+15,tblptru
-   978  0000A4  C00F  FFF7         	movff	??_high_isr+14,tblptrh
-   979  0000A8  C00E  FFF6         	movff	??_high_isr+13,tblptrl
-   980  0000AC  C00D  FFF4         	movff	??_high_isr+12,prodh
-   981  0000B0  C00C  FFF3         	movff	??_high_isr+11,prodl
-   982  0000B4  C00B  FFDA         	movff	??_high_isr+10,fsr2h
-   983  0000B8  C00A  FFD9         	movff	??_high_isr+9,fsr2l
-   984  0000BC  C009  FFE2         	movff	??_high_isr+8,fsr1h
-   985  0000C0  C008  FFE1         	movff	??_high_isr+7,fsr1l
-   986  0000C4  C007  FFEA         	movff	??_high_isr+6,fsr0h
-   987  0000C8  C006  FFE9         	movff	??_high_isr+5,fsr0l
-   988  0000CC  C005  FFFB         	movff	??_high_isr+4,pclatu
-   989  0000D0  C004  FFFA         	movff	??_high_isr+3,pclath
-   990  0000D4  C003  FFE0         	movff	??_high_isr+2,bsr
-   991  0000D8  C002  FFE8         	movff	??_high_isr+1,wreg
-   992  0000DC  C001  FFD8         	movff	??_high_isr,status
-   993  0000E0  0010               	retfie	
-   994  0000E2                     __end_of_high_isr:
-   995                           	opt stack 0
-   996  0000                     pclatu	equ	0xFFB
-   997                           pclath	equ	0xFFA
-   998                           tblptru	equ	0xFF8
-   999                           tblptrh	equ	0xFF7
-  1000                           tblptrl	equ	0xFF6
-  1001                           tablat	equ	0xFF5
-  1002                           prodh	equ	0xFF4
-  1003                           prodl	equ	0xFF3
-  1004                           intcon	equ	0xFF2
-  1005                           postinc0	equ	0xFEE
-  1006                           fsr0h	equ	0xFEA
-  1007                           fsr0l	equ	0xFE9
-  1008                           wreg	equ	0xFE8
-  1009                           postinc1	equ	0xFE6
-  1010                           postdec1	equ	0xFE5
-  1011                           fsr1h	equ	0xFE2
-  1012                           fsr1l	equ	0xFE1
-  1013                           bsr	equ	0xFE0
-  1014                           indf2	equ	0xFDF
-  1015                           postinc2	equ	0xFDE
-  1016                           fsr2h	equ	0xFDA
-  1017                           fsr2l	equ	0xFD9
-  1018                           status	equ	0xFD8
-  1019                           pclatu	equ	0xFFB
-  1020                           pclath	equ	0xFFA
-  1021                           tblptru	equ	0xFF8
-  1022                           tblptrh	equ	0xFF7
-  1023                           tblptrl	equ	0xFF6
-  1024                           tablat	equ	0xFF5
-  1025                           prodh	equ	0xFF4
-  1026                           prodl	equ	0xFF3
-  1027                           intcon	equ	0xFF2
-  1028                           postinc0	equ	0xFEE
-  1029                           fsr0h	equ	0xFEA
-  1030                           fsr0l	equ	0xFE9
-  1031                           wreg	equ	0xFE8
-  1032                           postinc1	equ	0xFE6
-  1033                           postdec1	equ	0xFE5
-  1034                           fsr1h	equ	0xFE2
-  1035                           fsr1l	equ	0xFE1
-  1036                           bsr	equ	0xFE0
-  1037                           indf2	equ	0xFDF
-  1038                           postinc2	equ	0xFDE
-  1039                           fsr2h	equ	0xFDA
-  1040                           fsr2l	equ	0xFD9
-  1041                           status	equ	0xFD8
-  1042                           
-  1043                           	psect	rparam
-  1044  0000                     pclatu	equ	0xFFB
-  1045                           pclath	equ	0xFFA
-  1046                           tblptru	equ	0xFF8
-  1047                           tblptrh	equ	0xFF7
-  1048                           tblptrl	equ	0xFF6
-  1049                           tablat	equ	0xFF5
-  1050                           prodh	equ	0xFF4
-  1051                           prodl	equ	0xFF3
-  1052                           intcon	equ	0xFF2
-  1053                           postinc0	equ	0xFEE
-  1054                           fsr0h	equ	0xFEA
-  1055                           fsr0l	equ	0xFE9
-  1056                           wreg	equ	0xFE8
-  1057                           postinc1	equ	0xFE6
-  1058                           postdec1	equ	0xFE5
-  1059                           fsr1h	equ	0xFE2
-  1060                           fsr1l	equ	0xFE1
-  1061                           bsr	equ	0xFE0
-  1062                           indf2	equ	0xFDF
-  1063                           postinc2	equ	0xFDE
-  1064                           fsr2h	equ	0xFDA
-  1065                           fsr2l	equ	0xFD9
-  1066                           status	equ	0xFD8
+   972                           ; BSR set to: 1
+   973                           ;main.c: 104: compteur ++;
+   974  000094  4A17               	infsnz	_compteur,f,c
+   975  000096  2A18               	incf	_compteur+1,f,c
+   976  000098                     i1l816:
+   977                           
+   978                           ;main.c: 105: }
+   979                           ;main.c: 106: }
+   980                           ;main.c: 107: RC2IF = 0;
+   981  000098  9AA4               	bcf	4004,5,c	;volatile
+   982  00009A  C011  FFF5         	movff	??_high_isr+16,tablat
+   983  00009E  C010  FFF8         	movff	??_high_isr+15,tblptru
+   984  0000A2  C00F  FFF7         	movff	??_high_isr+14,tblptrh
+   985  0000A6  C00E  FFF6         	movff	??_high_isr+13,tblptrl
+   986  0000AA  C00D  FFF4         	movff	??_high_isr+12,prodh
+   987  0000AE  C00C  FFF3         	movff	??_high_isr+11,prodl
+   988  0000B2  C00B  FFDA         	movff	??_high_isr+10,fsr2h
+   989  0000B6  C00A  FFD9         	movff	??_high_isr+9,fsr2l
+   990  0000BA  C009  FFE2         	movff	??_high_isr+8,fsr1h
+   991  0000BE  C008  FFE1         	movff	??_high_isr+7,fsr1l
+   992  0000C2  C007  FFEA         	movff	??_high_isr+6,fsr0h
+   993  0000C6  C006  FFE9         	movff	??_high_isr+5,fsr0l
+   994  0000CA  C005  FFFB         	movff	??_high_isr+4,pclatu
+   995  0000CE  C004  FFFA         	movff	??_high_isr+3,pclath
+   996  0000D2  C003  FFE0         	movff	??_high_isr+2,bsr
+   997  0000D6  C002  FFE8         	movff	??_high_isr+1,wreg
+   998  0000DA  C001  FFD8         	movff	??_high_isr,status
+   999  0000DE  0010               	retfie	
+  1000  0000E0                     __end_of_high_isr:
+  1001                           	opt stack 0
+  1002  0000                     pclatu	equ	0xFFB
+  1003                           pclath	equ	0xFFA
+  1004                           tblptru	equ	0xFF8
+  1005                           tblptrh	equ	0xFF7
+  1006                           tblptrl	equ	0xFF6
+  1007                           tablat	equ	0xFF5
+  1008                           prodh	equ	0xFF4
+  1009                           prodl	equ	0xFF3
+  1010                           intcon	equ	0xFF2
+  1011                           postinc0	equ	0xFEE
+  1012                           fsr0h	equ	0xFEA
+  1013                           fsr0l	equ	0xFE9
+  1014                           wreg	equ	0xFE8
+  1015                           postinc1	equ	0xFE6
+  1016                           postdec1	equ	0xFE5
+  1017                           fsr1h	equ	0xFE2
+  1018                           fsr1l	equ	0xFE1
+  1019                           bsr	equ	0xFE0
+  1020                           indf2	equ	0xFDF
+  1021                           postinc2	equ	0xFDE
+  1022                           fsr2h	equ	0xFDA
+  1023                           fsr2l	equ	0xFD9
+  1024                           status	equ	0xFD8
+  1025                           pclatu	equ	0xFFB
+  1026                           pclath	equ	0xFFA
+  1027                           tblptru	equ	0xFF8
+  1028                           tblptrh	equ	0xFF7
+  1029                           tblptrl	equ	0xFF6
+  1030                           tablat	equ	0xFF5
+  1031                           prodh	equ	0xFF4
+  1032                           prodl	equ	0xFF3
+  1033                           intcon	equ	0xFF2
+  1034                           postinc0	equ	0xFEE
+  1035                           fsr0h	equ	0xFEA
+  1036                           fsr0l	equ	0xFE9
+  1037                           wreg	equ	0xFE8
+  1038                           postinc1	equ	0xFE6
+  1039                           postdec1	equ	0xFE5
+  1040                           fsr1h	equ	0xFE2
+  1041                           fsr1l	equ	0xFE1
+  1042                           bsr	equ	0xFE0
+  1043                           indf2	equ	0xFDF
+  1044                           postinc2	equ	0xFDE
+  1045                           fsr2h	equ	0xFDA
+  1046                           fsr2l	equ	0xFD9
+  1047                           status	equ	0xFD8
+  1048                           
+  1049                           	psect	rparam
+  1050  0000                     pclatu	equ	0xFFB
+  1051                           pclath	equ	0xFFA
+  1052                           tblptru	equ	0xFF8
+  1053                           tblptrh	equ	0xFF7
+  1054                           tblptrl	equ	0xFF6
+  1055                           tablat	equ	0xFF5
+  1056                           prodh	equ	0xFF4
+  1057                           prodl	equ	0xFF3
+  1058                           intcon	equ	0xFF2
+  1059                           postinc0	equ	0xFEE
+  1060                           fsr0h	equ	0xFEA
+  1061                           fsr0l	equ	0xFE9
+  1062                           wreg	equ	0xFE8
+  1063                           postinc1	equ	0xFE6
+  1064                           postdec1	equ	0xFE5
+  1065                           fsr1h	equ	0xFE2
+  1066                           fsr1l	equ	0xFE1
+  1067                           bsr	equ	0xFE0
+  1068                           indf2	equ	0xFDF
+  1069                           postinc2	equ	0xFDE
+  1070                           fsr2h	equ	0xFDA
+  1071                           fsr2l	equ	0xFD9
+  1072                           status	equ	0xFD8
 
 
 Data Sizes:
@@ -1114,8 +1120,8 @@ Auto Spaces:
     Space          Size  Autos    Used
     COMRAM           95     22      25
     BANK0           160     83      83
-    BANK1           256      0     160
-    BANK2           256      0     128
+    BANK1           256      0     208
+    BANK2           256      0      80
     BANK3           256      0       0
     BANK4           256      0       0
     BANK5           256      0       0
@@ -1332,9 +1338,9 @@ BANK4              100      0       0      14        0.0%
 BITBANK3           100      0       0      11        0.0%
 BANK3              100      0       0      12        0.0%
 BITBANK2           100      0       0       9        0.0%
-BANK2              100      0      80      10       50.0%
+BANK2              100      0      50      10       31.2%
 BITBANK1           100      0       0       7        0.0%
-BANK1              100      0      A0       8       62.5%
+BANK1              100      0      D0       8       81.2%
 BITBANK0            A0      0       0       4        0.0%
 BANK0               A0     53      53       5       51.9%
 BITCOMRAM           5F      0       0       0        0.0%
@@ -1355,61 +1361,61 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.33 build 59893 
-Symbol Table                                                                                   Sat Oct 25 15:49:15 2014
+Symbol Table                                                                                   Sun Oct 26 18:19:55 2014
 
                __CFG_CP0$ON 000000                 __CFG_CP1$ON 000000                 __CFG_CP2$ON 000000  
-               __CFG_CP3$ON 000000                          l43 0144                          l79 029E  
+               __CFG_CP3$ON 000000                          l43 0142                          l79 029C  
                __CFG_CPB$ON 000000                 __CFG_CPD$ON 000000                          bsr 000FE0  
-               __CFG_BORV$3 000000                         l820 010E                         l794 02B2  
+               __CFG_BORV$3 000000                         l828 010C                         l798 02B0  
                        _GIE 007F97                         _RA0 007C00                         _RA2 007C02  
-                       _RA3 007C03                         u130 0156                         u211 00F6  
-                       u140 0162                         u150 0174                         u160 0188  
-                       u136 0158                         u146 0164                         u156 0176  
-                       u166 018A                         _msg 0100                         wreg 000FE8  
+                       _RA3 007C03                         u130 0154                         u211 00F4  
+                       u140 0160                         u150 0172                         u160 0186  
+                       u136 0156                         u146 0162                         u156 0174  
+                       u166 0188                         _msg 0200                         wreg 000FE8  
                 _TXSTA2bits 000FBA                 main@address 00B0                        _ADON 007E10  
                       _PEIE 007F96                __CFG_WRT0$ON 000000                __CFG_WRT1$ON 000000  
               __CFG_WRT2$ON 000000                __CFG_WRT3$ON 000000               __CFG_EBTR0$ON 000000  
              __CFG_EBTR1$ON 000000               __CFG_EBTR2$ON 000000               __CFG_EBTR3$ON 000000  
               __CFG_WRTB$ON 000000                __CFG_WRTC$ON 000000                __CFG_WRTD$ON 000000  
-             __CFG_EBTRB$ON 000000                        _main 00E6                        fsr0h 000FEA  
+             __CFG_EBTRB$ON 000000                        _main 00E4                        fsr0h 000FEA  
                       fsr1h 000FE2                        fsr0l 000FE9                        fsr2h 000FDA  
                       fsr1l 000FE1                        indf2 000FDF                        fsr2l 000FD9  
                       pclat 000FFA                        prodh 000FF4                        prodl 000FF3  
-                      start 00E2               __CFG_IESO$OFF 000000                ?_readAddress 0001  
+                      start 00E0               __CFG_IESO$OFF 000000                ?_readAddress 0001  
              __CFG_RETEN$ON 000000                _BAUDCON2bits 000FB9                       ?_main 0001  
-                     _RC2IF 007D25                       i1l806 0092                       i1l808 009A  
-                     _SPBRG 000FAF                       _PORTA 000F80                       _PORTB 000F81  
-                     _PORTC 000F82                       _TRISA 000F92                       _TRISB 000F93  
-                     _TRISC 000F94              __CFG_FCMEN$OFF 000000                       main@i 00B1  
-                     tablat 000FF5           _writeStringToUART 029C                       status 000FD8  
-        ?_writeStringToUART 0012              __CFG_MCLRE$OFF 000000             __initialization 01F0  
-              __end_of_main 014E         ??_writeStringToUART 0014                      ??_main 0017  
-             __activetblptr 000000   __end_of_writeStringToUART 02C2             __CFG_BBSIZ$BB2K 000000  
-            __CFG_WDTEN$OFF 000000                      _INTCON 000FF2                      _RCREG2 000F7A  
-                    _OSCCON 000FD3                      _SPBRG2 000F7B                      _TXREG2 000F79  
-            __CFG_PWRTEN$ON 000000              __CFG_XINST$OFF 000000            __end_of_high_isr 00E2  
-            __CFG_STVREN$ON 000000                      clear_0 01F6                      clear_1 0202  
-                    _tampon 0019                      tblptrh 000FF7                      tblptrl 000FF6  
-                    tblptru 000FF8                  __accesstop 0060     __end_of__initialization 022E  
-            __pcstackCOMRAM 0001                __pidataBANK1 01A0        __size_of_readAddress 0052  
-__size_of_writeStringToUART 0026                  __pbssBANK1 0100                  __pbssBANK2 0200  
-           __CFG_PLLCFG$OFF 000000          __size_of_initComms 0040          __size_of_initPorts 0028  
-          __CFG_CANMX$PORTB 000000                     _SPBRGH2 000F7C                   ?_high_isr 0001  
-                   __Hparam 0000                     __Lparam 0000                     __pcinit 01F0  
-                   __ramtop 0F00                     __ptext0 00E6                     __ptext1 029C  
-                   __ptext2 014E                     __ptext3 0274                     __ptext4 0234  
-         __end_of_initComms 0274           __end_of_initPorts 029C           __CFG_MSSPMSK$MSK7 000000  
-      writeStringToUART@msg 0012                  ??_high_isr 0001        end_of_initialization 022E  
-                   postdec1 000FE5                     postinc0 000FEE                     postinc1 000FE6  
-                   postinc2 000FDE                  main@F19153 0150            __CFG_FOSC$INTIO2 000000  
-       start_initialization 01F0               ??_readAddress 0012                 __pdataBANK1 0150  
-               __pbssCOMRAM 0017               __pcstackBANK0 0060           __size_of_high_isr 00CA  
-               __pintcodelo 0018         __end_of_readAddress 01A0                   _initComms 0234  
-                 _initPorts 0274                    _PIE3bits 000FA3                    _PIR3bits 000FA4  
-                  _RCONbits 000FD0            __CFG_SOSCSEL$DIG 000000                   _stock_led 0200  
-                ?_initComms 0001                  ?_initPorts 0001                   copy_data0 0222  
-                  __Hrparam 0000                 _readAddress 014E                    __Lrparam 0000  
-        __CFG_BOREN$SBORDIS 000000                    _high_isr 0018                    _compteur 0017  
-             __size_of_main 0068                    main@msg1 0060         __CFG_INTOSCSEL$HIGH 000000  
-               ??_initComms 0012                 ??_initPorts 0012                    intlevel1 0000  
-                _RCSTA2bits 000FA6          __CFG_WDTPS$1048576 000000         __CFG_BORPWR$ZPBORMV 000000  
+                     _RC2IF 007D25                       i1l816 0098                       _SPBRG 000FAF  
+                     _PORTA 000F80                       _PORTB 000F81                       _PORTC 000F82  
+                     _TRISA 000F92                       _TRISB 000F93                       _TRISC 000F94  
+            __CFG_FCMEN$OFF 000000                       main@i 00B1                       tablat 000FF5  
+         _writeStringToUART 029A                       status 000FD8          ?_writeStringToUART 0012  
+            __CFG_MCLRE$OFF 000000             __initialization 01EE                __end_of_main 014C  
+       ??_writeStringToUART 0014                      ??_main 0017               __activetblptr 000000  
+ __end_of_writeStringToUART 02C0             __CFG_BBSIZ$BB2K 000000              __CFG_WDTEN$OFF 000000  
+                    _INTCON 000FF2                      _RCREG2 000F7A                      _OSCCON 000FD3  
+                    _SPBRG2 000F7B                      _TXREG2 000F79              __CFG_PWRTEN$ON 000000  
+            __CFG_XINST$OFF 000000            __end_of_high_isr 00E0              __CFG_STVREN$ON 000000  
+                    clear_0 01F4                      clear_1 0200                      _tampon 0019  
+                    tblptrh 000FF7                      tblptrl 000FF6                      tblptru 000FF8  
+                __accesstop 0060     __end_of__initialization 022C              __pcstackCOMRAM 0001  
+              __pidataBANK1 019E        __size_of_readAddress 0052  __size_of_writeStringToUART 0026  
+                __pbssBANK1 0100                  __pbssBANK2 0200             __CFG_PLLCFG$OFF 000000  
+        __size_of_initComms 0040          __size_of_initPorts 0028            __CFG_CANMX$PORTB 000000  
+                   _SPBRGH2 000F7C                   ?_high_isr 0001                     __Hparam 0000  
+                   __Lparam 0000                     __pcinit 01EE                     __ramtop 0F00  
+                   __ptext0 00E4                     __ptext1 029A                     __ptext2 014C  
+                   __ptext3 0272                     __ptext4 0232           __end_of_initComms 0272  
+         __end_of_initPorts 029A           __CFG_MSSPMSK$MSK7 000000        writeStringToUART@msg 0012  
+                ??_high_isr 0001        end_of_initialization 022C                     postdec1 000FE5  
+                   postinc0 000FEE                     postinc1 000FE6                     postinc2 000FDE  
+                main@F19153 0180            __CFG_FOSC$INTIO2 000000         start_initialization 01EE  
+             ??_readAddress 0012                 __pdataBANK1 0180                 __pbssCOMRAM 0017  
+             __pcstackBANK0 0060           __size_of_high_isr 00C8                 __pintcodelo 0018  
+       __end_of_readAddress 019E                   _initComms 0232                   _initPorts 0272  
+                  _PIE3bits 000FA3                    _PIR3bits 000FA4                    _RCONbits 000FD0  
+          __CFG_SOSCSEL$DIG 000000                   _stock_led 0100                  ?_initComms 0001  
+                ?_initPorts 0001                   copy_data0 0220                    __Hrparam 0000  
+               _readAddress 014C                    __Lrparam 0000          __CFG_BOREN$SBORDIS 000000  
+                  _high_isr 0018                    _compteur 0017               __size_of_main 0068  
+                  main@msg1 0060         __CFG_INTOSCSEL$HIGH 000000                 ??_initComms 0012  
+               ??_initPorts 0012                    intlevel1 0000                  _RCSTA2bits 000FA6  
+        __CFG_WDTPS$1048576 000000         __CFG_BORPWR$ZPBORMV 000000  

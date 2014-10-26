@@ -79,7 +79,7 @@
 
 char tampon = 0;
 char stock_led[128] = 0;
-int compteur;
+int compteur = 0 ;
 
 
 
@@ -93,25 +93,15 @@ void interrupt low_priority high_isr(void) {
        stock_led[compteur] = tampon;
        compteur ++;
         }
-
       else {
         compteur = 0;
+        stock_led[compteur] = tampon;
+        compteur ++;
       }
 
-    /*    if (test == 'r') {
-            PORTA = 0b10000000;
-        } else if (test == 'b') {
-            PORTA = 0b01000000;
-        } else if (test == 't') {
-            PORTA = 0b00100000;
-        } else if (test == 'v') {
-            PORTA = 0b11100000;
-        } else {
-            PORTA = 0b00000000;
-        }*/
 
   }
-RC2IF = 0; // On met le flag à 0
+RC2IF = 0; // On met le flag a 0
 }
 
 void main(void) {

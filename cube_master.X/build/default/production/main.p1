@@ -17537,37 +17537,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [; ;main.c: 95: }
 [e $U 2642  ]
-"97
+"96
 [e :U 2641 ]
-[; ;main.c: 97: else {
+[; ;main.c: 96: else {
 {
-[; ;main.c: 98: compteur = 0;
-"98
+[; ;main.c: 97: compteur = 0;
+"97
 [e = _compteur -> 0 `i ]
+[; ;main.c: 98: stock_led[compteur] = tampon;
+"98
+[e = *U + &U _stock_led * -> -> _compteur `ui `ux -> -> # *U &U _stock_led `ui `ux _tampon ]
+[; ;main.c: 99: compteur ++;
 "99
+[e ++ _compteur -> 1 `i ]
+"100
 }
 [e :U 2642 ]
-"113
+"103
 }
 [e :U 2640 ]
-[; ;main.c: 99: }
-[; ;main.c: 113: }
-[; ;main.c: 114: RC2IF = 0;
-"114
+[; ;main.c: 100: }
+[; ;main.c: 103: }
+[; ;main.c: 104: RC2IF = 0;
+"104
 [e = _RC2IF -> -> 0 `i `b ]
-[; ;main.c: 115: }
-"115
+[; ;main.c: 105: }
+"105
 [e :UE 2639 ]
 }
-"117
+"107
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 117: void main(void) {
+[; ;main.c: 107: void main(void) {
 [e :U _main ]
 [f ]
-"118
+"108
 [v _address `uc ~T0 @X0 1 a ]
-[; ;main.c: 118: unsigned char address = 0;
+[; ;main.c: 108: unsigned char address = 0;
 [e = _address -> -> 0 `i `uc ]
 [v F19153 `uc ~T0 @X0 -> 80 `i s ]
 [i F19153
@@ -17592,28 +17598,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"119
+"109
 [v _msg1 `uc ~T0 @X0 -> 80 `i a ]
-[; ;main.c: 119: char msg1[80] = "Slave 1 Ready \n \r";
+[; ;main.c: 109: char msg1[80] = "Slave 1 Ready \n \r";
 [e = _msg1 F19153 ]
-"121
+"111
 [v _msg2 `uc ~T0 @X0 -> 80 `i a ]
-[; ;main.c: 121: char msg2[80];
-[; ;main.c: 126: initPorts();
-"126
+[; ;main.c: 111: char msg2[80];
+[; ;main.c: 116: initPorts();
+"116
 [e ( _initPorts ..  ]
-[; ;main.c: 127: initComms();
-"127
+[; ;main.c: 117: initComms();
+"117
 [e ( _initComms ..  ]
-[; ;main.c: 134: address = readAddress();
-"134
+[; ;main.c: 124: address = readAddress();
+"124
 [e = _address ( _readAddress ..  ]
-[; ;main.c: 137: while (1) {
-"137
+[; ;main.c: 127: while (1) {
+"127
 [e :U 2645 ]
 {
-[; ;main.c: 138: for (int i = 0; i < 10000; i++) {
-"138
+[; ;main.c: 128: for (int i = 0; i < 10000; i++) {
+"128
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -17621,40 +17627,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 2648  ]
 [e :U 2647 ]
 {
-"139
+"129
 }
-"138
+"128
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 10000 `i 2647  ]
 [e :U 2648 ]
-"139
+"129
 }
-[; ;main.c: 139: }
-[; ;main.c: 141: writeStringToUART(msg1);
-"141
+[; ;main.c: 129: }
+[; ;main.c: 131: writeStringToUART(msg1);
+"131
 [e ( _writeStringToUART (1 -> &U _msg1 `*Cuc ]
-"143
+"133
 }
 [e :U 2644 ]
-"137
+"127
 [e $U 2645  ]
 [e :U 2646 ]
-[; ;main.c: 143: }
-[; ;main.c: 144: }
-"144
+[; ;main.c: 133: }
+[; ;main.c: 134: }
+"134
 [e :UE 2643 ]
 }
-"146
+"136
 [v _readAddress `(uc ~T0 @X0 1 ef ]
 {
-[; ;main.c: 146: unsigned char readAddress() {
+[; ;main.c: 136: unsigned char readAddress() {
 [e :U _readAddress ]
 [f ]
-[; ;main.c: 147: return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
-"147
+[; ;main.c: 137: return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
+"137
 [e ) -> | | | << -> ! _RA3 `i -> 3 `i << -> ! _RA2 `i -> 2 `i << -> ! _RA2 `i -> 1 `i -> ! _RA0 `i `uc ]
 [e $UE 2650  ]
-[; ;main.c: 148: }
-"148
+[; ;main.c: 138: }
+"138
 [e :UE 2650 ]
 }

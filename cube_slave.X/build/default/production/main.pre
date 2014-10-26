@@ -21994,6 +21994,8 @@ compteur ++;
 
 else {
 compteur = 0;
+stock_led[compteur] = tampon;
+compteur ++;
 }
 }
 RC2IF = 0;
@@ -22011,21 +22013,19 @@ char msg2[80];
 initPorts();
 initComms();
 
-# 125
+# 127
 address = readAddress();
 
-# 131
+# 133
 while (1) {
-
-
 
 
 writeStringToUART(msg1);
 
 for (int i = 0; i < 100; i++) {}
 
-PORTA = stock_led[1];
-PORTC = stock_led[1+1];
+PORTA = stock_led[0];
+PORTC = stock_led[0+1];
 }
 }
 

@@ -17543,30 +17543,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 102: compteur = 0;
 "102
 [e = _compteur -> 0 `i ]
+[; ;main.c: 103: stock_led[compteur] = tampon;
 "103
+[e = *U + &U _stock_led * -> -> _compteur `ui `ux -> -> # *U &U _stock_led `ui `ux _tampon ]
+[; ;main.c: 104: compteur ++;
+"104
+[e ++ _compteur -> 1 `i ]
+"105
 }
 [e :U 2642 ]
-"104
+"106
 }
 [e :U 2640 ]
-[; ;main.c: 103: }
-[; ;main.c: 104: }
-[; ;main.c: 105: RC2IF = 0;
-"105
-[e = _RC2IF -> -> 0 `i `b ]
+[; ;main.c: 105: }
 [; ;main.c: 106: }
-"106
+[; ;main.c: 107: RC2IF = 0;
+"107
+[e = _RC2IF -> -> 0 `i `b ]
+[; ;main.c: 108: }
+"108
 [e :UE 2639 ]
 }
-"108
+"110
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 108: void main(void) {
+[; ;main.c: 110: void main(void) {
 [e :U _main ]
 [f ]
-"109
+"111
 [v _address `uc ~T0 @X0 1 a ]
-[; ;main.c: 109: unsigned char address = 0;
+[; ;main.c: 111: unsigned char address = 0;
 [e = _address -> -> 0 `i `uc ]
 [v F19153 `uc ~T0 @X0 -> 80 `i s ]
 [i F19153
@@ -17591,24 +17597,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"110
-[v _msg1 `uc ~T0 @X0 -> 80 `i a ]
-[; ;main.c: 110: char msg1[80] = "Slave 1 Ready \n \r";
-[e = _msg1 F19153 ]
 "112
+[v _msg1 `uc ~T0 @X0 -> 80 `i a ]
+[; ;main.c: 112: char msg1[80] = "Slave 1 Ready \n \r";
+[e = _msg1 F19153 ]
+"114
 [v _msg2 `uc ~T0 @X0 -> 80 `i a ]
-[; ;main.c: 112: char msg2[80];
-[; ;main.c: 117: initPorts();
-"117
+[; ;main.c: 114: char msg2[80];
+[; ;main.c: 119: initPorts();
+"119
 [e ( _initPorts ..  ]
-[; ;main.c: 118: initComms();
-"118
+[; ;main.c: 120: initComms();
+"120
 [e ( _initComms ..  ]
-[; ;main.c: 125: address = readAddress();
-"125
+[; ;main.c: 127: address = readAddress();
+"127
 [e = _address ( _readAddress ..  ]
-[; ;main.c: 131: while (1) {
-"131
+[; ;main.c: 133: while (1) {
+"133
 [e :U 2645 ]
 {
 [; ;main.c: 136: writeStringToUART(msg1);
@@ -17628,16 +17634,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ < _i -> 100 `i 2647  ]
 [e :U 2648 ]
 }
-[; ;main.c: 140: PORTA = stock_led[1];
+[; ;main.c: 140: PORTA = stock_led[0];
 "140
-[e = _PORTA *U + &U _stock_led * -> -> -> 1 `i `ui `ux -> -> # *U &U _stock_led `ui `ux ]
-[; ;main.c: 141: PORTC = stock_led[1+1];
+[e = _PORTA *U + &U _stock_led * -> -> -> 0 `i `ui `ux -> -> # *U &U _stock_led `ui `ux ]
+[; ;main.c: 141: PORTC = stock_led[0+1];
 "141
-[e = _PORTC *U + &U _stock_led * -> -> + -> 1 `i -> 1 `i `ui `ux -> -> # *U &U _stock_led `ui `ux ]
+[e = _PORTC *U + &U _stock_led * -> -> + -> 0 `i -> 1 `i `ui `ux -> -> # *U &U _stock_led `ui `ux ]
 "142
 }
 [e :U 2644 ]
-"131
+"133
 [e $U 2645  ]
 [e :U 2646 ]
 [; ;main.c: 142: }

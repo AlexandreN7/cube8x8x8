@@ -21990,12 +21990,13 @@ if (compteur < 128)
 stock_led[compteur] = tampon;
 compteur ++;
 }
-
 else {
 compteur = 0;
+stock_led[compteur] = tampon;
+compteur ++;
 }
 
-# 113
+
 }
 RC2IF = 0;
 }
@@ -22012,7 +22013,7 @@ char msg2[80];
 initPorts();
 initComms();
 
-# 134
+# 124
 address = readAddress();
 
 

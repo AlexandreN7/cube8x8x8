@@ -77,7 +77,7 @@
 // CONFIG7H
 #pragma config EBTRB = OFF      // Table Read Protect Boot (Disabled)
 
-#define esclave 1
+#define esclave 0
 
 
 
@@ -91,7 +91,7 @@ int compteur;
 void interrupt low_priority high_isr(void) {
    if (RC2IF /*&& PIE3bits.TX2IE*/) {
        tampon = RCREG2;
-       //PORTA =tampon;
+
       if (compteur < 128)
         {
        stock_led[compteur] = tampon;
@@ -100,6 +100,8 @@ void interrupt low_priority high_isr(void) {
 
       else {
         compteur = 0;
+        stock_led[compteur] = tampon;
+        compteur ++;
       }
   }
 RC2IF = 0; // On met le flag à 0
@@ -130,12 +132,10 @@ void main(void) {
 
     while (1) {
 
-       
-        
-      //  msg1[0] = test;
+  
         writeStringToUART(msg1);
-        //   writeStringToUART ('test');
-         for (int i = 0; i < 100; i++) {}
+
+        for (int i = 0; i < 100; i++) {}
 
         PORTA = stock_led[esclave];
         PORTC = stock_led[esclave+1];
