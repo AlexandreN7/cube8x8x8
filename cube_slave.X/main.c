@@ -83,28 +83,19 @@
 
 char tampon = 0;
 char stock_led[128] = 0;
-int compteur;
-
-
-
+int compteur = 0;
 
 void interrupt low_priority high_isr(void) {
-   if (RC2IF /*&& PIE3bits.TX2IE*/) {
-       tampon = RCREG2;
+    if (RC2IF /*&& PIE3bits.TX2IE*/) {
+        tampon = RCREG2;
 
-      if (compteur < 128)
-        {
-       stock_led[compteur] = tampon;
-       compteur ++;
+        if (compteur == 128) {
+            compteur = 0;
         }
-
-      else {
-        compteur = 0;
         stock_led[compteur] = tampon;
-        compteur ++;
-      }
-  }
-RC2IF = 0; // On met le flag à 0
+        compteur++;
+    }
+    RC2IF = 0; // On met le flag à 0
 }
 
 void main(void) {
@@ -132,13 +123,14 @@ void main(void) {
 
     while (1) {
 
-  
+
         writeStringToUART(msg1);
 
-        for (int i = 0; i < 100; i++) {}
+        for (int i = 0; i < 100; i++) {
+        }
 
         PORTA = stock_led[esclave];
-        PORTC = stock_led[esclave+1];
+        PORTC = stock_led[esclave + 1];
     }
 }
 

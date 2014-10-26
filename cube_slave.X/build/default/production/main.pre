@@ -21977,26 +21977,17 @@ unsigned char readAddress();
 # 84
 char tampon = 0;
 char stock_led[128] = 0;
-int compteur;
-
-
-
+int compteur = 0;
 
 void interrupt low_priority high_isr(void) {
 if (RC2IF ) {
 tampon = RCREG2;
 
-if (compteur < 128)
-{
-stock_led[compteur] = tampon;
-compteur ++;
-}
-
-else {
+if (compteur == 128) {
 compteur = 0;
-stock_led[compteur] = tampon;
-compteur ++;
 }
+stock_led[compteur] = tampon;
+compteur++;
 }
 RC2IF = 0;
 }
@@ -22013,19 +22004,20 @@ char msg2[80];
 initPorts();
 initComms();
 
-# 127
+# 118
 address = readAddress();
 
-# 133
+# 124
 while (1) {
 
 
 writeStringToUART(msg1);
 
-for (int i = 0; i < 100; i++) {}
+for (int i = 0; i < 100; i++) {
+}
 
 PORTA = stock_led[0];
-PORTC = stock_led[0+1];
+PORTC = stock_led[0 + 1];
 }
 }
 
