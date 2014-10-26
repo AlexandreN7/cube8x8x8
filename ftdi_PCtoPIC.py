@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import sys, math, time
+import sys, math
+from time import sleep
 from pylibftdi import Device
 
 
@@ -10,26 +11,59 @@ def main ():
 	
 		boucle=0
 
-		while boucle<7 :
+		while boucle<256 :
 
 			i=0
 
-			while i<64 :
+			while i<128 :
 				dev.write(chr(0x00)) 
-				dev.write(chr(0xFF)) 					
+				dev.write(chr(boucle)) 					
 				i=i+1
 
-			time.sleep(1.0) 
+			sleep(0.001)
 
 			i=0
 
-			while i<64 :
-		 		dev.write(chr(0xFF))
+			while i<256 :
 		 		dev.write(chr(0x00))
 		 		i=i+1
 
-			time.sleep(1.0) 
-			
+			sleep(0.001)			 
+
+			i=0
+
+			while i<128 :
+		 		dev.write(chr(boucle))
+		 		dev.write(chr(0x00))
+		 		i=i+1
+
+			sleep(0.001)
+
+			i=0
+
+			while i<256 :
+		 		dev.write(chr(0x00))
+		 		i=i+1
+
+			sleep(0.001)			
+
+			i=0
+
+			while i<256 :
+		 		dev.write(chr(boucle))
+
+		 		i=i+1
+
+			sleep(0.001)
+
+			i=0
+
+			while i<256 :
+		 		dev.write(chr(0x00))
+		 		i=i+1
+
+			sleep(0.001)						 
+
 			boucle=boucle+1
 
 #start main
