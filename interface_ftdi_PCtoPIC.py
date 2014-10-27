@@ -32,45 +32,39 @@ class Interface(Frame):
         self.bouton_quitter.pack(side="right")
 
     def choix(self):
-        def main ():
-            with Device (mode = 't') as dev:
-                dev.baudrate = 19200
+        with Device (mode = 't') as dev:
+            dev.baudrate = 19200
 
 
-                i=0
+            i=0
 
-                if self.var_choix.get()=='rouge' :
+            if self.var_choix.get()=='rouge' :
 
-                    while i<64 :
-                        dev.write(chr(0x00))
-                        dev.write(chr(0xFF))                                
-                        i=i+1
+                while i<64 :
+                    dev.write(chr(0x00))
+                    dev.write(chr(0xFF))                                
+                    i=i+1
 
-                elif self.var_choix.get()=='bleu' :
+            elif self.var_choix.get()=='bleu' :
 
-                    while i<64 :
-                        dev.write(chr(0xFF))
-                        dev.write(chr(0x00))                                
-                        i=i+1
+                while i<64 :
+                    dev.write(chr(0xFF))
+                    dev.write(chr(0x00))                                
+                    i=i+1
 
-                elif self.var_choix.get()=='off' :
+            elif self.var_choix.get()=='off' :
 
-                    while i<128 :
-                        dev.write(chr(0x00))                                
-                        i=i+1                        
+                while i<128 :
+                    dev.write(chr(0x00))                                
+                    i=i+1                        
 
-                else :
-                    while i<128 :
-                        dev.write(chr(0x00))                            
-                        i=i+1
-
-        #start main
-        if __name__ == '__main__' :
-            main()
+            else :
+                while i<128 :
+                    dev.write(chr(0x00))                            
+                    i=i+1
 
 
 fenetre = Tk()
 interface = Interface(fenetre)
 
 interface.mainloop()
-interface.destroy()
