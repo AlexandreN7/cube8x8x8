@@ -57,18 +57,22 @@ def Clic(event):
     Canevas.create_rectangle(X, Y, X+cote-1, Y+cote-1, outline=color, fill=color)
 
 def Envoyer():
-    # afficher la matrice dans le terminal
+    # Afficher la matrice dans le terminal
     print (matrice_leds)
 
-    # formation des octets à envoyer à partir de la matrice
+    # Formation des octets à envoyer à partir de la matrice
     octet_rouge=0
     octet_bleu=0
 
     for i in range(8) :
-        octet_rouge = octet_rouge+(2*matrice_leds[0][i])^i  
+        octet_rouge = octet_rouge+matrice_leds[0][i]*(2**i) 
     for i in range(8) :
-        octet_bleu = octet_bleu+(2*matrice_leds[1][i])^i
+        octet_bleu = octet_bleu+matrice_leds[1][i]*(2**i)
 
+    print ("Octet rouge = %s" % bin(octet_rouge))
+    print ("Octet bleu = %s" % bin(octet_bleu))
+
+    # On envoie la sauce !
     with Device (mode = 't') as dev:
         dev.baudrate = 19200
 
