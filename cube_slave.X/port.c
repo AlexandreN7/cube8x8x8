@@ -18,7 +18,7 @@ void initPorts(void) {
 
     //Digital configurations
     PORTA = 0b00000000;         // Initial state of PORTA
-    TRISA = 0b00000000;         // Set PORTA pin directions: all input
+    TRISA = 0b00000000;         // Set PORTA pin directions: all output
 
     PORTB = 0b01001000;         // Initial state of PORTB (driver and receiver disabled, TX high, other outputs off)
     TRISB = 0b10010011;         // Set PORTB pin directions: RB2, RB3, RB5, RB6 output, all others input
