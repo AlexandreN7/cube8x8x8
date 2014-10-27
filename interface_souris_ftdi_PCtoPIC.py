@@ -21,7 +21,7 @@ from time import sleep
 from tkinter import *
 
 # Matrice pour envoyer les infos de l'interface graphique au ftdi
-matrice_leds = [[0] * 8 for i in range(2)]
+matrice_leds = [[False] * 8 for i in range(2)]
 
 # Taille d'un pixel
 pix_size=50
@@ -44,7 +44,7 @@ def Clic(event):
             # position verticale du carré             
             Y = pix_size*i
             
-    matrice_leds[couleur][index]=1
+    matrice_leds[couleur][index]= not matrice_leds[couleur][index]
 
     # couleur du carré en fonction de sa position
     if Y==0 :
@@ -53,8 +53,10 @@ def Clic(event):
         color = 'blue'
 
     # on dessine le carré
-    cote = pix_size
-    Canevas.create_rectangle(X, Y, X+cote-1, Y+cote-1, outline=color, fill=color)
+    if matrice_leds[couleur][index]==True :
+        Canevas.create_rectangle(X, Y, X+pix_size-1, Y+pix_size-1, outline=color, fill=color)
+    else :
+        Canevas.create_rectangle(X, Y, X+pix_size-1, Y+pix_size-1, outline='white', fill='white')        
 
 def Envoyer():
     # Afficher la matrice dans le terminal
@@ -90,7 +92,7 @@ def Effacer():
     # RAZ de la matrice
     for i in range(2) :
         for j in range(8) : 
-            matrice_leds [i][j]=0
+            matrice_leds [i][j]=False
 
 # Création de la fenêtre principale
 Mafenetre = Tk()
