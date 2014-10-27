@@ -20,10 +20,6 @@ from pylibftdi import Device
 from time import sleep
 
 # Bibliothèque pour interface graphique
-#from tkinter import *
-#from Tkinter import * pour python2.6
-
-
 try:
     # for Python2
     from Tkinter import *
