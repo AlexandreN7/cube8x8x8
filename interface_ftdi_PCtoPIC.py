@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
+# -*-coding:Latin-1 -*
+
+
 
 import sys, math
 from pylibftdi import Device
-from tkinter import *
+try:
+    # for Python2
+    from Tkinter import *
+except ImportError:
+    # for Python3
+    from tkinter import *
 from time import sleep
 
 class Interface(Frame):
