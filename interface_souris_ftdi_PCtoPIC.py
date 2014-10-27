@@ -1,6 +1,8 @@
 # script carre.py
 from tkinter import *
 
+matrice_leds = [[0] * 8 for i in range(2)]
+
 # Taille d'un pixel
 pix_size=50
 
@@ -9,11 +11,16 @@ def Clic(event):
 
     # position du pointeur de la souris
     for i in range(8) :
-    	if i*pix_size<event.x<=(i+1)*pix_size :   	
-    		X = pix_size*i
+    	if i*pix_size<event.x<=(i+1)*pix_size : 
+            index = i  	
+            X = pix_size*i
+
     for i in range(2) :    				
-    	if i*pix_size<event.y<=(i+1)*pix_size :   
-    		Y = pix_size*i
+    	if i*pix_size<event.y<=(i+1)*pix_size :
+            couleur=i
+            Y = pix_size*i
+            
+    matrice_leds[couleur][index]=1
 
     if Y==0 :
         color = 'red'
@@ -24,9 +31,18 @@ def Clic(event):
     cote = pix_size
     Canevas.create_rectangle(X, Y, X+cote, Y+cote, outline='black',fill=color)
 
+def Envoyer():
+
+    print (matrice_leds)
+
+
 def Effacer():
     """ Efface la zone graphique """
     Canevas.delete(ALL)
+    """ RAZ de la matrice """ 
+    for i in range(2) :
+        for j in range(8) : 
+            matrice_leds [i][j]=0
 
 # Création de la fenêtre principale
 Mafenetre = Tk()
@@ -41,10 +57,13 @@ Canevas = Canvas(Mafenetre, width = Largeur, height =Hauteur, bg ='white')
 Canevas.bind('<Button-1>', Clic)
 Canevas.pack(padx =5, pady =5)
 
+# Création d'un widget Button (bouton Envoyer)
+Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).pack(side=LEFT,padx = 5,pady = 5)
+
 # Création d'un widget Button (bouton Effacer)
 Button(Mafenetre, text ='Effacer', command = Effacer).pack(side=LEFT,padx = 5,pady = 5)
 
 # Création d'un widget Button (bouton Quitter)
-Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).pack(side=LEFT,padx=5,pady=5)
+Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).pack(side=RIGHT,padx=5,pady=5)
 
 Mafenetre.mainloop()
