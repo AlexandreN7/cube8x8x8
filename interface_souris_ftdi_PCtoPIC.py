@@ -6,6 +6,7 @@ pix_size=50
 
 def Clic(event):
     """ Gestion de l'événement Clic gauche sur la zone graphique """
+
     # position du pointeur de la souris
     for i in range(8) :
     	if i*pix_size<event.x<=(i+1)*pix_size :   	
@@ -13,9 +14,15 @@ def Clic(event):
     for i in range(2) :    				
     	if i*pix_size<event.y<=(i+1)*pix_size :   
     		Y = pix_size*i
+
+    if Y==0 :
+        color = 'red'
+    else :
+        color = 'blue'
+
     # on dessine un carré
     cote = pix_size
-    Canevas.create_rectangle(X, Y, X+cote, Y+cote, outline='black',fill='green')
+    Canevas.create_rectangle(X, Y, X+cote, Y+cote, outline='black',fill=color)
 
 def Effacer():
     """ Efface la zone graphique """
