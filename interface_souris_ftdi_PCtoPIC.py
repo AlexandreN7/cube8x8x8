@@ -8,10 +8,16 @@ script interface_souris_ftdi_PCtoPIC.py
   /_/    |_| \_\___/|____/ \___/ \__|
                             7robot.fr
 Cube8x8x8
-                            
+
 Created by Robin Beilvert
 """
 
+# Bibliothèques pour ftdi, calculs et gestion du temps
+import sys, math
+from pylibftdi import Device
+from time import sleep
+
+# Bibliothèque pour interface graphique
 from tkinter import *
 
 # Matrice pour envoyer les infos de l'interface graphique au ftdi
@@ -53,6 +59,25 @@ def Clic(event):
 def Envoyer():
     # afficher la matrice dans le terminal
     print (matrice_leds)
+
+    # formation des octets à envoyer à partir de la matrice
+    octet_rouge=0
+    octet_bleu=0
+
+    for i in range(8) :
+        octet_rouge = octet_rouge+(2*matrice_leds[0][i])^i  
+    for i in range(8) :
+        octet_bleu = octet_bleu+(2*matrice_leds[1][i])^i
+
+    with Device (mode = 't') as dev:
+        dev.baudrate = 19200
+
+        i=0
+        while i<64 :
+            dev.write(chr(octet_bleu))
+            dev.write(chr(octet_rouge))                                
+            i=i+1
+
 
 
 def Effacer():
