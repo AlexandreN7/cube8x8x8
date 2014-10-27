@@ -1,3 +1,5 @@
+#!/usr/bin/python2.6
+# -*-coding:Latin-1 -*
 """
 script interface_souris_ftdi_PCtoPIC.py
   ______  _____      _           _
@@ -18,7 +20,17 @@ from pylibftdi import Device
 from time import sleep
 
 # Bibliothèque pour interface graphique
-from tkinter import *
+#from tkinter import *
+#from Tkinter import * pour python2.6
+
+
+try:
+    # for Python2
+    from Tkinter import *
+except ImportError:
+    # for Python3
+    from tkinter import *
+
 
 # Matrice pour envoyer les infos de l'interface graphique au ftdi
 matrice_leds = [[False] * 8 for i in range(2)]
