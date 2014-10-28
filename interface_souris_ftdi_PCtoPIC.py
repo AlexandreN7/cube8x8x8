@@ -27,8 +27,9 @@ except ImportError:
     # for Python3
     from tkinter import *
 
-
+# Une ligne correspond à un PIC
 lignes = 8
+# Une colonne correspond à une diode pour un PIC
 colonnes = 8
 
 # Matrice pour envoyer les infos de l'interface graphique au ftdi
@@ -37,7 +38,7 @@ for i in range(lignes):
     matrice_leds.append([0] * colonnes)
 
 
-# Taille d'un pixel
+# Taille d'un pixel du GUI
 pix_size=50
 
 
@@ -64,15 +65,14 @@ def Clic(event):
 		    		Canevas.create_rectangle(j*pix_size, i*pix_size, j*pix_size+pix_size-1,  i*pix_size+pix_size-1, outline='white', fill='white')
 
 def Envoyer():
-    # Afficher la matrice dans le terminal
-    print (matrice_leds)
-
     # Formation des octets à envoyer à partir de la matrice
     # Les 8 indices des octets correspondent aux 8 PICs
     octets_rouges=[0,0,0,0,0,0,0,0]
     octets_bleus=[0,0,0,0,0,0,0,0]
 
+    # Indice pour chaque PIC
     for i in range(8) :
+        # Indice pour chaque diode d'une ligne (= d'un PIC)
         for j in range(8) :
 
             if  matrice_leds[i][j]%4 == 1:
@@ -85,9 +85,11 @@ def Envoyer():
                 octets_rouges[i] = octets_rouges[i]+2**j
                 octets_bleus[i] = octets_bleus[i]+2**j
 
-
+    print ("On verifie les octets envoyes aux deux premiers PICs :")
     print ("Premier octet rouge = %s" % bin(octets_rouges[0]))
     print ("Premier octet bleu = %s" % bin(octets_bleus[0]))
+    print ("Second octet rouge = %s" % bin(octets_rouges[1]))
+    print ("Second octet bleu = %s" % bin(octets_bleus[1]))
 
     # On envoie la sauce !
     with Device (mode = 't') as dev:
@@ -115,21 +117,21 @@ Mafenetre = Tk()
 Mafenetre.title('Carrés')
 
 # Création d'un widget Canvas
-Largeur = 8*pix_size
-Hauteur = 8*pix_size
+Largeur = colonnes*pix_size
+Hauteur = lignes*pix_size
 Canevas = Canvas(Mafenetre, width = Largeur, height =Hauteur, bg ='white')
 # La méthode bind() permet de lier un événement avec une fonction :
 # un clic gauche sur la zone graphique provoquera l'appel de la fonction utilisateur Clic()
 Canevas.bind('<Button-1>', Clic)
-Canevas.pack(padx =5, pady =5)
+Canevas.pack(padx = 5, pady = 5)
 
 # Création d'un widget Button (bouton Envoyer)
-Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).pack(side=LEFT,padx = 5,pady = 5)
+Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).pack(side=LEFT, padx = 5, pady = 5)
 
 # Création d'un widget Button (bouton Effacer)
-Button(Mafenetre, text ='Effacer', command = Effacer).pack(side=LEFT,padx = 5,pady = 5)
+Button(Mafenetre, text ='Effacer', command = Effacer).pack(side=LEFT, padx = 5, pady = 5)
 
 # Création d'un widget Button (bouton Quitter)
-Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).pack(side=RIGHT,padx=5,pady=5)
+Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).pack(side=RIGHT, padx = 5, pady = 5)
 
 Mafenetre.mainloop()
