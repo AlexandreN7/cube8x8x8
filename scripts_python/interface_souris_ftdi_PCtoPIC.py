@@ -41,7 +41,7 @@ for i in range(lignes):
 	matrice_leds.append([0] * colonnes)
 
 
-# Taille d'un pixel du GUI
+# Taille d'un pixel du canevas principal
 pix_size=50
 
 def Change_couleur(i,j):
@@ -72,9 +72,9 @@ def Touche(event):
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
 	touche_list=['ampersand','eacute','quotedbl','apostrophe',\
-			     'a','z','e','r',\
-			     'q','s','d','f',\
-			     'w','x','c','v']     
+				 'a','z','e','r',\
+				 'q','s','d','f',\
+				 'w','x','c','v']     
 	for index in range (16):
 		if touche == touche_list[index]:
 			Change_couleur(index//4+4*(section.get()//2),index%4+4*(section.get()%2)) 
@@ -112,9 +112,9 @@ def Envoyer():
 		dev.baudrate = 19200
 
 		# 8 étages
-		for k in range(8) :
+		for k in range(etages) :
 			# 8 PICs = 8 lignes bicolores
-			for i in range (8) :
+			for i in range (lignes) :
 				dev.write(chr(octets_bleus[i]))
 				dev.write(chr(octets_rouges[i]))
 
@@ -124,16 +124,15 @@ def Init():
 	Canevas.delete(ALL)
 	global carre
 	carre = []
+	# Initialisation des carrés ligne par ligne
 	for i in range(lignes):
-		carre.append(\
-		[Canevas.create_rectangle(0*pix_size, i*pix_size, 0*pix_size+pix_size-1,  i*pix_size+pix_size-1, outline='white', fill='white')]+\
-		[Canevas.create_rectangle(1*pix_size, i*pix_size, 1*pix_size+pix_size-1,  i*pix_size+pix_size-1, outline='white', fill='white')]+\
-		[Canevas.create_rectangle(2*pix_size, i*pix_size, 2*pix_size+pix_size-1,  i*pix_size+pix_size-1, outline='white', fill='white')]+\
-		[Canevas.create_rectangle(3*pix_size, i*pix_size, 3*pix_size+pix_size-1,  i*pix_size+pix_size-1, outline='white', fill='white')]+\
-		[Canevas.create_rectangle(4*pix_size, i*pix_size, 4*pix_size+pix_size-1,  i*pix_size+pix_size-1, outline='white', fill='white')]+\
-		[Canevas.create_rectangle(5*pix_size, i*pix_size, 5*pix_size+pix_size-1,  i*pix_size+pix_size-1, outline='white', fill='white')]+\
-		[Canevas.create_rectangle(6*pix_size, i*pix_size, 6*pix_size+pix_size-1,  i*pix_size+pix_size-1, outline='white', fill='white')]+\
-		[Canevas.create_rectangle(7*pix_size, i*pix_size, 7*pix_size+pix_size-1,  i*pix_size+pix_size-1, outline='white', fill='white')])
+		# On créé une ligne
+		sommelist=[]
+		for j in range (8):
+			sommelist=sommelist+\
+			[Canevas.create_rectangle(j*pix_size, i*pix_size, j*pix_size+pix_size-1,  i*pix_size+pix_size-1, outline='white', fill='white')]
+		# On ajoute la ligne	
+		carre.append(sommelist)
 	
 	# RAZ de la matrice
 	for i in range(lignes) :
@@ -169,8 +168,10 @@ Etages.pack(padx = 5, pady = 5)
 
 Canevas.pack(padx = 5, pady = 5)
 
+# On remplit le canevas principal de carrés blancs
 Init()
 
+# Boutons de sélection de la zone concernée par les entrées au clavier
 Boutons = Canvas(Mafenetre, width = 100, height =100)
 section=IntVar()
 section.set(0)
@@ -185,13 +186,13 @@ bouton4.grid(row=1, column=1)
 
 Boutons.pack(padx = 5, pady = 5)
 
-# Création d'un widget Button (bouton Envoyer)
+# Bouton Envoyer
 Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).pack(side=LEFT, padx = 5, pady = 5)
 
-# Création d'un widget Button (bouton Effacer)
+# Bouton Effacer
 Button(Mafenetre, text ='Effacer', command = Init).pack(side=LEFT, padx = 5, pady = 5)
 
-# Création d'un widget Button (bouton Quitter)
+# Bouton Quitter
 Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).pack(side=RIGHT, padx = 5, pady = 5)
 
 Mafenetre.mainloop()
