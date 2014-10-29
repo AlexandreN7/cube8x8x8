@@ -71,13 +71,14 @@ def Clic(event):
 def Touche(event):
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
-	touche_list=['ampersand','eacute','quotedbl','apostrophe',\
-				 'a','z','e','r',\
-				 'q','s','d','f',\
-				 'w','x','c','v']     
-	for index in range (16):
+	print(touche)
+	touche_list=['ampersand','eacute','quotedbl','apostrophe','parenleft','minus','egrave','underscore',\
+				 'a','z','e','r','t','y','u','i',\
+				 'q','s','d','f','g','h','j','k',\
+				 'w','x','c','v','b','n','comma','semicolon']     
+	for index in range (32):
 		if touche == touche_list[index]:
-			Change_couleur(index//4+4*(section.get()//2),index%4+4*(section.get()%2)) 
+			Change_couleur(index//8+4*section.get(),index%8) 
 		
 
 def Envoyer():
@@ -143,6 +144,7 @@ def Init():
 Mafenetre = Tk()
 Mafenetre.title('Carrés')
 
+# La méthode bind() permet de lier un événement avec une fonction :
 # un appui sur une touche du clavier provoquera l'appel de la fonction utilisateur Touche()
 Mafenetre.bind('<Key>', Touche)
 
@@ -153,6 +155,7 @@ Boutons = Canvas(Mafenetre, width = 100, height =100)
 Hauteur = lignes*pix_size
 Largeur = colonnes*pix_size
 Canevas = Canvas(Mafenetre, width = Largeur, height =Hauteur, bg ='white')
+
 # La méthode bind() permet de lier un événement avec une fonction :
 # un clic gauche sur la zone graphique provoquera l'appel de la fonction utilisateur Clic()
 Canevas.bind('<Button-1>', Clic)
@@ -175,16 +178,12 @@ Init()
 Boutons = Canvas(Mafenetre, width = 100, height =100)
 section=IntVar()
 section.set(0)
-bouton1=Radiobutton(Boutons, text="Haut gauche", variable=section, value=0, indicatoron=0, height=3, width=15)
-bouton2=Radiobutton(Boutons, text="Haut droite", variable=section, value=1, indicatoron=0, height=3, width=15)
-bouton3=Radiobutton(Boutons, text="Bas gauche", variable=section, value=2, indicatoron=0, height=3, width=15)
-bouton4=Radiobutton(Boutons, text="Bas droite", variable=section, value=3, indicatoron=0, height=3, width=15)
+bouton1=Radiobutton(Boutons, text="En haut", variable=section, value=0, indicatoron=0, height=3, width=15)
+bouton2=Radiobutton(Boutons, text="En bas", variable=section, value=1, indicatoron=0, height=3, width=15)
 bouton1.grid(row=0, column=0)
-bouton2.grid(row=0, column=1)
-bouton3.grid(row=1, column=0)
-bouton4.grid(row=1, column=1)
+bouton2.grid(row=1, column=0)
 
-Boutons.pack(padx = 5, pady = 5)
+Boutons.pack(padx = 5, pady = 5) 
 
 # Bouton Envoyer
 Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).pack(side=LEFT, padx = 5, pady = 5)
