@@ -27,6 +27,8 @@ except ImportError:
 	# for Python3
 	from tkinter import *
 
+logs = open("logs_8x8x8.txt", "w")
+
 # Une ligne correspond à un PIC
 lignes = 8
 # Une colonne correspond à une diode pour un PIC donné
@@ -43,6 +45,16 @@ for i in range(lignes):
 
 # Taille d'un pixel du canevas principal
 pix_size=50
+
+
+#def Sauvegarde_logs() : #sauvegarde des logs
+	
+
+
+
+
+
+
 
 def Change_couleur(i,j):
 
@@ -108,9 +120,23 @@ def Envoyer():
 	print ("Second octet rouge = %s" % bin(octets_rouges[1]))
 	print ("Second octet bleu = %s" % bin(octets_bleus[1]))
 
+	#on sauvegarde les logs
+	logs.write('etage \n')
+	for k in range(8) :
+		for i in range(8) :
+
+			logs.write(chr(octets_bleus[i]))
+			logs.write(chr(octets_rouges[i]))
+	logs.write('\n')
+
+
+
 	# On envoie la sauce !
 	with Device (mode = 't') as dev:
 		dev.baudrate = 19200
+
+
+
 
 		# 8 étages
 		for k in range(etages) :
@@ -118,6 +144,9 @@ def Envoyer():
 			for i in range (lignes) :
 				dev.write(chr(octets_bleus[i]))
 				dev.write(chr(octets_rouges[i]))
+
+
+	
 
 		
 def Init():
@@ -143,6 +172,7 @@ def Init():
 # Création de la fenêtre principale
 Mafenetre = Tk()
 Mafenetre.title('Carrés')
+
 
 # La méthode bind() permet de lier un événement avec une fonction :
 # un appui sur une touche du clavier provoquera l'appel de la fonction utilisateur Touche()
@@ -195,3 +225,5 @@ Button(Mafenetre, text ='Effacer', command = Init).pack(side=LEFT, padx = 5, pad
 Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).pack(side=RIGHT, padx = 5, pady = 5)
 
 Mafenetre.mainloop()
+
+logs.close()
