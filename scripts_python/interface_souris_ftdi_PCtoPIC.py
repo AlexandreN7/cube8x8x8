@@ -42,6 +42,8 @@ matrice_leds = []
 for i in range(lignes):
 	matrice_leds.append([0] * colonnes)
 
+# Octets à envoyer à partir de la matrice
+# Les 8 indices des octets correspondent aux 8 PICs
 
 # Taille d'un pixel du canevas principal
 pix_size=50
@@ -62,6 +64,26 @@ def Change_couleur(i,j):
 		canv.itemconfigure(carre[i][j],fill='purple')
 	else :
 		canv.itemconfigure(carre[i][j],fill='white')
+
+	global octets_rouges
+	global octets_bleus
+	octets_rouges=[0,0,0,0,0,0,0,0]				
+	octets_bleus=[0,0,0,0,0,0,0,0]
+
+	# Indice pour chaque PIC
+	for i in range(lignes) :
+		# Indice pour chaque diode d'une ligne (= d'un PIC)
+		for j in range(colonnes) :
+
+			if  matrice_leds[i][j]%4 == 1:
+				octets_rouges[i] = octets_rouges[i]+2**j
+
+			elif matrice_leds[i][j]%4 == 2:                
+				octets_bleus[i] = octets_bleus[i]+2**j
+
+			elif matrice_leds[i][j]%4 == 3:
+				octets_rouges[i] = octets_rouges[i]+2**j
+				octets_bleus[i] = octets_bleus[i]+2**j
 
 
 def Clic(event):
@@ -86,35 +108,12 @@ def Touche(event):
 		
 
 def Envoyer():
-	# Formation des octets à envoyer à partir de la matrice
-	# Les 8 indices des octets correspondent aux 8 PICs
-	octets_rouges=[0,0,0,0,0,0,0,0]
-	octets_bleus=[0,0,0,0,0,0,0,0]
-
-	# Indice pour chaque PIC
-	for i in range(8) :
-		# Indice pour chaque diode d'une ligne (= d'un PIC)
-		for j in range(8) :
-
-			if  matrice_leds[i][j]%4 == 1:
-				octets_rouges[i] = octets_rouges[i]+2**j
-
-			elif matrice_leds[i][j]%4 == 2:                
-				octets_bleus[i] = octets_bleus[i]+2**j
-
-			elif matrice_leds[i][j]%4 == 3:
-				octets_rouges[i] = octets_rouges[i]+2**j
-				octets_bleus[i] = octets_bleus[i]+2**j
 
 	print ("On verifie les octets envoyes aux deux premiers PICs :")
 	print ("Premier octet rouge = %s" % bin(octets_rouges[0]))
 	print ("Premier octet bleu = %s" % bin(octets_bleus[0]))
 	print ("Second octet rouge = %s" % bin(octets_rouges[1]))
 	print ("Second octet bleu = %s" % bin(octets_bleus[1]))
-
-
-	# Sauvegarde des logs
-	logs.write('Envoi \n')
 
 	# On envoie la sauce !
 	with Device (mode = 't') as dev:
@@ -126,13 +125,6 @@ def Envoyer():
 			for i in range (lignes) :
 				dev.write(chr(octets_bleus[i]))
 				dev.write(chr(octets_rouges[i]))
-
-				logs.write("%s" %octets_bleus[i])
-				logs.write("%s" %octets_rouges[i])
-	
-	logs.write('\n')
-
-	
 
 		
 def Init():
@@ -154,6 +146,15 @@ def Init():
 	for i in range(lignes) :
 		for j in range(colonnes) : 
 			matrice_leds [i][j]=0
+
+def Save():
+	# Sauvegarde des logs
+	logs.write('Envoi \n')
+	for k in range(etages) :		
+		for i in range (lignes) :
+			logs.write("(%s,%s) " %(octets_bleus[i],octets_rouges[i]))
+		logs.write('\n')
+
 
 # Création de la fenêtre principale
 Mafenetre = Tk()
@@ -206,6 +207,9 @@ Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).pack(side=LEF
 
 # Bouton Effacer
 Button(Mafenetre, text ='Effacer', command = Init).pack(side=LEFT, padx = 5, pady = 5)
+
+# Bouton Save
+Button(Mafenetre, text ='Save', command = Save).pack(side=LEFT, padx = 5, pady = 5)
 
 # Bouton Quitter
 Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).pack(side=RIGHT, padx = 5, pady = 5)
