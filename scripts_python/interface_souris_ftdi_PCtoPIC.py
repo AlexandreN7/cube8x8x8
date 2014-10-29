@@ -29,8 +29,11 @@ except ImportError:
 
 # Une ligne correspond à un PIC
 lignes = 8
-# Une colonne correspond à une diode pour un PIC
+# Une colonne correspond à une diode pour un PIC donné
 colonnes = 8
+# 8 étages
+etages = 8
+
 
 # Matrice pour envoyer les infos de l'interface graphique au ftdi
 matrice_leds = []
@@ -42,17 +45,19 @@ for i in range(lignes):
 pix_size=50
 
 def Change_couleur(i,j):
+
+	canv=Canevas
 	# Incrémentation de la matrice				
 	matrice_leds[i][j] = matrice_leds[i][j]+1 
 	# Changement de couleur du carré  	
 	if  matrice_leds[i][j]%4 == 1 :
-		Canevas.itemconfigure(carre[i][j],fill='red')
+		canv.itemconfigure(carre[i][j],fill='red')
 	elif matrice_leds[i][j]%4 == 2 :
-		Canevas.itemconfigure(carre[i][j],fill='blue')
+		canv.itemconfigure(carre[i][j],fill='blue')
 	elif matrice_leds[i][j]%4 == 3 :
-		Canevas.itemconfigure(carre[i][j],fill='purple')
+		canv.itemconfigure(carre[i][j],fill='purple')
 	else :
-		Canevas.itemconfigure(carre[i][j],fill='white')
+		canv.itemconfigure(carre[i][j],fill='white')
 
 
 def Clic(event):
@@ -64,8 +69,6 @@ def Clic(event):
 
 
 def Touche(event):
-
-	print (section.get())
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
 	touche_list=['ampersand','eacute','quotedbl','apostrophe',\
@@ -144,13 +147,25 @@ Mafenetre.title('Carrés')
 # un appui sur une touche du clavier provoquera l'appel de la fonction utilisateur Touche()
 Mafenetre.bind('<Key>', Touche)
 
-# Création d'un widget Canvas
-Largeur = colonnes*pix_size
+Boutons = Canvas(Mafenetre, width = 100, height =100)
+
+
+# Création d'un widget Canvas (matrice colorée)
 Hauteur = lignes*pix_size
+Largeur = colonnes*pix_size
 Canevas = Canvas(Mafenetre, width = Largeur, height =Hauteur, bg ='white')
 # La méthode bind() permet de lier un événement avec une fonction :
 # un clic gauche sur la zone graphique provoquera l'appel de la fonction utilisateur Clic()
 Canevas.bind('<Button-1>', Clic)
+
+Etages = Canvas(Mafenetre, width = 100, height =20)
+
+etage=[]
+for i in range(etages):
+	etage.append(Canvas(Etages, width = 48, height = 48, bg ='white'))
+	etage[i].grid(row=0, column=i)
+
+Etages.pack(padx = 5, pady = 5)
 
 Canevas.pack(padx = 5, pady = 5)
 
