@@ -112,22 +112,13 @@ def Envoyer():
 	print ("Second octet rouge = %s" % bin(octets_rouges[1]))
 	print ("Second octet bleu = %s" % bin(octets_bleus[1]))
 
+
 	# Sauvegarde des logs
 	logs.write('Envoi \n')
-	for k in range(8) :
-		for i in range(8) :
-			logs.write("%s" %octets_bleus[i])
-			logs.write("%s" %octets_rouges[i])
-	logs.write('\n')
-
-
 
 	# On envoie la sauce !
 	with Device (mode = 't') as dev:
-		dev.baudrate = 19200
-
-
-
+		dev.baudrate = 19200	
 
 		# 8 étages
 		for k in range(etages) :
@@ -136,6 +127,10 @@ def Envoyer():
 				dev.write(chr(octets_bleus[i]))
 				dev.write(chr(octets_rouges[i]))
 
+				logs.write("%s" %octets_bleus[i])
+				logs.write("%s" %octets_rouges[i])
+	
+	logs.write('\n')
 
 	
 
