@@ -47,14 +47,6 @@ for i in range(lignes):
 pix_size=50
 
 
-#def Sauvegarde_logs() : #sauvegarde des logs
-	
-
-
-
-
-
-
 
 def Change_couleur(i,j):
 
@@ -120,13 +112,12 @@ def Envoyer():
 	print ("Second octet rouge = %s" % bin(octets_rouges[1]))
 	print ("Second octet bleu = %s" % bin(octets_bleus[1]))
 
-	#on sauvegarde les logs
-	logs.write('etage \n')
+	# Sauvegarde des logs
+	logs.write('Envoi \n')
 	for k in range(8) :
 		for i in range(8) :
-
-			logs.write(chr(octets_bleus[i]))
-			logs.write(chr(octets_rouges[i]))
+			logs.write("%s" %octets_bleus[i])
+			logs.write("%s" %octets_rouges[i])
 	logs.write('\n')
 
 
