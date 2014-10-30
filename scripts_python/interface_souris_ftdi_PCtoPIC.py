@@ -36,6 +36,8 @@ colonnes = 8
 # 8 étages
 etages = 8
 
+# Etage affiché dans le canevas principal
+Etage_courant = 0
 
 # Matrice pour envoyer les infos de l'interface graphique au ftdi
 matrice_leds = []
@@ -153,12 +155,18 @@ def Init():
 	
 def ChangeEtage(event):
 
+	# Touche est pour un évenement au clavier, event.widget gère les interventions à la souris
 	touche = event.keysym
+	if touche=='Left' or event.widget==Fleche_gauche :
 
-	if event.widget==Fleche_gauche or touche=='Left':
-		print ('pouet a gauche')
+		#if Etage_courant != 0 :
+			print ('pouet a gauche')
+			#Etage_courant = Etage_courant-1
+
 	else:
-		print ('pouet a droite')
+		#if Etage_courant != 7 :
+			print ('pouet a droite')
+			#Etage_courant = Etage_courant+1
 
 
 def Save():
