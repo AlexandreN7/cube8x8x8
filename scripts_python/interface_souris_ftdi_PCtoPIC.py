@@ -98,7 +98,7 @@ def Touche(event):
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
 	print(touche)
-	touche_list=['ampersand','eacute','quotedbl','apostrophe','parenleft','minus','egrave','underscore',\
+	touche_list=['ampersand','eacute','quotedbl','apostrophe' or 'quoteright','parenleft','minus','egrave','underscore',\
 				 'a','z','e','r','t','y','u','i',\
 				 'q','s','d','f','g','h','j','k',\
 				 'w','x','c','v','b','n','comma','semicolon']     
@@ -191,16 +191,29 @@ Canevas.pack(padx = 5, pady = 5)
 # On remplit le canevas principal de carrés blancs
 Init()
 
+# Image de clavier kikoo
+ImgClavier = Canvas(Boutons, width=329, height=146)
+ImgClavier.grid(row=0, column=0)
+photo = PhotoImage(file="clavier.png")
+ImgClavier.create_image(0, 0, image=photo, anchor=NW)
+
 # Boutons de sélection de la zone concernée par les entrées au clavier
+# et image du clavier
 Boutons = Canvas(Mafenetre, width = 100, height =100)
+
+ImgClavier = Canvas(Boutons, width=329, height=146)
+ImgClavier.grid(column=0, rowspan=2)
+photo = PhotoImage(file="clavier.png")
+ImgClavier.create_image(0, 0, image=photo, anchor=NW)
+
 section=IntVar()
 section.set(0)
 bouton1=Radiobutton(Boutons, text="En haut", variable=section, value=0, indicatoron=0, height=3, width=15)
 bouton2=Radiobutton(Boutons, text="En bas", variable=section, value=1, indicatoron=0, height=3, width=15)
-bouton1.grid(row=0, column=0)
-bouton2.grid(row=1, column=0)
+bouton1.grid(row=0, column=1)
+bouton2.grid(row=1, column=1)
 
-Boutons.pack(padx = 5, pady = 5) 
+Boutons.pack(side=TOP, padx = 10, pady = 5) 
 
 # Bouton Envoyer
 Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).pack(side=LEFT, padx = 5, pady = 5)
