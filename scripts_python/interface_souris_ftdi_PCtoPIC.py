@@ -42,12 +42,9 @@ matrice_leds = []
 for i in range(lignes):
 	matrice_leds.append([0] * colonnes)
 
-# Octets à envoyer à partir de la matrice
-# Les 8 indices des octets correspondent aux 8 PICs
 
 # Taille d'un pixel du canevas principal
 pix_size=50
-
 
 
 def Change_couleur(i,j):
@@ -97,15 +94,22 @@ def Clic(event):
 def Touche(event):
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
-	print(touche)
-	touche_list=['ampersand','eacute','quotedbl','apostrophe' or 'quoteright','parenleft','minus','egrave','underscore',\
+	#print(touche)
+	# Touches sensibles pour les pixels
+	sensPix_list=['ampersand','eacute','quotedbl','apostrophe','parenleft','minus','egrave','underscore',\
 				 'a','z','e','r','t','y','u','i',\
 				 'q','s','d','f','g','h','j','k',\
-				 'w','x','c','v','b','n','comma','semicolon']     
-	for index in range (32):
-		if touche == touche_list[index]:
+				 'w','x','c','v','b','n','comma','semicolon'] 
+	# Touches sensibles changement d'étage
+	sensEtage_list=['Left','Right']
+
+	for index in range (len(sensPix_list)):
+		if touche == sensPix_list[index]:
 			Change_couleur(index//8+4*section.get(),index%8) 
-		
+
+	for index in range (len(sensEtage_list)):
+		if touche == sensEtage_list[index]:
+			ChangeEtage(index)
 
 def Envoyer():
 
@@ -146,6 +150,12 @@ def Init():
 	for i in range(lignes) :
 		for j in range(colonnes) : 
 			matrice_leds [i][j]=0
+	
+def ChangeEtage(droite):
+	if droite==1:
+		print ('pouet a droite')
+	else:
+		print ('pouet a gauche')
 
 def Save():
 	# Sauvegarde des logs
@@ -164,6 +174,7 @@ Mafenetre.title('Carrés')
 # La méthode bind() permet de lier un événement avec une fonction :
 # un appui sur une touche du clavier provoquera l'appel de la fonction utilisateur Touche()
 Mafenetre.bind('<Key>', Touche)
+
 
 Boutons = Canvas(Mafenetre, width = 100, height =100)
 
@@ -190,12 +201,6 @@ Canevas.pack(padx = 5, pady = 5)
 
 # On remplit le canevas principal de carrés blancs
 Init()
-
-# Image de clavier kikoo
-ImgClavier = Canvas(Boutons, width=329, height=146)
-ImgClavier.grid(row=0, column=0)
-photo = PhotoImage(file="clavier.png")
-ImgClavier.create_image(0, 0, image=photo, anchor=NW)
 
 # Boutons de sélection de la zone concernée par les entrées au clavier
 # et image du clavier
