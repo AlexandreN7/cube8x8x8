@@ -156,6 +156,7 @@ def Init():
 	
 def ChangeEtage(event):
 
+	global Etage_courant
 	# Touche est pour un évenement au clavier, event.widget gère les interventions à la souris
 	touche = event.keysym
 	if touche=='Left' or event.widget==Fleche_gauche :
