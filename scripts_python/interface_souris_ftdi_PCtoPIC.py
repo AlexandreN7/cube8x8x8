@@ -151,11 +151,15 @@ def Init():
 		for j in range(colonnes) : 
 			matrice_leds [i][j]=0
 	
-def ChangeEtage(droite):
-	if droite==1:
-		print ('pouet a droite')
-	else:
+def ChangeEtage(event):
+
+	touche = event.keysym
+
+	if event.widget==Fleche_gauche or touche=='Left':
 		print ('pouet a gauche')
+	else:
+		print ('pouet a droite')
+
 
 def Save():
 	# Sauvegarde des logs
@@ -175,6 +179,8 @@ Mafenetre.title('Carrés')
 # un appui sur une touche du clavier provoquera l'appel de la fonction utilisateur Touche()
 Mafenetre.bind('<Key>', Touche)
 
+Mafenetre.bind('<Left>', ChangeEtage)
+Mafenetre.bind('<Right>', ChangeEtage)
 
 Boutons = Canvas(Mafenetre, width = 100, height =100)
 
@@ -188,16 +194,29 @@ Canevas = Canvas(Mafenetre, width = Largeur, height =Hauteur, bg ='white')
 # un clic gauche sur la zone graphique provoquera l'appel de la fonction utilisateur Clic()
 Canevas.bind('<Button-1>', Clic)
 
-Etages = Canvas(Mafenetre, width = 100, height =20)
+Etages = Canvas(Mafenetre)
+
+Fleche_gauche = Canvas(Etages, width=48, height=48)
+Fleche_gauche.grid(row=0, column=0)
+photo_flechegauche = PhotoImage(file="fleche_gauche.png")
+Fleche_gauche.create_image(0, 0, image=photo_flechegauche, anchor=NW)
 
 etage=[]
 for i in range(etages):
 	etage.append(Canvas(Etages, width = 48, height = 48, bg ='white'))
-	etage[i].grid(row=0, column=i)
+	etage[i].grid(row=0, column=i+1)
+
+Fleche_droite = Canvas(Etages, width=48, height=48)
+Fleche_droite.grid(row=0, column=etages+1)
+photo_flechedroite = PhotoImage(file="fleche_droite.png")
+Fleche_droite.create_image(0, 0, image=photo_flechedroite, anchor=NW)
 
 Etages.pack(padx = 5, pady = 5)
 
 Canevas.pack(padx = 5, pady = 5)
+
+Fleche_gauche.bind('<Button-1>', ChangeEtage)
+Fleche_droite.bind('<Button-1>', ChangeEtage)
 
 # On remplit le canevas principal de carrés blancs
 Init()
