@@ -27,6 +27,7 @@ except ImportError:
 	# for Python3
 	from tkinter import *
 
+
 logs = open("logs_8x8x8.txt", "w")
 
 # Une ligne correspond à un PIC
@@ -159,16 +160,20 @@ def ChangeEtage(event):
 	global Etage_courant
 	# Touche est pour un évenement au clavier, event.widget gère les interventions à la souris
 	touche = event.keysym
-	if touche=='Left' or event.widget==Fleche_gauche :
+	
+	Etages.itemconfigure(etage[Etage_courant], outline='grey')
 
+	if touche=='Left' or event.widget==Fleche_gauche :
 		if Etage_courant != 0 :
 			print ('pouet a gauche')
 			Etage_courant = Etage_courant-1
-
 	else:
 		if Etage_courant != 7 :
 			print ('pouet a droite')
 			Etage_courant = Etage_courant+1
+
+	Etages.itemconfigure(etage[Etage_courant], outline='yellow')
+
 
 
 def Save():
@@ -178,7 +183,6 @@ def Save():
 		for i in range (lignes) :
 			logs.write("(%s,%s) " %(octets_bleus[i],octets_rouges[i]))
 		logs.write('\n')
-
 
 # Création de la fenêtre principale
 Mafenetre = Tk()
@@ -204,26 +208,27 @@ Canevas = Canvas(Mafenetre, width = Largeur, height =Hauteur, bg ='white')
 # un clic gauche sur la zone graphique provoquera l'appel de la fonction utilisateur Clic()
 Canevas.bind('<Button-1>', Clic)
 
-Etages = Canvas(Mafenetre)
+Etages = Canvas(Mafenetre, width = 8*51, height=50)
 
-Fleche_gauche = Canvas(Etages, width=48, height=48)
+Fleche_gauche = Canvas(Mafenetre, width=48, height=48)
 Fleche_gauche.grid(row=0, column=0)
 photo_flechegauche = PhotoImage(file="fleche_gauche.png")
 Fleche_gauche.create_image(0, 0, image=photo_flechegauche, anchor=NW)
 
 etage=[]
 for i in range(etages):
-	etage.append(Canvas(Etages, width = 48, height = 48, bg ='white'))
-	etage[i].grid(row=0, column=i+1)
+	etage=etage+[Etages.create_rectangle(48*i+3*(i+1), 2, 48*(i+1)+3*(i+1), 50, width=2 ,outline='grey', fill='white')]
+Etages.itemconfigure(etage[0], outline='yellow')
 
-Fleche_droite = Canvas(Etages, width=48, height=48)
-Fleche_droite.grid(row=0, column=etages+1)
+
+Fleche_droite = Canvas(Mafenetre, width=48, height=48)
+Fleche_droite.grid(row=0, column=5)
 photo_flechedroite = PhotoImage(file="fleche_droite.png")
 Fleche_droite.create_image(0, 0, image=photo_flechedroite, anchor=NW)
 
-Etages.pack(padx = 5, pady = 5)
+Etages.grid(row=0, column=1, columnspan=4, pady=5)
 
-Canevas.pack(padx = 5, pady = 5)
+Canevas.grid(row=1, column=1, columnspan=4)
 
 Fleche_gauche.bind('<Button-1>', ChangeEtage)
 Fleche_droite.bind('<Button-1>', ChangeEtage)
@@ -247,19 +252,19 @@ bouton2=Radiobutton(Boutons, text="En bas", variable=section, value=1, indicator
 bouton1.grid(row=0, column=1)
 bouton2.grid(row=1, column=1)
 
-Boutons.pack(side=TOP, padx = 10, pady = 5) 
+Boutons.grid(row=2, column=1, columnspan=4, pady=5) 
 
 # Bouton Envoyer
-Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).pack(side=LEFT, padx = 5, pady = 5)
+Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).grid(row=3, column=1)
 
 # Bouton Effacer
-Button(Mafenetre, text ='Effacer', command = Init).pack(side=LEFT, padx = 5, pady = 5)
+Button(Mafenetre, text ='Effacer', command = Init).grid(row=3, column=2)
 
 # Bouton Save
-Button(Mafenetre, text ='Save', command = Save).pack(side=LEFT, padx = 5, pady = 5)
+Button(Mafenetre, text ='Save', command = Save).grid(row=3, column=3)
 
 # Bouton Quitter
-Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).pack(side=RIGHT, padx = 5, pady = 5)
+Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).grid(row=3, column=4)
 
 Mafenetre.mainloop()
 
