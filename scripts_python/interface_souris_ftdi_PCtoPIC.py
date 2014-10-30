@@ -39,6 +39,7 @@ etages = 8
 # Etage affiché dans le canevas principal
 Etage_courant = 0
 
+
 # Matrice pour envoyer les infos de l'interface graphique au ftdi
 matrice_leds = []
 for i in range(lignes):
@@ -159,14 +160,14 @@ def ChangeEtage(event):
 	touche = event.keysym
 	if touche=='Left' or event.widget==Fleche_gauche :
 
-		#if Etage_courant != 0 :
+		if Etage_courant != 0 :
 			print ('pouet a gauche')
-			#Etage_courant = Etage_courant-1
+			Etage_courant = Etage_courant-1
 
 	else:
-		#if Etage_courant != 7 :
+		if Etage_courant != 7 :
 			print ('pouet a droite')
-			#Etage_courant = Etage_courant+1
+			Etage_courant = Etage_courant+1
 
 
 def Save():
