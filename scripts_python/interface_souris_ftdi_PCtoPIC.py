@@ -57,9 +57,6 @@ etage_pix_size=6
 # Taille d'un pixel du canevas principal
 pix_size=50
 
-# Nom de sauvegarde par défaut
-savename='default'
-
 
 def Change_couleur(i,j):
 
@@ -229,35 +226,76 @@ def ChangeEtage(event):
 			Etage_courant = Etage_courant+1
 
 	Etages.itemconfigure(etage[Etage_courant], outline='yellow')
+
+	MAJ_Couleurs(0)
+
+
+def MAJ_Couleurs(petitscarres):
+	if petitscarres == 1 :
+		for k in range(etages) :
+			for i in range (lignes):
+				for j in range(etages):
+					if  matrice_leds[i+8*k][j]%4 == 1 :
+						Etages.itemconfigure(carres_etages[i+8*k][j],fill='red')
+					elif matrice_leds[i+8*k][j]%4 == 2 :					
+						Etages.itemconfigure(carres_etages[i+8*k][j],fill='blue')
+					elif matrice_leds[i+8*k][j]%4 == 3 :
+						Etages.itemconfigure(carres_etages[i+8*k][j],fill='purple')
+					else :
+						Etages.itemconfigure(carres_etages[i+8*k][j],fill='white')
+	else :
+		for i in range (lignes):
+			for j in range(etages):
+				if  matrice_leds[i+8*Etage_courant][j]%4 == 1 :
+					Canevas.itemconfigure(carre[i][j],fill='red')
+				elif matrice_leds[i+8*Etage_courant][j]%4 == 2 :
+					Canevas.itemconfigure(carre[i][j],fill='blue')
+				elif matrice_leds[i+8*Etage_courant][j]%4 == 3 :
+					Canevas.itemconfigure(carre[i][j],fill='purple')
+				else :
+					Canevas.itemconfigure(carre[i][j],fill='white')
+
+def Open_Popup():
+
+	def Open(event):
+		filename = savefield.get()	
+		logs = open("Patterns//%s.txt" %filename,"r")
+		matrice_leds = logs.read()
+		logs.close()
+		MAJ_Couleurs(0)
+		MAJ_Couleurs(1)
+		Open_Screen.destroy()	
+
+	# Création de la fenêtre de sauvegarde
+	Open_Screen = Tk()
+	Open_Screen.title('Open')	
+
+	BlablaOpen = Label(Open_Screen, text="Nom du pattern :").grid()
 	
-	# MAJ des couleurs du canevas principal
-	for i in range (lignes):
-		for j in range(etages):
-			if  matrice_leds[i+8*Etage_courant][j]%4 == 1 :
-				Canevas.itemconfigure(carre[i][j],fill='red')
-			elif matrice_leds[i+8*Etage_courant][j]%4 == 2 :
-				Canevas.itemconfigure(carre[i][j],fill='blue')
-			elif matrice_leds[i+8*Etage_courant][j]%4 == 3 :
-				Canevas.itemconfigure(carre[i][j],fill='purple')
-			else :
-				Canevas.itemconfigure(carre[i][j],fill='white')
+	global savefield
+	savefield= Entry(Open_Screen)
+	savefield.focus_force()
+	savefield.grid()
+
+	# Bouton Open
+	openBouton=Button(Open_Screen, text ='Open')
+	openBouton.bind("<Button-1>", Open)	
+	Open_Screen.bind("<Return>", Open)
+	openBouton.grid()
 
 def Save_Popup():
 
 	def Save(event):
-		if savefield.get() != '':
-			global savename
+		if savefield.get() == '':
+			# Nom de sauvegarde par défaut
+			savename='default'
+		else :
 			savename=savefield.get()
 
-		logs = open("Patterns//%s.txt"%savename,"w")
-		# Sauvegarde des patterns
-		logs.write('Save \n')
-		for k in range(etages) :		
-			for i in range (lignes) :
-				logs.write("(%s,%s) " %(octets_bleus[k][i],octets_rouges[k][i]))
-			logs.write('\n')
-
+		logs = open("Patterns//%s.txt" %savename,"w")
+		logs.write("%s" %matrice_leds)
 		logs.close()
+
 		Save_Screen.destroy()	
 
 	# Création de la fenêtre de sauvegarde
@@ -285,7 +323,7 @@ def Save_Popup():
 
 # Création de la fenêtre principale
 Mafenetre = Tk()
-Mafenetre.title('Carrés')
+Mafenetre.title('Interface Cube8x8x8')
 
 # La méthode bind() permet de lier un événement avec une fonction :
 # un appui sur une touche du clavier provoquera l'appel de la fonction utilisateur Touche()
@@ -363,7 +401,7 @@ Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).grid(row=3, c
 Button(Mafenetre, text ='Effacer', command = Init).grid(row=3, column=2, pady=5)
 
 # Bouton Open
-Button(Mafenetre, text ='Open', command = Save_Popup).grid(row=3, column=3, pady=5)
+Button(Mafenetre, text ='Open', command = Open_Popup).grid(row=3, column=3, pady=5)
 
 # Bouton Save
 Button(Mafenetre, text ='Save', command = Save_Popup).grid(row=3, column=4, pady=5)
