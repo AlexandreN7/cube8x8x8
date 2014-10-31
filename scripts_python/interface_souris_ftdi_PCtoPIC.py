@@ -318,7 +318,7 @@ Fleche_gauche.create_image(0, 0, image=photo_flechegauche, anchor=NW)
 
 
 Fleche_droite = Canvas(Mafenetre, width=48, height=48)
-Fleche_droite.grid(row=0, column=5)
+Fleche_droite.grid(row=0, column=6)
 photo_flechedroite = PhotoImage(file="fleche_droite.png")
 Fleche_droite.create_image(0, 0, image=photo_flechedroite, anchor=NW)
 
@@ -357,18 +357,18 @@ Boutons.grid(row=2, column=1, columnspan=5, pady=5)
 
 
 # Bouton Envoyer
-Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).grid(row=3, column=1)
+Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).grid(row=3, column=1, pady=5)
 
 # Bouton Effacer
-Button(Mafenetre, text ='Effacer', command = Init).grid(row=3, column=2)
+Button(Mafenetre, text ='Effacer', command = Init).grid(row=3, column=2, pady=5)
 
 # Bouton Open
-Button(Mafenetre, text ='Open', command = Save_Popup).grid(row=3, column=3)
+Button(Mafenetre, text ='Open', command = Save_Popup).grid(row=3, column=3, pady=5)
 
 # Bouton Save
-Button(Mafenetre, text ='Save', command = Save_Popup).grid(row=3, column=4)
+Button(Mafenetre, text ='Save', command = Save_Popup).grid(row=3, column=4, pady=5)
 
 # Bouton Quitter
-Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).grid(row=3, column=5)
+Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).grid(row=3, column=5, pady=5)
 
 Mafenetre.mainloop()
