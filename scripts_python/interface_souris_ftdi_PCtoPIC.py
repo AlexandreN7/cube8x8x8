@@ -119,7 +119,12 @@ def Clic(event):
 def Touche(event):
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
-	#print(touche)
+	print(touche)
+
+	if touche=='BackSpace':
+		Init()
+	if touche=='Return':	
+		Save()
 	# Touches sensibles pour les pixels
 	sensPix_list=['ampersand','eacute','quotedbl','apostrophe','parenleft','minus','egrave','underscore',\
 				 'a','z','e','r','t','y','u','i',\
@@ -201,9 +206,10 @@ def Init():
 		carre.append(sommelist)
 
 	# RAZ de la matrice
-	for i in range(lignes) :
-		for j in range(colonnes) : 
-			matrice_leds [i][j]=0
+	for k in range(etages) :
+		for i in range(lignes) :
+			for j in range(colonnes) : 
+				matrice_leds [i+8*k][j]=0
 	#####################################################################################################
 
 def ChangeEtage(event):
