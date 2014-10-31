@@ -2,13 +2,14 @@
 # -*-coding:Latin-1 -*
 """
 script interface_souris_ftdi_PCtoPIC.py
-      ______  _____      _           _
-     |___   /| ___ \    | |         | |
-	     / / | |_/ /___ | |__   ___ | |_
-	    / /  |    // _ \| '_ \ / _ \|  _|
-       / /   | |\ \ (_) | |_) | (_) | |_
-      /_/    |_| \_\___/|____/ \___/ \__|
-							 7robot.fr
+ ______  _____      _           _
+|___   || ___ \    | |         | |
+    / / | |_/ /___ | |__   ___ | |_
+   / /  |    // _ \| '_ \ / _ \|  _|
+  / /   | |\ \ (_) | |_) | (_) | |_
+ /_/    |_| \_\___/|____/ \___/ \__|
+                        7robot.fr
+
 Cube8x8x8
 
 Created by Robin Beilvert and Alexandre Proux
@@ -27,6 +28,7 @@ except ImportError:
 	# for Python3
 	from tkinter import *
 
+
 logs = open("logs_8x8x8.txt", "w")
 
 # Une ligne correspond à un PIC
@@ -42,9 +44,18 @@ Etage_courant = 0
 
 # Matrice pour envoyer les infos de l'interface graphique au ftdi
 matrice_leds = []
-for i in range(lignes):
+for i in range(lignes*etages):
 	matrice_leds.append([0] * colonnes)
 
+octets_rouges=[]				
+octets_bleus=[]
+for k in range(etages):
+	octets_rouges.append([0] * lignes)
+	octets_bleus.append([0] * lignes)
+
+
+# Taille d'un pixel des étages
+etage_pix_size=6
 
 # Taille d'un pixel du canevas principal
 pix_size=50
@@ -52,23 +63,34 @@ pix_size=50
 
 def Change_couleur(i,j):
 
-	canv=Canevas
 	# Incrémentation de la matrice				
-	matrice_leds[i][j] = matrice_leds[i][j]+1 
+	matrice_leds[i+8*Etage_courant][j] = matrice_leds[i+8*Etage_courant][j]+1
+
 	# Changement de couleur du carré  	
-	if  matrice_leds[i][j]%4 == 1 :
-		canv.itemconfigure(carre[i][j],fill='red')
-	elif matrice_leds[i][j]%4 == 2 :
-		canv.itemconfigure(carre[i][j],fill='blue')
-	elif matrice_leds[i][j]%4 == 3 :
-		canv.itemconfigure(carre[i][j],fill='purple')
+	if  matrice_leds[i+8*Etage_courant][j]%4 == 1 :
+
+		Canevas.itemconfigure(carre[i][j],fill='red')
+		Etages.itemconfigure(carres_etages[i+8*Etage_courant][j],fill='red')
+
+	elif matrice_leds[i+8*Etage_courant][j]%4 == 2 :
+
+		Canevas.itemconfigure(carre[i][j],fill='blue')
+		Etages.itemconfigure(carres_etages[i+8*Etage_courant][j],fill='blue')
+
+	elif matrice_leds[i+8*Etage_courant][j]%4 == 3 :
+
+		Canevas.itemconfigure(carre[i][j],fill='purple')
+		Etages.itemconfigure(carres_etages[i+8*Etage_courant][j],fill='purple')
+		
 	else :
-		canv.itemconfigure(carre[i][j],fill='white')
+		Canevas.itemconfigure(carre[i][j],fill='white')
+		Etages.itemconfigure(carres_etages[i+8*Etage_courant][j],fill='white')
 
 	global octets_rouges
 	global octets_bleus
-	octets_rouges=[0,0,0,0,0,0,0,0]				
-	octets_bleus=[0,0,0,0,0,0,0,0]
+	for i in range(lignes):
+		octets_rouges[Etage_courant][i]=0
+		octets_bleus[Etage_courant][i]=0
 
 	# Indice pour chaque PIC
 	for i in range(lignes) :
@@ -76,15 +98,15 @@ def Change_couleur(i,j):
 		for j in range(colonnes) :
 
 			if  matrice_leds[i][j]%4 == 1:
-				octets_rouges[i] = octets_rouges[i]+2**j
+				octets_rouges[Etage_courant][i] = octets_rouges[Etage_courant][i]+2**j
 
 			elif matrice_leds[i][j]%4 == 2:                
-				octets_bleus[i] = octets_bleus[i]+2**j
+				octets_bleus[Etage_courant][i] = octets_bleus[Etage_courant][i]+2**j
 
 			elif matrice_leds[i][j]%4 == 3:
-				octets_rouges[i] = octets_rouges[i]+2**j
-				octets_bleus[i] = octets_bleus[i]+2**j
-
+				octets_rouges[Etage_courant][i] = octets_rouges[Etage_courant][i]+2**j
+				octets_bleus[Etage_courant][i] = octets_bleus[Etage_courant][i]+2**j
+	print(octets_bleus)
 
 def Clic(event):
 	""" Gestion de l'événement Clic gauche sur la zone graphique """
@@ -133,9 +155,37 @@ def Envoyer():
 				dev.write(chr(octets_bleus[i]))
 				dev.write(chr(octets_rouges[i]))
 
-		
+
 def Init():
-	# Effacement de la zone graphique
+	#####################################################################################################
+	##################################### Initialisation des étages #####################################
+	#####################################################################################################
+	# Contours des étages		
+	Etages.delete(ALL)
+	global etage
+	etage=[]
+	for i in range(etages):
+		etage=etage+[Etages.create_rectangle(48*i+3*(i+1), 2, 48*(i+1)+3*(i+1), 50, width=2 ,outline='grey')]
+	Etages.itemconfigure(etage[Etage_courant], outline='yellow')	
+
+	# Contenu des étages
+	global carres_etages
+	carres_etages = []
+	# Initialisation des carrés étage par étage et ligne par ligne
+	for i in range(lignes*etages):
+		# On créé une ligne
+		sommelist=[]
+		for j in range (8):
+			sommelist=sommelist+\
+			[Etages.create_rectangle(j*etage_pix_size+3+51*(i//8), (i%8)*etage_pix_size+2,\
+			j*etage_pix_size+etage_pix_size+2+51*(i//8), (i%8)*etage_pix_size+etage_pix_size+1,\
+			outline='white', fill='white')]
+		# On ajoute la ligne	
+		carres_etages.append(sommelist)
+	
+	#####################################################################################################
+	################################ Initialisation du canevas principal ################################
+	#####################################################################################################
 	Canevas.delete(ALL)
 	global carre
 	carre = []
@@ -145,39 +195,43 @@ def Init():
 		sommelist=[]
 		for j in range (8):
 			sommelist=sommelist+\
-			[Canevas.create_rectangle(j*pix_size, i*pix_size, j*pix_size+pix_size-1,  i*pix_size+pix_size-1, outline='white', fill='white')]
+			[Canevas.create_rectangle(j*pix_size+2, i*pix_size+2, j*pix_size+pix_size+1,  i*pix_size+pix_size+1,\
+			 outline='white', fill='white')]
 		# On ajoute la ligne	
 		carre.append(sommelist)
-	
+
 	# RAZ de la matrice
 	for i in range(lignes) :
 		for j in range(colonnes) : 
 			matrice_leds [i][j]=0
-	
+	#####################################################################################################
+
 def ChangeEtage(event):
 
+	global Etage_courant
 	# Touche est pour un évenement au clavier, event.widget gère les interventions à la souris
 	touche = event.keysym
+	
+	Etages.itemconfigure(etage[Etage_courant], outline='grey')
+
 	if touche=='Left' or event.widget==Fleche_gauche :
-
 		if Etage_courant != 0 :
-			print ('pouet a gauche')
 			Etage_courant = Etage_courant-1
-
 	else:
 		if Etage_courant != 7 :
-			print ('pouet a droite')
 			Etage_courant = Etage_courant+1
+
+	Etages.itemconfigure(etage[Etage_courant], outline='yellow')
+
 
 
 def Save():
 	# Sauvegarde des logs
-	logs.write('Envoi \n')
+	logs.write('Save \n')
 	for k in range(etages) :		
 		for i in range (lignes) :
 			logs.write("(%s,%s) " %(octets_bleus[i],octets_rouges[i]))
 		logs.write('\n')
-
 
 # Création de la fenêtre principale
 Mafenetre = Tk()
@@ -194,44 +248,47 @@ Mafenetre.bind('<Right>', ChangeEtage)
 Boutons = Canvas(Mafenetre, width = 100, height =100)
 
 
-# Création d'un widget Canvas (matrice colorée)
+# Création du canevas principal (matrice colorée)
 Hauteur = lignes*pix_size
 Largeur = colonnes*pix_size
-Canevas = Canvas(Mafenetre, width = Largeur, height =Hauteur, bg ='white')
+Canevas = Canvas(Mafenetre, width = Largeur+2, height =Hauteur+2)
 
 # La méthode bind() permet de lier un événement avec une fonction :
 # un clic gauche sur la zone graphique provoquera l'appel de la fonction utilisateur Clic()
 Canevas.bind('<Button-1>', Clic)
 
-Etages = Canvas(Mafenetre)
+#####################################################################################################
+######################## Création de la ligne avec les étages et les flèches ########################
+#####################################################################################################
+Etages = Canvas(Mafenetre, width = 8*51, height=50)
 
-Fleche_gauche = Canvas(Etages, width=48, height=48)
+Fleche_gauche = Canvas(Mafenetre, width=48, height=48)
 Fleche_gauche.grid(row=0, column=0)
 photo_flechegauche = PhotoImage(file="fleche_gauche.png")
 Fleche_gauche.create_image(0, 0, image=photo_flechegauche, anchor=NW)
 
-etage=[]
-for i in range(etages):
-	etage.append(Canvas(Etages, width = 48, height = 48, bg ='white'))
-	etage[i].grid(row=0, column=i+1)
 
-Fleche_droite = Canvas(Etages, width=48, height=48)
-Fleche_droite.grid(row=0, column=etages+1)
+Fleche_droite = Canvas(Mafenetre, width=48, height=48)
+Fleche_droite.grid(row=0, column=5)
 photo_flechedroite = PhotoImage(file="fleche_droite.png")
 Fleche_droite.create_image(0, 0, image=photo_flechedroite, anchor=NW)
 
-Etages.pack(padx = 5, pady = 5)
+Etages.grid(row=0, column=1, columnspan=4, pady=5)
+#####################################################################################################
 
-Canevas.pack(padx = 5, pady = 5)
-
+# On lie les flèches du clavier aux flèches de sélection des étages
 Fleche_gauche.bind('<Button-1>', ChangeEtage)
 Fleche_droite.bind('<Button-1>', ChangeEtage)
 
-# On remplit le canevas principal de carrés blancs
+# On affiche le canevas principal
+Canevas.grid(row=1, column=1, columnspan=4)
+
+# On remplit le canevas principal et les étages de carrés blancs
 Init()
 
-# Boutons de sélection de la zone concernée par les entrées au clavier
-# et image du clavier
+#####################################################################################################
+###### Boutons de sélection de la zone concernée par les entrées au clavier et image du clavier #####
+#####################################################################################################
 Boutons = Canvas(Mafenetre, width = 100, height =100)
 
 ImgClavier = Canvas(Boutons, width=329, height=146)
@@ -246,19 +303,21 @@ bouton2=Radiobutton(Boutons, text="En bas", variable=section, value=1, indicator
 bouton1.grid(row=0, column=1)
 bouton2.grid(row=1, column=1)
 
-Boutons.pack(side=TOP, padx = 10, pady = 5) 
+Boutons.grid(row=2, column=1, columnspan=4, pady=5) 
+#####################################################################################################
+
 
 # Bouton Envoyer
-Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).pack(side=LEFT, padx = 5, pady = 5)
+Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).grid(row=3, column=1)
 
 # Bouton Effacer
-Button(Mafenetre, text ='Effacer', command = Init).pack(side=LEFT, padx = 5, pady = 5)
+Button(Mafenetre, text ='Effacer', command = Init).grid(row=3, column=2)
 
 # Bouton Save
-Button(Mafenetre, text ='Save', command = Save).pack(side=LEFT, padx = 5, pady = 5)
+Button(Mafenetre, text ='Save', command = Save).grid(row=3, column=3)
 
 # Bouton Quitter
-Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).pack(side=RIGHT, padx = 5, pady = 5)
+Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).grid(row=3, column=4)
 
 Mafenetre.mainloop()
 
