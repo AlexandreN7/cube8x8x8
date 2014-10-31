@@ -66,7 +66,7 @@ def Change_couleur(i,j):
 	# Incrémentation de la matrice				
 	matrice_leds[i+8*Etage_courant][j] = matrice_leds[i+8*Etage_courant][j]+1
 
-	# Changement de couleur du carré  	
+	# Changement de couleur du carré
 	if  matrice_leds[i+8*Etage_courant][j]%4 == 1 :
 
 		Canevas.itemconfigure(carre[i][j],fill='red')
@@ -81,7 +81,7 @@ def Change_couleur(i,j):
 
 		Canevas.itemconfigure(carre[i][j],fill='purple')
 		Etages.itemconfigure(carres_etages[i+8*Etage_courant][j],fill='purple')
-		
+
 	else :
 		Canevas.itemconfigure(carre[i][j],fill='white')
 		Etages.itemconfigure(carres_etages[i+8*Etage_courant][j],fill='white')
@@ -97,13 +97,13 @@ def Change_couleur(i,j):
 		# Indice pour chaque diode d'une ligne (= d'un PIC)
 		for j in range(colonnes) :
 
-			if  matrice_leds[i][j]%4 == 1:
+			if  matrice_leds[i+8*Etage_courant][j]%4 == 1:
 				octets_rouges[Etage_courant][i] = octets_rouges[Etage_courant][i]+2**j
 
-			elif matrice_leds[i][j]%4 == 2:                
+			elif matrice_leds[i+8*Etage_courant][j]%4 == 2:                
 				octets_bleus[Etage_courant][i] = octets_bleus[Etage_courant][i]+2**j
 
-			elif matrice_leds[i][j]%4 == 3:
+			elif matrice_leds[i+8*Etage_courant][j]%4 == 3:
 				octets_rouges[Etage_courant][i] = octets_rouges[Etage_courant][i]+2**j
 				octets_bleus[Etage_courant][i] = octets_bleus[Etage_courant][i]+2**j
 	print(octets_bleus)
