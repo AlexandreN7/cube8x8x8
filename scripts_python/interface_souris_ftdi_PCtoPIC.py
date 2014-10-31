@@ -66,7 +66,7 @@ def Change_couleur(i,j):
 	# Incrémentation de la matrice				
 	matrice_leds[i+8*Etage_courant][j] = matrice_leds[i+8*Etage_courant][j]+1
 
-	# Changement de couleur du carré
+	# Changement de couleur des carrés
 	if  matrice_leds[i+8*Etage_courant][j]%4 == 1 :
 
 		Canevas.itemconfigure(carre[i][j],fill='red')
@@ -138,11 +138,11 @@ def Touche(event):
 
 def Envoyer():
 
-	print ("On verifie les octets envoyes aux deux premiers PICs :")
-	print ("Premier octet rouge = %s" % bin(octets_rouges[0]))
-	print ("Premier octet bleu = %s" % bin(octets_bleus[0]))
-	print ("Second octet rouge = %s" % bin(octets_rouges[1]))
-	print ("Second octet bleu = %s" % bin(octets_bleus[1]))
+	print ("On verifie les octets de l'etage 0 envoyes aux deux premiers PICs :")
+	print ("Premier octet rouge = %s" % bin(octets_rouges[0][0]))
+	print ("Premier octet bleu = %s" % bin(octets_bleus[0][0]))
+	print ("Second octet rouge = %s" % bin(octets_rouges[0][1]))
+	print ("Second octet bleu = %s" % bin(octets_bleus[0][1]))
 
 	# On envoie la sauce !
 	with Device (mode = 't') as dev:
@@ -152,8 +152,8 @@ def Envoyer():
 		for k in range(etages) :
 			# 8 PICs = 8 lignes bicolores
 			for i in range (lignes) :
-				dev.write(chr(octets_bleus[i]))
-				dev.write(chr(octets_rouges[i]))
+				dev.write(chr(octets_bleus[k][i]))
+				dev.write(chr(octets_rouges[k][i]))
 
 
 def Init():
@@ -222,8 +222,18 @@ def ChangeEtage(event):
 			Etage_courant = Etage_courant+1
 
 	Etages.itemconfigure(etage[Etage_courant], outline='yellow')
-
-
+	
+	# MAJ des couleurs du canevas principal
+	for i in range (lignes):
+		for j in range(etages):
+			if  matrice_leds[i+8*Etage_courant][j]%4 == 1 :
+				Canevas.itemconfigure(carre[i][j],fill='red')
+			elif matrice_leds[i+8*Etage_courant][j]%4 == 2 :
+				Canevas.itemconfigure(carre[i][j],fill='blue')
+			elif matrice_leds[i+8*Etage_courant][j]%4 == 3 :
+				Canevas.itemconfigure(carre[i][j],fill='purple')
+			else :
+				Canevas.itemconfigure(carre[i][j],fill='white')
 
 def Save():
 	# Sauvegarde des logs
