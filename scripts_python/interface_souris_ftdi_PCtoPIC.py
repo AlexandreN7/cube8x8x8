@@ -28,9 +28,6 @@ except ImportError:
 	# for Python3
 	from tkinter import *
 
-
-logs = open("logs_8x8x8.txt", "w")
-
 # Une ligne correspond à un PIC
 lignes = 8
 # Une colonne correspond à une diode pour un PIC donné
@@ -59,6 +56,9 @@ etage_pix_size=6
 
 # Taille d'un pixel du canevas principal
 pix_size=50
+
+# Nom de sauvegarde par défaut
+savename='default'
 
 
 def Change_couleur(i,j):
@@ -106,7 +106,6 @@ def Change_couleur(i,j):
 			elif matrice_leds[i+8*Etage_courant][j]%4 == 3:
 				octets_rouges[Etage_courant][i] = octets_rouges[Etage_courant][i]+2**j
 				octets_bleus[Etage_courant][i] = octets_bleus[Etage_courant][i]+2**j
-	print(octets_bleus)
 
 def Clic(event):
 	""" Gestion de l'événement Clic gauche sur la zone graphique """
@@ -119,12 +118,14 @@ def Clic(event):
 def Touche(event):
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
-	print(touche)
+	#print(touche)
 
 	if touche=='BackSpace':
 		Init()
-	if touche=='Return':	
-		Save()
+
+	if touche=='Return':
+		Save_Popup()
+
 	# Touches sensibles pour les pixels
 	sensPix_list=['ampersand','eacute','quotedbl','apostrophe','parenleft','minus','egrave','underscore',\
 				 'a','z','e','r','t','y','u','i',\
@@ -241,18 +242,50 @@ def ChangeEtage(event):
 			else :
 				Canevas.itemconfigure(carre[i][j],fill='white')
 
-def Save():
-	# Sauvegarde des logs
-	logs.write('Save \n')
-	for k in range(etages) :		
-		for i in range (lignes) :
-			logs.write("(%s,%s) " %(octets_bleus[i],octets_rouges[i]))
-		logs.write('\n')
+def Save_Popup():
+
+	def Save(event):
+		if savefield.get() != '':
+			global savename
+			savename=savefield.get()
+
+		logs = open("Patterns//%s.txt"%savename,"w")
+		# Sauvegarde des patterns
+		logs.write('Save \n')
+		for k in range(etages) :		
+			for i in range (lignes) :
+				logs.write("(%s,%s) " %(octets_bleus[k][i],octets_rouges[k][i]))
+			logs.write('\n')
+
+		logs.close()
+		Save_Screen.destroy()	
+
+	# Création de la fenêtre de sauvegarde
+	Save_Screen = Tk()
+	Save_Screen.title('Save')	
+
+	BlablaSave = Label(Save_Screen, text="Nom du pattern (default par defaut):").grid()
+	
+	global savefield
+	savefield= Entry(Save_Screen)
+	savefield.focus_force()
+	savefield.grid()
+
+	# Bouton Save
+	saveBouton=Button(Save_Screen, text ='Save')
+	saveBouton.bind("<Button-1>", Save)	
+	Save_Screen.bind("<Return>", Save)
+	saveBouton.grid()
+			
+
+
+#####################################################################################################
+#####################################################################################################
+
 
 # Création de la fenêtre principale
 Mafenetre = Tk()
 Mafenetre.title('Carrés')
-
 
 # La méthode bind() permet de lier un événement avec une fonction :
 # un appui sur une touche du clavier provoquera l'appel de la fonction utilisateur Touche()
@@ -289,7 +322,7 @@ Fleche_droite.grid(row=0, column=5)
 photo_flechedroite = PhotoImage(file="fleche_droite.png")
 Fleche_droite.create_image(0, 0, image=photo_flechedroite, anchor=NW)
 
-Etages.grid(row=0, column=1, columnspan=4, pady=5)
+Etages.grid(row=0, column=1, columnspan=5, pady=5)
 #####################################################################################################
 
 # On lie les flèches du clavier aux flèches de sélection des étages
@@ -297,7 +330,7 @@ Fleche_gauche.bind('<Button-1>', ChangeEtage)
 Fleche_droite.bind('<Button-1>', ChangeEtage)
 
 # On affiche le canevas principal
-Canevas.grid(row=1, column=1, columnspan=4)
+Canevas.grid(row=1, column=1, columnspan=5)
 
 # On remplit le canevas principal et les étages de carrés blancs
 Init()
@@ -319,7 +352,7 @@ bouton2=Radiobutton(Boutons, text="En bas", variable=section, value=1, indicator
 bouton1.grid(row=0, column=1)
 bouton2.grid(row=1, column=1)
 
-Boutons.grid(row=2, column=1, columnspan=4, pady=5) 
+Boutons.grid(row=2, column=1, columnspan=5, pady=5) 
 #####################################################################################################
 
 
@@ -329,12 +362,13 @@ Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).grid(row=3, c
 # Bouton Effacer
 Button(Mafenetre, text ='Effacer', command = Init).grid(row=3, column=2)
 
+# Bouton Open
+Button(Mafenetre, text ='Open', command = Save_Popup).grid(row=3, column=3)
+
 # Bouton Save
-Button(Mafenetre, text ='Save', command = Save).grid(row=3, column=3)
+Button(Mafenetre, text ='Save', command = Save_Popup).grid(row=3, column=4)
 
 # Bouton Quitter
-Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).grid(row=3, column=4)
+Button(Mafenetre, text ='Quitter', command = Mafenetre.destroy).grid(row=3, column=5)
 
 Mafenetre.mainloop()
-
-logs.close()
