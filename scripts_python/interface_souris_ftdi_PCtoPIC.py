@@ -44,12 +44,6 @@ matrice_leds = []
 for i in range(lignes*etages):
 	matrice_leds.append([0] * colonnes)
 
-octets_rouges=[]				
-octets_bleus=[]
-for k in range(etages):
-	octets_rouges.append([0] * lignes)
-	octets_bleus.append([0] * lignes)
-
 
 # Taille d'un pixel des étages
 etage_pix_size=6
@@ -61,20 +55,20 @@ pix_size=50
 def Change_couleur(i,j):
 
 	# Incrémentation de la matrice				
-	matrice_leds[i+8*Etage_courant][j] = matrice_leds[i+8*Etage_courant][j]+1
+	matrice_leds[i+8*Etage_courant][j] = (matrice_leds[i+8*Etage_courant][j]+1)%4
 
 	# Changement de couleur des carrés
-	if  matrice_leds[i+8*Etage_courant][j]%4 == 1 :
+	if  matrice_leds[i+8*Etage_courant][j] == 1 :
 
 		Canevas.itemconfigure(carre[i][j],fill='red')
 		Etages.itemconfigure(carres_etages[i+8*Etage_courant][j],fill='red')
 
-	elif matrice_leds[i+8*Etage_courant][j]%4 == 2 :
+	elif matrice_leds[i+8*Etage_courant][j] == 2 :
 
 		Canevas.itemconfigure(carre[i][j],fill='blue')
 		Etages.itemconfigure(carres_etages[i+8*Etage_courant][j],fill='blue')
 
-	elif matrice_leds[i+8*Etage_courant][j]%4 == 3 :
+	elif matrice_leds[i+8*Etage_courant][j] == 3 :
 
 		Canevas.itemconfigure(carre[i][j],fill='purple')
 		Etages.itemconfigure(carres_etages[i+8*Etage_courant][j],fill='purple')
@@ -83,26 +77,6 @@ def Change_couleur(i,j):
 		Canevas.itemconfigure(carre[i][j],fill='white')
 		Etages.itemconfigure(carres_etages[i+8*Etage_courant][j],fill='white')
 
-	global octets_rouges
-	global octets_bleus
-	for i in range(lignes):
-		octets_rouges[Etage_courant][i]=0
-		octets_bleus[Etage_courant][i]=0
-
-	# Indice pour chaque PIC
-	for i in range(lignes) :
-		# Indice pour chaque diode d'une ligne (= d'un PIC)
-		for j in range(colonnes) :
-
-			if  matrice_leds[i+8*Etage_courant][j]%4 == 1:
-				octets_rouges[Etage_courant][i] = octets_rouges[Etage_courant][i]+2**j
-
-			elif matrice_leds[i+8*Etage_courant][j]%4 == 2:                
-				octets_bleus[Etage_courant][i] = octets_bleus[Etage_courant][i]+2**j
-
-			elif matrice_leds[i+8*Etage_courant][j]%4 == 3:
-				octets_rouges[Etage_courant][i] = octets_rouges[Etage_courant][i]+2**j
-				octets_bleus[Etage_courant][i] = octets_bleus[Etage_courant][i]+2**j
 
 def Clic(event):
 	""" Gestion de l'événement Clic gauche sur la zone graphique """
@@ -140,6 +114,27 @@ def Touche(event):
 			ChangeEtage(index)
 
 def Envoyer():
+	octets_rouges=[]				
+	octets_bleus=[]
+	for k in range(etages):
+		octets_rouges.append([0] * lignes)
+		octets_bleus.append([0] * lignes)		
+
+	# Indice pour chaque PIC
+	for i in range(lignes) :
+		# Indice pour chaque diode d'une ligne (= d'un PIC)
+		for j in range(colonnes) :
+
+			if  matrice_leds[i+8*Etage_courant][j] == 1:
+				octets_rouges[Etage_courant][i] = octets_rouges[Etage_courant][i]+2**j
+
+			elif matrice_leds[i+8*Etage_courant][j] == 2:                
+				octets_bleus[Etage_courant][i] = octets_bleus[Etage_courant][i]+2**j
+
+			elif matrice_leds[i+8*Etage_courant][j] == 3:
+				octets_rouges[Etage_courant][i] = octets_rouges[Etage_courant][i]+2**j
+				octets_bleus[Etage_courant][i] = octets_bleus[Etage_courant][i]+2**j
+
 
 	print ("On verifie les octets de l'etage 0 envoyes aux deux premiers PICs :")
 	print ("Premier octet rouge = %s" % bin(octets_rouges[0][0]))
@@ -210,6 +205,7 @@ def Init():
 				matrice_leds [i+8*k][j]=0
 	#####################################################################################################
 
+
 def ChangeEtage(event):
 
 	global Etage_courant
@@ -235,22 +231,22 @@ def MAJ_Couleurs(petitscarres):
 		for k in range(etages) :
 			for i in range (lignes):
 				for j in range(etages):
-					if  matrice_leds[i+8*k][j]%4 == 1 :
+					if  matrice_leds[i+8*k][j] == 1 :
 						Etages.itemconfigure(carres_etages[i+8*k][j],fill='red')
-					elif matrice_leds[i+8*k][j]%4 == 2 :					
+					elif matrice_leds[i+8*k][j] == 2 :					
 						Etages.itemconfigure(carres_etages[i+8*k][j],fill='blue')
-					elif matrice_leds[i+8*k][j]%4 == 3 :
+					elif matrice_leds[i+8*k][j] == 3 :
 						Etages.itemconfigure(carres_etages[i+8*k][j],fill='purple')
 					else :
 						Etages.itemconfigure(carres_etages[i+8*k][j],fill='white')
 	else :
 		for i in range (lignes):
 			for j in range(etages):
-				if  matrice_leds[i+8*Etage_courant][j]%4 == 1 :
+				if  matrice_leds[i+8*Etage_courant][j] == 1 :
 					Canevas.itemconfigure(carre[i][j],fill='red')
-				elif matrice_leds[i+8*Etage_courant][j]%4 == 2 :
+				elif matrice_leds[i+8*Etage_courant][j] == 2 :
 					Canevas.itemconfigure(carre[i][j],fill='blue')
-				elif matrice_leds[i+8*Etage_courant][j]%4 == 3 :
+				elif matrice_leds[i+8*Etage_courant][j] == 3 :
 					Canevas.itemconfigure(carre[i][j],fill='purple')
 				else :
 					Canevas.itemconfigure(carre[i][j],fill='white')
@@ -260,7 +256,17 @@ def Open_Popup():
 	def Open(event):
 		filename = savefield.get()	
 		logs = open("Patterns//%s.txt" %filename,"r")
-		matrice_leds = logs.read()
+		for k in range(etages):	
+			for i in range(lignes):
+				for j in range(colonnes):
+					for couleur_pixel in range(5):
+						# L'appel à logs.read(1) fait avancer la lecture d'un caractère :
+						# On se remet à la bonne position avec logs.seek()
+						logs.seek(8*i+j+64*k,0)
+						if logs.read(1) == "%s" %couleur_pixel :
+							matrice_leds[i+8*k][j]=couleur_pixel
+
+
 		logs.close()
 		MAJ_Couleurs(0)
 		MAJ_Couleurs(1)
@@ -293,7 +299,10 @@ def Save_Popup():
 			savename=savefield.get()
 
 		logs = open("Patterns//%s.txt" %savename,"w")
-		logs.write("%s" %matrice_leds)
+		for k in range(etages):	
+			for i in range(lignes):
+				for j in range(colonnes):
+					logs.write("%s" %matrice_leds[i+8*k][j])
 		logs.close()
 
 		Save_Screen.destroy()	
