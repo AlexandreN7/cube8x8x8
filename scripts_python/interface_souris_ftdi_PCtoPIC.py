@@ -89,7 +89,7 @@ def Clic(event):
 def Touche(event):
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
-	print(touche)
+	#print(touche)
 
 	if touche=='BackSpace':
 		Init()
