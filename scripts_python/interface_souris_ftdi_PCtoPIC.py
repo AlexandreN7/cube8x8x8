@@ -89,13 +89,21 @@ def Clic(event):
 def Touche(event):
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
-	#print(touche)
+	print(touche)
 
 	if touche=='BackSpace':
 		Init()
 
+	if touche=='equal':
+		Open_Popup()		
+
 	if touche=='Return':
 		Save_Popup()
+
+	if touche=='Up':
+		section.set(0)
+	if touche=='Down':
+		section.set(1)		
 
 	# Touches sensibles pour les pixels
 	sensPix_list=['ampersand','eacute','quotedbl','apostrophe','parenleft','minus','egrave','underscore',\
