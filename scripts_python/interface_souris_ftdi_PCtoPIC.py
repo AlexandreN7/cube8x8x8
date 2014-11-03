@@ -12,7 +12,7 @@ script interface_souris_ftdi_PCtoPIC.py
 
 Cube8x8x8
 
-Created by Robin Beilvert and Alexandre Proux
+Created by Robin Beilvert and Alexandre Proux and felix is watching
 """
 
 # Bibliothèques pour ftdi, calculs et gestion du temps
