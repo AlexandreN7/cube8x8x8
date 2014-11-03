@@ -79,7 +79,7 @@
 
 char tampon = 0;
 char stock_led[128] = 0;
-int compteur = 0 ;
+char compteur = 0;
 
 
 
@@ -124,12 +124,11 @@ void main(void) {
     // sprintf (msg, "Address = %d\n", address);
 
     while (1) {
-        for (int i = 0; i < 10000; i++) {
-        }
+
+
       //  msg1[0] = test;
-        writeStringToUART(msg1);
-        //   writeStringToUART ('test');
-    }
+       // writeStringToUART(msg1);
+
 }
 
 //unsigned char readAddress() {
