@@ -84,44 +84,43 @@ int compteur = 0 ;
 
 
 
-void interrupt low_priority high_isr(void) {
+void interrupt low_priority low_isr(void) { // interruption de l'UART
    if (RC2IF /*&& PIE3bits.TX2IE*/) {
        tampon = RCREG2;
        PORTA =tampon;
-      if (compteur < 128)
+       if (compteur == 128)
         {
-       stock_led[compteur] = tampon;
-       compteur ++;
+        compteur =0;
         }
-      else {
-        compteur = 0;
         stock_led[compteur] = tampon;
         compteur ++;
       }
-
-
+   RC2IF = 0; // On met le flag a 0
   }
-RC2IF = 0; // On met le flag a 0
+
+
+void interrupt low_priority timer_isr(void) {
+// Check for overflow of TMR0
+    if ( TMR0IE && TMR0IF ) {
+	// mettre la clock ici
+    }
+	TMR0IF = 0;
 }
+
+
+void init_timer(void);
+
 
 void main(void) {
     unsigned char address = 0;
-    char msg1[80] = "Slave 1 Ready \n \r";
-
-    char msg2[80];
+    char msg1[80] = "MASTER IS READY \n \r";
 
 
-    /***Initialization***/
-    //SWDTEN = 1;       // Enable the watchdog
+
     initPorts(); // Initialize ports to startup state
     initComms(); // Initialize the serial port
-
-
-
-
-
     //Read Address setting
-    address = readAddress();
+   // address = readAddress();
     // sprintf (msg, "Address = %d\n", address);
 
     while (1) {
@@ -133,6 +132,21 @@ void main(void) {
     }
 }
 
-unsigned char readAddress() {
-    return !nADDR3 << 3 | !nADDR2 << 2 | !nADDR2 << 1 | !nADDR0;
+//unsigned char readAddress() {
+//    return !nADDR3 << 3 | !nADDR2 << 2 | !nADDR2 << 1 | !nADDR0;
+//}
+
+
+
+void init_timer(void) {
+ //Setup Timer0
+ T0PS0 = 0; //Prescaler is divide by 256
+ T0PS1 = 1;
+ T0PS2 = 0;
+ PSA = 0; //Timer Clock Source is from Prescaler
+ T0CS = 0; //Prescaler gets clock from FCPU
+ T08BIT = 1; //8 BIT MODE
+ TMR0IE = 1; //Enable TIMER0 Interrupt
+ PEIE = 1; //Enable Peripheral Interrupt
+ GIE = 1; //Enable INTs globally
 }
