@@ -1,5 +1,3 @@
-#!/usr/bin/python2.6
-# -*-coding:Latin-1 -*
 """
 script interface_souris_ftdi_PCtoPIC.py
  ______  _____      _           _
@@ -27,6 +25,8 @@ try:
 except ImportError:
 	# for Python3
 	from tkinter import *
+
+import os
 
 # Une ligne correspond à un PIC
 lignes = 8
@@ -94,11 +94,14 @@ def Touche(event):
 	if touche=='BackSpace':
 		Init()
 
+	if touche=='parenright':
+		Open_Popup()
+
 	if touche=='equal':
-		Open_Popup()		
+		Save_Popup()				
 
 	if touche=='Return':
-		Save_Popup()
+		Envoyer()
 
 	if touche=='Up':
 		section.set(0)
@@ -128,27 +131,28 @@ def Envoyer():
 		octets_rouges.append([0] * lignes)
 		octets_bleus.append([0] * lignes)		
 
-	# Indice pour chaque PIC
-	for i in range(lignes) :
-		# Indice pour chaque diode d'une ligne (= d'un PIC)
-		for j in range(colonnes) :
+	for k in range(etages):	
+		# Indice pour chaque PIC
+		for i in range(lignes) :
+			# Indice pour chaque diode d'une ligne (= d'un PIC)
+			for j in range(colonnes) :
 
-			if  matrice_leds[i+8*Etage_courant][j] == 1:
-				octets_rouges[Etage_courant][i] = octets_rouges[Etage_courant][i]+2**j
+				if  matrice_leds[i+8*k][j] == 1:
+					octets_rouges[k][i] = octets_rouges[k][i]+2**j
 
-			elif matrice_leds[i+8*Etage_courant][j] == 2:                
-				octets_bleus[Etage_courant][i] = octets_bleus[Etage_courant][i]+2**j
+				elif matrice_leds[i+8*k][j] == 2:                
+					octets_bleus[k][i] = octets_bleus[k][i]+2**j
 
-			elif matrice_leds[i+8*Etage_courant][j] == 3:
-				octets_rouges[Etage_courant][i] = octets_rouges[Etage_courant][i]+2**j
-				octets_bleus[Etage_courant][i] = octets_bleus[Etage_courant][i]+2**j
+				elif matrice_leds[i+8*k][j] == 3:
+					octets_rouges[k][i] = octets_rouges[k][i]+2**j
+					octets_bleus[k][i] = octets_bleus[k][i]+2**j
 
 
-	print ("On verifie les octets de l'etage 0 envoyes aux deux premiers PICs :")
-	print ("Premier octet rouge = %s" % bin(octets_rouges[0][0]))
-	print ("Premier octet bleu = %s" % bin(octets_bleus[0][0]))
-	print ("Second octet rouge = %s" % bin(octets_rouges[0][1]))
-	print ("Second octet bleu = %s" % bin(octets_bleus[0][1]))
+	#print ("On verifie les octets de l'etage 0 envoyes aux deux premiers PICs :")
+	#print ("Premier octet rouge = %s" % bin(octets_rouges[0][0]))
+	#print ("Premier octet bleu = %s" % bin(octets_bleus[0][0]))
+	#print ("Second octet rouge = %s" % bin(octets_rouges[0][1]))
+	#print ("Second octet bleu = %s" % bin(octets_bleus[0][1]))
 
 	# On envoie la sauce !
 	with Device (mode = 't') as dev:
@@ -163,9 +167,9 @@ def Envoyer():
 
 
 def Init():
-	#####################################################################################################
+
 	##################################### Initialisation des étages #####################################
-	#####################################################################################################
+
 	# Contours des étages		
 	Etages.delete(ALL)
 	global etage
@@ -188,10 +192,12 @@ def Init():
 			outline='white', fill='white')]
 		# On ajoute la ligne	
 		carres_etages.append(sommelist)
-	
+
 	#####################################################################################################
+
+
 	################################ Initialisation du canevas principal ################################
-	#####################################################################################################
+
 	Canevas.delete(ALL)
 	global carre
 	carre = []
@@ -211,6 +217,7 @@ def Init():
 		for i in range(lignes) :
 			for j in range(colonnes) : 
 				matrice_leds [i+8*k][j]=0
+
 	#####################################################################################################
 
 
@@ -352,14 +359,7 @@ Mafenetre.bind('<Right>', ChangeEtage)
 Boutons = Canvas(Mafenetre, width = 100, height =100)
 
 
-# Création du canevas principal (matrice colorée)
-Hauteur = lignes*pix_size
-Largeur = colonnes*pix_size
-Canevas = Canvas(Mafenetre, width = Largeur+2, height =Hauteur+2)
 
-# La méthode bind() permet de lier un événement avec une fonction :
-# un clic gauche sur la zone graphique provoquera l'appel de la fonction utilisateur Clic()
-Canevas.bind('<Button-1>', Clic)
 
 #####################################################################################################
 ######################## Création de la ligne avec les étages et les flèches ########################
@@ -384,11 +384,22 @@ Etages.grid(row=0, column=1, columnspan=5, pady=5)
 Fleche_gauche.bind('<Button-1>', ChangeEtage)
 Fleche_droite.bind('<Button-1>', ChangeEtage)
 
+#####################################################################################################
+######################### Création du canevas principal (matrice colorée) ###########################
+#####################################################################################################
+Hauteur = lignes*pix_size
+Largeur = colonnes*pix_size
+Canevas = Canvas(Mafenetre, width = Largeur+2, height =Hauteur+2)
+
+# La méthode bind() permet de lier un événement avec une fonction :
+# un clic gauche sur la zone graphique provoquera l'appel de la fonction utilisateur Clic()
+Canevas.bind('<Button-1>', Clic)
 # On affiche le canevas principal
 Canevas.grid(row=1, column=1, columnspan=5)
-
 # On remplit le canevas principal et les étages de carrés blancs
 Init()
+#####################################################################################################
+
 
 #####################################################################################################
 ###### Boutons de sélection de la zone concernée par les entrées au clavier et image du clavier #####
@@ -408,6 +419,20 @@ bouton1.grid(row=0, column=1)
 bouton2.grid(row=1, column=1)
 
 Boutons.grid(row=2, column=1, columnspan=5, pady=5) 
+#####################################################################################################
+
+
+#####################################################################################################
+################################## Gestion des trames de patterns ###################################
+#####################################################################################################
+Gestion_Patterns = Canvas(Mafenetre)
+Gestion_Patterns.grid(row=1, column=7)
+liste = Listbox(Gestion_Patterns)
+liste.grid()
+liste.insert(END, "Pierre")
+liste.insert(END, "Feuille")
+liste.insert(END, "Ciseau")
+print(os.listdir('Patterns'))
 #####################################################################################################
 
 
