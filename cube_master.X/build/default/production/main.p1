@@ -5,6 +5,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCREG2 `Vuc ~T0 @X0 0 e@3962 ]
 "32440
 [v _PORTA `Vuc ~T0 @X0 0 e@3968 ]
+"44731
+[v _TMR0IE `Vb ~T0 @X0 0 e@32661 ]
+"44733
+[v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
 [p mainexit ]
 "1 port.h
 [v _initPorts `(v ~T0 @X0 0 ef ]
@@ -20,6 +24,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RA2 `Vb ~T0 @X0 0 e@31746 ]
 "42719
 [v _RA0 `Vb ~T0 @X0 0 e@31744 ]
+"44631
+[v _T0PS0 `Vb ~T0 @X0 0 e@32424 ]
+"44633
+[v _T0PS1 `Vb ~T0 @X0 0 e@32425 ]
+"44635
+[v _T0PS2 `Vb ~T0 @X0 0 e@32426 ]
+"42707
+[v _PSA `Vb ~T0 @X0 0 e@32427 ]
+"44623
+[v _T0CS `Vb ~T0 @X0 0 e@32429 ]
+"44621
+[v _T08BIT `Vb ~T0 @X0 0 e@32430 ]
+"42689
+[v _PEIE `Vb ~T0 @X0 0 e@32662 ]
+"42291
+[v _GIE `Vb ~T0 @X0 0 e@32663 ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f25k80.h: 47: extern volatile unsigned char RXERRCNT @ 0xE41;
@@ -17503,13 +17523,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 81: char stock_led[128] = 0;
 "82
 [v _compteur `i ~T0 @X0 1 e ]
-[; ;main.c: 82: int compteur;
+[i _compteur
+-> 0 `i
+]
+[; ;main.c: 82: int compteur = 0 ;
 [v F19148 `(v ~T0 @X0 1 tf ]
 "87
-[v _high_isr `ILF19148 ~T0 @X0 1 e ]
+[v _low_isr `ILF19148 ~T0 @X0 1 e ]
 {
-[; ;main.c: 87: void interrupt low_priority high_isr(void) {
-[e :U _high_isr ]
+[; ;main.c: 87: void interrupt low_priority low_isr(void) {
+[e :U _low_isr ]
 [f ]
 [; ;main.c: 88: if (RC2IF ) {
 "88
@@ -17521,76 +17544,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 90: PORTA =tampon;
 "90
 [e = _PORTA _tampon ]
-[; ;main.c: 91: if (compteur < 128)
+[; ;main.c: 91: if (compteur == 128)
 "91
-[e $ ! < _compteur -> 128 `i 2641  ]
+[e $ ! == _compteur -> 128 `i 2641  ]
 [; ;main.c: 92: {
 "92
 {
-[; ;main.c: 93: stock_led[compteur] = tampon;
+[; ;main.c: 93: compteur =0;
 "93
-[e = *U + &U _stock_led * -> -> _compteur `ui `ux -> -> # *U &U _stock_led `ui `ux _tampon ]
-[; ;main.c: 94: compteur ++;
-"94
-[e ++ _compteur -> 1 `i ]
-"95
-}
-[; ;main.c: 95: }
-[e $U 2642  ]
-"96
-[e :U 2641 ]
-[; ;main.c: 96: else {
-{
-[; ;main.c: 97: compteur = 0;
-"97
 [e = _compteur -> 0 `i ]
-[; ;main.c: 98: stock_led[compteur] = tampon;
-"98
-[e = *U + &U _stock_led * -> -> _compteur `ui `ux -> -> # *U &U _stock_led `ui `ux _tampon ]
-[; ;main.c: 99: compteur ++;
-"99
-[e ++ _compteur -> 1 `i ]
-"100
+"94
 }
-[e :U 2642 ]
-"103
+[e :U 2641 ]
+[; ;main.c: 94: }
+[; ;main.c: 95: stock_led[compteur] = tampon;
+"95
+[e = *U + &U _stock_led * -> -> _compteur `ui `ux -> -> # *U &U _stock_led `ui `ux _tampon ]
+[; ;main.c: 96: compteur ++;
+"96
+[e ++ _compteur -> 1 `i ]
+"97
 }
 [e :U 2640 ]
-[; ;main.c: 100: }
-[; ;main.c: 103: }
-[; ;main.c: 104: RC2IF = 0;
-"104
+[; ;main.c: 97: }
+[; ;main.c: 98: RC2IF = 0;
+"98
 [e = _RC2IF -> -> 0 `i `b ]
-[; ;main.c: 105: }
-"105
+[; ;main.c: 99: }
+"99
 [e :UE 2639 ]
 }
+[v F19151 `(v ~T0 @X0 1 tf ]
+"102
+[v _timer_isr `ILF19151 ~T0 @X0 1 e ]
+{
+[; ;main.c: 102: void interrupt low_priority timer_isr(void) {
+[e :U _timer_isr ]
+[f ]
+[; ;main.c: 104: if ( TMR0IE && TMR0IF ) {
+"104
+[e $ ! && _TMR0IE _TMR0IF 2643  ]
+{
+"106
+}
+[e :U 2643 ]
+[; ;main.c: 106: }
+[; ;main.c: 107: TMR0IF = 0;
 "107
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;main.c: 108: }
+"108
+[e :UE 2642 ]
+}
+[; ;main.c: 111: void init_timer(void);
+"114
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 107: void main(void) {
+[; ;main.c: 114: void main(void) {
 [e :U _main ]
 [f ]
-"108
+"115
 [v _address `uc ~T0 @X0 1 a ]
-[; ;main.c: 108: unsigned char address = 0;
+[; ;main.c: 115: unsigned char address = 0;
 [e = _address -> -> 0 `i `uc ]
-[v F19153 `uc ~T0 @X0 -> 80 `i s ]
-[i F19153
+[v F19158 `uc ~T0 @X0 -> 80 `i s ]
+[i F19158
 :U ..
+-> 77 `c
+-> 65 `c
 -> 83 `c
--> 108 `c
--> 97 `c
--> 118 `c
--> 101 `c
+-> 84 `c
+-> 69 `c
+-> 82 `c
 -> 32 `c
--> 49 `c
+-> 73 `c
+-> 83 `c
 -> 32 `c
 -> 82 `c
--> 101 `c
--> 97 `c
--> 100 `c
--> 121 `c
+-> 69 `c
+-> 65 `c
+-> 68 `c
+-> 89 `c
 -> 32 `c
 -> 10 `c
 -> 32 `c
@@ -17598,69 +17632,103 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"109
-[v _msg1 `uc ~T0 @X0 -> 80 `i a ]
-[; ;main.c: 109: char msg1[80] = "Slave 1 Ready \n \r";
-[e = _msg1 F19153 ]
-"111
-[v _msg2 `uc ~T0 @X0 -> 80 `i a ]
-[; ;main.c: 111: char msg2[80];
-[; ;main.c: 116: initPorts();
 "116
+[v _msg1 `uc ~T0 @X0 -> 80 `i a ]
+[; ;main.c: 116: char msg1[80] = "MASTER IS READY \n \r";
+[e = _msg1 F19158 ]
+[; ;main.c: 120: initPorts();
+"120
 [e ( _initPorts ..  ]
-[; ;main.c: 117: initComms();
-"117
+[; ;main.c: 121: initComms();
+"121
 [e ( _initComms ..  ]
-[; ;main.c: 124: address = readAddress();
-"124
-[e = _address ( _readAddress ..  ]
-[; ;main.c: 127: while (1) {
-"127
-[e :U 2645 ]
-{
-[; ;main.c: 128: for (int i = 0; i < 10000; i++) {
+[; ;main.c: 128: address = readAddress();
 "128
+[e = _address ( _readAddress ..  ]
+[; ;main.c: 131: while (1) {
+"131
+[e :U 2646 ]
+{
+[; ;main.c: 132: for (int i = 0; i < 10000; i++) {
+"132
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 10000 `i 2647  ]
-[e $U 2648  ]
-[e :U 2647 ]
-{
-"129
-}
-"128
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 10000 `i 2647  ]
+[e $ < _i -> 10000 `i 2648  ]
+[e $U 2649  ]
 [e :U 2648 ]
-"129
-}
-[; ;main.c: 129: }
-[; ;main.c: 131: writeStringToUART(msg1);
-"131
-[e ( _writeStringToUART (1 -> &U _msg1 `*Cuc ]
+{
 "133
 }
-[e :U 2644 ]
-"127
-[e $U 2645  ]
-[e :U 2646 ]
-[; ;main.c: 133: }
-[; ;main.c: 134: }
-"134
-[e :UE 2643 ]
+"132
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 10000 `i 2648  ]
+[e :U 2649 ]
+"133
 }
-"136
-[v _readAddress `(uc ~T0 @X0 1 ef ]
-{
-[; ;main.c: 136: unsigned char readAddress() {
-[e :U _readAddress ]
-[f ]
-[; ;main.c: 137: return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
+[; ;main.c: 133: }
+[; ;main.c: 135: writeStringToUART(msg1);
+"135
+[e ( _writeStringToUART (1 -> &U _msg1 `*Cuc ]
 "137
-[e ) -> | | | << -> ! _RA3 `i -> 3 `i << -> ! _RA2 `i -> 2 `i << -> ! _RA2 `i -> 1 `i -> ! _RA0 `i `uc ]
-[e $UE 2650  ]
+}
+[e :U 2645 ]
+"131
+[e $U 2646  ]
+[e :U 2647 ]
+[; ;main.c: 137: }
 [; ;main.c: 138: }
 "138
-[e :UE 2650 ]
+[e :UE 2644 ]
+}
+"140
+[v _readAddress `(uc ~T0 @X0 1 ef ]
+{
+[; ;main.c: 140: unsigned char readAddress() {
+[e :U _readAddress ]
+[f ]
+[; ;main.c: 141: return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
+"141
+[e ) -> | | | << -> ! _RA3 `i -> 3 `i << -> ! _RA2 `i -> 2 `i << -> ! _RA2 `i -> 1 `i -> ! _RA0 `i `uc ]
+[e $UE 2651  ]
+[; ;main.c: 142: }
+"142
+[e :UE 2651 ]
+}
+"146
+[v _init_timer `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 146: void init_timer(void) {
+[e :U _init_timer ]
+[f ]
+[; ;main.c: 148: T0PS0 = 0;
+"148
+[e = _T0PS0 -> -> 0 `i `b ]
+[; ;main.c: 149: T0PS1 = 1;
+"149
+[e = _T0PS1 -> -> 1 `i `b ]
+[; ;main.c: 150: T0PS2 = 0;
+"150
+[e = _T0PS2 -> -> 0 `i `b ]
+[; ;main.c: 151: PSA = 0;
+"151
+[e = _PSA -> -> 0 `i `b ]
+[; ;main.c: 152: T0CS = 0;
+"152
+[e = _T0CS -> -> 0 `i `b ]
+[; ;main.c: 153: T08BIT = 1;
+"153
+[e = _T08BIT -> -> 1 `i `b ]
+[; ;main.c: 154: TMR0IE = 1;
+"154
+[e = _TMR0IE -> -> 1 `i `b ]
+[; ;main.c: 155: PEIE = 1;
+"155
+[e = _PEIE -> -> 1 `i `b ]
+[; ;main.c: 156: GIE = 1;
+"156
+[e = _GIE -> -> 1 `i `b ]
+[; ;main.c: 157: }
+"157
+[e :UE 2652 ]
 }

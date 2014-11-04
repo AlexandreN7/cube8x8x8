@@ -110,13 +110,7 @@ void main(void) {
     initPorts(); // Initialize ports to startup state
     initComms(); // Initialize the serial port
 
-
-
-
-
-    //Read Address setting
-    address = readAddress();
-    // sprintf (msg, "Address = %d\n", address);
+    //address = readAddress();
 
 
 
