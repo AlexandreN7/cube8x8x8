@@ -8,9 +8,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _initPorts `(v ~T0 @X0 0 ef ]
 "4 usart.h
 [v _initComms `(v ~T0 @X0 0 ef ]
-"72 main.h
-[v _readAddress `(uc ~T0 @X0 0 ef ]
-"5 usart.h
+"5
 [v _writeStringToUART `(v ~T0 @X0 0 ef1`*Cuc ]
 "32440 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
 [v _PORTA `Vuc ~T0 @X0 0 e@3968 ]
@@ -17424,13 +17422,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "23
 [p x XINST=OFF ]
 "26
-[p x FOSC=INTIO2 ]
+[p x FOSC=INTIO1 ]
 "27
-[p x PLLCFG=OFF ]
+[p x PLLCFG=ON ]
 "28
 [p x FCMEN=OFF ]
 "29
-[p x IESO=OFF ]
+[p x IESO=ON ]
 "32
 [p x PWRTEN=ON ]
 "33
@@ -17597,18 +17595,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 111: initComms();
 "111
 [e ( _initComms ..  ]
-[; ;main.c: 118: address = readAddress();
+[; ;main.c: 118: while (1) {
 "118
-[e = _address ( _readAddress ..  ]
-[; ;main.c: 124: while (1) {
-"124
 [e :U 2644 ]
 {
-[; ;main.c: 127: writeStringToUART(msg1);
-"127
+[; ;main.c: 121: writeStringToUART(msg1);
+"121
 [e ( _writeStringToUART (1 -> &U _msg1 `*Cuc ]
-[; ;main.c: 129: for (int i = 0; i < 100; i++) {
-"129
+[; ;main.c: 123: for (int i = 0; i < 100; i++) {
+"123
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -17616,43 +17611,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 2647  ]
 [e :U 2646 ]
 {
-"130
+"124
 }
-"129
+"123
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 100 `i 2646  ]
 [e :U 2647 ]
-"130
+"124
 }
-[; ;main.c: 130: }
-[; ;main.c: 132: PORTA = stock_led[0];
-"132
+[; ;main.c: 124: }
+[; ;main.c: 126: PORTA = stock_led[0];
+"126
 [e = _PORTA *U + &U _stock_led * -> -> -> 0 `i `ui `ux -> -> # *U &U _stock_led `ui `ux ]
-[; ;main.c: 133: PORTC = stock_led[0 + 1];
-"133
+[; ;main.c: 127: PORTC = stock_led[0 + 1];
+"127
 [e = _PORTC *U + &U _stock_led * -> -> + -> 0 `i -> 1 `i `ui `ux -> -> # *U &U _stock_led `ui `ux ]
-"134
+"128
 }
 [e :U 2643 ]
-"124
+"118
 [e $U 2644  ]
 [e :U 2645 ]
-[; ;main.c: 134: }
-[; ;main.c: 135: }
-"135
+[; ;main.c: 128: }
+[; ;main.c: 129: }
+"129
 [e :UE 2642 ]
 }
-"137
+"131
 [v _readAddress `(uc ~T0 @X0 1 ef ]
 {
-[; ;main.c: 137: unsigned char readAddress() {
+[; ;main.c: 131: unsigned char readAddress() {
 [e :U _readAddress ]
 [f ]
-[; ;main.c: 138: return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
-"138
+[; ;main.c: 132: return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
+"132
 [e ) -> | | | << -> ! _RA3 `i -> 3 `i << -> ! _RA2 `i -> 2 `i << -> ! _RA2 `i -> 1 `i -> ! _RA0 `i `uc ]
 [e $UE 2649  ]
-[; ;main.c: 139: }
-"139
+[; ;main.c: 133: }
+"133
 [e :UE 2649 ]
 }

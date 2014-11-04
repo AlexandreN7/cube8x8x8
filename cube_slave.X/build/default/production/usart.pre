@@ -21947,12 +21947,10 @@ PIE3bits.RC2IE = 1;
 RCONbits.IPEN = 1;
 
 # 50
-SPBRG = 51;
-SPBRG2 = 12;
+SPBRG = 278;
+SPBRG2 = 68;
 
-
-
-
+# 57
 }
 
 void writeStringToUART (const char *msg)
