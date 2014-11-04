@@ -100,25 +100,17 @@ void interrupt low_priority high_isr(void) {
 
 void main(void) {
     unsigned char address = 0;
-    char msg1[80] = "Slave 1 Ready \n \r";
-
-    char msg2[80];
-
+    char msg1[80] = "Slave Ready \n \r";
 
     /***Initialization***/
     //SWDTEN = 1;       // Enable the watchdog
     initPorts(); // Initialize ports to startup state
     initComms(); // Initialize the serial port
 
-    //address = readAddress();
-
-
-
-
     while (1) {
 
 
-        writeStringToUART(msg1);
+//        writeStringToUART(msg1);
 
         for (int i = 0; i < 100; i++) {
         }
@@ -128,6 +120,3 @@ void main(void) {
     }
 }
 
-unsigned char readAddress() {
-    return !nADDR3 << 3 | !nADDR2 << 2 | !nADDR2 << 1 | !nADDR0;
-}

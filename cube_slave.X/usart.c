@@ -42,11 +42,8 @@ void initComms()
    //SPBRG2 = 25;      // 9600
 
    //SPBRG = 51;   // 19200
-   //SPBRG2 = 12;
-
-                  // 52700 ???
-
-
+   //SPBRG2 = 12
+   
     SPBRG = 51;  // 19200
     SPBRG2 = 12;
 
