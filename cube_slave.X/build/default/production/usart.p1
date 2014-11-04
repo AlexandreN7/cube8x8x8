@@ -17633,12 +17633,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.c: 37: RCONbits.IPEN = 1;
 "37
 [e = . . _RCONbits 6 7 -> -> 1 `i `uc ]
-[; ;usart.c: 50: SPBRG = 278;
+[; ;usart.c: 50: SPBRG = 115;
 "50
-[e = _SPBRG -> -> 278 `i `uc ]
-[; ;usart.c: 51: SPBRG2 = 68;
+[e = _SPBRG -> -> 115 `i `uc ]
+[; ;usart.c: 51: SPBRG2 = 137;
 "51
-[e = _SPBRG2 -> -> 68 `i `uc ]
+[e = _SPBRG2 -> -> 137 `i `uc ]
 [; ;usart.c: 57: }
 "57
 [e :UE 2639 ]

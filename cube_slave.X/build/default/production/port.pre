@@ -21918,11 +21918,9 @@ void initPorts(void) {
 
 
 
-OSCCON = 0x70;
+OSCCON= 0x70;
 
-
-
-
+# 18
 ADON = 1;
 
 

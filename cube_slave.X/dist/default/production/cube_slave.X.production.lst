@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.33 build 59893 
-                                                                                               Tue Nov  4 00:01:32 2014
+                                                                                               Tue Nov  4 18:42:39 2014
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 59893
      1                           	processor	18F25K80
@@ -569,50 +569,50 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    548  00020E                     _initPorts:
    549                           	opt stack 29
    550                           
-   551                           ;port.c: 12: OSCCON = 0x70;
+   551                           ;port.c: 12: OSCCON= 0x70;
    552                           
    553                           ;incstack = 0
    554  00020E  0E70               	movlw	112
    555  000210  6ED3               	movwf	4051,c	;volatile
    556                           
-   557                           ;port.c: 17: ADON = 1;
+   557                           ;port.c: 18: ADON = 1;
    558  000212  80C2               	bsf	4034,0,c	;volatile
    559                           
-   560                           ;port.c: 20: PORTA = 0b00000000;
+   560                           ;port.c: 21: PORTA = 0b00000000;
    561  000214  0E00               	movlw	0
    562  000216  6E80               	movwf	3968,c	;volatile
    563                           
-   564                           ;port.c: 21: TRISA = 0b00000000;
+   564                           ;port.c: 22: TRISA = 0b00000000;
    565  000218  0E00               	movlw	0
    566  00021A  6E92               	movwf	3986,c	;volatile
    567                           
-   568                           ;port.c: 23: PORTB = 0b01001000;
+   568                           ;port.c: 24: PORTB = 0b01001000;
    569  00021C  0E48               	movlw	72
    570  00021E  6E81               	movwf	3969,c	;volatile
    571                           
-   572                           ;port.c: 24: TRISB = 0b10010011;
+   572                           ;port.c: 25: TRISB = 0b10010011;
    573  000220  0E93               	movlw	147
    574  000222  6E93               	movwf	3987,c	;volatile
    575                           
-   576                           ;port.c: 26: PORTC = 0b00000000;
+   576                           ;port.c: 27: PORTC = 0b00000000;
    577  000224  0E00               	movlw	0
    578  000226  6E82               	movwf	3970,c	;volatile
    579                           
-   580                           ;port.c: 27: TRISC = 0b00000000;
+   580                           ;port.c: 28: TRISC = 0b00000000;
    581  000228  0E00               	movlw	0
    582  00022A  6E94               	movwf	3988,c	;volatile
    583                           
-   584                           ;port.c: 30: GIE = 1;
+   584                           ;port.c: 31: GIE = 1;
    585  00022C  8EF2               	bsf	intcon,7,c	;volatile
    586                           
-   587                           ;port.c: 31: PEIE = 1;
+   587                           ;port.c: 32: PEIE = 1;
    588  00022E  8CF2               	bsf	intcon,6,c	;volatile
    589                           
-   590                           ;port.c: 32: INTCON =0b11000000;
+   590                           ;port.c: 33: INTCON =0b11000000;
    591  000230  0EC0               	movlw	192
    592  000232  6EF2               	movwf	intcon,c	;volatile
    593                           
-   594                           ;port.c: 33: OSCTUNEbits.PLLEN = 1;
+   594                           ;port.c: 34: OSCTUNEbits.PLLEN = 1;
    595  000234  8C9B               	bsf	3995,6,c	;volatile
    596  000236  0012               	return	
    597  000238                     __end_of_initPorts:
@@ -755,12 +755,12 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    729                           ;usart.c: 37: RCONbits.IPEN = 1;
    730  000202  8ED0               	bsf	4048,7,c	;volatile
    731                           
-   732                           ;usart.c: 50: SPBRG = 278;
-   733  000204  0E16               	movlw	22
+   732                           ;usart.c: 50: SPBRG = 115;
+   733  000204  0E73               	movlw	115
    734  000206  6EAF               	movwf	4015,c	;volatile
    735                           
-   736                           ;usart.c: 51: SPBRG2 = 68;
-   737  000208  0E44               	movlw	68
+   736                           ;usart.c: 51: SPBRG2 = 137;
+   737  000208  0E89               	movlw	137
    738  00020A  6E7B               	movwf	3963,c	;volatile
    739  00020C  0012               	return	
    740  00020E                     __end_of_initComms:
@@ -1223,7 +1223,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.33 build 59893 
-Symbol Table                                                                                   Tue Nov  4 00:01:32 2014
+Symbol Table                                                                                   Tue Nov  4 18:42:39 2014
 
                __CFG_CP0$ON 000000                 __CFG_CP1$ON 000000                 __CFG_CP2$ON 000000  
                __CFG_CP3$ON 000000                          l40 0130                          l76 023A  

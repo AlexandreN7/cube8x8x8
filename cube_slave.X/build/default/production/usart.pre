@@ -21947,8 +21947,8 @@ PIE3bits.RC2IE = 1;
 RCONbits.IPEN = 1;
 
 # 50
-SPBRG = 278;
-SPBRG2 = 68;
+SPBRG = 115;
+SPBRG2 = 137;
 
 # 57
 }

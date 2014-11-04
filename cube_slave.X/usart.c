@@ -47,8 +47,8 @@ void initComms()
                   // 52700 ???
 
 
-    SPBRG = 278;  // 19200
-    SPBRG2 = 68;
+    SPBRG = 115;  // 115000
+    SPBRG2 = 137;
 
     // On suppose que FCY = 64 000 000
 

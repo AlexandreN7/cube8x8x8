@@ -17431,43 +17431,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.c: 7: void initPorts(void) {
 [e :U _initPorts ]
 [f ]
-[; ;port.c: 12: OSCCON = 0x70;
+[; ;port.c: 12: OSCCON= 0x70;
 "12
 [e = _OSCCON -> -> 112 `i `uc ]
-[; ;port.c: 17: ADON = 1;
-"17
+[; ;port.c: 18: ADON = 1;
+"18
 [e = _ADON -> -> 1 `i `b ]
-[; ;port.c: 20: PORTA = 0b00000000;
-"20
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;port.c: 21: TRISA = 0b00000000;
+[; ;port.c: 21: PORTA = 0b00000000;
 "21
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;port.c: 22: TRISA = 0b00000000;
+"22
 [e = _TRISA -> -> 0 `i `uc ]
-[; ;port.c: 23: PORTB = 0b01001000;
-"23
-[e = _PORTB -> -> 72 `i `uc ]
-[; ;port.c: 24: TRISB = 0b10010011;
+[; ;port.c: 24: PORTB = 0b01001000;
 "24
+[e = _PORTB -> -> 72 `i `uc ]
+[; ;port.c: 25: TRISB = 0b10010011;
+"25
 [e = _TRISB -> -> 147 `i `uc ]
-[; ;port.c: 26: PORTC = 0b00000000;
-"26
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;port.c: 27: TRISC = 0b00000000;
+[; ;port.c: 27: PORTC = 0b00000000;
 "27
+[e = _PORTC -> -> 0 `i `uc ]
+[; ;port.c: 28: TRISC = 0b00000000;
+"28
 [e = _TRISC -> -> 0 `i `uc ]
-[; ;port.c: 30: GIE = 1;
-"30
-[e = _GIE -> -> 1 `i `b ]
-[; ;port.c: 31: PEIE = 1;
+[; ;port.c: 31: GIE = 1;
 "31
-[e = _PEIE -> -> 1 `i `b ]
-[; ;port.c: 32: INTCON =0b11000000;
+[e = _GIE -> -> 1 `i `b ]
+[; ;port.c: 32: PEIE = 1;
 "32
-[e = _INTCON -> -> 192 `i `uc ]
-[; ;port.c: 33: OSCTUNEbits.PLLEN = 1;
+[e = _PEIE -> -> 1 `i `b ]
+[; ;port.c: 33: INTCON =0b11000000;
 "33
+[e = _INTCON -> -> 192 `i `uc ]
+[; ;port.c: 34: OSCTUNEbits.PLLEN = 1;
+"34
 [e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
-[; ;port.c: 38: }
-"38
+[; ;port.c: 39: }
+"39
 [e :UE 2639 ]
 }
