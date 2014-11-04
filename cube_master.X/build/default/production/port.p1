@@ -21,6 +21,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PEIE `Vb ~T0 @X0 0 e@32662 ]
 "39500
 [v _INTCON `Vuc ~T0 @X0 0 e@4082 ]
+"33785
+[s S2206 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2206 . TUN PLLEN INTSRC ]
+"33790
+[s S2207 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2207 . TUN0 TUN1 TUN2 TUN3 TUN4 TUN5 ]
+"33784
+[u S2205 `S2206 1 `S2207 1 ]
+[n S2205 . . . ]
+"33799
+[v _OSCTUNEbits `VS2205 ~T0 @X0 0 e@3995 ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f25k80.h: 47: extern volatile unsigned char RXERRCNT @ 0xE41;
@@ -17420,9 +17431,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.c: 7: void initPorts(void) {
 [e :U _initPorts ]
 [f ]
-[; ;port.c: 11: OSCCON = 0x30;
-"11
-[e = _OSCCON -> -> 48 `i `uc ]
+[; ;port.c: 12: OSCCON = 0x70;
+"12
+[e = _OSCCON -> -> 112 `i `uc ]
 [; ;port.c: 17: ADON = 1;
 "17
 [e = _ADON -> -> 1 `i `b ]
@@ -17453,6 +17464,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.c: 32: INTCON =0b11000000;
 "32
 [e = _INTCON -> -> 192 `i `uc ]
+[; ;port.c: 33: OSCTUNEbits.PLLEN = 1;
+"33
+[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
 [; ;port.c: 37: }
 "37
 [e :UE 2639 ]

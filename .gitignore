@@ -37,11 +37,9 @@ ehthumbs.db
 Thumbs.db
 
 cube_master.X/Makefile
-
-
-
-
-
-
-
+test
+funclist
+l.obj
+build
+dist
 

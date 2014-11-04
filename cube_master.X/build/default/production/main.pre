@@ -21974,6 +21974,7 @@ unsigned char readAddress();
 
 #pragma config EBTRB = 0
 
+# 92
 char tampon = 0;
 char stock_led[128] = 0;
 char compteur = 0;
@@ -22017,16 +22018,14 @@ char msg1[80] = "MASTER IS READY \n \r";
 initPorts();
 initComms();
 
-
-
-
 while (1) {
 
-# 132
 }
 }
 
-# 140
+
+
+
 void init_timer(void) {
 
 T0PS0 = 0;

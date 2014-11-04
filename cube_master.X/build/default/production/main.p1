@@ -17497,105 +17497,105 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x EBTR3=ON ]
 "78
 [p x EBTRB=ON ]
-"80
+"92
 [v _tampon `uc ~T0 @X0 1 e ]
 [i _tampon
 -> -> 0 `i `uc
 ]
-[; ;main.c: 80: char tampon = 0;
-"81
+[; ;main.c: 92: char tampon = 0;
+"93
 [v _stock_led `uc ~T0 @X0 -> 128 `i e ]
 [i _stock_led
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;main.c: 81: char stock_led[128] = 0;
-"82
+[; ;main.c: 93: char stock_led[128] = 0;
+"94
 [v _compteur `uc ~T0 @X0 1 e ]
 [i _compteur
 -> -> 0 `i `uc
 ]
-[; ;main.c: 82: char compteur = 0;
+[; ;main.c: 94: char compteur = 0;
 [v F19148 `(v ~T0 @X0 1 tf ]
-"87
+"99
 [v _low_isr `ILF19148 ~T0 @X0 1 e ]
 {
-[; ;main.c: 87: void interrupt low_priority low_isr(void) {
+[; ;main.c: 99: void interrupt low_priority low_isr(void) {
 [e :U _low_isr ]
 [f ]
-[; ;main.c: 88: if (RC2IF ) {
-"88
+[; ;main.c: 100: if (RC2IF ) {
+"100
 [e $ ! _RC2IF 2640  ]
 {
-[; ;main.c: 89: tampon = RCREG2;
-"89
+[; ;main.c: 101: tampon = RCREG2;
+"101
 [e = _tampon _RCREG2 ]
-[; ;main.c: 90: PORTA =tampon;
-"90
+[; ;main.c: 102: PORTA =tampon;
+"102
 [e = _PORTA _tampon ]
-[; ;main.c: 91: if (compteur == 128)
-"91
+[; ;main.c: 103: if (compteur == 128)
+"103
 [e $ ! == -> _compteur `i -> 128 `i 2641  ]
-[; ;main.c: 92: {
-"92
+[; ;main.c: 104: {
+"104
 {
-[; ;main.c: 93: compteur =0;
-"93
+[; ;main.c: 105: compteur =0;
+"105
 [e = _compteur -> -> 0 `i `uc ]
-"94
+"106
 }
 [e :U 2641 ]
-[; ;main.c: 94: }
-[; ;main.c: 95: stock_led[compteur] = tampon;
-"95
+[; ;main.c: 106: }
+[; ;main.c: 107: stock_led[compteur] = tampon;
+"107
 [e = *U + &U _stock_led * -> _compteur `ux -> -> # *U &U _stock_led `ui `ux _tampon ]
-[; ;main.c: 96: compteur ++;
-"96
+[; ;main.c: 108: compteur ++;
+"108
 [e ++ _compteur -> -> 1 `i `uc ]
-"97
+"109
 }
 [e :U 2640 ]
-[; ;main.c: 97: }
-[; ;main.c: 98: RC2IF = 0;
-"98
+[; ;main.c: 109: }
+[; ;main.c: 110: RC2IF = 0;
+"110
 [e = _RC2IF -> -> 0 `i `b ]
-[; ;main.c: 99: }
-"99
+[; ;main.c: 111: }
+"111
 [e :UE 2639 ]
 }
 [v F19151 `(v ~T0 @X0 1 tf ]
-"102
+"114
 [v _timer_isr `ILF19151 ~T0 @X0 1 e ]
 {
-[; ;main.c: 102: void interrupt low_priority timer_isr(void) {
+[; ;main.c: 114: void interrupt low_priority timer_isr(void) {
 [e :U _timer_isr ]
 [f ]
-[; ;main.c: 104: if ( TMR0IE && TMR0IF ) {
-"104
+[; ;main.c: 116: if ( TMR0IE && TMR0IF ) {
+"116
 [e $ ! && _TMR0IE _TMR0IF 2643  ]
 {
-"106
+"118
 }
 [e :U 2643 ]
-[; ;main.c: 106: }
-[; ;main.c: 107: TMR0IF = 0;
-"107
+[; ;main.c: 118: }
+[; ;main.c: 119: TMR0IF = 0;
+"119
 [e = _TMR0IF -> -> 0 `i `b ]
-[; ;main.c: 108: }
-"108
+[; ;main.c: 120: }
+"120
 [e :UE 2642 ]
 }
-[; ;main.c: 111: void init_timer(void);
-"114
+[; ;main.c: 123: void init_timer(void);
+"126
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 114: void main(void) {
+[; ;main.c: 126: void main(void) {
 [e :U _main ]
 [f ]
-"115
+"127
 [v _address `uc ~T0 @X0 1 a ]
-[; ;main.c: 115: unsigned char address = 0;
+[; ;main.c: 127: unsigned char address = 0;
 [e = _address -> -> 0 `i `uc ]
 [v F19158 `uc ~T0 @X0 -> 80 `i s ]
 [i F19158
@@ -17622,65 +17622,65 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"116
+"128
 [v _msg1 `uc ~T0 @X0 -> 80 `i a ]
-[; ;main.c: 116: char msg1[80] = "MASTER IS READY \n \r";
+[; ;main.c: 128: char msg1[80] = "MASTER IS READY \n \r";
 [e = _msg1 F19158 ]
-[; ;main.c: 120: initPorts();
-"120
+[; ;main.c: 132: initPorts();
+"132
 [e ( _initPorts ..  ]
-[; ;main.c: 121: initComms();
-"121
+[; ;main.c: 133: initComms();
+"133
 [e ( _initComms ..  ]
-[; ;main.c: 126: while (1) {
-"126
+[; ;main.c: 135: while (1) {
+"135
 [e :U 2646 ]
 {
-"132
+"137
 }
 [e :U 2645 ]
-"126
+"135
 [e $U 2646  ]
 [e :U 2647 ]
-[; ;main.c: 132: }
-[; ;main.c: 133: }
-"133
+[; ;main.c: 137: }
+[; ;main.c: 138: }
+"138
 [e :UE 2644 ]
 }
-"140
+"143
 [v _init_timer `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 140: void init_timer(void) {
+[; ;main.c: 143: void init_timer(void) {
 [e :U _init_timer ]
 [f ]
-[; ;main.c: 142: T0PS0 = 0;
-"142
-[e = _T0PS0 -> -> 0 `i `b ]
-[; ;main.c: 143: T0PS1 = 1;
-"143
-[e = _T0PS1 -> -> 1 `i `b ]
-[; ;main.c: 144: T0PS2 = 0;
-"144
-[e = _T0PS2 -> -> 0 `i `b ]
-[; ;main.c: 145: PSA = 0;
+[; ;main.c: 145: T0PS0 = 0;
 "145
-[e = _PSA -> -> 0 `i `b ]
-[; ;main.c: 146: T0CS = 0;
+[e = _T0PS0 -> -> 0 `i `b ]
+[; ;main.c: 146: T0PS1 = 1;
 "146
-[e = _T0CS -> -> 0 `i `b ]
-[; ;main.c: 147: T08BIT = 1;
+[e = _T0PS1 -> -> 1 `i `b ]
+[; ;main.c: 147: T0PS2 = 0;
 "147
-[e = _T08BIT -> -> 1 `i `b ]
-[; ;main.c: 148: TMR0IE = 1;
+[e = _T0PS2 -> -> 0 `i `b ]
+[; ;main.c: 148: PSA = 0;
 "148
-[e = _TMR0IE -> -> 1 `i `b ]
-[; ;main.c: 149: PEIE = 1;
+[e = _PSA -> -> 0 `i `b ]
+[; ;main.c: 149: T0CS = 0;
 "149
-[e = _PEIE -> -> 1 `i `b ]
-[; ;main.c: 150: GIE = 1;
+[e = _T0CS -> -> 0 `i `b ]
+[; ;main.c: 150: T08BIT = 1;
 "150
-[e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 151: }
+[e = _T08BIT -> -> 1 `i `b ]
+[; ;main.c: 151: TMR0IE = 1;
 "151
+[e = _TMR0IE -> -> 1 `i `b ]
+[; ;main.c: 152: PEIE = 1;
+"152
+[e = _PEIE -> -> 1 `i `b ]
+[; ;main.c: 153: GIE = 1;
+"153
+[e = _GIE -> -> 1 `i `b ]
+[; ;main.c: 154: }
+"154
 [e :UE 2648 ]
 }

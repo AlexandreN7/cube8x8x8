@@ -77,7 +77,28 @@
 // CONFIG7H
 #pragma config EBTRB = OFF      // Table Read Protect Boot (Disabled)
 
+
+// DEFINE LIST
+
 #define esclave 0
+
+#define ledR1 
+#define ledR2
+#define ledR3
+#define ledR4
+#define ledR5
+#define ledR6
+#define ledR7
+#define ledR8
+
+#define ledB1
+#define ledB2
+#define ledB3
+#define ledB4
+#define ledB5
+#define ledB6
+#define ledB7
+#define ledB8
 
 
 

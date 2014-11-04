@@ -77,6 +77,18 @@
 // CONFIG7H
 #pragma config EBTRB = OFF      // Table Read Protect Boot (Disabled)
 
+
+// DEFINE LISTE
+#define mux1   PORTCbits.RC7
+#define mux2   PORTCbits.RC6
+#define mux3   PORTCbits.RC5
+#define mux4   PORTCbits.RC4
+#define mux5   PORTCbits.RC0
+#define mux6   PORTCbits.RC1
+#define mux7   PORTCbits.RC2
+#define mux8   PORTCbits.RC3
+
+// GLOBAL
 char tampon = 0;
 char stock_led[128] = 0;
 char compteur = 0;

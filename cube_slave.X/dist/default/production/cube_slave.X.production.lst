@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.33 build 59893 
-                                                                                               Tue Nov  4 22:23:08 2014
+                                                                                               Tue Nov  4 22:56:42 2014
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 59893
      1                           	processor	18F25K80
@@ -307,7 +307,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    301 ;;
    302 ;; *************** function _main *****************
    303 ;; Defined at:
-   304 ;;		line 101 in file "main.c"
+   304 ;;		line 122 in file "main.c"
    305 ;; Parameters:    Size  Location     Type
    306 ;;		None
    307 ;; Auto vars:     Size  Location     Type
@@ -348,7 +348,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    337  00012A                     _main:
    338                           	opt stack 29
    339                           
-   340                           ;main.c: 102: unsigned char address = 0;
+   340                           ;main.c: 123: unsigned char address = 0;
    341                           
    342                           ;incstack = 0
    343  00012A  0E00               	movlw	0
@@ -356,7 +356,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    345  00012E  6FB0               	movwf	main@address& (0+255),b
    346                           
    347                           ; BSR set to: 0
-   348                           ;main.c: 103: char msg1[80] = "Slave Ready \n \r";
+   348                           ;main.c: 124: char msg1[80] = "Slave Ready \n \r";
    349  000130  EE21  F050         	lfsr	2,main@F19153
    350  000134  EE10  F060         	lfsr	1,main@msg1
    351  000138  0E50               	movlw	80
@@ -366,14 +366,14 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    355  000140  D7FC               	goto	u111
    356                           
    357                           ; BSR set to: 0
-   358                           ;main.c: 107: initPorts();
+   358                           ;main.c: 128: initPorts();
    359  000142  ECFF  F000         	call	_initPorts	;wreg free
    360                           
-   361                           ;main.c: 108: initComms();
+   361                           ;main.c: 129: initComms();
    362  000146  ECDF  F000         	call	_initComms	;wreg free
    363  00014A                     l774:
    364                           
-   365                           ;main.c: 115: for (int i = 0; i < 100; i++) {
+   365                           ;main.c: 136: for (int i = 0; i < 100; i++) {
    366  00014A  0E00               	movlw	0
    367  00014C  0100               	movlb	0	; () banked
    368  00014E  6FB2               	movwf	(main@i+1)& (0+255),b
@@ -404,11 +404,11 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    393  000170                     l32:
    394                           
    395                           ; BSR set to: 0
-   396                           ;main.c: 116: }
-   397                           ;main.c: 118: PORTA = stock_led[0];
+   396                           ;main.c: 137: }
+   397                           ;main.c: 139: PORTA = stock_led[0];
    398  000170  C200  FF80         	movff	_stock_led,3968	;volatile
    399                           
-   400                           ;main.c: 119: PORTC = stock_led[0 + 1];
+   400                           ;main.c: 140: PORTC = stock_led[0 + 1];
    401  000174  C201  FF82         	movff	_stock_led+1,3970	;volatile
    402  000178  D7E8               	goto	l774
    403  00017A                     __end_of_main:
@@ -675,7 +675,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    654                           
    655 ;; *************** function _high_isr *****************
    656 ;; Defined at:
-   657 ;;		line 88 in file "main.c"
+   657 ;;		line 109 in file "main.c"
    658 ;; Parameters:    Size  Location     Type
    659 ;;		None
    660 ;; Auto vars:     Size  Location     Type
@@ -732,29 +732,29 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    706  000054  CFF8 F010          	movff	tblptru,??_high_isr+15
    707  000058  CFF5 F011          	movff	tablat,??_high_isr+16
    708                           
-   709                           ;main.c: 89: if (RC2IF ) {
+   709                           ;main.c: 110: if (RC2IF ) {
    710  00005C  AAA4               	btfss	4004,5,c	;volatile
    711  00005E  D017               	goto	i1l764
    712                           
-   713                           ;main.c: 90: tampon = RCREG2;
+   713                           ;main.c: 111: tampon = RCREG2;
    714  000060  CF7A F014          	movff	3962,_tampon	;volatile
    715                           
-   716                           ;main.c: 92: if (compteur == 128) {
+   716                           ;main.c: 113: if (compteur == 128) {
    717  000064  5012               	movf	_compteur,w,c
    718  000066  0A80               	xorlw	128
    719  000068  1013               	iorwf	_compteur+1,w,c
    720  00006A  A4D8               	btfss	status,2,c
    721  00006C  D004               	goto	i1l760
    722                           
-   723                           ;main.c: 93: compteur = 0;
+   723                           ;main.c: 114: compteur = 0;
    724  00006E  0E00               	movlw	0
    725  000070  6E13               	movwf	_compteur+1,c
    726  000072  0E00               	movlw	0
    727  000074  6E12               	movwf	_compteur,c
    728  000076                     i1l760:
    729                           
-   730                           ;main.c: 94: }
-   731                           ;main.c: 95: stock_led[compteur] = tampon;
+   730                           ;main.c: 115: }
+   731                           ;main.c: 116: stock_led[compteur] = tampon;
    732  000076  0102               	movlb	2	; () banked
    733  000078  0E00               	movlw	low _stock_led
    734  00007A  2412               	addwf	_compteur,w,c
@@ -766,13 +766,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
    740  000086  C014  FFDF         	movff	_tampon,indf2
    741                           
    742                           ; BSR set to: 2
-   743                           ;main.c: 96: compteur++;
+   743                           ;main.c: 117: compteur++;
    744  00008A  4A12               	infsnz	_compteur,f,c
    745  00008C  2A13               	incf	_compteur+1,f,c
    746  00008E                     i1l764:
    747                           
-   748                           ;main.c: 97: }
-   749                           ;main.c: 98: RC2IF = 0;
+   748                           ;main.c: 118: }
+   749                           ;main.c: 119: RC2IF = 0;
    750  00008E  9AA4               	bcf	4004,5,c	;volatile
    751  000090  C011  FFF5         	movff	??_high_isr+16,tablat
    752  000094  C010  FFF8         	movff	??_high_isr+15,tblptru
@@ -1108,7 +1108,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.33 build 59893 
-Symbol Table                                                                                   Tue Nov  4 22:23:08 2014
+Symbol Table                                                                                   Tue Nov  4 22:56:42 2014
 
             __CFG_CP0$ON 000000              __CFG_CP1$ON 000000              __CFG_CP2$ON 000000  
             __CFG_CP3$ON 000000                       l32 0170              __CFG_CPB$ON 000000  
