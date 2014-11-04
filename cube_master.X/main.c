@@ -23,10 +23,10 @@
 #pragma config XINST = OFF      // Extended Instruction Set (Disabled)
 
 // CONFIG1H
-#pragma config FOSC = INTIO2    // Oscillator (Internal RC oscillator)
-#pragma config PLLCFG = OFF     // PLL x4 Enable bit (Disabled)
+#pragma config FOSC = INTIO1    // Oscillator (Internal RC oscillator)
+#pragma config PLLCFG = ON    // PLL x4 Enable bit (Disabled)
 #pragma config FCMEN = OFF      // Fail-Safe Clock Monitor (Disabled)
-#pragma config IESO = OFF       // Internal External Oscillator Switch Over Mode (Disabled)
+#pragma config IESO = ON       // Internal External Oscillator Switch Over Mode (Disabled)
 
 // CONFIG2L
 #pragma config PWRTEN = OFF     // Power Up Timer (Disabled)
@@ -119,21 +119,12 @@ void main(void) {
 
     initPorts(); // Initialize ports to startup state
     initComms(); // Initialize the serial port
-    //Read Address setting
-   // address = readAddress();
-    // sprintf (msg, "Address = %d\n", address);
 
     while (1) {
 
-
-      //  msg1[0] = test;
-       // writeStringToUART(msg1);
-
+    }
 }
 
-//unsigned char readAddress() {
-//    return !nADDR3 << 3 | !nADDR2 << 2 | !nADDR2 << 1 | !nADDR0;
-//}
 
 
 

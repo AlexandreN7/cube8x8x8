@@ -77,8 +77,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S2355 . . . . . . . . . . . . . ]
 "36417
 [v _BAUDCON2bits `VS2355 ~T0 @X0 0 e@4025 ]
-"32318
-[v _SPBRGH2 `Vuc ~T0 @X0 0 e@3964 ]
 "34288
 [s S2230 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2230 . . CCP1IE CCP2IE CTMUIE TX2IE RC2IE ]
@@ -136,6 +134,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCONbits `VS2473 ~T0 @X0 0 e@4048 ]
 "35716
 [v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"32318
+[v _SPBRGH2 `Vuc ~T0 @X0 0 e@3964 ]
 "32299
 [v _SPBRG2 `Vuc ~T0 @X0 0 e@3963 ]
 "34386
@@ -17624,41 +17624,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.c: 32: BAUDCON2bits.ABDEN = 0;
 "32
 [e = . . _BAUDCON2bits 0 0 -> -> 0 `i `uc ]
-[; ;usart.c: 34: SPBRGH2 = 0;
+[; ;usart.c: 34: PIE3bits.RC2IE = 1;
 "34
-[e = _SPBRGH2 -> -> 0 `i `uc ]
-[; ;usart.c: 36: PIE3bits.RC2IE = 1;
-"36
 [e = . . _PIE3bits 0 5 -> -> 1 `i `uc ]
-[; ;usart.c: 37: RCONbits.IPEN = 1;
-"37
+[; ;usart.c: 35: RCONbits.IPEN = 1;
+"35
 [e = . . _RCONbits 6 7 -> -> 1 `i `uc ]
-[; ;usart.c: 50: SPBRG = 115;
-"50
+[; ;usart.c: 45: SPBRG = 115;
+"45
 [e = _SPBRG -> -> 115 `i `uc ]
-[; ;usart.c: 51: SPBRG2 = 137;
-"51
+[; ;usart.c: 46: SPBRGH2 = 0;
+"46
+[e = _SPBRGH2 -> -> 0 `i `uc ]
+[; ;usart.c: 47: SPBRG2 = 137;
+"47
 [e = _SPBRG2 -> -> 137 `i `uc ]
-[; ;usart.c: 57: }
-"57
+[; ;usart.c: 53: }
+"53
 [e :UE 2639 ]
 }
-"59
+"55
 [v _writeStringToUART `(v ~T0 @X0 1 ef1`*Cuc ]
-"60
+"56
 {
-[; ;usart.c: 59: void writeStringToUART (const char *msg)
-[; ;usart.c: 60: {
+[; ;usart.c: 55: void writeStringToUART (const char *msg)
+[; ;usart.c: 56: {
 [e :U _writeStringToUART ]
 [v _msg `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;usart.c: 61: while(*msg) {
-"61
+[; ;usart.c: 57: while(*msg) {
+"57
 [e $U 2641  ]
 [e :U 2642 ]
 {
-[; ;usart.c: 62: while(PIR3bits.TX2IF == 0) {}
-"62
+[; ;usart.c: 58: while(PIR3bits.TX2IF == 0) {}
+"58
 [e $U 2644  ]
 [e :U 2645 ]
 {
@@ -17666,33 +17666,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 2644 ]
 [e $ == -> . . _PIR3bits 0 4 `i -> 0 `i 2645  ]
 [e :U 2646 ]
-[; ;usart.c: 63: TXREG2 = *msg++;
-"63
+[; ;usart.c: 59: TXREG2 = *msg++;
+"59
 [e = _TXREG2 *U ++ _msg * -> -> 1 `i `x -> -> # *U _msg `i `x ]
-"64
+"60
 }
 [e :U 2641 ]
-"61
+"57
 [e $ != -> *U _msg `i -> -> -> 0 `i `Cuc `i 2642  ]
 [e :U 2643 ]
-[; ;usart.c: 64: }
-[; ;usart.c: 65: }
-"65
+[; ;usart.c: 60: }
+[; ;usart.c: 61: }
+"61
 [e :UE 2640 ]
 }
-"67
+"63
 [v _writeDataToUART `(v ~T0 @X0 1 ef1`uc ]
-"68
+"64
 {
-[; ;usart.c: 67: void writeDataToUART(char data)
-[; ;usart.c: 68: {
+[; ;usart.c: 63: void writeDataToUART(char data)
+[; ;usart.c: 64: {
 [e :U _writeDataToUART ]
-"67
+"63
 [v _data `uc ~T0 @X0 1 r1 ]
-"68
+"64
 [f ]
-[; ;usart.c: 69: while(PIR3bits.TX2IF == 0) {}
-"69
+[; ;usart.c: 65: while(PIR3bits.TX2IF == 0) {}
+"65
 [e $U 2648  ]
 [e :U 2649 ]
 {
@@ -17700,10 +17700,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 2648 ]
 [e $ == -> . . _PIR3bits 0 4 `i -> 0 `i 2649  ]
 [e :U 2650 ]
-[; ;usart.c: 70: TXREG2 = data;
-"70
+[; ;usart.c: 66: TXREG2 = data;
+"66
 [e = _TXREG2 _data ]
-[; ;usart.c: 71: }
-"71
+[; ;usart.c: 67: }
+"67
 [e :UE 2647 ]
 }

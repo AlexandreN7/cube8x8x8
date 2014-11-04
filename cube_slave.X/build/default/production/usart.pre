@@ -21941,16 +21941,15 @@ BAUDCON2bits.BRG16 = 1;
 BAUDCON2bits.WUE = 0;
 BAUDCON2bits.ABDEN = 0;
 
-SPBRGH2 = 0;
-
 PIE3bits.RC2IE = 1;
 RCONbits.IPEN = 1;
 
-# 50
+# 45
 SPBRG = 115;
+SPBRGH2 = 0;
 SPBRG2 = 137;
 
-# 57
+# 53
 }
 
 void writeStringToUART (const char *msg)

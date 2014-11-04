@@ -14,17 +14,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _initPorts `(v ~T0 @X0 0 ef ]
 "4 usart.h
 [v _initComms `(v ~T0 @X0 0 ef ]
-"72 main.h
-[v _readAddress `(uc ~T0 @X0 0 ef ]
-"5 usart.h
-[v _writeStringToUART `(v ~T0 @X0 0 ef1`*Cuc ]
-"42725 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
-[v _RA3 `Vb ~T0 @X0 0 e@31747 ]
-"42723
-[v _RA2 `Vb ~T0 @X0 0 e@31746 ]
-"42719
-[v _RA0 `Vb ~T0 @X0 0 e@31744 ]
-"44631
+"44631 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
 [v _T0PS0 `Vb ~T0 @X0 0 e@32424 ]
 "44633
 [v _T0PS1 `Vb ~T0 @X0 0 e@32425 ]
@@ -17442,13 +17432,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "23
 [p x XINST=OFF ]
 "26
-[p x FOSC=INTIO2 ]
+[p x FOSC=INTIO1 ]
 "27
-[p x PLLCFG=OFF ]
+[p x PLLCFG=ON ]
 "28
 [p x FCMEN=OFF ]
 "29
-[p x IESO=OFF ]
+[p x IESO=ON ]
 "32
 [p x PWRTEN=ON ]
 "33
@@ -17522,11 +17512,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;main.c: 81: char stock_led[128] = 0;
 "82
-[v _compteur `i ~T0 @X0 1 e ]
+[v _compteur `uc ~T0 @X0 1 e ]
 [i _compteur
--> 0 `i
+-> -> 0 `i `uc
 ]
-[; ;main.c: 82: int compteur = 0 ;
+[; ;main.c: 82: char compteur = 0;
 [v F19148 `(v ~T0 @X0 1 tf ]
 "87
 [v _low_isr `ILF19148 ~T0 @X0 1 e ]
@@ -17546,23 +17536,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _PORTA _tampon ]
 [; ;main.c: 91: if (compteur == 128)
 "91
-[e $ ! == _compteur -> 128 `i 2641  ]
+[e $ ! == -> _compteur `i -> 128 `i 2641  ]
 [; ;main.c: 92: {
 "92
 {
 [; ;main.c: 93: compteur =0;
 "93
-[e = _compteur -> 0 `i ]
+[e = _compteur -> -> 0 `i `uc ]
 "94
 }
 [e :U 2641 ]
 [; ;main.c: 94: }
 [; ;main.c: 95: stock_led[compteur] = tampon;
 "95
-[e = *U + &U _stock_led * -> -> _compteur `ui `ux -> -> # *U &U _stock_led `ui `ux _tampon ]
+[e = *U + &U _stock_led * -> _compteur `ux -> -> # *U &U _stock_led `ui `ux _tampon ]
 [; ;main.c: 96: compteur ++;
 "96
-[e ++ _compteur -> 1 `i ]
+[e ++ _compteur -> -> 1 `i `uc ]
 "97
 }
 [e :U 2640 ]
@@ -17642,93 +17632,55 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 121: initComms();
 "121
 [e ( _initComms ..  ]
-[; ;main.c: 128: address = readAddress();
-"128
-[e = _address ( _readAddress ..  ]
-[; ;main.c: 131: while (1) {
-"131
+[; ;main.c: 126: while (1) {
+"126
 [e :U 2646 ]
 {
-[; ;main.c: 132: for (int i = 0; i < 10000; i++) {
 "132
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 10000 `i 2648  ]
-[e $U 2649  ]
-[e :U 2648 ]
-{
-"133
-}
-"132
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 10000 `i 2648  ]
-[e :U 2649 ]
-"133
-}
-[; ;main.c: 133: }
-[; ;main.c: 135: writeStringToUART(msg1);
-"135
-[e ( _writeStringToUART (1 -> &U _msg1 `*Cuc ]
-"137
 }
 [e :U 2645 ]
-"131
+"126
 [e $U 2646  ]
 [e :U 2647 ]
-[; ;main.c: 137: }
-[; ;main.c: 138: }
-"138
+[; ;main.c: 132: }
+[; ;main.c: 133: }
+"133
 [e :UE 2644 ]
 }
 "140
-[v _readAddress `(uc ~T0 @X0 1 ef ]
-{
-[; ;main.c: 140: unsigned char readAddress() {
-[e :U _readAddress ]
-[f ]
-[; ;main.c: 141: return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
-"141
-[e ) -> | | | << -> ! _RA3 `i -> 3 `i << -> ! _RA2 `i -> 2 `i << -> ! _RA2 `i -> 1 `i -> ! _RA0 `i `uc ]
-[e $UE 2651  ]
-[; ;main.c: 142: }
-"142
-[e :UE 2651 ]
-}
-"146
 [v _init_timer `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 146: void init_timer(void) {
+[; ;main.c: 140: void init_timer(void) {
 [e :U _init_timer ]
 [f ]
-[; ;main.c: 148: T0PS0 = 0;
-"148
+[; ;main.c: 142: T0PS0 = 0;
+"142
 [e = _T0PS0 -> -> 0 `i `b ]
-[; ;main.c: 149: T0PS1 = 1;
-"149
+[; ;main.c: 143: T0PS1 = 1;
+"143
 [e = _T0PS1 -> -> 1 `i `b ]
-[; ;main.c: 150: T0PS2 = 0;
-"150
+[; ;main.c: 144: T0PS2 = 0;
+"144
 [e = _T0PS2 -> -> 0 `i `b ]
-[; ;main.c: 151: PSA = 0;
-"151
+[; ;main.c: 145: PSA = 0;
+"145
 [e = _PSA -> -> 0 `i `b ]
-[; ;main.c: 152: T0CS = 0;
-"152
+[; ;main.c: 146: T0CS = 0;
+"146
 [e = _T0CS -> -> 0 `i `b ]
-[; ;main.c: 153: T08BIT = 1;
-"153
+[; ;main.c: 147: T08BIT = 1;
+"147
 [e = _T08BIT -> -> 1 `i `b ]
-[; ;main.c: 154: TMR0IE = 1;
-"154
+[; ;main.c: 148: TMR0IE = 1;
+"148
 [e = _TMR0IE -> -> 1 `i `b ]
-[; ;main.c: 155: PEIE = 1;
-"155
+[; ;main.c: 149: PEIE = 1;
+"149
 [e = _PEIE -> -> 1 `i `b ]
-[; ;main.c: 156: GIE = 1;
-"156
+[; ;main.c: 150: GIE = 1;
+"150
 [e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 157: }
-"157
-[e :UE 2652 ]
+[; ;main.c: 151: }
+"151
+[e :UE 2648 ]
 }

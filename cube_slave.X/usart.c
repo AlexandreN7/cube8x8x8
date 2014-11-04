@@ -31,8 +31,6 @@ void initComms()
     BAUDCON2bits.WUE = 0;
     BAUDCON2bits.ABDEN = 0;
 
-    SPBRGH2 = 0;
-
     PIE3bits.RC2IE = 1;
     RCONbits.IPEN   = 1; // ENABLE interrupt priority
 
@@ -42,22 +40,13 @@ void initComms()
    //SPBRG2 = 25;      // 9600
 
    //SPBRG = 51;   // 19200
-<<<<<<< HEAD
    //SPBRG2 = 12
    
-   // SPBRG = 51;  // 19200
-   // SPBRG2 = 12;
-=======
-   //SPBRG2 = 12;
-
-                  // 52700 ???
-
-
-    SPBRG = 115;  // 115000
+    SPBRG = 115;  // 115000  // On suppose que FCY = 64 000 000
+    SPBRGH2 = 0;
     SPBRG2 = 137;
->>>>>>> test_baud
 
-    // On suppose que FCY = 64 000 000
+   
 
 
 

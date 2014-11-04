@@ -21917,10 +21917,11 @@ void initPorts(void) {
 
 
 
-
 OSCCON= 0x70;
 
-# 18
+
+
+
 ADON = 1;
 
 
@@ -21933,14 +21934,10 @@ TRISB = 0b10010011;
 PORTC = 0b00000000;
 TRISC = 0b00000000;
 
-
 GIE = 1;
 PEIE = 1;
 INTCON =0b11000000;
 OSCTUNEbits.PLLEN = 1;
-
-
-
 
 }
 

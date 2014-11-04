@@ -132,8 +132,6 @@
 "114
 [v _main main `(v  1 e 0 0 ]
 "140
-[v _readAddress readAddress `(uc  1 e 1 0 ]
-"146
 [v _init_timer init_timer `(v  1 e 0 0 ]
 "7 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_master.X/port.c
 [v _initPorts initPorts `(v  1 e 0 0 ]
@@ -163,7 +161,7 @@
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "33611
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-[s S277 . 1 `uc 1 . 1 0 :1:0 
+[s S263 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 CCP1IE 1 0 :1:1 
 `uc 1 CCP2IE 1 0 :1:2 
 `uc 1 CTMUIE 1 0 :1:3 
@@ -171,35 +169,35 @@
 `uc 1 RC2IE 1 0 :1:5 
 ]
 "34321
-[s S284 . 1 `uc 1 . 1 0 :1:0 
+[s S270 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 ]
 "34321
-[s S287 . 1 `uc 1 . 1 0 :1:0 
+[s S273 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIE 1 0 :1:1 
 ]
 "34321
-[s S290 . 1 `uc 1 . 1 0 :2:0 
+[s S276 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TXB0IE 1 0 :1:2 
 ]
 "34321
-[s S293 . 1 `uc 1 . 1 0 :3:0 
+[s S279 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 TXB1IE 1 0 :1:3 
 ]
 "34321
-[s S296 . 1 `uc 1 . 1 0 :4:0 
+[s S282 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXB2IE 1 0 :1:4 
 ]
 "34321
-[s S299 . 1 `uc 1 . 1 0 :4:0 
+[s S285 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXBNIE 1 0 :1:4 
 ]
 "34321
-[u S302 . 1 `S277 1 . 1 0 `S284 1 . 1 0 `S287 1 . 1 0 `S290 1 . 1 0 `S293 1 . 1 0 `S296 1 . 1 0 `S299 1 . 1 0 ]
+[u S288 . 1 `S263 1 . 1 0 `S270 1 . 1 0 `S273 1 . 1 0 `S276 1 . 1 0 `S279 1 . 1 0 `S282 1 . 1 0 `S285 1 . 1 0 ]
 "34321
 "34321
-[v _PIE3bits PIE3bits `VES302  1 e 1 @4003 ]
-[s S414 . 1 `uc 1 . 1 0 :1:0 
+[v _PIE3bits PIE3bits `VES288  1 e 1 @4003 ]
+[s S400 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 CCP1IF 1 0 :1:1 
 `uc 1 CCP2IF 1 0 :1:2 
 `uc 1 CTMUIF 1 0 :1:3 
@@ -207,19 +205,19 @@
 `uc 1 RC2IF 1 0 :1:5 
 ]
 "34403
-[s S421 . 1 `uc 1 . 1 0 :1:0 
+[s S407 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIF 1 0 :1:1 
 ]
 "34403
-[s S424 . 1 `uc 1 . 1 0 :4:0 
+[s S410 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXBNIF 1 0 :1:4 
 ]
 "34403
-[u S427 . 1 `S414 1 . 1 0 `S421 1 . 1 0 `S424 1 . 1 0 ]
+[u S413 . 1 `S400 1 . 1 0 `S407 1 . 1 0 `S410 1 . 1 0 ]
 "34403
 "34403
-[v _PIR3bits PIR3bits `VES427  1 e 1 @4004 ]
-[s S121 . 1 `uc 1 RX9D 1 0 :1:0 
+[v _PIR3bits PIR3bits `VES413  1 e 1 @4004 ]
+[s S107 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -229,7 +227,7 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "34542
-[s S130 . 1 `uc 1 RX9D2 1 0 :1:0 
+[s S116 . 1 `uc 1 RX9D2 1 0 :1:0 
 `uc 1 OERR2 1 0 :1:1 
 `uc 1 FERR2 1 0 :1:2 
 `uc 1 ADDEN2 1 0 :1:3 
@@ -239,24 +237,24 @@
 `uc 1 SPEN2 1 0 :1:7 
 ]
 "34542
-[s S139 . 1 `uc 1 . 1 0 :6:0 
+[s S125 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_92 1 0 :1:6 
 ]
 "34542
-[s S142 . 1 `uc 1 . 1 0 :6:0 
+[s S128 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC92 1 0 :1:6 
 ]
 "34542
-[s S145 . 1 `uc 1 RCD82 1 0 :1:0 
+[s S131 . 1 `uc 1 RCD82 1 0 :1:0 
 ]
 "34542
-[u S147 . 1 `S121 1 . 1 0 `S130 1 . 1 0 `S139 1 . 1 0 `S142 1 . 1 0 `S145 1 . 1 0 ]
+[u S133 . 1 `S107 1 . 1 0 `S116 1 . 1 0 `S125 1 . 1 0 `S128 1 . 1 0 `S131 1 . 1 0 ]
 "34542
 "34542
-[v _RCSTA2bits RCSTA2bits `VES147  1 e 1 @4006 ]
+[v _RCSTA2bits RCSTA2bits `VES133  1 e 1 @4006 ]
 "35716
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
-[s S180 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S166 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -266,54 +264,54 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "36417
-[s S189 . 1 `uc 1 . 1 0 :6:0 
+[s S175 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RCMT 1 0 :1:6 
 ]
 "36417
-[s S192 . 1 `uc 1 ABDEN2 1 0 :1:0 
+[s S178 . 1 `uc 1 ABDEN2 1 0 :1:0 
 ]
 "36417
-[s S194 . 1 `uc 1 . 1 0 :7:0 
+[s S180 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 ABDOVF2 1 0 :1:7 
 ]
 "36417
-[s S197 . 1 `uc 1 . 1 0 :3:0 
+[s S183 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 BRG162 1 0 :1:3 
 ]
 "36417
-[s S200 . 1 `uc 1 . 1 0 :5:0 
+[s S186 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 DTRXP2 1 0 :1:5 
 ]
 "36417
-[s S203 . 1 `uc 1 . 1 0 :6:0 
+[s S189 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RCIDL2 1 0 :1:6 
 ]
 "36417
-[s S206 . 1 `uc 1 . 1 0 :6:0 
+[s S192 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RCMT2 1 0 :1:6 
 ]
 "36417
-[s S209 . 1 `uc 1 . 1 0 :5:0 
+[s S195 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RXDTP2 1 0 :1:5 
 ]
 "36417
-[s S212 . 1 `uc 1 . 1 0 :4:0 
+[s S198 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP2 1 0 :1:4 
 ]
 "36417
-[s S215 . 1 `uc 1 . 1 0 :4:0 
+[s S201 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXCKP2 1 0 :1:4 
 ]
 "36417
-[s S218 . 1 `uc 1 . 1 0 :1:0 
+[s S204 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 WUE2 1 0 :1:1 
 ]
 "36417
-[u S221 . 1 `S180 1 . 1 0 `S189 1 . 1 0 `S192 1 . 1 0 `S194 1 . 1 0 `S197 1 . 1 0 `S200 1 . 1 0 `S203 1 . 1 0 `S206 1 . 1 0 `S209 1 . 1 0 `S212 1 . 1 0 `S215 1 . 1 0 `S218 1 . 1 0 ]
+[u S207 . 1 `S166 1 . 1 0 `S175 1 . 1 0 `S178 1 . 1 0 `S180 1 . 1 0 `S183 1 . 1 0 `S186 1 . 1 0 `S189 1 . 1 0 `S192 1 . 1 0 `S195 1 . 1 0 `S198 1 . 1 0 `S201 1 . 1 0 `S204 1 . 1 0 ]
 "36417
 "36417
-[v _BAUDCON2bits BAUDCON2bits `VES221  1 e 1 @4025 ]
-[s S69 . 1 `uc 1 TX9D 1 0 :1:0 
+[v _BAUDCON2bits BAUDCON2bits `VES207  1 e 1 @4025 ]
+[s S55 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -323,7 +321,7 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "36545
-[s S78 . 1 `uc 1 TX9D2 1 0 :1:0 
+[s S64 . 1 `uc 1 TX9D2 1 0 :1:0 
 `uc 1 TRMT2 1 0 :1:1 
 `uc 1 BRGH2 1 0 :1:2 
 `uc 1 SENDB2 1 0 :1:3 
@@ -333,41 +331,41 @@
 `uc 1 CSRC2 1 0 :1:7 
 ]
 "36545
-[s S87 . 1 `uc 1 . 1 0 :6:0 
+[s S73 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_92 1 0 :1:6 
 ]
 "36545
-[s S90 . 1 `uc 1 TXD82 1 0 :1:0 
+[s S76 . 1 `uc 1 TXD82 1 0 :1:0 
 ]
 "36545
-[u S92 . 1 `S69 1 . 1 0 `S78 1 . 1 0 `S87 1 . 1 0 `S90 1 . 1 0 ]
+[u S78 . 1 `S55 1 . 1 0 `S64 1 . 1 0 `S73 1 . 1 0 `S76 1 . 1 0 ]
 "36545
 "36545
-[v _TXSTA2bits TXSTA2bits `VES92  1 e 1 @4026 ]
-[s S336 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[v _TXSTA2bits TXSTA2bits `VES78  1 e 1 @4026 ]
+[s S322 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "38341
-[s S338 . 1 `uc 1 . 1 0 :1:0 
+[s S324 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
 "38341
-[s S341 . 1 `uc 1 . 1 0 :2:0 
+[s S327 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
 "38341
-[s S344 . 1 `uc 1 . 1 0 :3:0 
+[s S330 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
 "38341
-[s S347 . 1 `uc 1 . 1 0 :4:0 
+[s S333 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
 "38341
-[s S350 . 1 `uc 1 . 1 0 :5:0 
+[s S336 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_CM 1 0 :1:5 
 ]
 "38341
-[s S353 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S339 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -377,7 +375,7 @@
 `uc 1 IPEN 1 0 :1:7 
 ]
 "38341
-[s S362 . 1 `uc 1 BOR 1 0 :1:0 
+[s S348 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
@@ -385,10 +383,10 @@
 `uc 1 CM 1 0 :1:5 
 ]
 "38341
-[u S369 . 1 `S336 1 . 1 0 `S338 1 . 1 0 `S341 1 . 1 0 `S344 1 . 1 0 `S347 1 . 1 0 `S350 1 . 1 0 `S353 1 . 1 0 `S362 1 . 1 0 ]
+[u S355 . 1 `S322 1 . 1 0 `S324 1 . 1 0 `S327 1 . 1 0 `S330 1 . 1 0 `S333 1 . 1 0 `S336 1 . 1 0 `S339 1 . 1 0 `S348 1 . 1 0 ]
 "38341
 "38341
-[v _RCONbits RCONbits `VES369  1 e 1 @4048 ]
+[v _RCONbits RCONbits `VES355  1 e 1 @4048 ]
 "38575
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
 "39500
@@ -401,12 +399,6 @@
 [v _PEIE PEIE `VEb  1 e 0 @32662 ]
 "42707
 [v _PSA PSA `VEb  1 e 0 @32427 ]
-"42719
-[v _RA0 RA0 `VEb  1 e 0 @31744 ]
-"42723
-[v _RA2 RA2 `VEb  1 e 0 @31746 ]
-"42725
-[v _RA3 RA3 `VEb  1 e 0 @31747 ]
 "42773
 [v _RC2IF RC2IF `VEb  1 e 0 @32037 ]
 "44621
@@ -428,32 +420,18 @@
 "81
 [v _stock_led stock_led `[128]uc  1 e 128 0 ]
 "82
-[v _compteur compteur `i  1 e 2 0 ]
+[v _compteur compteur `uc  1 e 1 0 ]
 "66 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_master.X/main.h
 [v _msg msg `[80]uc  1 e 80 0 ]
 "114 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_master.X/main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"132
-[v main@i i `i  1 a 2 81 ]
 "116
 [v main@msg1 msg1 `[80]uc  1 a 80 0 ]
 "115
 [v main@address address `uc  1 a 1 80 ]
 [v main@F19158 F19158 `[80]uc  1 s 80 F19158 ]
-"138
-} 0
-"58 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_master.X/usart.c
-[v _writeStringToUART writeStringToUART `(v  1 e 0 0 ]
-{
-"59
-[v writeStringToUART@msg msg `*.39Cuc  1 p 2 34 ]
-"64
-} 0
-"140 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_master.X/main.c
-[v _readAddress readAddress `(uc  1 e 1 0 ]
-{
-"142
+"133
 } 0
 "7 /home/archi/7Robot/cube8x8x8/cube8x8x8/cube_master.X/port.c
 [v _initPorts initPorts `(v  1 e 0 0 ]

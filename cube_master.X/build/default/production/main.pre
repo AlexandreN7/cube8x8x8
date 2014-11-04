@@ -21920,10 +21920,10 @@ unsigned char readAddress();
 #pragma config XINST = 0
 
 
-#pragma config FOSC = INTIO2
-#pragma config PLLCFG = 0
+#pragma config FOSC = INTIO1
+#pragma config PLLCFG = 1
 #pragma config FCMEN = 0
-#pragma config IESO = 0
+#pragma config IESO = 1
 
 
 #pragma config PWRTEN = 0
@@ -21976,7 +21976,7 @@ unsigned char readAddress();
 
 char tampon = 0;
 char stock_led[128] = 0;
-int compteur = 0 ;
+char compteur = 0;
 
 
 
@@ -22017,25 +22017,16 @@ char msg1[80] = "MASTER IS READY \n \r";
 initPorts();
 initComms();
 
-# 128
-address = readAddress();
+
 
 
 while (1) {
-for (int i = 0; i < 10000; i++) {
-}
 
-writeStringToUART(msg1);
-
+# 132
 }
 }
 
-unsigned char readAddress() {
-return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
-}
-
-
-
+# 140
 void init_timer(void) {
 
 T0PS0 = 0;

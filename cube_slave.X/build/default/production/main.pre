@@ -21994,21 +21994,17 @@ RC2IF = 0;
 
 void main(void) {
 unsigned char address = 0;
-char msg1[80] = "Slave 1 Ready \n \r";
-
-char msg2[80];
-
+char msg1[80] = "Slave Ready \n \r";
 
 
 
 initPorts();
 initComms();
 
-# 118
 while (1) {
 
 
-writeStringToUART(msg1);
+
 
 for (int i = 0; i < 100; i++) {
 }
@@ -22018,6 +22014,3 @@ PORTC = stock_led[0 + 1];
 }
 }
 
-unsigned char readAddress() {
-return !RA3 << 3 | !RA2 << 2 | !RA2 << 1 | !RA0;
-}
