@@ -21920,10 +21920,10 @@ unsigned char readAddress();
 #pragma config XINST = 0
 
 
-#pragma config FOSC = INTIO2
-#pragma config PLLCFG = 0
+#pragma config FOSC = INTIO1
+#pragma config PLLCFG = 1
 #pragma config FCMEN = 0
-#pragma config IESO = 0
+#pragma config IESO = 1
 
 
 #pragma config PWRTEN = 0
@@ -22005,9 +22005,6 @@ initPorts();
 initComms();
 
 # 118
-address = readAddress();
-
-# 124
 while (1) {
 
 

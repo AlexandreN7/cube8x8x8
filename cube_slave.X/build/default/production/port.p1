@@ -21,6 +21,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PEIE `Vb ~T0 @X0 0 e@32662 ]
 "39500
 [v _INTCON `Vuc ~T0 @X0 0 e@4082 ]
+"33785
+[s S2206 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2206 . TUN PLLEN INTSRC ]
+"33790
+[s S2207 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2207 . TUN0 TUN1 TUN2 TUN3 TUN4 TUN5 ]
+"33784
+[u S2205 `S2206 1 `S2207 1 ]
+[n S2205 . . . ]
+"33799
+[v _OSCTUNEbits `VS2205 ~T0 @X0 0 e@3995 ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f25k80.h: 47: extern volatile unsigned char RXERRCNT @ 0xE41;
@@ -17420,40 +17431,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.c: 7: void initPorts(void) {
 [e :U _initPorts ]
 [f ]
-[; ;port.c: 11: OSCCON = 0x30;
-"11
-[e = _OSCCON -> -> 48 `i `uc ]
-[; ;port.c: 17: ADON = 1;
-"17
+[; ;port.c: 12: OSCCON= 0x70;
+"12
+[e = _OSCCON -> -> 112 `i `uc ]
+[; ;port.c: 18: ADON = 1;
+"18
 [e = _ADON -> -> 1 `i `b ]
-[; ;port.c: 20: PORTA = 0b00000000;
-"20
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;port.c: 21: TRISA = 0b00000000;
+[; ;port.c: 21: PORTA = 0b00000000;
 "21
+[e = _PORTA -> -> 0 `i `uc ]
+[; ;port.c: 22: TRISA = 0b00000000;
+"22
 [e = _TRISA -> -> 0 `i `uc ]
-[; ;port.c: 23: PORTB = 0b01001000;
-"23
-[e = _PORTB -> -> 72 `i `uc ]
-[; ;port.c: 24: TRISB = 0b10010011;
+[; ;port.c: 24: PORTB = 0b01001000;
 "24
+[e = _PORTB -> -> 72 `i `uc ]
+[; ;port.c: 25: TRISB = 0b10010011;
+"25
 [e = _TRISB -> -> 147 `i `uc ]
-[; ;port.c: 26: PORTC = 0b00000000;
-"26
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;port.c: 27: TRISC = 0b00000000;
+[; ;port.c: 27: PORTC = 0b00000000;
 "27
+[e = _PORTC -> -> 0 `i `uc ]
+[; ;port.c: 28: TRISC = 0b00000000;
+"28
 [e = _TRISC -> -> 0 `i `uc ]
-[; ;port.c: 30: GIE = 1;
-"30
-[e = _GIE -> -> 1 `i `b ]
-[; ;port.c: 31: PEIE = 1;
+[; ;port.c: 31: GIE = 1;
 "31
-[e = _PEIE -> -> 1 `i `b ]
-[; ;port.c: 32: INTCON =0b11000000;
+[e = _GIE -> -> 1 `i `b ]
+[; ;port.c: 32: PEIE = 1;
 "32
+[e = _PEIE -> -> 1 `i `b ]
+[; ;port.c: 33: INTCON =0b11000000;
+"33
 [e = _INTCON -> -> 192 `i `uc ]
-[; ;port.c: 37: }
-"37
+[; ;port.c: 34: OSCTUNEbits.PLLEN = 1;
+"34
+[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
+[; ;port.c: 39: }
+"39
 [e :UE 2639 ]
 }

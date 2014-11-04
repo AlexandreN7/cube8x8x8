@@ -17633,32 +17633,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.c: 37: RCONbits.IPEN = 1;
 "37
 [e = . . _RCONbits 6 7 -> -> 1 `i `uc ]
-[; ;usart.c: 50: SPBRG = 51;
+[; ;usart.c: 50: SPBRG = 115;
 "50
-[e = _SPBRG -> -> 51 `i `uc ]
-[; ;usart.c: 51: SPBRG2 = 12;
+[e = _SPBRG -> -> 115 `i `uc ]
+[; ;usart.c: 51: SPBRG2 = 137;
 "51
-[e = _SPBRG2 -> -> 12 `i `uc ]
-[; ;usart.c: 56: }
-"56
+[e = _SPBRG2 -> -> 137 `i `uc ]
+[; ;usart.c: 57: }
+"57
 [e :UE 2639 ]
 }
-"58
-[v _writeStringToUART `(v ~T0 @X0 1 ef1`*Cuc ]
 "59
+[v _writeStringToUART `(v ~T0 @X0 1 ef1`*Cuc ]
+"60
 {
-[; ;usart.c: 58: void writeStringToUART (const char *msg)
-[; ;usart.c: 59: {
+[; ;usart.c: 59: void writeStringToUART (const char *msg)
+[; ;usart.c: 60: {
 [e :U _writeStringToUART ]
 [v _msg `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;usart.c: 60: while(*msg) {
-"60
+[; ;usart.c: 61: while(*msg) {
+"61
 [e $U 2641  ]
 [e :U 2642 ]
 {
-[; ;usart.c: 61: while(PIR3bits.TX2IF == 0) {}
-"61
+[; ;usart.c: 62: while(PIR3bits.TX2IF == 0) {}
+"62
 [e $U 2644  ]
 [e :U 2645 ]
 {
@@ -17666,33 +17666,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 2644 ]
 [e $ == -> . . _PIR3bits 0 4 `i -> 0 `i 2645  ]
 [e :U 2646 ]
-[; ;usart.c: 62: TXREG2 = *msg++;
-"62
-[e = _TXREG2 *U ++ _msg * -> -> 1 `i `x -> -> # *U _msg `i `x ]
+[; ;usart.c: 63: TXREG2 = *msg++;
 "63
+[e = _TXREG2 *U ++ _msg * -> -> 1 `i `x -> -> # *U _msg `i `x ]
+"64
 }
 [e :U 2641 ]
-"60
+"61
 [e $ != -> *U _msg `i -> -> -> 0 `i `Cuc `i 2642  ]
 [e :U 2643 ]
-[; ;usart.c: 63: }
 [; ;usart.c: 64: }
-"64
+[; ;usart.c: 65: }
+"65
 [e :UE 2640 ]
 }
-"66
+"67
 [v _writeDataToUART `(v ~T0 @X0 1 ef1`uc ]
-"67
-{
-[; ;usart.c: 66: void writeDataToUART(char data)
-[; ;usart.c: 67: {
-[e :U _writeDataToUART ]
-"66
-[v _data `uc ~T0 @X0 1 r1 ]
-"67
-[f ]
-[; ;usart.c: 68: while(PIR3bits.TX2IF == 0) {}
 "68
+{
+[; ;usart.c: 67: void writeDataToUART(char data)
+[; ;usart.c: 68: {
+[e :U _writeDataToUART ]
+"67
+[v _data `uc ~T0 @X0 1 r1 ]
+"68
+[f ]
+[; ;usart.c: 69: while(PIR3bits.TX2IF == 0) {}
+"69
 [e $U 2648  ]
 [e :U 2649 ]
 {
@@ -17700,10 +17700,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 2648 ]
 [e $ == -> . . _PIR3bits 0 4 `i -> 0 `i 2649  ]
 [e :U 2650 ]
-[; ;usart.c: 69: TXREG2 = data;
-"69
-[e = _TXREG2 _data ]
-[; ;usart.c: 70: }
+[; ;usart.c: 70: TXREG2 = data;
 "70
+[e = _TXREG2 _data ]
+[; ;usart.c: 71: }
+"71
 [e :UE 2647 ]
 }

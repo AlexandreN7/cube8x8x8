@@ -7,8 +7,8 @@
 void initPorts(void) {
 
     //Set oscillator options
-    OSCCON = 0x30;              //4MHz
-    //OSCCON = 0x70;                //16MHZ
+   // OSCCON = 0x30;              //4MHz
+    OSCCON= 0x70;                //16MHZ 64 avec la pll enbale
     //Analog configuration
     //ANCON0 = 0b00010000;        //AIN4 is used as analog input
     //ADCON1 = 0b00000111;        //AIN8,9, and 10 are used as analog input
@@ -28,6 +28,7 @@ void initPorts(void) {
     GIE = 1;
     PEIE = 1;
     INTCON =0b11000000;
+    OSCTUNEbits.PLLEN = 1;
 
 }
 

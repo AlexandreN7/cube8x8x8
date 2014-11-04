@@ -23,10 +23,10 @@
 #pragma config XINST = OFF      // Extended Instruction Set (Disabled)
 
 // CONFIG1H
-#pragma config FOSC = INTIO2    // Oscillator (Internal RC oscillator)
-#pragma config PLLCFG = OFF     // PLL x4 Enable bit (Disabled)
+#pragma config FOSC = INTIO1    // Oscillator (Internal RC oscillator)
+#pragma config PLLCFG = ON     // PLL x4 Enable bit (Disabled)
 #pragma config FCMEN = OFF      // Fail-Safe Clock Monitor (Disabled)
-#pragma config IESO = OFF       // Internal External Oscillator Switch Over Mode (Disabled)
+#pragma config IESO = ON       // Internal External Oscillator Switch Over Mode (Disabled)
 
 // CONFIG2L
 #pragma config PWRTEN = OFF     // Power Up Timer (Disabled)

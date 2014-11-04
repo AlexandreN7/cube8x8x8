@@ -42,11 +42,22 @@ void initComms()
    //SPBRG2 = 25;      // 9600
 
    //SPBRG = 51;   // 19200
+<<<<<<< HEAD
    //SPBRG2 = 12
    
-    SPBRG = 51;  // 19200
-    SPBRG2 = 12;
+   // SPBRG = 51;  // 19200
+   // SPBRG2 = 12;
+=======
+   //SPBRG2 = 12;
 
+                  // 52700 ???
+
+
+    SPBRG = 115;  // 115000
+    SPBRG2 = 137;
+>>>>>>> test_baud
+
+    // On suppose que FCY = 64 000 000
 
 
 
