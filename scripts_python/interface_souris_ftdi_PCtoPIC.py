@@ -158,7 +158,7 @@ def Envoyer():
 
 	# On envoie la sauce !
 	with Device (mode = 't') as dev:
-		dev.baudrate = 19200	
+		dev.baudrate = 115200
 
 		# 8 étages
 		for k in range(etages) :
@@ -331,8 +331,21 @@ def Save_Popup():
 	Save_Screen.bind("<Return>", Save)
 	saveBouton.grid()
 
+
+def Ajouter_Pattern():
+	if liste_save.curselection() != ():
+		liste_trame.insert(END, liste_save.get(liste_save.curselection()))
+
+def Enlever_Pattern():
+	if liste_trame.curselection() != ():
+		liste_trame.delete(liste_trame.curselection())
+
+def Ajouter_Delai():
+	print("Trololol")
 #####################################################################################################
 #####################################################################################################
+
+
 
 
 # Création de la fenêtre principale
@@ -427,17 +440,21 @@ photo_flechebas = PhotoImage(file="fleche_bas.png")
 Fleche_bas.create_image(0, 0, image=photo_flechebas, anchor=NW)
 
 Label(Gestion_Patterns, text="Patterns disponibles :").grid(row=0, column=0, columnspan=2)
-liste_save = Listbox(Gestion_Patterns, width=25, height=5)
+liste_save = Listbox(Gestion_Patterns, width=24, height=5)
 liste_save.grid(row=1, column=0, columnspan=2, rowspan=2)
 savedPatterns = os.listdir('Patterns')
 for i in range(len(savedPatterns)):
 	liste_save.insert(END, "%s" %(savedPatterns[i][:len(savedPatterns[i])-4]))
 
-Label(Gestion_Patterns, text="Trame envoyée").grid(row=3, column=0)
-liste_trame = Listbox(Gestion_Patterns, width=25, height=15)
-liste_trame.grid(row=4, column=0)
+Label(Gestion_Patterns, text="Trame envoyée").grid(row=3, column=0, columnspan=2)
+liste_trame = Listbox(Gestion_Patterns, width=24, height=15)
+liste_trame.grid(row=4, column=0, columnspan=2)
 
 Button(Gestion_Patterns, text ='Ajouter', command = Ajouter_Pattern).grid(row=5, column=0, pady=5)
+Button(Gestion_Patterns, text ='Enlever', command = Enlever_Pattern).grid(row=5, column=1, pady=5)
+delai_field= Entry(Gestion_Patterns)
+delai_field.grid(row=6, column=0, pady=5)
+Button(Gestion_Patterns, text ='Delai (ms)', command = Ajouter_Delai).grid(row=6, column=1, pady=5)
 
 #####################################################################################################
 
