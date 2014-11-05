@@ -1,0 +1,6 @@
+_main: CODE, 298 0 80
+_high_isr: CODE, 24 0 190
+_initPorts: CODE, 510 0 42
+__initialization: CODE, 378 0 62
+_initComms: CODE, 446 0 64
+Total: 438
