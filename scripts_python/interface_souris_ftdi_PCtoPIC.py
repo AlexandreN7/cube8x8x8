@@ -27,6 +27,8 @@ except ImportError:
 	from tkinter import *
 
 import os
+import pulseaudio
+
 
 # Une ligne correspond à un PIC
 lignes = 8
@@ -218,7 +220,7 @@ def Init():
 			for j in range(colonnes) : 
 				matrice_leds [i+8*k][j]=0
 
-	#####################################################################################################
+	####################################################################################################
 
 
 def ChangeEtage(event):
@@ -266,10 +268,11 @@ def MAJ_Couleurs(petitscarres):
 				else :
 					Canevas.itemconfigure(carre[i][j],fill='white')
 
-def Open_Popup():
 
-	def Open(event):
-		filename = savefield.get()	
+def Open():
+
+	if liste_save.curselection() != ():
+		filename = liste_save.get(liste_save.curselection())
 		logs = open("Patterns//%s.txt" %filename,"r")
 		for k in range(etages):	
 			for i in range(lignes):
@@ -285,24 +288,7 @@ def Open_Popup():
 		logs.close()
 		MAJ_Couleurs(0)
 		MAJ_Couleurs(1)
-		Open_Screen.destroy()	
 
-	# Création de la fenêtre de sauvegarde
-	Open_Screen = Tk()
-	Open_Screen.title('Open')	
-
-	BlablaOpen = Label(Open_Screen, text="Nom du pattern :").grid()
-	
-	global savefield
-	savefield= Entry(Open_Screen)
-	savefield.focus_force()
-	savefield.grid()
-
-	# Bouton Open
-	openBouton=Button(Open_Screen, text ='Open')
-	openBouton.bind("<Button-1>", Open)	
-	Open_Screen.bind("<Return>", Open)
-	openBouton.grid()
 
 def Save_Popup():
 
@@ -319,6 +305,12 @@ def Save_Popup():
 				for j in range(colonnes):
 					logs.write("%s" %matrice_leds[i+8*k][j])
 		logs.close()
+
+		# Actualisation de la liste des patterns enregistrés
+		liste_save.delete(0, END)		
+		savedPatterns = os.listdir('Patterns')
+		for i in range(len(savedPatterns)):
+			liste_save.insert(END, "%s" %(savedPatterns[i][:len(savedPatterns[i])-4]))
 
 		Save_Screen.destroy()	
 
@@ -338,8 +330,6 @@ def Save_Popup():
 	saveBouton.bind("<Button-1>", Save)	
 	Save_Screen.bind("<Return>", Save)
 	saveBouton.grid()
-			
-
 
 #####################################################################################################
 #####################################################################################################
@@ -396,15 +386,13 @@ Canevas = Canvas(Mafenetre, width = Largeur+2, height =Hauteur+2)
 Canevas.bind('<Button-1>', Clic)
 # On affiche le canevas principal
 Canevas.grid(row=1, column=1, columnspan=5)
-# On remplit le canevas principal et les étages de carrés blancs
-Init()
 #####################################################################################################
 
 
 #####################################################################################################
 ###### Boutons de sélection de la zone concernée par les entrées au clavier et image du clavier #####
 #####################################################################################################
-Boutons = Canvas(Mafenetre, width = 100, height =100)
+Boutons = Canvas(Mafenetre, width = 100, height =100, highlightthickness=0)
 
 ImgClavier = Canvas(Boutons, width=329, height=146)
 ImgClavier.grid(column=0, rowspan=2)
@@ -425,16 +413,36 @@ Boutons.grid(row=2, column=1, columnspan=5, pady=5)
 #####################################################################################################
 ################################## Gestion des trames de patterns ###################################
 #####################################################################################################
-Gestion_Patterns = Canvas(Mafenetre)
-Gestion_Patterns.grid(row=1, column=7)
-liste = Listbox(Gestion_Patterns)
-liste.grid()
-liste.insert(END, "Pierre")
-liste.insert(END, "Feuille")
-liste.insert(END, "Ciseau")
-print(os.listdir('Patterns'))
+Gestion_Patterns = Canvas(Mafenetre, highlightthickness=0)
+Gestion_Patterns.grid(row=1, column=7, padx=10)
+
+Fleche_haut = Canvas(Gestion_Patterns, width=24, height=24)
+Fleche_haut.grid(row=1, column=2)
+photo_flechehaut = PhotoImage(file="fleche_haut.png")
+Fleche_haut.create_image(0, 0, image=photo_flechehaut, anchor=NW)
+
+Fleche_bas = Canvas(Gestion_Patterns, width=24, height=24)
+Fleche_bas.grid(row=2, column=2)
+photo_flechebas = PhotoImage(file="fleche_bas.png")
+Fleche_bas.create_image(0, 0, image=photo_flechebas, anchor=NW)
+
+Label(Gestion_Patterns, text="Patterns disponibles :").grid(row=0, column=0, columnspan=2)
+liste_save = Listbox(Gestion_Patterns, width=25, height=5)
+liste_save.grid(row=1, column=0, columnspan=2, rowspan=2)
+savedPatterns = os.listdir('Patterns')
+for i in range(len(savedPatterns)):
+	liste_save.insert(END, "%s" %(savedPatterns[i][:len(savedPatterns[i])-4]))
+
+Label(Gestion_Patterns, text="Trame envoyée").grid(row=3, column=0)
+liste_trame = Listbox(Gestion_Patterns, width=25, height=15)
+liste_trame.grid(row=4, column=0)
+
+Button(Gestion_Patterns, text ='Ajouter', command = Ajouter_Pattern).grid(row=5, column=0, pady=5)
+
 #####################################################################################################
 
+# On remplit le canevas principal et les étages de carrés blancs
+Init()
 
 # Bouton Envoyer
 Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).grid(row=3, column=1, pady=5)
@@ -443,7 +451,7 @@ Button(Mafenetre, text ='Envoyer', fg="purple", command = Envoyer).grid(row=3, c
 Button(Mafenetre, text ='Effacer', command = Init).grid(row=3, column=2, pady=5)
 
 # Bouton Open
-Button(Mafenetre, text ='Open', command = Open_Popup).grid(row=3, column=3, pady=5)
+Button(Mafenetre, text ='Open', command = Open).grid(row=3, column=3, pady=5)
 
 # Bouton Save
 Button(Mafenetre, text ='Save', command = Save_Popup).grid(row=3, column=4, pady=5)
