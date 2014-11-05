@@ -1,2 +1,0 @@
-void initPorts(void);
-
