@@ -91,9 +91,11 @@ def Clic(event):
 def Touche(event):
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
-	#print(touche)
+	
+	if touche=='p':
+		print(Mafenetre.focus_get())
 
-	if touche=='BackSpace':
+	if touche=='agrave':
 		Init()
 
 	if touche=='parenright':
@@ -341,7 +343,8 @@ def Enlever_Pattern():
 		liste_trame.delete(liste_trame.curselection())
 
 def Ajouter_Delai():
-	print("Trololol")
+	print("%s" %delai_field.get())
+	#os.remove(path)
 #####################################################################################################
 #####################################################################################################
 
@@ -452,7 +455,7 @@ liste_trame.grid(row=4, column=0, columnspan=2)
 
 Button(Gestion_Patterns, text ='Ajouter', command = Ajouter_Pattern).grid(row=5, column=0, pady=5)
 Button(Gestion_Patterns, text ='Enlever', command = Enlever_Pattern).grid(row=5, column=1, pady=5)
-delai_field= Entry(Gestion_Patterns)
+delai_field= Entry(Gestion_Patterns, width=10)
 delai_field.grid(row=6, column=0, pady=5)
 Button(Gestion_Patterns, text ='Delai (ms)', command = Ajouter_Delai).grid(row=6, column=1, pady=5)
 
