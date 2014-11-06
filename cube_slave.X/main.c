@@ -82,23 +82,23 @@
 
 #define esclave 0
 
-#define ledR1 
-#define ledR2
-#define ledR3
-#define ledR4
-#define ledR5
-#define ledR6
-#define ledR7
-#define ledR8
+#define ledR1 PORTAbits.RA0
+#define ledR2 PORTAbits.RA3
+#define ledR3 PORTAbits.RA6
+#define ledR4 PORTCbits.RC2
+#define ledR5 PORTBbits.RB2
+#define ledR6 PORTBbits.RB5
+#define ledR7 PORTBbits.RB0
+#define ledR8 PORTCbits.RC5
 
-#define ledB1
-#define ledB2
-#define ledB3
-#define ledB4
-#define ledB5
-#define ledB6
-#define ledB7
-#define ledB8
+#define ledB1 PORTAbits.RA1
+#define ledB2 PORTAbits.RA2
+#define ledB3 PORTCbits.RC0
+#define ledB4 PORTCbits.RC2
+#define ledB5 PORTBbits.RB4
+#define ledB6 PORTBbits.RB2
+#define ledB7 PORTCbits.RC6
+#define ledB8 PORTCbits.RC4
 
 
 
