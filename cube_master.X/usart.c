@@ -34,7 +34,7 @@ void initComms()
 
 
     PIE3bits.RC2IE = 1;
-    RCONbits.IPEN   = 1; // ENABLE interrupt priority
+    RCONbits.IPEN  = 1; // ENABLE interrupt priority
 
    //////////////////////////SETTING BAUDRATE////////////////
    //((FCY/16)/BAUD) - 1; // set baud to 9600  FCY=4000000
@@ -45,12 +45,9 @@ void initComms()
    //SPBRG2 = 12;
 
 
-    SPBRG = 115;  // 115000  // On suppose que FCY = 64 000 000
+    SPBRG = 115;  // 115200  // On suppose que FCY = 64 000 000
     SPBRGH2 = 0;
     SPBRG2 = 137;
-
-
-
 
 }
 

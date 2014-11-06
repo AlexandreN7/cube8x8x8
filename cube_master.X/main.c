@@ -126,13 +126,14 @@ void init_timer(void);
 void main(void) {
     unsigned char address = 0;
     char msg1[80] = "MASTER IS READY \n \r";
-
+    long u= 0;
 
 
     initPorts(); // Initialize ports to startup state
     initComms(); // Initialize the serial port
-
+    
     while (1) {
+    writeStringToUART(msg1);
 
     }
 }

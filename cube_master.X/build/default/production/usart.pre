@@ -21951,9 +21951,6 @@ SPBRG = 115;
 SPBRGH2 = 0;
 SPBRG2 = 137;
 
-
-
-
 }
 
 void writeStringToUART (const char *msg)

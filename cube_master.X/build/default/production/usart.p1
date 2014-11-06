@@ -17639,26 +17639,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.c: 50: SPBRG2 = 137;
 "50
 [e = _SPBRG2 -> -> 137 `i `uc ]
-[; ;usart.c: 55: }
-"55
+[; ;usart.c: 52: }
+"52
 [e :UE 2639 ]
 }
-"57
+"54
 [v _writeStringToUART `(v ~T0 @X0 1 ef1`*Cuc ]
-"58
+"55
 {
-[; ;usart.c: 57: void writeStringToUART (const char *msg)
-[; ;usart.c: 58: {
+[; ;usart.c: 54: void writeStringToUART (const char *msg)
+[; ;usart.c: 55: {
 [e :U _writeStringToUART ]
 [v _msg `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;usart.c: 59: while(*msg) {
-"59
+[; ;usart.c: 56: while(*msg) {
+"56
 [e $U 2641  ]
 [e :U 2642 ]
 {
-[; ;usart.c: 60: while(PIR3bits.TX2IF == 0) {}
-"60
+[; ;usart.c: 57: while(PIR3bits.TX2IF == 0) {}
+"57
 [e $U 2644  ]
 [e :U 2645 ]
 {
@@ -17666,33 +17666,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 2644 ]
 [e $ == -> . . _PIR3bits 0 4 `i -> 0 `i 2645  ]
 [e :U 2646 ]
-[; ;usart.c: 61: TXREG2 = *msg++;
-"61
+[; ;usart.c: 58: TXREG2 = *msg++;
+"58
 [e = _TXREG2 *U ++ _msg * -> -> 1 `i `x -> -> # *U _msg `i `x ]
-"62
+"59
 }
 [e :U 2641 ]
-"59
+"56
 [e $ != -> *U _msg `i -> -> -> 0 `i `Cuc `i 2642  ]
 [e :U 2643 ]
-[; ;usart.c: 62: }
-[; ;usart.c: 63: }
-"63
+[; ;usart.c: 59: }
+[; ;usart.c: 60: }
+"60
 [e :UE 2640 ]
 }
-"65
+"62
 [v _writeDataToUART `(v ~T0 @X0 1 ef1`uc ]
-"66
+"63
 {
-[; ;usart.c: 65: void writeDataToUART(char data)
-[; ;usart.c: 66: {
+[; ;usart.c: 62: void writeDataToUART(char data)
+[; ;usart.c: 63: {
 [e :U _writeDataToUART ]
-"65
+"62
 [v _data `uc ~T0 @X0 1 r1 ]
-"66
+"63
 [f ]
-[; ;usart.c: 67: while(PIR3bits.TX2IF == 0) {}
-"67
+[; ;usart.c: 64: while(PIR3bits.TX2IF == 0) {}
+"64
 [e $U 2648  ]
 [e :U 2649 ]
 {
@@ -17700,10 +17700,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 2648 ]
 [e $ == -> . . _PIR3bits 0 4 `i -> 0 `i 2649  ]
 [e :U 2650 ]
-[; ;usart.c: 68: TXREG2 = data;
-"68
+[; ;usart.c: 65: TXREG2 = data;
+"65
 [e = _TXREG2 _data ]
-[; ;usart.c: 69: }
-"69
+[; ;usart.c: 66: }
+"66
 [e :UE 2647 ]
 }

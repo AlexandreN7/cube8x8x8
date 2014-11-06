@@ -14,6 +14,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _initPorts `(v ~T0 @X0 0 ef ]
 "4 usart.h
 [v _initComms `(v ~T0 @X0 0 ef ]
+"5
+[v _writeStringToUART `(v ~T0 @X0 0 ef1`*Cuc ]
 "44631 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
 [v _T0PS0 `Vb ~T0 @X0 0 e@32424 ]
 "44633
@@ -17626,6 +17628,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _msg1 `uc ~T0 @X0 -> 80 `i a ]
 [; ;main.c: 128: char msg1[80] = "MASTER IS READY \n \r";
 [e = _msg1 F19158 ]
+"129
+[v _u `l ~T0 @X0 1 a ]
+[; ;main.c: 129: long u= 0;
+[e = _u -> -> 0 `i `l ]
 [; ;main.c: 132: initPorts();
 "132
 [e ( _initPorts ..  ]
@@ -17636,51 +17642,54 @@ Version 3.2 HI-TECH Software Intermediate Code
 "135
 [e :U 2646 ]
 {
-"137
+[; ;main.c: 136: writeStringToUART(msg1);
+"136
+[e ( _writeStringToUART (1 -> &U _msg1 `*Cuc ]
+"138
 }
 [e :U 2645 ]
 "135
 [e $U 2646  ]
 [e :U 2647 ]
-[; ;main.c: 137: }
 [; ;main.c: 138: }
-"138
+[; ;main.c: 139: }
+"139
 [e :UE 2644 ]
 }
-"143
+"144
 [v _init_timer `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 143: void init_timer(void) {
+[; ;main.c: 144: void init_timer(void) {
 [e :U _init_timer ]
 [f ]
-[; ;main.c: 145: T0PS0 = 0;
-"145
-[e = _T0PS0 -> -> 0 `i `b ]
-[; ;main.c: 146: T0PS1 = 1;
+[; ;main.c: 146: T0PS0 = 0;
 "146
-[e = _T0PS1 -> -> 1 `i `b ]
-[; ;main.c: 147: T0PS2 = 0;
+[e = _T0PS0 -> -> 0 `i `b ]
+[; ;main.c: 147: T0PS1 = 1;
 "147
-[e = _T0PS2 -> -> 0 `i `b ]
-[; ;main.c: 148: PSA = 0;
+[e = _T0PS1 -> -> 1 `i `b ]
+[; ;main.c: 148: T0PS2 = 0;
 "148
-[e = _PSA -> -> 0 `i `b ]
-[; ;main.c: 149: T0CS = 0;
+[e = _T0PS2 -> -> 0 `i `b ]
+[; ;main.c: 149: PSA = 0;
 "149
-[e = _T0CS -> -> 0 `i `b ]
-[; ;main.c: 150: T08BIT = 1;
+[e = _PSA -> -> 0 `i `b ]
+[; ;main.c: 150: T0CS = 0;
 "150
-[e = _T08BIT -> -> 1 `i `b ]
-[; ;main.c: 151: TMR0IE = 1;
+[e = _T0CS -> -> 0 `i `b ]
+[; ;main.c: 151: T08BIT = 1;
 "151
-[e = _TMR0IE -> -> 1 `i `b ]
-[; ;main.c: 152: PEIE = 1;
+[e = _T08BIT -> -> 1 `i `b ]
+[; ;main.c: 152: TMR0IE = 1;
 "152
-[e = _PEIE -> -> 1 `i `b ]
-[; ;main.c: 153: GIE = 1;
+[e = _TMR0IE -> -> 1 `i `b ]
+[; ;main.c: 153: PEIE = 1;
 "153
-[e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 154: }
+[e = _PEIE -> -> 1 `i `b ]
+[; ;main.c: 154: GIE = 1;
 "154
+[e = _GIE -> -> 1 `i `b ]
+[; ;main.c: 155: }
+"155
 [e :UE 2648 ]
 }

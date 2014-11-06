@@ -1,3 +1,6 @@
+
+# -*-coding:Latin-1 -*
+
 """
 script interface_souris_ftdi_PCtoPIC.py
  ______  _____      _           _
@@ -27,7 +30,7 @@ except ImportError:
 	from tkinter import *
 
 import os
-import pulseaudio
+#import pulseaudio
 
 
 # Une ligne correspond à un PIC
