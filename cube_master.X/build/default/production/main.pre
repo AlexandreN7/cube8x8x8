@@ -21974,10 +21974,11 @@ unsigned char readAddress();
 
 #pragma config EBTRB = 0
 
-# 92
+# 94
 char tampon = 0;
 char stock_led[128] = 0;
 char compteur = 0;
+char flag_reception=0;
 
 
 
@@ -21993,6 +21994,7 @@ compteur =0;
 stock_led[compteur] = tampon;
 compteur ++;
 }
+flag_reception=1;
 RC2IF = 0;
 }
 
@@ -22007,26 +22009,87 @@ TMR0IF = 0;
 
 
 void init_timer(void);
+void multiplexeur(char);
 
-
+# 137
 void main(void) {
-unsigned char address = 0;
-char msg1[80] = "MASTER IS READY \n \r";
-long u= 0;
+
+long i= 0;
+long j = 0;
 
 
 initPorts();
 initComms();
 
 while (1) {
-writeStringToUART(msg1);
+
+if (flag_reception==1 )
+{
+for(i=0 ; i<=8 ; i++)
+{
+multiplexeur(i);
+writeStringToUART(stock_led);
+PORTAbits.RA0 = 1;
+for (j=0 ; j< 100 ; j++) {}
+PORTAbits.RA0 = 0;
+for (j=0; j< 100000 ;j++) {}
+}
+}
 
 }
 }
 
 
 
+void multiplexeur(char n)
+{
+PORTCbits.RC7 = 0;
+PORTCbits.RC6 = 0;
+PORTCbits.RC5 = 0;
+PORTCbits.RC4 = 0;
+PORTCbits.RC0 = 0;
+PORTCbits.RC1 = 0;
+PORTCbits.RC2 = 0;
+PORTCbits.RC3 = 0;
+switch (n)
+{
+case 0 :
+PORTCbits.RC7 = 1;
+break;
 
+case 1:
+PORTCbits.RC6 = 1;
+break;
+
+case 2:
+PORTCbits.RC5 = 1;
+break;
+
+case 3:
+PORTCbits.RC4 = 1;
+break;
+
+case 4:
+PORTCbits.RC0 = 1;
+break;
+
+case 5:
+PORTCbits.RC1 = 1;
+break;
+
+case 6:
+PORTCbits.RC2 = 1;
+break;
+
+case 7:
+PORTCbits.RC3 = 1;
+break;
+
+}
+
+}
+
+# 219
 void init_timer(void) {
 
 T0PS0 = 0;

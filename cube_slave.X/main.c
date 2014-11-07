@@ -80,7 +80,7 @@
 
 // DEFINE LIST
 
-#define esclave 0
+#define slave 0
 
 #define ledR1 PORTAbits.RA0
 #define ledR2 PORTAbits.RA3
@@ -100,14 +100,17 @@
 #define ledB7 PORTCbits.RC6
 #define ledB8 PORTCbits.RC4
 
+#define clock PORTBbits.RB1
 
 
 char tampon = 0;
 char stock_led[128] = 0;
 int compteur = 0;
+char compteur_clock = 1;
+char state_clock = 0;
 
 void interrupt low_priority high_isr(void) {
-    if (RC2IF /*&& PIE3bits.TX2IE*/) {
+    if (RC2IF) {
         tampon = RCREG2;
 
         if (compteur == 128) {
@@ -119,25 +122,94 @@ void interrupt low_priority high_isr(void) {
     RC2IF = 0; // On met le flag à 0
 }
 
+void affichage(int);
+
+
+
 void main(void) {
     unsigned char address = 0;
     char msg1[80] = "Slave Ready \n \r";
 
-    /***Initialization***/
-    //SWDTEN = 1;       // Enable the watchdog
+
     initPorts(); // Initialize ports to startup state
     initComms(); // Initialize the serial port
 
     while (1) {
 
+	if ( clock == 1 )
+	{
+		compteur_clock = compteur_clock+1;
+		
+		if (compteur_clock == 8)
+		{
+			compteur_clock =1;
+		}
+	}
 
-//        writeStringToUART(msg1);
 
-        for (int i = 0; i < 100; i++) {
-        }
-
-        PORTA = stock_led[esclave];
-        PORTC = stock_led[esclave + 1];
+        //PORTA = stock_led[esclave];
+        //PORTC = stock_led[esclave + 1];
     }
 }
 
+void affichage(int n)
+{
+
+		if(0b00000001 & stock_led[slave]) {
+			ledR1 = 1;	
+		}
+		else {
+			ledR1 = 0;
+		}	
+	
+		if(0b00000010 & stock_led[slave]) {
+			ledR2 = 1;	
+		}
+		else {
+			ledR2 = 0;
+		}	
+
+		if(0b00000100 & stock_led[slave]) {
+			ledR3 = 1;	
+		}
+		else {
+			ledR3 = 0;
+		}	
+
+		if(0b00001000 & stock_led[slave]) {
+			ledR4 = 1;	
+		}
+		else {
+			ledR4 = 0;
+		}	
+
+		if(0b00010000 & stock_led[slave]) {
+			ledR5 = 1;	
+		}
+		else {
+			ledR5 = 0;
+		}	
+
+		if(0b00100000 & stock_led[slave]) {
+			ledR6 = 1;	
+		}
+		else {
+			ledR6 = 0;
+		}	
+
+		if(0b01000001 & stock_led[slave]) {
+			ledR7 = 1;	
+		}
+		else {
+			ledR7 = 0;
+		}	
+
+		if(ob10000000 & stock_led[slave]) {
+			ledR8 = 1;
+		}
+		else {
+			ledR8 = 0;
+		}
+			
+	}	
+}
