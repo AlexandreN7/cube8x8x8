@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/cgtco8t70.obj
+$/tmp/cgtV9XyQz.obj
 end_init CODE 0 16A 16A 4 1
 reset_vec CODE 0 0 0 4 1
 idloc IDLOC 0 200000 200000 8 1
@@ -189,29 +189,29 @@ $dist/default/production/cube_master.X.production.obj
 "/home/archi/7Robot/cube8x8x8/cube_master.X/port.c":32 37C text3 CODE
 "/home/archi/7Robot/cube8x8x8/cube_master.X/port.c":34 380 text3 CODE
 "/home/archi/7Robot/cube8x8x8/cube_master.X/port.c":38 382 text3 CODE
-"/tmp/cgtK3a1Ge":3061 384 cinit CODE
-"/tmp/cgtK3a1Ge":3063 384 cinit CODE
-"/tmp/cgtK3a1Ge":3066 384 cinit CODE
-"/tmp/cgtK3a1Ge":3096 384 cinit CODE
-"/tmp/cgtK3a1Ge":3097 388 cinit CODE
-"/tmp/cgtK3a1Ge":3098 38A cinit CODE
-"/tmp/cgtK3a1Ge":3099 38A cinit CODE
-"/tmp/cgtK3a1Ge":3100 38C cinit CODE
-"/tmp/cgtK3a1Ge":3101 38E cinit CODE
-"/tmp/cgtK3a1Ge":3104 390 cinit CODE
-"/tmp/cgtK3a1Ge":3105 394 cinit CODE
-"/tmp/cgtK3a1Ge":3106 396 cinit CODE
-"/tmp/cgtK3a1Ge":3107 396 cinit CODE
-"/tmp/cgtK3a1Ge":3108 398 cinit CODE
-"/tmp/cgtK3a1Ge":3109 39A cinit CODE
-"/tmp/cgtK3a1Ge":3112 39C cinit CODE
-"/tmp/cgtK3a1Ge":3113 39E cinit CODE
-"/tmp/cgtK3a1Ge":3114 3A0 cinit CODE
-"/tmp/cgtK3a1Ge":3120 3A2 cinit CODE
-"/tmp/cgtK3a1Ge":3122 3A2 cinit CODE
-"/tmp/cgtK3a1Ge":3123 3A4 cinit CODE
-"/tmp/cgtK3a1Ge":3124 3A6 cinit CODE
-"/tmp/cgtK3a1Ge":3125 3A8 cinit CODE
+"/tmp/cgt8JqowL":3061 384 cinit CODE
+"/tmp/cgt8JqowL":3063 384 cinit CODE
+"/tmp/cgt8JqowL":3066 384 cinit CODE
+"/tmp/cgt8JqowL":3096 384 cinit CODE
+"/tmp/cgt8JqowL":3097 388 cinit CODE
+"/tmp/cgt8JqowL":3098 38A cinit CODE
+"/tmp/cgt8JqowL":3099 38A cinit CODE
+"/tmp/cgt8JqowL":3100 38C cinit CODE
+"/tmp/cgt8JqowL":3101 38E cinit CODE
+"/tmp/cgt8JqowL":3104 390 cinit CODE
+"/tmp/cgt8JqowL":3105 394 cinit CODE
+"/tmp/cgt8JqowL":3106 396 cinit CODE
+"/tmp/cgt8JqowL":3107 396 cinit CODE
+"/tmp/cgt8JqowL":3108 398 cinit CODE
+"/tmp/cgt8JqowL":3109 39A cinit CODE
+"/tmp/cgt8JqowL":3112 39C cinit CODE
+"/tmp/cgt8JqowL":3113 39E cinit CODE
+"/tmp/cgt8JqowL":3114 3A0 cinit CODE
+"/tmp/cgt8JqowL":3120 3A2 cinit CODE
+"/tmp/cgt8JqowL":3122 3A2 cinit CODE
+"/tmp/cgt8JqowL":3123 3A4 cinit CODE
+"/tmp/cgt8JqowL":3124 3A6 cinit CODE
+"/tmp/cgt8JqowL":3125 3A8 cinit CODE
 "/home/archi/7Robot/cube8x8x8/cube_master.X/usart.c":54 3AC text1 CODE
 "/home/archi/7Robot/cube8x8x8/cube_master.X/usart.c":56 3AC text1 CODE
 "/home/archi/7Robot/cube8x8x8/cube_master.X/usart.c":57 3AE text1 CODE
@@ -247,8 +247,8 @@ _PEIE 7F96 0 ABS 0 - dist/default/production/cube_master.X.production.obj
 _T0CS 7EAD 0 ABS 0 - dist/default/production/cube_master.X.production.obj
 _ADON 7E10 0 ABS 0 - dist/default/production/cube_master.X.production.obj
 _main 16E 0 CODE 0 text0 dist/default/production/cube_master.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/cgtco8t70.obj
-start 16A 0 CODE 0 init /tmp/cgtco8t70.obj
+___sp 0 0 STACK 2 stack /tmp/cgtV9XyQz.obj
+start 16A 0 CODE 0 init /tmp/cgtV9XyQz.obj
 __size_of_multiplexeur 0 0 ABS 0 - dist/default/production/cube_master.X.production.obj
 _T0PS0 7EA8 0 ABS 0 - dist/default/production/cube_master.X.production.obj
 _T0PS1 7EA9 0 ABS 0 - dist/default/production/cube_master.X.production.obj
@@ -337,10 +337,10 @@ __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production/cube_master.X.producti
 __CFG_CPD$ON 0 0 ABS 0 - dist/default/production/cube_master.X.production.obj
 __Hdata 0 0 ABS 0 data dist/default/production/cube_master.X.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production/cube_master.X.production.obj
-stackhi 9FF 0 ABS 0 - /tmp/cgtco8t70.obj
+stackhi 9FF 0 ABS 0 - /tmp/cgtV9XyQz.obj
 __Htemp 0 0 COMRAM 1 temp dist/default/production/cube_master.X.production.obj
 __Ltemp 0 0 COMRAM 1 temp dist/default/production/cube_master.X.production.obj
-stacklo 180 0 ABS 0 - /tmp/cgtco8t70.obj
+stacklo 180 0 ABS 0 - /tmp/cgtV9XyQz.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production/cube_master.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production/cube_master.X.production.obj
 __Hinit 16A 0 CODE 0 init dist/default/production/cube_master.X.production.obj
@@ -457,8 +457,8 @@ __Lnvbit 0 0 COMRAM 1 nvbit dist/default/production/cube_master.X.production.obj
 __Hcinit 0 0 ABS 0 cinit dist/default/production/cube_master.X.production.obj
 __Lcinit 0 0 ABS 0 cinit dist/default/production/cube_master.X.production.obj
 __pcinit 384 0 CODE 0 cinit dist/default/production/cube_master.X.production.obj
-__ramtop F00 0 RAM 0 ramtop /tmp/cgtco8t70.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtco8t70.obj
+__ramtop F00 0 RAM 0 ramtop /tmp/cgtV9XyQz.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtV9XyQz.obj
 _low_isr 18 0 CODE 0 intcodelo dist/default/production/cube_master.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/cube_master.X.production.obj
 __Hconst 0 0 CODE 0 const dist/default/production/cube_master.X.production.obj
@@ -486,24 +486,24 @@ __Lbank14 0 0 ABS 0 bank14 dist/default/production/cube_master.X.production.obj
 __CFG_SOSCSEL$DIG 0 0 ABS 0 - dist/default/production/cube_master.X.production.obj
 _RCSTA2bits FA6 0 ABS 0 - dist/default/production/cube_master.X.production.obj
 _TXSTA2bits FBA 0 ABS 0 - dist/default/production/cube_master.X.production.obj
-___inthi_sp 0 0 STACK 2 stack /tmp/cgtco8t70.obj
+___inthi_sp 0 0 STACK 2 stack /tmp/cgtV9XyQz.obj
 __CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production/cube_master.X.production.obj
 __CFG_BORV$3 0 0 ABS 0 - dist/default/production/cube_master.X.production.obj
-___intlo_sp 0 0 STACK 2 stack /tmp/cgtco8t70.obj
+___intlo_sp 0 0 STACK 2 stack /tmp/cgtV9XyQz.obj
 __end_of_initComms 354 0 CODE 0 text4 dist/default/production/cube_master.X.production.obj
 __Hend_init 16E 0 CODE 0 end_init dist/default/production/cube_master.X.production.obj
 __Lend_init 16A 0 CODE 0 end_init dist/default/production/cube_master.X.production.obj
 __end_of_writeStringToUART 3D2 0 CODE 0 text1 dist/default/production/cube_master.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtco8t70.obj
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtV9XyQz.obj
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production/cube_master.X.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production/cube_master.X.production.obj
-__accesstop 60 0 ABS 0 - /tmp/cgtco8t70.obj
+__accesstop 60 0 ABS 0 - /tmp/cgtV9XyQz.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/cube_master.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/cube_master.X.production.obj
-intlevel0 0 0 CODE 0 text /tmp/cgtco8t70.obj
-intlevel1 0 0 CODE 0 text /tmp/cgtco8t70.obj
-intlevel2 0 0 CODE 0 text /tmp/cgtco8t70.obj
-intlevel3 0 0 CODE 0 text /tmp/cgtco8t70.obj
+intlevel0 0 0 CODE 0 text /tmp/cgtV9XyQz.obj
+intlevel1 0 0 CODE 0 text /tmp/cgtV9XyQz.obj
+intlevel2 0 0 CODE 0 text /tmp/cgtV9XyQz.obj
+intlevel3 0 0 CODE 0 text /tmp/cgtV9XyQz.obj
 _BAUDCON2bits FB9 0 ABS 0 - dist/default/production/cube_master.X.production.obj
 __CFG_EBTRB$ON 0 0 ABS 0 - dist/default/production/cube_master.X.production.obj
 start_initialization 384 0 CODE 0 cinit dist/default/production/cube_master.X.production.obj

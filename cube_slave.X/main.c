@@ -106,7 +106,7 @@
 char tampon = 0;
 char stock_led[128] = 0;
 int compteur = 0;
-char compteur_clock = 1;
+char compteur_clock = 0;
 char state_clock = 0;
 
 void interrupt low_priority high_isr(void) {
@@ -124,8 +124,6 @@ void interrupt low_priority high_isr(void) {
 
 void affichage(int);
 
-
-
 void main(void) {
     unsigned char address = 0;
     char msg1[80] = "Slave Ready \n \r";
@@ -136,80 +134,116 @@ void main(void) {
 
     while (1) {
 
-	if ( clock == 1 )
-	{
-		compteur_clock = compteur_clock+1;
-		
-		if (compteur_clock == 8)
-		{
-			compteur_clock =1;
-		}
-	}
+        if (clock == 1) {
+            compteur_clock = compteur_clock + 1;
 
+            if (compteur_clock == 7) {
+                compteur_clock = 0;
+            }
+        }
 
+	affichage(compteur_clock);
         //PORTA = stock_led[esclave];
         //PORTC = stock_led[esclave + 1];
     }
 }
 
-void affichage(int n)
-{
+void affichage(int n) {
 
-		if(0b00000001 & stock_led[slave]) {
-			ledR1 = 1;	
-		}
-		else {
-			ledR1 = 0;
-		}	
-	
-		if(0b00000010 & stock_led[slave]) {
-			ledR2 = 1;	
-		}
-		else {
-			ledR2 = 0;
-		}	
+    if (0b00000001 & stock_led[(slave+1)*n]) {
+        ledR1 = 1;
+    } else {
+        ledR1 = 0;
+    }
 
-		if(0b00000100 & stock_led[slave]) {
-			ledR3 = 1;	
-		}
-		else {
-			ledR3 = 0;
-		}	
+    if (0b00000010 & stock_led[(slave+1)*n]) {
+        ledR2 = 1;
+    } else {
+        ledR2 = 0;
+    }
 
-		if(0b00001000 & stock_led[slave]) {
-			ledR4 = 1;	
-		}
-		else {
-			ledR4 = 0;
-		}	
+    if (0b00000100 & stock_led[(slave+1)*n]) {
+        ledR3 = 1;
+    } else {
+        ledR3 = 0;
+    }
 
-		if(0b00010000 & stock_led[slave]) {
-			ledR5 = 1;	
-		}
-		else {
-			ledR5 = 0;
-		}	
+    if (0b00001000 & stock_led[(slave+1)*n]) {
+        ledR4 = 1;
+    } else {
+        ledR4 = 0;
+    }
 
-		if(0b00100000 & stock_led[slave]) {
-			ledR6 = 1;	
-		}
-		else {
-			ledR6 = 0;
-		}	
+    if (0b00010000 & stock_led[(slave+1)*n]) {
+        ledR5 = 1;
+    } else {
+        ledR5 = 0;
+    }
 
-		if(0b01000001 & stock_led[slave]) {
-			ledR7 = 1;	
-		}
-		else {
-			ledR7 = 0;
-		}	
+    if (0b00100000 & stock_led[(slave+1)*n]) {
+        ledR6 = 1;
+    } else {
+        ledR6 = 0;
+    }
 
-		if(ob10000000 & stock_led[slave]) {
-			ledR8 = 1;
-		}
-		else {
-			ledR8 = 0;
-		}
-			
-	}	
+    if (0b01000000 & stock_led[(slave+1)*n]) {
+        ledR7 = 1;
+    } else {
+        ledR7 = 0;
+    }
+
+    if (0b10000000 & stock_led[(slave+1)*n]) {
+        ledR8 = 1;
+    } else {
+        ledR8 = 0;
+    }
+
+    if (0b00000001 & stock_led[(slave+1)*n]) {
+        ledB1 = 1;
+    } else {
+        ledB1 = 0;
+    }
+
+    if (0b00000010 & stock_led[(slave+1)*n]) {
+        ledB2 = 1;
+    } else {
+        ledB2 = 0;
+    }
+
+    if (0b00000100 & stock_led[(slave+1)*n]) {
+        ledB3 = 1;
+    } else {
+        ledB3 = 0;
+    }
+
+    if (0b00001000 & stock_led[(slave+1)*n]) {
+        ledB4 = 1;
+    } else {
+        ledB4 = 0;
+    }
+
+    if (0b00010000 & stock_led[(slave+1)*n]) {
+        ledB5 = 1;
+    } else {
+        ledB5 = 0;
+    }
+
+    if (0b00100000 & stock_led[(slave+1)*n]) {
+        ledB6 = 1;
+    } else {
+        ledB6 = 0;
+    }
+
+    if (0b01000000 & stock_led[(slave+1)*n]) {
+        ledB7 = 1;
+    } else {
+        ledB7 = 0;
+    }
+
+    if (0b10000000 & stock_led[(slave+1)*n]) {
+        ledB8 = 1;
+    } else {
+        ledB8 = 0;
+    }
 }
+
