@@ -14,10 +14,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _initPorts `(v ~T0 @X0 0 ef ]
 "4 usart.h
 [v _initComms `(v ~T0 @X0 0 ef ]
+"5
+[v _writeStringToUART `(v ~T0 @X0 0 ef1`*Cuc ]
 "128 main.c
 [v _multiplexeur `(v ~T0 @X0 0 ef1`uc ]
-"5 usart.h
-[v _writeStringToUART `(v ~T0 @X0 0 ef1`*Cuc ]
 "32446 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
 [s S2116 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S2116 . RA0 RA1 RA2 RA3 . RA5 RA6 RA7 ]
@@ -17644,6 +17644,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 137: void main(void) {
 [e :U _main ]
 [f ]
+[v F19160 `uc ~T0 @X0 -> 80 `i s ]
+[i F19160
+:U ..
+-> 77 `c
+-> 65 `c
+-> 83 `c
+-> 84 `c
+-> 69 `c
+-> 82 `c
+-> 32 `c
+-> 73 `c
+-> 83 `c
+-> 32 `c
+-> 82 `c
+-> 69 `c
+-> 65 `c
+-> 68 `c
+-> 89 `c
+-> 32 `c
+-> 10 `c
+-> 32 `c
+-> 13 `c
+-> 0 `c
+..
+]
+"138
+[v _msg1 `uc ~T0 @X0 -> 80 `i a ]
+[; ;main.c: 138: char msg1[80] = "MASTER IS READY \n \r";
+[e = _msg1 F19160 ]
 "139
 [v _i `l ~T0 @X0 1 a ]
 [; ;main.c: 139: long i= 0;
@@ -17662,6 +17691,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "146
 [e :U 2646 ]
 {
+[; ;main.c: 147: writeStringToUART (msg1);
+"147
+[e ( _writeStringToUART (1 -> &U _msg1 `*Cuc ]
 [; ;main.c: 148: if (flag_reception==1 )
 "148
 [e $ ! == -> _flag_reception `i -> 1 `i 2648  ]

@@ -135,7 +135,7 @@ void multiplexeur(char);
 
 
 void main(void) {
-//    char msg1[80] = "MASTER IS READY \n \r";
+    char msg1[80] = "MASTER IS READY \n \r";
    long i= 0;
    long j = 0;
 
@@ -144,7 +144,7 @@ void main(void) {
     initComms(); // Initialize the serial port
     
     while (1) {
-    
+    writeStringToUART (msg1);
         if (flag_reception==1 )
         {
             for(i=0 ; i<=8 ; i++)
