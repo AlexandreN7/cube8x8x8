@@ -88,10 +88,13 @@
 #define mux7   PORTCbits.RC2
 #define mux8   PORTCbits.RC3
 
+#define clock  PORTAbits.RA0
+
 // GLOBAL
 char tampon = 0;
 char stock_led[128] = 0;
 char compteur = 0;
+char flag_reception=0;
 
 
 
@@ -107,6 +110,7 @@ void interrupt low_priority low_isr(void) { // interruption de l'UART
         stock_led[compteur] = tampon;
         compteur ++;
       }
+   flag_reception=1;
    RC2IF = 0; // On met le flag a 0
   }
 
@@ -121,22 +125,93 @@ void interrupt low_priority timer_isr(void) {
 
 
 void init_timer(void);
+void multiplexeur(char);
+
+
+
+
+
+
 
 
 void main(void) {
-    unsigned char address = 0;
     char msg1[80] = "MASTER IS READY \n \r";
-    long u= 0;
+   long i= 0;
+   long j = 0;
 
 
     initPorts(); // Initialize ports to startup state
     initComms(); // Initialize the serial port
     
     while (1) {
-    writeStringToUART(msg1);
+    writeStringToUART (msg1);
+        if (flag_reception==1 )
+        {
+            for(i=0 ; i<=8 ; i++)
+            {
+                multiplexeur(i);
+                writeStringToUART(stock_led);
+                clock = 1;
+                for (j=0 ; j< 100 ; j++) {}
+                clock = 0;
+                for (j=0; j< 100000 ;j++) {}
+            }
+        }
 
     }
 }
+
+
+
+void multiplexeur(char n)
+{
+    mux1 = 0;
+    mux2 = 0;
+    mux3 = 0;
+    mux4 = 0;
+    mux5 = 0;
+    mux6 = 0;
+    mux7 = 0;
+    mux8 = 0;
+    switch (n)
+    {
+        case 0 :
+            mux1 = 1;
+            break;
+
+        case 1:
+            mux2 = 1;
+            break;
+
+        case 2:
+            mux3 = 1;
+            break;
+
+        case 3:
+            mux4 = 1;
+            break;
+
+        case 4:
+            mux5 = 1;
+            break;
+
+        case 5:
+            mux6 = 1;
+            break;
+
+        case 6:
+            mux7 = 1;
+            break;
+
+        case 7:
+            mux8 = 1;
+            break;
+
+    }
+
+}
+
+
 
 
 
