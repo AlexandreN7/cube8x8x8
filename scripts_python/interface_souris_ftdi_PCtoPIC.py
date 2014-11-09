@@ -1,6 +1,3 @@
-
-# -*-coding:Latin-1 -*
-
 """
 script interface_souris_ftdi_PCtoPIC.py
  ______  _____      _           _
@@ -30,7 +27,7 @@ except ImportError:
 	from tkinter import *
 
 import os
-#import pulseaudio
+import pulseaudio
 
 
 # Une ligne correspond à un PIC
@@ -94,15 +91,16 @@ def Clic(event):
 def Touche(event):
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
+	print(touche)
 	
-	if touche=='p':
-		print(Mafenetre.focus_get())
+	if touche=='Escape':
+		Mafenetre.destroy()
 
-	if touche=='agrave':
+	if touche=='asterisk':
 		Init()
 
 	if touche=='parenright':
-		Open_Popup()
+		Open()
 
 	if touche=='equal':
 		Save_Popup()				
@@ -155,9 +153,9 @@ def Envoyer():
 					octets_bleus[k][i] = octets_bleus[k][i]+2**j
 
 
-	#print ("On verifie les octets de l'etage 0 envoyes aux deux premiers PICs :")
-	#print ("Premier octet rouge = %s" % bin(octets_rouges[0][0]))
-	#print ("Premier octet bleu = %s" % bin(octets_bleus[0][0]))
+	print ("On verifie les octets de l'etage 0 envoyes aux deux premiers PICs :")
+	print ("Premier octet rouge = %s" % bin(octets_rouges[0][0]))
+	print ("Premier octet bleu = %s" % bin(octets_bleus[0][0]))
 	#print ("Second octet rouge = %s" % bin(octets_rouges[0][1]))
 	#print ("Second octet bleu = %s" % bin(octets_bleus[0][1]))
 
@@ -294,6 +292,12 @@ def Open():
 		MAJ_Couleurs(0)
 		MAJ_Couleurs(1)
 
+def Actualiser_patterns():
+	# Actualisation de la liste des patterns enregistrés
+	liste_save.delete(0, END)		
+	savedPatterns = os.listdir('Patterns')
+	for i in range(len(savedPatterns)):
+		liste_save.insert(END, "%s" %(savedPatterns[i][:len(savedPatterns[i])-4]))
 
 def Save_Popup():
 
@@ -311,13 +315,9 @@ def Save_Popup():
 					logs.write("%s" %matrice_leds[i+8*k][j])
 		logs.close()
 
-		# Actualisation de la liste des patterns enregistrés
-		liste_save.delete(0, END)		
-		savedPatterns = os.listdir('Patterns')
-		for i in range(len(savedPatterns)):
-			liste_save.insert(END, "%s" %(savedPatterns[i][:len(savedPatterns[i])-4]))
+		Actualiser_patterns()
 
-		Save_Screen.destroy()	
+		Save_Screen.destroy()
 
 	# Création de la fenêtre de sauvegarde
 	Save_Screen = Tk()
@@ -332,14 +332,29 @@ def Save_Popup():
 
 	# Bouton Save
 	saveBouton=Button(Save_Screen, text ='Save')
-	saveBouton.bind("<Button-1>", Save)	
+	saveBouton.bind("<Button-1>", Save)
 	Save_Screen.bind("<Return>", Save)
 	saveBouton.grid()
 
+def Supprimer_Pattern():
+	print("%s" %delai_field.get())
+	os.remove("Patterns//%s.txt" %liste_save.get(liste_save.curselection()))	
+
+	Actualiser_patterns()
 
 def Ajouter_Pattern():
 	if liste_save.curselection() != ():
 		liste_trame.insert(END, liste_save.get(liste_save.curselection()))
+
+		if delai_field.get()=='' or int(delai_field.get()) in range(26):
+			liste_trame.insert(END, "(25 ms)")
+		elif int(delai_field.get()) in range(10000):	
+			liste_trame.insert(END, "(%s ms)" %delai_field.get())
+		else:
+			liste_trame.insert(END, "(10000 ms)")	
+
+		
+
 
 def Enlever_Pattern():
 	if liste_trame.curselection() != ():
@@ -347,7 +362,8 @@ def Enlever_Pattern():
 
 def Ajouter_Delai():
 	print("%s" %delai_field.get())
-	#os.remove(path)
+
+
 #####################################################################################################
 #####################################################################################################
 
@@ -420,8 +436,8 @@ ImgClavier.create_image(0, 0, image=photo, anchor=NW)
 
 section=IntVar()
 section.set(0)
-bouton1=Radiobutton(Boutons, text="En haut", variable=section, value=0, indicatoron=0, height=3, width=15)
-bouton2=Radiobutton(Boutons, text="En bas", variable=section, value=1, indicatoron=0, height=3, width=15)
+bouton1=Radiobutton(Boutons, text="En haut", variable=section, value=0, indicatoron=0, height=4, width=11)
+bouton2=Radiobutton(Boutons, text="En bas", variable=section, value=1, indicatoron=0, height=4, width=11)
 bouton1.grid(row=0, column=1)
 bouton2.grid(row=1, column=1)
 
@@ -432,36 +448,40 @@ Boutons.grid(row=2, column=1, columnspan=5, pady=5)
 #####################################################################################################
 ################################## Gestion des trames de patterns ###################################
 #####################################################################################################
-Gestion_Patterns = Canvas(Mafenetre, highlightthickness=0)
-Gestion_Patterns.grid(row=1, column=7, padx=10)
+Gestion_Trames = Canvas(Mafenetre, highlightthickness=0)
+Gestion_Trames.grid(row=0, column=7, rowspan=3, padx=10)
 
-Fleche_haut = Canvas(Gestion_Patterns, width=24, height=24)
-Fleche_haut.grid(row=1, column=2)
+
+Button(Gestion_Trames, text ='Supprimer pattern \n /!\\ Suppression définitive /!\\', fg="red",\
+ 							width=21, command = Supprimer_Pattern).grid(row=0, column=0, columnspan=2, pady=5)
+Label(Gestion_Trames, text="Patterns disponibles :").grid(row=1, column=0, columnspan=2)
+liste_save = Listbox(Gestion_Trames, width=24, height=5)
+liste_save.grid(row=2, column=0, columnspan=2, rowspan=2)
+Actualiser_patterns()
+
+Fleche_haut = Canvas(Gestion_Trames, width=24, height=24)
+Fleche_haut.grid(row=2, column=2)
 photo_flechehaut = PhotoImage(file="fleche_haut.png")
 Fleche_haut.create_image(0, 0, image=photo_flechehaut, anchor=NW)
 
-Fleche_bas = Canvas(Gestion_Patterns, width=24, height=24)
-Fleche_bas.grid(row=2, column=2)
+Fleche_bas = Canvas(Gestion_Trames, width=24, height=24)
+Fleche_bas.grid(row=3, column=2)
 photo_flechebas = PhotoImage(file="fleche_bas.png")
 Fleche_bas.create_image(0, 0, image=photo_flechebas, anchor=NW)
 
-Label(Gestion_Patterns, text="Patterns disponibles :").grid(row=0, column=0, columnspan=2)
-liste_save = Listbox(Gestion_Patterns, width=24, height=5)
-liste_save.grid(row=1, column=0, columnspan=2, rowspan=2)
-savedPatterns = os.listdir('Patterns')
-for i in range(len(savedPatterns)):
-	liste_save.insert(END, "%s" %(savedPatterns[i][:len(savedPatterns[i])-4]))
+Label(Gestion_Trames, text="Trame envoyée").grid(row=4, column=0, columnspan=2)
+liste_trame = Listbox(Gestion_Trames, width=24, height=15)
+liste_trame.grid(row=5, column=0, columnspan=2)
 
-Label(Gestion_Patterns, text="Trame envoyée").grid(row=3, column=0, columnspan=2)
-liste_trame = Listbox(Gestion_Patterns, width=24, height=15)
-liste_trame.grid(row=4, column=0, columnspan=2)
-
-Button(Gestion_Patterns, text ='Ajouter', command = Ajouter_Pattern).grid(row=5, column=0, pady=5)
-Button(Gestion_Patterns, text ='Enlever', command = Enlever_Pattern).grid(row=5, column=1, pady=5)
-delai_field= Entry(Gestion_Patterns, width=10)
-delai_field.grid(row=6, column=0, pady=5)
-Button(Gestion_Patterns, text ='Delai (ms)', command = Ajouter_Delai).grid(row=6, column=1, pady=5)
-
+Button(Gestion_Trames, text ='Ajouter', command = Ajouter_Pattern, width=8).grid(row=6, column=0, pady=5)
+Button(Gestion_Trames, text ='Enlever', command = Enlever_Pattern, width=8).grid(row=6, column=1, pady=5)
+delai_field= Entry(Gestion_Trames, width=8)
+delai_field.grid(row=7, column=1, pady=5)
+Button(Gestion_Trames, text ='Delai', command = Ajouter_Delai, width=8).grid(row=7, column=0, pady=5)
+Button(Gestion_Trames, text ='Envoyer\nla trame !', command = Envoyer, height=4, width=8,\
+						fg='purple',cursor='hand1').grid(row=8, column=0, pady=10)
+Button(Gestion_Trames, text ="Arrêter\nl'envoi", command = Envoyer, height=4, width=8,\
+						fg='brown').grid(row=8, column=1, pady=10)
 #####################################################################################################
 
 # On remplit le canevas principal et les étages de carrés blancs
