@@ -102,15 +102,14 @@ char flag_reception=0;
 void interrupt low_priority low_isr(void) { // interruption de l'UART
    if (RC2IF /*&& PIE3bits.TX2IE*/) {
        tampon = RCREG2;
-       PORTA =tampon;
        if (compteur == 128)
         {
+   	flag_reception=1;
         compteur =0;
         }
         stock_led[compteur] = tampon;
         compteur ++;
       }
-   flag_reception=1;
    RC2IF = 0; // On met le flag a 0
   }
 
@@ -154,7 +153,7 @@ void main(void) {
                 clock = 1;
                 for (j=0 ; j< 100 ; j++) {}
                 clock = 0;
-                for (j=0; j< 100000 ;j++) {}
+                for (j=0; j< 10000 ;j++) {}
             }
         }
 
@@ -173,6 +172,7 @@ void multiplexeur(char n)
     mux6 = 0;
     mux7 = 0;
     mux8 = 0;
+
     switch (n)
     {
         case 0 :
