@@ -91,7 +91,7 @@ def Clic(event):
 def Touche(event):
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
-	print(touche)
+	#print(touche)
 	
 	if touche=='Escape':
 		Mafenetre.destroy()
@@ -469,15 +469,17 @@ Fleche_bas.grid(row=3, column=2)
 photo_flechebas = PhotoImage(file="fleche_bas.png")
 Fleche_bas.create_image(0, 0, image=photo_flechebas, anchor=NW)
 
-Label(Gestion_Trames, text="Trame envoyée").grid(row=4, column=0, columnspan=2)
-liste_trame = Listbox(Gestion_Trames, width=24, height=15)
-liste_trame.grid(row=5, column=0, columnspan=2)
+Button(Gestion_Trames, text ='Delai :', command = Ajouter_Delai, width=7).grid(row=4, column=0, pady=5)
+delai_field= Entry(Gestion_Trames, width=9)
+delai_field.grid(row=4, column=1, pady=5)
 
-Button(Gestion_Trames, text ='Ajouter', command = Ajouter_Pattern, width=8).grid(row=6, column=0, pady=5)
-Button(Gestion_Trames, text ='Enlever', command = Enlever_Pattern, width=8).grid(row=6, column=1, pady=5)
-delai_field= Entry(Gestion_Trames, width=8)
-delai_field.grid(row=7, column=1, pady=5)
-Button(Gestion_Trames, text ='Delai', command = Ajouter_Delai, width=8).grid(row=7, column=0, pady=5)
+Label(Gestion_Trames, text="Trame envoyée").grid(row=5, column=0, columnspan=2)
+liste_trame = Listbox(Gestion_Trames, width=24, height=15)
+liste_trame.grid(row=6, column=0, columnspan=2)
+
+Button(Gestion_Trames, text ='Ajouter', command = Ajouter_Pattern, width=8).grid(row=7, column=0, pady=5)
+Button(Gestion_Trames, text ='Enlever', command = Enlever_Pattern, width=8).grid(row=7, column=1, pady=5)
+
 Button(Gestion_Trames, text ='Envoyer\nla trame !', command = Envoyer, height=4, width=8,\
 						fg='purple',cursor='hand1').grid(row=8, column=0, pady=10)
 Button(Gestion_Trames, text ="Arrêter\nl'envoi", command = Envoyer, height=4, width=8,\
