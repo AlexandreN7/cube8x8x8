@@ -293,7 +293,7 @@ bssBANK1 100 17F BANK1 100 1
 %locals
 dist/default/production/cube_slave.X.production.obj
 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
-/tmp/cgtGNelSy
+/tmp/cgthCpwjy
 3071 1BC 0 CODE 0
 3073 1BC 0 CODE 0
 3076 1BC 0 CODE 0

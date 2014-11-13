@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/cgtbwATxV.obj
+$/tmp/cgt8SEFOQ.obj
 end_init CODE 0 166 166 4 1
 reset_vec CODE 0 0 0 4 1
 idloc IDLOC 0 200000 200000 8 1
@@ -105,44 +105,44 @@ $dist/default/production/cube_slave.X.production.obj
 "/home/archi/7Robot/cube8x8x8/cube_slave.X/main.c":206 1A6 text3 CODE
 "/home/archi/7Robot/cube8x8x8/cube_slave.X/main.c":207 1B0 text3 CODE
 "/home/archi/7Robot/cube8x8x8/cube_slave.X/main.c":210 1BA text3 CODE
-"/tmp/cgtGNelSy":3071 1BC cinit CODE
-"/tmp/cgtGNelSy":3073 1BC cinit CODE
-"/tmp/cgtGNelSy":3076 1BC cinit CODE
-"/tmp/cgtGNelSy":3123 1BC cinit CODE
-"/tmp/cgtGNelSy":3124 1C0 cinit CODE
-"/tmp/cgtGNelSy":3125 1C2 cinit CODE
-"/tmp/cgtGNelSy":3126 1C2 cinit CODE
-"/tmp/cgtGNelSy":3127 1C4 cinit CODE
-"/tmp/cgtGNelSy":3128 1C6 cinit CODE
-"/tmp/cgtGNelSy":3131 1C8 cinit CODE
-"/tmp/cgtGNelSy":3132 1CC cinit CODE
-"/tmp/cgtGNelSy":3133 1CE cinit CODE
-"/tmp/cgtGNelSy":3134 1CE cinit CODE
-"/tmp/cgtGNelSy":3135 1D0 cinit CODE
-"/tmp/cgtGNelSy":3136 1D2 cinit CODE
-"/tmp/cgtGNelSy":3139 1D4 cinit CODE
-"/tmp/cgtGNelSy":3140 1D8 cinit CODE
-"/tmp/cgtGNelSy":3141 1DA cinit CODE
-"/tmp/cgtGNelSy":3142 1DA cinit CODE
-"/tmp/cgtGNelSy":3143 1DC cinit CODE
-"/tmp/cgtGNelSy":3144 1DE cinit CODE
-"/tmp/cgtGNelSy":3149 1E0 cinit CODE
-"/tmp/cgtGNelSy":3150 1E2 cinit CODE
-"/tmp/cgtGNelSy":3151 1E4 cinit CODE
-"/tmp/cgtGNelSy":3152 1E6 cinit CODE
-"/tmp/cgtGNelSy":3153 1E8 cinit CODE
-"/tmp/cgtGNelSy":3154 1EA cinit CODE
-"/tmp/cgtGNelSy":3155 1EC cinit CODE
-"/tmp/cgtGNelSy":3156 1F0 cinit CODE
-"/tmp/cgtGNelSy":3157 1F4 cinit CODE
-"/tmp/cgtGNelSy":3158 1F4 cinit CODE
-"/tmp/cgtGNelSy":3159 1F6 cinit CODE
-"/tmp/cgtGNelSy":3160 1FA cinit CODE
-"/tmp/cgtGNelSy":3161 1FC cinit CODE
-"/tmp/cgtGNelSy":3162 1FE cinit CODE
-"/tmp/cgtGNelSy":3168 200 cinit CODE
-"/tmp/cgtGNelSy":3169 200 cinit CODE
-"/tmp/cgtGNelSy":3170 202 cinit CODE
+"/tmp/cgthCpwjy":3071 1BC cinit CODE
+"/tmp/cgthCpwjy":3073 1BC cinit CODE
+"/tmp/cgthCpwjy":3076 1BC cinit CODE
+"/tmp/cgthCpwjy":3123 1BC cinit CODE
+"/tmp/cgthCpwjy":3124 1C0 cinit CODE
+"/tmp/cgthCpwjy":3125 1C2 cinit CODE
+"/tmp/cgthCpwjy":3126 1C2 cinit CODE
+"/tmp/cgthCpwjy":3127 1C4 cinit CODE
+"/tmp/cgthCpwjy":3128 1C6 cinit CODE
+"/tmp/cgthCpwjy":3131 1C8 cinit CODE
+"/tmp/cgthCpwjy":3132 1CC cinit CODE
+"/tmp/cgthCpwjy":3133 1CE cinit CODE
+"/tmp/cgthCpwjy":3134 1CE cinit CODE
+"/tmp/cgthCpwjy":3135 1D0 cinit CODE
+"/tmp/cgthCpwjy":3136 1D2 cinit CODE
+"/tmp/cgthCpwjy":3139 1D4 cinit CODE
+"/tmp/cgthCpwjy":3140 1D8 cinit CODE
+"/tmp/cgthCpwjy":3141 1DA cinit CODE
+"/tmp/cgthCpwjy":3142 1DA cinit CODE
+"/tmp/cgthCpwjy":3143 1DC cinit CODE
+"/tmp/cgthCpwjy":3144 1DE cinit CODE
+"/tmp/cgthCpwjy":3149 1E0 cinit CODE
+"/tmp/cgthCpwjy":3150 1E2 cinit CODE
+"/tmp/cgthCpwjy":3151 1E4 cinit CODE
+"/tmp/cgthCpwjy":3152 1E6 cinit CODE
+"/tmp/cgthCpwjy":3153 1E8 cinit CODE
+"/tmp/cgthCpwjy":3154 1EA cinit CODE
+"/tmp/cgthCpwjy":3155 1EC cinit CODE
+"/tmp/cgthCpwjy":3156 1F0 cinit CODE
+"/tmp/cgthCpwjy":3157 1F4 cinit CODE
+"/tmp/cgthCpwjy":3158 1F4 cinit CODE
+"/tmp/cgthCpwjy":3159 1F6 cinit CODE
+"/tmp/cgthCpwjy":3160 1FA cinit CODE
+"/tmp/cgthCpwjy":3161 1FC cinit CODE
+"/tmp/cgthCpwjy":3162 1FE cinit CODE
+"/tmp/cgthCpwjy":3168 200 cinit CODE
+"/tmp/cgthCpwjy":3169 200 cinit CODE
+"/tmp/cgthCpwjy":3170 202 cinit CODE
 "/home/archi/7Robot/cube8x8x8/cube_slave.X/usart.c":6 206 text2 CODE
 "/home/archi/7Robot/cube8x8x8/cube_slave.X/usart.c":8 206 text2 CODE
 "/home/archi/7Robot/cube8x8x8/cube_slave.X/usart.c":9 208 text2 CODE
@@ -222,8 +222,8 @@ _T0CS 7EAD 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _MASK 38 0 COMRAM 1 dataCOMRAM dist/default/production/cube_slave.X.production.obj
 __size_of_affichage 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _main 278 0 CODE 0 text0 dist/default/production/cube_slave.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/cgtbwATxV.obj
-start 166 0 CODE 0 init /tmp/cgtbwATxV.obj
+___sp 0 0 STACK 2 stack /tmp/cgt8SEFOQ.obj
+start 166 0 CODE 0 init /tmp/cgt8SEFOQ.obj
 _T0PS1 7EA9 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _T0PS2 7EAA 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _RC2IF 7D25 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
@@ -312,13 +312,13 @@ __end_of_affichage 1BC 0 CODE 0 text3 dist/default/production/cube_slave.X.produ
 _led_state 23 0 COMRAM 1 bssCOMRAM dist/default/production/cube_slave.X.production.obj
 __Hdata 0 0 ABS 0 data dist/default/production/cube_slave.X.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production/cube_slave.X.production.obj
-stackhi 9FF 0 ABS 0 - /tmp/cgtbwATxV.obj
+stackhi 9FF 0 ABS 0 - /tmp/cgt8SEFOQ.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production/cube_slave.X.production.obj
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production/cube_slave.X.production.obj
 __pcstackBANK0 B0 0 BANK0 1 cstackBANK0 dist/default/production/cube_slave.X.production.obj
 __Htemp 0 0 COMRAM 1 temp dist/default/production/cube_slave.X.production.obj
 __Ltemp 0 0 COMRAM 1 temp dist/default/production/cube_slave.X.production.obj
-stacklo 180 0 ABS 0 - /tmp/cgtbwATxV.obj
+stacklo 180 0 ABS 0 - /tmp/cgt8SEFOQ.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production/cube_slave.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production/cube_slave.X.production.obj
 __Hinit 166 0 CODE 0 init dist/default/production/cube_slave.X.production.obj
@@ -430,8 +430,8 @@ __Lnvbit 0 0 COMRAM 1 nvbit dist/default/production/cube_slave.X.production.obj
 __Hcinit 0 0 ABS 0 cinit dist/default/production/cube_slave.X.production.obj
 __Lcinit 0 0 ABS 0 cinit dist/default/production/cube_slave.X.production.obj
 __pcinit 1BC 0 CODE 0 cinit dist/default/production/cube_slave.X.production.obj
-__ramtop F00 0 RAM 0 ramtop /tmp/cgtbwATxV.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtbwATxV.obj
+__ramtop F00 0 RAM 0 ramtop /tmp/cgt8SEFOQ.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgt8SEFOQ.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 __Hconst 0 0 CODE 0 const dist/default/production/cube_slave.X.production.obj
 __Lconst 0 0 CODE 0 const dist/default/production/cube_slave.X.production.obj
@@ -458,26 +458,26 @@ __Lbank14 0 0 ABS 0 bank14 dist/default/production/cube_slave.X.production.obj
 __CFG_SOSCSEL$DIG 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _RCSTA2bits FA6 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 _TXSTA2bits FBA 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
-___inthi_sp 0 0 STACK 2 stack /tmp/cgtbwATxV.obj
+___inthi_sp 0 0 STACK 2 stack /tmp/cgt8SEFOQ.obj
 __CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 __CFG_BORV$3 0 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
-___intlo_sp 0 0 STACK 2 stack /tmp/cgtbwATxV.obj
+___intlo_sp 0 0 STACK 2 stack /tmp/cgt8SEFOQ.obj
 __end_of_initComms 246 0 CODE 0 text2 dist/default/production/cube_slave.X.production.obj
 __Hend_init 16A 0 CODE 0 end_init dist/default/production/cube_slave.X.production.obj
 __Lend_init 166 0 CODE 0 end_init dist/default/production/cube_slave.X.production.obj
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production/cube_slave.X.production.obj
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/production/cube_slave.X.production.obj
 __pidataCOMRAM 29E 0 CODE 0 idataCOMRAM dist/default/production/cube_slave.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtbwATxV.obj
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgt8SEFOQ.obj
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production/cube_slave.X.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production/cube_slave.X.production.obj
-__accesstop 60 0 ABS 0 - /tmp/cgtbwATxV.obj
+__accesstop 60 0 ABS 0 - /tmp/cgt8SEFOQ.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/cube_slave.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/cube_slave.X.production.obj
-intlevel0 0 0 CODE 0 text /tmp/cgtbwATxV.obj
-intlevel1 0 0 CODE 0 text /tmp/cgtbwATxV.obj
-intlevel2 0 0 CODE 0 text /tmp/cgtbwATxV.obj
-intlevel3 0 0 CODE 0 text /tmp/cgtbwATxV.obj
+intlevel0 0 0 CODE 0 text /tmp/cgt8SEFOQ.obj
+intlevel1 0 0 CODE 0 text /tmp/cgt8SEFOQ.obj
+intlevel2 0 0 CODE 0 text /tmp/cgt8SEFOQ.obj
+intlevel3 0 0 CODE 0 text /tmp/cgt8SEFOQ.obj
 _BAUDCON2bits FB9 0 ABS 0 - dist/default/production/cube_slave.X.production.obj
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production/cube_slave.X.production.obj
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production/cube_slave.X.production.obj

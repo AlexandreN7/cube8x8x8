@@ -1,9 +1,9 @@
-_main: CODE, 362 0 444
-_multiplexeur: CODE, 806 0 104
-_initPorts: CODE, 1126 0 48
-_timer_isr: CODE, 214 0 144
-__initialization: CODE, 990 0 62
-_initComms: CODE, 1062 0 64
-_writeStringToUART: CODE, 1174 0 38
-_low_isr: CODE, 24 0 190
-Total: 1094
+_main: CODE, 400 0 444
+_multiplexeur: CODE, 844 0 104
+_initPorts: CODE, 1166 0 48
+_timer_isr: CODE, 252 0 144
+__initialization: CODE, 1028 0 64
+_initComms: CODE, 1102 0 64
+_writeStringToUART: CODE, 1214 0 38
+_low_isr: CODE, 24 0 228
+Total: 1134
