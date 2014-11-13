@@ -21920,7 +21920,7 @@ unsigned char readAddress();
 #pragma config XINST = 0
 
 
-#pragma config FOSC = INTIO1
+#pragma config FOSC = INTIO2
 #pragma config PLLCFG = 1
 #pragma config FCMEN = 0
 #pragma config IESO = 1
@@ -21974,15 +21974,18 @@ unsigned char readAddress();
 
 #pragma config EBTRB = 0
 
-# 105
+# 106
 char tampon = 0;
+char MASK[8]={0b00000001 , 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000};
 char stock_led[128] = 0;
 int compteur = 0;
+char compteur_clock = 0;
+char state_clock = 0;
+char led_state[2][8] = 0;
 
 void interrupt low_priority high_isr(void) {
-if (RC2IF ) {
+if (RC2IF) {
 tampon = RCREG2;
-
 if (compteur == 128) {
 compteur = 0;
 }
@@ -21992,25 +21995,82 @@ compteur++;
 RC2IF = 0;
 }
 
+
+void interrupt low_priority timer_isr(void) {
+
+if ( TMR0IE && TMR0IF ) {
+}
+TMR0IF = 0;
+}
+
+void decodage(int);
+void init_timer(void);
+void affichage();
+
+
 void main(void) {
-unsigned char address = 0;
-char msg1[80] = "Slave Ready \n \r";
 
 
 
+long i = 0;
 initPorts();
 initComms();
 
 while (1) {
+affichage();
 
-
-
-
-for (int i = 0; i < 100; i++) {
+# 158
 }
 
-PORTA = stock_led[0];
-PORTC = stock_led[0 + 1];
 }
+
+
+void decodage(int n) {
+char a=0;
+for (a=0; a<8;a++)
+{
+if(MASK[a] & stock_led[(0 +1) * n])
+{
+led_state[0][a]=1;
+}
+else {
+led_state[0][a]=0;
+}
+
+if(MASK[a] & stock_led[(0 +1) * n+1])
+{
+led_state[1][a]=1;
+}
+else {
+led_state[1][a]=0;
+}
+}
+}
+
+
+void init_timer(void) {
+
+T0PS1 = 1;
+T0PS2 = 0;
+PSA = 0;
+T0CS = 0;
+T08BIT = 1;
+TMR0IE = 1;
+PEIE = 1;
+GIE = 1;
+}
+
+
+void affichage() {
+PORTAbits.RA0 = led_state[0][0];
+PORTAbits.RA0 = led_state[0][1];
+PORTAbits.RA0 = led_state[0][2];
+PORTAbits.RA0 = led_state[0][3];
+PORTAbits.RA0 = led_state[0][4];
+PORTAbits.RA0 = led_state[0][5];
+PORTAbits.RA0 = led_state[0][6];
+PORTAbits.RA0 = led_state[0][7];
+
+
 }
 

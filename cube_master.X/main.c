@@ -102,15 +102,15 @@ char flag_reception=0;
 void interrupt low_priority low_isr(void) { // interruption de l'UART
    if (RC2IF /*&& PIE3bits.TX2IE*/) {
        tampon = RCREG2;
-       PORTA =tampon;
+//     PORTA = tampon;
        if (compteur == 128)
         {
         compteur =0;
+   	flag_reception=1;
         }
         stock_led[compteur] = tampon;
         compteur ++;
       }
-   flag_reception=1;
    RC2IF = 0; // On met le flag a 0
   }
 
@@ -129,34 +129,30 @@ void multiplexeur(char);
 
 
 
-
-
-
-
-
 void main(void) {
-    char msg1[80] = "MASTER IS READY \n \r";
+   char msg1[80] = "MASTER IS READY \n \r";
    long i= 0;
    long j = 0;
-
 
     initPorts(); // Initialize ports to startup state
     initComms(); // Initialize the serial port
     
     while (1) {
-    writeStringToUART (msg1);
-        if (flag_reception==1 )
-        {
-            for(i=0 ; i<=8 ; i++)
+//    writeStringToUART (msg1);
+      //  if (flag_reception==1 )
+       // {
+//         writeDataToUART('\n');
+        writeStringToUART(stock_led);
+//         writeDataToUART('\n');
+            for(i=0 ; i<8 ; i++)
             {
                 multiplexeur(i);
-                writeStringToUART(stock_led);
                 clock = 1;
                 for (j=0 ; j< 100 ; j++) {}
                 clock = 0;
-                for (j=0; j< 100000 ;j++) {}
+                for (j=0; j< 10000 ;j++) {}
             }
-        }
+        //}
 
     }
 }
@@ -210,9 +206,6 @@ void multiplexeur(char n)
     }
 
 }
-
-
-
 
 
 
