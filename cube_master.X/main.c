@@ -92,7 +92,7 @@
 
 // GLOBAL
 char tampon = 0;
-char stock_led[128] = 0;
+char stock_led[140] = 0;
 char compteur = 0;
 char flag_reception = 0;
 char it = 0;
@@ -102,13 +102,8 @@ void interrupt low_priority low_isr(void) { // interruption de l'UART
         tampon = RCREG2;
         //     PORTA = tampon;
         if (compteur == 128) {
-            for (it = 0; it < 128; it++) {
-                stock_led[it] = 0;
-
-            }
             compteur = 0;
-            flag_reception = 1;
-
+            //flag_reception = 1;
         }
         stock_led[compteur] = tampon;
         compteur++;

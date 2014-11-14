@@ -82,30 +82,30 @@
 
 #define slave 0
 
-#define ledR1 PORTAbits.RA0
-#define ledR2 PORTAbits.RA3
-#define ledR3 PORTAbits.RA6
-#define ledR4 PORTCbits.RC3
-#define ledR5 PORTBbits.RB5
-#define ledR6 PORTBbits.RB3
-#define ledR7 PORTBbits.RB0
-#define ledR8 PORTCbits.RC5
+#define ledB1 PORTAbits.RA0
+#define ledB2 PORTAbits.RA3
+#define ledB3 PORTAbits.RA6
+#define ledB4 PORTCbits.RC3
+#define ledB5 PORTBbits.RB5
+#define ledB6 PORTBbits.RB3
+#define ledB7 PORTBbits.RB0
+#define ledB8 PORTCbits.RC5
 
-#define ledB1 PORTAbits.RA1
-#define ledB2 PORTAbits.RA2
-#define ledB3 PORTCbits.RC0
-#define ledB4 PORTCbits.RC2
-#define ledB5 PORTBbits.RB4
-#define ledB6 PORTBbits.RB2
-#define ledB7 PORTCbits.RC6
-#define ledB8 PORTCbits.RC4
+#define ledR1 PORTAbits.RA1
+#define ledR2 PORTAbits.RA2
+#define ledR3 PORTCbits.RC0
+#define ledR4 PORTCbits.RC2
+#define ledR5 PORTBbits.RB4
+#define ledR6 PORTBbits.RB2
+#define ledR7 PORTCbits.RC6
+#define ledR8 PORTCbits.RC4
 
 #define clock PORTBbits.RB1
 
 
 char tampon = 0;
 char MASK[8]={0b00000001 , 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000};
-char stock_led[128] = 0;
+char stock_led[140] = 0;
 int compteur = 0;
 char compteur_clock = 0;
 char state_clock = 0;
@@ -113,14 +113,15 @@ char led_state[2][8] = 0;
 
 void interrupt low_priority high_isr(void) {
 	if (RC2IF) {
-		tampon = RCREG2;
-		if (compteur == 128) {
-			compteur = 0;
+		tampon = RCREG2;                //a chaque interruption
+		if (compteur == 128) {          //on stock la valeur de
+			compteur = 0;           //RCREG2 dans un tableau
 		}
+
 		stock_led[compteur] = tampon;
 		compteur++;
 	}
-	RC2IF = 0; // On met le flag ├а 0
+	RC2IF = 0; // On met le flag ра 0
 }
 
 
@@ -140,12 +141,12 @@ void main(void) {
 	// unsigned char address = 0;
 	// char msg1[80] = "Slave Ready \n \r";
 
-	long i = 0;
 	initPorts(); // Initialize ports to startup state
 	initComms(); // Initialize the serial port
-
+        int delai=0;
 	while (1) {
-            affichage();
+           // affichage();
+
             
 		//        if (clock == 1) {
 		//            compteur_clock = compteur_clock + 1;
@@ -164,16 +165,16 @@ void decodage(int n) {
 	char a=0;
 	for (a=0; a<8;a++)
 	{
-		if(MASK[a] & stock_led[(slave +1) * n])
-		{
+		if(MASK[a] & stock_led[slave + 16*n])       //n numero de l'etage [0;7]
+		{                                           
 			led_state[0][a]=1;	
 		}
 		else {
 			led_state[0][a]=0;	
 		}
 
-		if(MASK[a] & stock_led[(slave +1) * n+1])
-		{
+		if(MASK[a] & stock_led[slave + 1 + 16*n])   
+		{                                           
 			led_state[1][a]=1;
 		}
 		else {
@@ -197,53 +198,22 @@ void init_timer(void) {
 
 
 void affichage() {
-    ledR1 = led_state[0][0];
-    ledR1 = led_state[0][1];
-    ledR1 = led_state[0][2];
-    ledR1 = led_state[0][3];
-    ledR1 = led_state[0][4];
-    ledR1 = led_state[0][5];
-    ledR1 = led_state[0][6];
-    ledR1 = led_state[0][7];
-
-
+    ledB1 = led_state[0][0];
+    ledB2 = led_state[0][1];
+    ledB3 = led_state[0][2];
+    ledB4 = led_state[0][3];
+    ledB5 = led_state[0][4];
+    ledB6 = led_state[0][5];
+    ledB7 = led_state[0][6];
+    ledB8 = led_state[0][7];
+    /*
+    ledB1 = 1;
+    ledB2 = 1;
+    ledB3 = 1;
+    ledB4 = 1;
+    ledB5 = 1;
+    ledB6 = 1;
+    ledB7 = 1;
+    ledB8 = 1;
+    */
 }
-
-
-
-//	for (j = 0; j <= 10; j++) {
-////		for (i = 0; i <= 100; i++) {
-//			PORTAbits.RA0 = 1;}
-//		for (i = 0; i <= 50; i++) {
-//			PORTAbits.RA0 = 0;}
-//		for (i = 0; i <= 100; i++) {
-//			PORTAbits.RA3 = 1;}
-//		for (i = 0; i <= 50; i++) {
-//			PORTAbits.RA3 = 0;}
-//		for (i = 0; i <= 100; i++) {
-//			PORTAbits.RA6 = 1;}
-//		for (i = 0; i <= 50; i++) {
-//			PORTAbits.RA6 = 0;}
-//		for (i = 0; i <= 100; i++) {
-//			PORTCbits.RC3 = 1;}
-//		for (i = 0; i <= 50; i++) {
-//			PORTCbits.RC3 = 0;}
-//		for (i = 0; i <= 100; i++) {
-//			PORTBbits.RB5 = 1;}
-//		for (i = 0; i <= 50; i++) {
-//			PORTBbits.RB5 = 0;}
-//		for (i = 0; i <= 100; i++) {
-//			PORTBbits.RB3 = 1;}
-//		for (i = 0; i <= 50; i++) {
-//			PORTBbits.RB3 = 0;}
-//		for (i = 0; i <= 100; i++) {
-//			PORTBbits.RB0 = 1;}
-//		for (i = 0; i <= 50; i++) {
-//			PORTBbits.RB0 = 0;}
-//		for (i = 0; i <= 100; i++) {
-//			PORTCbits.RC5 = 1;}
-//		for (i = 0; i <= 50; i++) {
-//			PORTCbits.RC5 = 0;}
-
-
-//	}

@@ -1,8 +1,7 @@
-_affichage: CODE, 362 0 82
-_main: CODE, 632 0 38
+_main: CODE, 500 0 62
 _high_isr: CODE, 24 0 190
-_initPorts: CODE, 582 0 50
+_initPorts: CODE, 562 0 50
 _timer_isr: CODE, 214 0 144
-__initialization: CODE, 444 0 68
-_initComms: CODE, 518 0 64
-Total: 636
+__initialization: CODE, 362 0 68
+_initComms: CODE, 436 0 64
+Total: 578

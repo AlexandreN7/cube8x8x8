@@ -12,9 +12,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _initPorts `(v ~T0 @X0 0 ef ]
 "4 usart.h
 [v _initComms `(v ~T0 @X0 0 ef ]
-"136 main.c
-[v _affichage `(v ~T0 @X0 0 ef ]
-"44633 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
+"32440 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
+[v _PORTA `Vuc ~T0 @X0 0 e@3968 ]
+"44633
 [v _T0PS1 `Vb ~T0 @X0 0 e@32425 ]
 "44635
 [v _T0PS2 `Vb ~T0 @X0 0 e@32426 ]
@@ -48,6 +48,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S2115 . . . . . . ]
 "32472
 [v _PORTAbits `VS2115 ~T0 @X0 0 e@3968 ]
+"32607
+[s S2125 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2125 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"32617
+[s S2126 :1 `uc 1 :1 `uc 1 ]
+[n S2126 . . CCP2 ]
+"32621
+[s S2127 :2 `uc 1 :1 `uc 1 ]
+[n S2127 . . PA1 ]
+"32625
+[s S2128 :1 `uc 1 :1 `uc 1 ]
+[n S2128 . . PA2 ]
+"32606
+[u S2124 `S2125 1 `S2126 1 `S2127 1 `S2128 1 ]
+[n S2124 . . . . . ]
+"32630
+[v _PORTCbits `VS2124 ~T0 @X0 0 e@3970 ]
+"32537
+[s S2122 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2122 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"32547
+[s S2123 :3 `uc 1 :1 `uc 1 ]
+[n S2123 . . CCP2_PA2 ]
+"32536
+[u S2121 `S2122 1 `S2123 1 ]
+[n S2121 . . . ]
+"32552
+[v _PORTBbits `VS2121 ~T0 @X0 0 e@3969 ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f25k80.h: 47: extern volatile unsigned char RXERRCNT @ 0xE41;
@@ -17537,13 +17565,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;main.c: 107: char MASK[8]={0b00000001 , 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000};
 "108
-[v _stock_led `uc ~T0 @X0 -> 128 `i e ]
+[v _stock_led `uc ~T0 @X0 -> 140 `i e ]
 [i _stock_led
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;main.c: 108: char stock_led[128] = 0;
+[; ;main.c: 108: char stock_led[140] = 0;
 "109
 [v _compteur `i ~T0 @X0 1 e ]
 [i _compteur
@@ -17598,229 +17626,242 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 2641 ]
 [; ;main.c: 119: }
-[; ;main.c: 120: stock_led[compteur] = tampon;
-"120
-[e = *U + &U _stock_led * -> -> _compteur `ui `ux -> -> # *U &U _stock_led `ui `ux _tampon ]
-[; ;main.c: 121: compteur++;
+[; ;main.c: 121: stock_led[compteur] = tampon;
 "121
-[e ++ _compteur -> 1 `i ]
+[e = *U + &U _stock_led * -> -> _compteur `ui `ux -> -> # *U &U _stock_led `ui `ux _tampon ]
+[; ;main.c: 122: compteur++;
 "122
+[e ++ _compteur -> 1 `i ]
+"123
 }
 [e :U 2640 ]
-[; ;main.c: 122: }
-[; ;main.c: 123: RC2IF = 0;
-"123
-[e = _RC2IF -> -> 0 `i `b ]
-[; ;main.c: 124: }
+[; ;main.c: 123: }
+[; ;main.c: 124: RC2IF = 0;
 "124
+[e = _RC2IF -> -> 0 `i `b ]
+[; ;main.c: 125: }
+"125
 [e :UE 2639 ]
 }
 [v F19156 `(v ~T0 @X0 1 tf ]
-"127
+"128
 [v _timer_isr `ILF19156 ~T0 @X0 1 e ]
 {
-[; ;main.c: 127: void interrupt low_priority timer_isr(void) {
+[; ;main.c: 128: void interrupt low_priority timer_isr(void) {
 [e :U _timer_isr ]
 [f ]
-[; ;main.c: 129: if ( TMR0IE && TMR0IF ) {
-"129
+[; ;main.c: 130: if ( TMR0IE && TMR0IF ) {
+"130
 [e $ ! && _TMR0IE _TMR0IF 2643  ]
 {
-"130
+"131
 }
 [e :U 2643 ]
-[; ;main.c: 130: }
-[; ;main.c: 131: TMR0IF = 0;
-"131
-[e = _TMR0IF -> -> 0 `i `b ]
-[; ;main.c: 132: }
+[; ;main.c: 131: }
+[; ;main.c: 132: TMR0IF = 0;
 "132
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;main.c: 133: }
+"133
 [e :UE 2642 ]
 }
-[; ;main.c: 134: void decodage(int);
-[; ;main.c: 135: void init_timer(void);
-[; ;main.c: 136: void affichage();
-"139
+[; ;main.c: 135: void decodage(int);
+[; ;main.c: 136: void init_timer(void);
+[; ;main.c: 137: void affichage();
+"140
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 139: void main(void) {
+[; ;main.c: 140: void main(void) {
 [e :U _main ]
 [f ]
-"143
-[v _i `l ~T0 @X0 1 a ]
-[; ;main.c: 143: long i = 0;
-[e = _i -> -> 0 `i `l ]
 [; ;main.c: 144: initPorts();
 "144
 [e ( _initPorts ..  ]
 [; ;main.c: 145: initComms();
 "145
 [e ( _initComms ..  ]
+"146
+[v _delai `i ~T0 @X0 1 a ]
+[; ;main.c: 146: int delai=0;
+[e = _delai -> 0 `i ]
 [; ;main.c: 147: while (1) {
 "147
 [e :U 2646 ]
 {
-[; ;main.c: 148: affichage();
-"148
-[e ( _affichage ..  ]
-"158
+[; ;main.c: 149: PORTA = tampon;
+"149
+[e = _PORTA _tampon ]
+[; ;main.c: 150: for ( delai = 0; delai<1000; delai++ ){}
+"150
+{
+[e = _delai -> 0 `i ]
+[e $ < _delai -> 1000 `i 2648  ]
+[e $U 2649  ]
+[e :U 2648 ]
+{
+}
+[e ++ _delai -> 1 `i ]
+[e $ < _delai -> 1000 `i 2648  ]
+[e :U 2649 ]
+}
+"160
 }
 [e :U 2645 ]
 "147
 [e $U 2646  ]
 [e :U 2647 ]
-[; ;main.c: 158: }
 [; ;main.c: 160: }
-"160
+[; ;main.c: 162: }
+"162
 [e :UE 2644 ]
 }
-"163
+"165
 [v _decodage `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;main.c: 163: void decodage(int n) {
+[; ;main.c: 165: void decodage(int n) {
 [e :U _decodage ]
 [v _n `i ~T0 @X0 1 r1 ]
 [f ]
-"164
-[v _a `uc ~T0 @X0 1 a ]
-[; ;main.c: 164: char a=0;
-[e = _a -> -> 0 `i `uc ]
-[; ;main.c: 165: for (a=0; a<8;a++)
-"165
-{
-[e = _a -> -> 0 `i `uc ]
-[e $ < -> _a `i -> 8 `i 2649  ]
-[e $U 2650  ]
 "166
-[e :U 2649 ]
-[; ;main.c: 166: {
-{
-[; ;main.c: 167: if(MASK[a] & stock_led[(0 +1) * n])
+[v _a `uc ~T0 @X0 1 a ]
+[; ;main.c: 166: char a=0;
+[e = _a -> -> 0 `i `uc ]
+[; ;main.c: 167: for (a=0; a<8;a++)
 "167
-[e $ ! != & -> *U + &U _MASK * -> _a `ux -> -> # *U &U _MASK `ui `ux `i -> *U + &U _stock_led * -> -> * + -> 0 `i -> 1 `i _n `ui `ux -> -> # *U &U _stock_led `ui `ux `i -> 0 `i 2652  ]
-[; ;main.c: 168: {
-"168
 {
-[; ;main.c: 169: led_state[0][a]=1;
-"169
-[e = *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> _a `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
-"170
-}
-[; ;main.c: 170: }
+[e = _a -> -> 0 `i `uc ]
+[e $ < -> _a `i -> 8 `i 2652  ]
 [e $U 2653  ]
-"171
+"168
 [e :U 2652 ]
-[; ;main.c: 171: else {
+[; ;main.c: 168: {
 {
-[; ;main.c: 172: led_state[0][a]=0;
+[; ;main.c: 169: if(MASK[a] & stock_led[0 + 16*n])
+"169
+[e $ ! != & -> *U + &U _MASK * -> _a `ux -> -> # *U &U _MASK `ui `ux `i -> *U + &U _stock_led * -> -> + -> 0 `i * -> 16 `i _n `ui `ux -> -> # *U &U _stock_led `ui `ux `i -> 0 `i 2655  ]
+[; ;main.c: 170: {
+"170
+{
+[; ;main.c: 171: led_state[0][a]=1;
+"171
+[e = *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> _a `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
 "172
-[e = *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> _a `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+}
+[; ;main.c: 172: }
+[e $U 2656  ]
 "173
-}
-[e :U 2653 ]
-[; ;main.c: 173: }
-[; ;main.c: 175: if(MASK[a] & stock_led[(0 +1) * n+1])
-"175
-[e $ ! != & -> *U + &U _MASK * -> _a `ux -> -> # *U &U _MASK `ui `ux `i -> *U + &U _stock_led * -> -> + * + -> 0 `i -> 1 `i _n -> 1 `i `ui `ux -> -> # *U &U _stock_led `ui `ux `i -> 0 `i 2654  ]
-[; ;main.c: 176: {
-"176
-{
-[; ;main.c: 177: led_state[1][a]=1;
-"177
-[e = *U + &U *U + &U _led_state * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> _a `ux -> -> # *U &U *U + &U _led_state * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
-"178
-}
-[; ;main.c: 178: }
-[e $U 2655  ]
-"179
-[e :U 2654 ]
-[; ;main.c: 179: else {
-{
-[; ;main.c: 180: led_state[1][a]=0;
-"180
-[e = *U + &U *U + &U _led_state * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> _a `ux -> -> # *U &U *U + &U _led_state * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
-"181
-}
 [e :U 2655 ]
-"182
+[; ;main.c: 173: else {
+{
+[; ;main.c: 174: led_state[0][a]=0;
+"174
+[e = *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> _a `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
+"175
 }
-"165
-[e ++ _a -> -> 1 `i `uc ]
-[e $ < -> _a `i -> 8 `i 2649  ]
-[e :U 2650 ]
-"182
+[e :U 2656 ]
+[; ;main.c: 175: }
+[; ;main.c: 177: if(MASK[a] & stock_led[0 + 1 + 16*n])
+"177
+[e $ ! != & -> *U + &U _MASK * -> _a `ux -> -> # *U &U _MASK `ui `ux `i -> *U + &U _stock_led * -> -> + + -> 0 `i -> 1 `i * -> 16 `i _n `ui `ux -> -> # *U &U _stock_led `ui `ux `i -> 0 `i 2657  ]
+[; ;main.c: 178: {
+"178
+{
+[; ;main.c: 179: led_state[1][a]=1;
+"179
+[e = *U + &U *U + &U _led_state * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> _a `ux -> -> # *U &U *U + &U _led_state * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux -> -> 1 `i `uc ]
+"180
 }
-[; ;main.c: 181: }
-[; ;main.c: 182: }
-[; ;main.c: 183: }
+[; ;main.c: 180: }
+[e $U 2658  ]
+"181
+[e :U 2657 ]
+[; ;main.c: 181: else {
+{
+[; ;main.c: 182: led_state[1][a]=0;
+"182
+[e = *U + &U *U + &U _led_state * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> _a `ux -> -> # *U &U *U + &U _led_state * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux -> -> 0 `i `uc ]
 "183
-[e :UE 2648 ]
 }
-"186
+[e :U 2658 ]
+"184
+}
+"167
+[e ++ _a -> -> 1 `i `uc ]
+[e $ < -> _a `i -> 8 `i 2652  ]
+[e :U 2653 ]
+"184
+}
+[; ;main.c: 183: }
+[; ;main.c: 184: }
+[; ;main.c: 185: }
+"185
+[e :UE 2651 ]
+}
+"188
 [v _init_timer `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 186: void init_timer(void) {
+[; ;main.c: 188: void init_timer(void) {
 [e :U _init_timer ]
 [f ]
-[; ;main.c: 188: T0PS1 = 1;
-"188
-[e = _T0PS1 -> -> 1 `i `b ]
-[; ;main.c: 189: T0PS2 = 0;
-"189
-[e = _T0PS2 -> -> 0 `i `b ]
-[; ;main.c: 190: PSA = 0;
+[; ;main.c: 190: T0PS1 = 1;
 "190
-[e = _PSA -> -> 0 `i `b ]
-[; ;main.c: 191: T0CS = 0;
+[e = _T0PS1 -> -> 1 `i `b ]
+[; ;main.c: 191: T0PS2 = 0;
 "191
-[e = _T0CS -> -> 0 `i `b ]
-[; ;main.c: 192: T08BIT = 1;
+[e = _T0PS2 -> -> 0 `i `b ]
+[; ;main.c: 192: PSA = 0;
 "192
-[e = _T08BIT -> -> 1 `i `b ]
-[; ;main.c: 193: TMR0IE = 1;
+[e = _PSA -> -> 0 `i `b ]
+[; ;main.c: 193: T0CS = 0;
 "193
-[e = _TMR0IE -> -> 1 `i `b ]
-[; ;main.c: 194: PEIE = 1;
+[e = _T0CS -> -> 0 `i `b ]
+[; ;main.c: 194: T08BIT = 1;
 "194
-[e = _PEIE -> -> 1 `i `b ]
-[; ;main.c: 195: GIE = 1;
+[e = _T08BIT -> -> 1 `i `b ]
+[; ;main.c: 195: TMR0IE = 1;
 "195
-[e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 196: }
+[e = _TMR0IE -> -> 1 `i `b ]
+[; ;main.c: 196: PEIE = 1;
 "196
-[e :UE 2656 ]
+[e = _PEIE -> -> 1 `i `b ]
+[; ;main.c: 197: GIE = 1;
+"197
+[e = _GIE -> -> 1 `i `b ]
+[; ;main.c: 198: }
+"198
+[e :UE 2659 ]
 }
-"199
+"201
 [v _affichage `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 199: void affichage() {
+[; ;main.c: 201: void affichage() {
 [e :U _affichage ]
 [f ]
-[; ;main.c: 200: PORTAbits.RA0 = led_state[0][0];
-"200
-[e = . . _PORTAbits 0 0 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
-[; ;main.c: 201: PORTAbits.RA0 = led_state[0][1];
-"201
-[e = . . _PORTAbits 0 0 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
-[; ;main.c: 202: PORTAbits.RA0 = led_state[0][2];
+[; ;main.c: 202: PORTAbits.RA0 = led_state[0][0];
 "202
-[e = . . _PORTAbits 0 0 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
-[; ;main.c: 203: PORTAbits.RA0 = led_state[0][3];
+[e = . . _PORTAbits 0 0 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 0 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
+[; ;main.c: 203: PORTAbits.RA3 = led_state[0][1];
 "203
-[e = . . _PORTAbits 0 0 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
-[; ;main.c: 204: PORTAbits.RA0 = led_state[0][4];
+[e = . . _PORTAbits 0 3 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
+[; ;main.c: 204: PORTAbits.RA6 = led_state[0][2];
 "204
-[e = . . _PORTAbits 0 0 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
-[; ;main.c: 205: PORTAbits.RA0 = led_state[0][5];
+[e = . . _PORTAbits 0 6 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 2 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
+[; ;main.c: 205: PORTCbits.RC3 = led_state[0][3];
 "205
-[e = . . _PORTAbits 0 0 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 5 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
-[; ;main.c: 206: PORTAbits.RA0 = led_state[0][6];
+[e = . . _PORTCbits 0 3 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 3 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
+[; ;main.c: 206: PORTBbits.RB5 = led_state[0][4];
 "206
-[e = . . _PORTAbits 0 0 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 6 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
-[; ;main.c: 207: PORTAbits.RA0 = led_state[0][7];
+[e = . . _PORTBbits 0 5 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 4 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
+[; ;main.c: 207: PORTBbits.RB3 = led_state[0][5];
 "207
-[e = . . _PORTAbits 0 0 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 7 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
-[; ;main.c: 210: }
-"210
-[e :UE 2657 ]
+[e = . . _PORTBbits 0 3 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 5 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
+[; ;main.c: 208: PORTBbits.RB0 = led_state[0][6];
+"208
+[e = . . _PORTBbits 0 0 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 6 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
+[; ;main.c: 209: PORTCbits.RC5 = led_state[0][7];
+"209
+[e = . . _PORTCbits 0 5 *U + &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux * -> -> -> 7 `i `ui `ux -> -> # *U &U *U + &U _led_state * -> -> -> 0 `i `ui `ux -> * -> # *U &U *U &U _led_state `ui -> -> 8 `i `ui `ux `ui `ux ]
+[; ;main.c: 220: }
+"220
+[e :UE 2660 ]
 }

@@ -14,7 +14,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _initComms `(v ~T0 @X0 0 ef ]
 "5
 [v _writeStringToUART `(v ~T0 @X0 0 ef1`*Cuc ]
-"129 main.c
+"124 main.c
 [v _multiplexeur `(v ~T0 @X0 0 ef1`uc ]
 "32446 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
 [s S2116 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -17543,13 +17543,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;main.c: 94: char tampon = 0;
 "95
-[v _stock_led `uc ~T0 @X0 -> 128 `i e ]
+[v _stock_led `uc ~T0 @X0 -> 150 `i e ]
 [i _stock_led
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;main.c: 95: char stock_led[128] = 0;
+[; ;main.c: 95: char stock_led[150] = 0;
 "96
 [v _compteur `uc ~T0 @X0 1 e ]
 [i _compteur
@@ -17582,85 +17582,62 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 102: tampon = RCREG2;
 "102
 [e = _tampon _RCREG2 ]
-[; ;main.c: 104: if (compteur == 128) {
+[; ;main.c: 104: if (compteur == 127) {
 "104
-[e $ ! == -> _compteur `i -> 128 `i 2641  ]
+[e $ ! == -> _compteur `i -> 127 `i 2641  ]
 {
-[; ;main.c: 105: for (it = 0; it < 128; it++) {
+[; ;main.c: 105: compteur = 0;
 "105
-{
-[e = _it -> -> 0 `i `uc ]
-[e $ < -> _it `i -> 128 `i 2642  ]
-[e $U 2643  ]
-[e :U 2642 ]
-{
-[; ;main.c: 106: stock_led[it] = 0;
-"106
-[e = *U + &U _stock_led * -> _it `ux -> -> # *U &U _stock_led `ui `ux -> -> 0 `i `uc ]
-"108
-}
-"105
-[e ++ _it -> -> 1 `i `uc ]
-[e $ < -> _it `i -> 128 `i 2642  ]
-[e :U 2643 ]
-"108
-}
-[; ;main.c: 108: }
-[; ;main.c: 109: compteur = 0;
-"109
 [e = _compteur -> -> 0 `i `uc ]
-[; ;main.c: 110: flag_reception = 1;
-"110
-[e = _flag_reception -> -> 1 `i `uc ]
-"112
+"107
 }
 [e :U 2641 ]
-[; ;main.c: 112: }
-[; ;main.c: 113: stock_led[compteur] = tampon;
-"113
+[; ;main.c: 107: }
+[; ;main.c: 108: stock_led[compteur] = tampon;
+"108
 [e = *U + &U _stock_led * -> _compteur `ux -> -> # *U &U _stock_led `ui `ux _tampon ]
-[; ;main.c: 114: compteur++;
-"114
+[; ;main.c: 109: compteur++;
+"109
 [e ++ _compteur -> -> 1 `i `uc ]
-"115
+"110
 }
 [e :U 2640 ]
-[; ;main.c: 115: }
-[; ;main.c: 116: RC2IF = 0;
-"116
+[; ;main.c: 110: }
+[; ;main.c: 111: RC2IF = 0;
+"111
 [e = _RC2IF -> -> 0 `i `b ]
-[; ;main.c: 117: }
-"117
+[; ;main.c: 112: }
+"112
 [e :UE 2639 ]
 }
 [v F19153 `(v ~T0 @X0 1 tf ]
-"119
+"114
 [v _timer_isr `ILF19153 ~T0 @X0 1 e ]
 {
-[; ;main.c: 119: void interrupt low_priority timer_isr(void) {
+[; ;main.c: 114: void interrupt low_priority timer_isr(void) {
 [e :U _timer_isr ]
 [f ]
-[; ;main.c: 121: if (TMR0IE && TMR0IF) {
-"121
-[e $ ! && _TMR0IE _TMR0IF 2646  ]
+[; ;main.c: 116: if (TMR0IE && TMR0IF) {
+"116
+[e $ ! && _TMR0IE _TMR0IF 2643  ]
 {
-"123
+"118
 }
-[e :U 2646 ]
-[; ;main.c: 123: }
-[; ;main.c: 124: TMR0IF = 0;
-"124
+[e :U 2643 ]
+[; ;main.c: 118: }
+[; ;main.c: 119: TMR0IF = 0;
+"119
 [e = _TMR0IF -> -> 0 `i `b ]
-[; ;main.c: 125: }
-"125
-[e :UE 2645 ]
+[; ;main.c: 120: }
+"120
+[e :UE 2642 ]
 }
-[; ;main.c: 128: void init_timer(void);
-[; ;main.c: 129: void multiplexeur(char);
-"131
+[; ;main.c: 123: void init_timer(void);
+[; ;main.c: 124: void multiplexeur(char);
+"126
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 131: void main(void) {
+[; ;main.c: 126: void main(void) {
 [e :U _main ]
 [f ]
 [v F19161 `uc ~T0 @X0 -> 80 `i s ]
@@ -17688,264 +17665,264 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"132
+"127
 [v _msg1 `uc ~T0 @X0 -> 80 `i a ]
-[; ;main.c: 132: char msg1[80] = "MASTER IS READY \n \r";
+[; ;main.c: 127: char msg1[80] = "MASTER IS READY \n \r";
 [e = _msg1 F19161 ]
-"133
+"128
 [v _i `l ~T0 @X0 1 a ]
-[; ;main.c: 133: long i = 0;
+[; ;main.c: 128: long i = 0;
 [e = _i -> -> 0 `i `l ]
-"134
+"129
 [v _j `l ~T0 @X0 1 a ]
-[; ;main.c: 134: long j = 0;
+[; ;main.c: 129: long j = 0;
 [e = _j -> -> 0 `i `l ]
-[; ;main.c: 136: initPorts();
-"136
+[; ;main.c: 131: initPorts();
+"131
 [e ( _initPorts ..  ]
-[; ;main.c: 137: initComms();
-"137
+[; ;main.c: 132: initComms();
+"132
 [e ( _initComms ..  ]
-[; ;main.c: 139: while (1) {
-"139
-[e :U 2649 ]
+[; ;main.c: 134: while (1) {
+"134
+[e :U 2646 ]
 {
-[; ;main.c: 144: writeStringToUART(stock_led);
-"144
+[; ;main.c: 139: writeStringToUART(stock_led);
+"139
 [e ( _writeStringToUART (1 -> &U _stock_led `*Cuc ]
-[; ;main.c: 146: for (i = 0; i < 8; i++) {
-"146
+[; ;main.c: 141: for (i = 0; i < 8; i++) {
+"141
 {
 [e = _i -> -> 0 `i `l ]
-[e $ < _i -> -> 8 `i `l 2651  ]
+[e $ < _i -> -> 8 `i `l 2648  ]
+[e $U 2649  ]
+[e :U 2648 ]
+{
+[; ;main.c: 142: multiplexeur(i);
+"142
+[e ( _multiplexeur (1 -> _i `uc ]
+[; ;main.c: 143: PORTAbits.RA0 = 1;
+"143
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 144: for (j = 0; j < 100; j++) {
+"144
+{
+[e = _j -> -> 0 `i `l ]
+[e $ < _j -> -> 100 `i `l 2651  ]
 [e $U 2652  ]
 [e :U 2651 ]
 {
-[; ;main.c: 147: multiplexeur(i);
+"145
+}
+"144
+[e ++ _j -> -> 1 `i `l ]
+[e $ < _j -> -> 100 `i `l 2651  ]
+[e :U 2652 ]
+"145
+}
+[; ;main.c: 145: }
+[; ;main.c: 146: PORTAbits.RA0 = 0;
+"146
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 147: for (j = 0; j < 10000; j++) {
 "147
-[e ( _multiplexeur (1 -> _i `uc ]
-[; ;main.c: 148: PORTAbits.RA0 = 1;
-"148
-[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 149: for (j = 0; j < 100; j++) {
-"149
 {
 [e = _j -> -> 0 `i `l ]
-[e $ < _j -> -> 100 `i `l 2654  ]
+[e $ < _j -> -> 10000 `i `l 2654  ]
 [e $U 2655  ]
 [e :U 2654 ]
 {
-"150
+"148
+}
+"147
+[e ++ _j -> -> 1 `i `l ]
+[e $ < _j -> -> 10000 `i `l 2654  ]
+[e :U 2655 ]
+"148
 }
 "149
-[e ++ _j -> -> 1 `i `l ]
-[e $ < _j -> -> 100 `i `l 2654  ]
-[e :U 2655 ]
-"150
 }
-[; ;main.c: 150: }
-[; ;main.c: 151: PORTAbits.RA0 = 0;
-"151
-[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 152: for (j = 0; j < 10000; j++) {
-"152
-{
-[e = _j -> -> 0 `i `l ]
-[e $ < _j -> -> 10000 `i `l 2657  ]
-[e $U 2658  ]
-[e :U 2657 ]
-{
-"153
-}
-"152
-[e ++ _j -> -> 1 `i `l ]
-[e $ < _j -> -> 10000 `i `l 2657  ]
-[e :U 2658 ]
-"153
-}
-"154
-}
-"146
+"141
 [e ++ _i -> -> 1 `i `l ]
-[e $ < _i -> -> 8 `i `l 2651  ]
-[e :U 2652 ]
-"154
+[e $ < _i -> -> 8 `i `l 2648  ]
+[e :U 2649 ]
+"149
 }
-"157
+"152
 }
-[e :U 2648 ]
-"139
-[e $U 2649  ]
-[e :U 2650 ]
+[e :U 2645 ]
+"134
+[e $U 2646  ]
+[e :U 2647 ]
+[; ;main.c: 148: }
+[; ;main.c: 149: }
+[; ;main.c: 152: }
 [; ;main.c: 153: }
-[; ;main.c: 154: }
-[; ;main.c: 157: }
-[; ;main.c: 158: }
-"158
-[e :UE 2647 ]
+"153
+[e :UE 2644 ]
 }
-"160
+"155
 [v _multiplexeur `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;main.c: 160: void multiplexeur(char n) {
+[; ;main.c: 155: void multiplexeur(char n) {
 [e :U _multiplexeur ]
 [v _n `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 161: PORTCbits.RC7 = 0;
-"161
+[; ;main.c: 156: PORTCbits.RC7 = 0;
+"156
 [e = . . _PORTCbits 0 7 -> -> 0 `i `uc ]
-[; ;main.c: 162: PORTCbits.RC6 = 0;
-"162
+[; ;main.c: 157: PORTCbits.RC6 = 0;
+"157
 [e = . . _PORTCbits 0 6 -> -> 0 `i `uc ]
-[; ;main.c: 163: PORTCbits.RC5 = 0;
-"163
+[; ;main.c: 158: PORTCbits.RC5 = 0;
+"158
 [e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
-[; ;main.c: 164: PORTCbits.RC4 = 0;
-"164
+[; ;main.c: 159: PORTCbits.RC4 = 0;
+"159
 [e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 165: PORTCbits.RC0 = 0;
-"165
+[; ;main.c: 160: PORTCbits.RC0 = 0;
+"160
 [e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 166: PORTCbits.RC1 = 0;
-"166
+[; ;main.c: 161: PORTCbits.RC1 = 0;
+"161
 [e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 167: PORTCbits.RC2 = 0;
-"167
+[; ;main.c: 162: PORTCbits.RC2 = 0;
+"162
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 168: PORTCbits.RC3 = 0;
-"168
+[; ;main.c: 163: PORTCbits.RC3 = 0;
+"163
 [e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-[; ;main.c: 169: switch (n) {
-"169
-[e $U 2662  ]
+[; ;main.c: 164: switch (n) {
+"164
+[e $U 2659  ]
 {
-[; ;main.c: 170: case 0:
-"170
-[e :U 2663 ]
-[; ;main.c: 171: PORTCbits.RC7 = 1;
-"171
+[; ;main.c: 165: case 0:
+"165
+[e :U 2660 ]
+[; ;main.c: 166: PORTCbits.RC7 = 1;
+"166
 [e = . . _PORTCbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 172: break;
-"172
-[e $U 2661  ]
-[; ;main.c: 174: case 1:
-"174
-[e :U 2664 ]
-[; ;main.c: 175: PORTCbits.RC6 = 1;
-"175
-[e = . . _PORTCbits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 176: break;
-"176
-[e $U 2661  ]
-[; ;main.c: 178: case 2:
-"178
-[e :U 2665 ]
-[; ;main.c: 179: PORTCbits.RC5 = 1;
-"179
-[e = . . _PORTCbits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 180: break;
-"180
-[e $U 2661  ]
-[; ;main.c: 182: case 3:
-"182
-[e :U 2666 ]
-[; ;main.c: 183: PORTCbits.RC4 = 1;
-"183
-[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
-[; ;main.c: 184: break;
-"184
-[e $U 2661  ]
-[; ;main.c: 186: case 4:
-"186
-[e :U 2667 ]
-[; ;main.c: 187: PORTCbits.RC0 = 1;
-"187
-[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 188: break;
-"188
-[e $U 2661  ]
-[; ;main.c: 190: case 5:
-"190
-[e :U 2668 ]
-[; ;main.c: 191: PORTCbits.RC1 = 1;
-"191
-[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
-[; ;main.c: 192: break;
-"192
-[e $U 2661  ]
-[; ;main.c: 194: case 6:
-"194
-[e :U 2669 ]
-[; ;main.c: 195: PORTCbits.RC2 = 1;
-"195
-[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 196: break;
-"196
-[e $U 2661  ]
-[; ;main.c: 198: case 7:
-"198
-[e :U 2670 ]
-[; ;main.c: 199: PORTCbits.RC3 = 1;
-"199
-[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 200: break;
-"200
-[e $U 2661  ]
-"202
-}
-[; ;main.c: 202: }
-[e $U 2661  ]
+[; ;main.c: 167: break;
+"167
+[e $U 2658  ]
+[; ;main.c: 169: case 1:
 "169
-[e :U 2662 ]
-[e [\ _n , $ -> -> 0 `i `uc 2663
- , $ -> -> 1 `i `uc 2664
- , $ -> -> 2 `i `uc 2665
- , $ -> -> 3 `i `uc 2666
- , $ -> -> 4 `i `uc 2667
- , $ -> -> 5 `i `uc 2668
- , $ -> -> 6 `i `uc 2669
- , $ -> -> 7 `i `uc 2670
- 2661 ]
-"202
 [e :U 2661 ]
-[; ;main.c: 204: }
-"204
-[e :UE 2660 ]
+[; ;main.c: 170: PORTCbits.RC6 = 1;
+"170
+[e = . . _PORTCbits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 171: break;
+"171
+[e $U 2658  ]
+[; ;main.c: 173: case 2:
+"173
+[e :U 2662 ]
+[; ;main.c: 174: PORTCbits.RC5 = 1;
+"174
+[e = . . _PORTCbits 0 5 -> -> 1 `i `uc ]
+[; ;main.c: 175: break;
+"175
+[e $U 2658  ]
+[; ;main.c: 177: case 3:
+"177
+[e :U 2663 ]
+[; ;main.c: 178: PORTCbits.RC4 = 1;
+"178
+[e = . . _PORTCbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 179: break;
+"179
+[e $U 2658  ]
+[; ;main.c: 181: case 4:
+"181
+[e :U 2664 ]
+[; ;main.c: 182: PORTCbits.RC0 = 1;
+"182
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 183: break;
+"183
+[e $U 2658  ]
+[; ;main.c: 185: case 5:
+"185
+[e :U 2665 ]
+[; ;main.c: 186: PORTCbits.RC1 = 1;
+"186
+[e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 187: break;
+"187
+[e $U 2658  ]
+[; ;main.c: 189: case 6:
+"189
+[e :U 2666 ]
+[; ;main.c: 190: PORTCbits.RC2 = 1;
+"190
+[e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 191: break;
+"191
+[e $U 2658  ]
+[; ;main.c: 193: case 7:
+"193
+[e :U 2667 ]
+[; ;main.c: 194: PORTCbits.RC3 = 1;
+"194
+[e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
+[; ;main.c: 195: break;
+"195
+[e $U 2658  ]
+"197
 }
-"206
+[; ;main.c: 197: }
+[e $U 2658  ]
+"164
+[e :U 2659 ]
+[e [\ _n , $ -> -> 0 `i `uc 2660
+ , $ -> -> 1 `i `uc 2661
+ , $ -> -> 2 `i `uc 2662
+ , $ -> -> 3 `i `uc 2663
+ , $ -> -> 4 `i `uc 2664
+ , $ -> -> 5 `i `uc 2665
+ , $ -> -> 6 `i `uc 2666
+ , $ -> -> 7 `i `uc 2667
+ 2658 ]
+"197
+[e :U 2658 ]
+[; ;main.c: 199: }
+"199
+[e :UE 2657 ]
+}
+"201
 [v _init_timer `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 206: void init_timer(void) {
+[; ;main.c: 201: void init_timer(void) {
 [e :U _init_timer ]
 [f ]
-[; ;main.c: 208: T0PS0 = 0;
-"208
+[; ;main.c: 203: T0PS0 = 0;
+"203
 [e = _T0PS0 -> -> 0 `i `b ]
-[; ;main.c: 209: T0PS1 = 1;
-"209
+[; ;main.c: 204: T0PS1 = 1;
+"204
 [e = _T0PS1 -> -> 1 `i `b ]
-[; ;main.c: 210: T0PS2 = 0;
-"210
+[; ;main.c: 205: T0PS2 = 0;
+"205
 [e = _T0PS2 -> -> 0 `i `b ]
-[; ;main.c: 211: PSA = 0;
-"211
+[; ;main.c: 206: PSA = 0;
+"206
 [e = _PSA -> -> 0 `i `b ]
-[; ;main.c: 212: T0CS = 0;
-"212
+[; ;main.c: 207: T0CS = 0;
+"207
 [e = _T0CS -> -> 0 `i `b ]
-[; ;main.c: 213: T08BIT = 1;
-"213
+[; ;main.c: 208: T08BIT = 1;
+"208
 [e = _T08BIT -> -> 1 `i `b ]
-[; ;main.c: 214: TMR0IE = 1;
-"214
+[; ;main.c: 209: TMR0IE = 1;
+"209
 [e = _TMR0IE -> -> 1 `i `b ]
-[; ;main.c: 215: PEIE = 1;
-"215
+[; ;main.c: 210: PEIE = 1;
+"210
 [e = _PEIE -> -> 1 `i `b ]
-[; ;main.c: 216: GIE = 1;
-"216
+[; ;main.c: 211: GIE = 1;
+"211
 [e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 217: }
-"217
-[e :UE 2671 ]
+[; ;main.c: 212: }
+"212
+[e :UE 2668 ]
 }
