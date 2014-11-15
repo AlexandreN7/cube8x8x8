@@ -92,7 +92,6 @@
 
 // GLOBAL
 char tampon = 0;
-char stock_led[140] = 0;
 char compteur = 0;
 char flag_reception = 0;
 char it = 0;
@@ -100,12 +99,10 @@ char it = 0;
 void interrupt low_priority low_isr(void) { // interruption de l'UART
     if (RC2IF /*&& PIE3bits.TX2IE*/) {
         tampon = RCREG2;
-        //     PORTA = tampon;
         if (compteur == 128) {
             compteur = 0;
-            //flag_reception = 1;
         }
-        stock_led[compteur] = tampon;
+        writeDataToUART(tampon);
         compteur++;
     }
     RC2IF = 0; // On met le flag a 0
@@ -136,7 +133,7 @@ void main(void) {
         //  if (flag_reception==1 )
         // {
         //         writeDataToUART('\n');
-        writeStringToUART(stock_led);
+        //writeStringToUART(stock_led);
         //         writeDataToUART('\n');
         for (i = 0; i < 8; i++) {
             multiplexeur(i);

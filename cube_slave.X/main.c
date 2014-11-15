@@ -1,5 +1,4 @@
 #include <xc.h>
-
 #include "main.h"
 //=============================================================================
 // 7ROBOT
@@ -82,23 +81,23 @@
 
 #define slave 0
 
-#define ledB1 PORTAbits.RA0
-#define ledB2 PORTAbits.RA3
-#define ledB3 PORTAbits.RA6
-#define ledB4 PORTCbits.RC3
-#define ledB5 PORTBbits.RB5
-#define ledB6 PORTBbits.RB3
-#define ledB7 PORTBbits.RB0
-#define ledB8 PORTCbits.RC5
+#define ledB8 PORTAbits.RA0
+#define ledB7 PORTAbits.RA3
+#define ledB6 PORTAbits.RA6
+#define ledB5 PORTCbits.RC3
+#define ledB4 PORTBbits.RB5
+#define ledB3 PORTBbits.RB3
+#define ledB2 PORTBbits.RB0
+#define ledB1 PORTCbits.RC5
 
-#define ledR1 PORTAbits.RA1
-#define ledR2 PORTAbits.RA2
-#define ledR3 PORTCbits.RC0
-#define ledR4 PORTCbits.RC2
-#define ledR5 PORTBbits.RB4
-#define ledR6 PORTBbits.RB2
-#define ledR7 PORTCbits.RC6
-#define ledR8 PORTCbits.RC4
+#define ledR8 PORTAbits.RA1
+#define ledR7 PORTAbits.RA2
+#define ledR6 PORTCbits.RC0
+#define ledR5 PORTCbits.RC2
+#define ledR4 PORTBbits.RB4
+#define ledR3 PORTBbits.RB2
+#define ledR2 PORTCbits.RC6
+#define ledR1 PORTCbits.RC4
 
 #define clock PORTBbits.RB1
 
@@ -109,15 +108,14 @@ char stock_led[140] = 0;
 int compteur = 0;
 char compteur_clock = 0;
 char state_clock = 0;
-char led_state[2][8] = 0;
+char led_state[2][8] = 0; // Ligne 0 : Bleu, Ligne 1 : Rouge
 
 void interrupt low_priority high_isr(void) {
 	if (RC2IF) {
 		tampon = RCREG2;                //a chaque interruption
 		if (compteur == 128) {          //on stock la valeur de
-			compteur = 0;           //RCREG2 dans un tableau
+                    compteur = 0;               //RCREG2 dans un tableau
 		}
-
 		stock_led[compteur] = tampon;
 		compteur++;
 	}
@@ -145,17 +143,8 @@ void main(void) {
 	initComms(); // Initialize the serial port
         int delai=0;
 	while (1) {
-           // affichage();
-
-            
-		//        if (clock == 1) {
-		//            compteur_clock = compteur_clock + 1;
-		//
-		//            if (compteur_clock == 7) {
-		//                compteur_clock = 0;
-		//            }
-		//        }
-
+            decodage(0);
+            affichage();
 	}
 
 }
@@ -186,14 +175,14 @@ void decodage(int n) {
 
 void init_timer(void) {
 //	Setup Timer0		T0PS0 = 0; //Prescaler is divide by 256
-	T0PS1 = 1;
-	T0PS2 = 0;
-	PSA = 0; //Timer Clock Source is from Prescaler
-	T0CS = 0; //Prescaler gets clock from FCPU
-	T08BIT = 1; //8 BIT MODE
-	TMR0IE = 1; //Enable TIMER0 Interrupt
-	PEIE = 1; //Enable Peripheral Interrupt
-	GIE = 1; //Enable INTs globally
+//	T0PS1 = 1;
+//	T0PS2 = 0;
+//	PSA = 0; //Timer Clock Source is from Prescaler
+//	T0CS = 0; //Prescaler gets clock from FCPU
+//	T08BIT = 1; //8 BIT MODE
+//	TMR0IE = 1; //Enable TIMER0 Interrupt
+//	PEIE = 1; //Enable Peripheral Interrupt
+//	GIE = 1; //Enable INTs globally
 }
 
 
@@ -206,14 +195,14 @@ void affichage() {
     ledB6 = led_state[0][5];
     ledB7 = led_state[0][6];
     ledB8 = led_state[0][7];
-    /*
-    ledB1 = 1;
-    ledB2 = 1;
-    ledB3 = 1;
-    ledB4 = 1;
-    ledB5 = 1;
-    ledB6 = 1;
-    ledB7 = 1;
-    ledB8 = 1;
-    */
+
+    ledR1 = led_state[1][0];
+    ledR2 = led_state[1][1];
+    ledR3 = led_state[1][2];
+    ledR4 = led_state[1][3];
+    ledR5 = led_state[1][4];
+    ledR6 = led_state[1][5];
+    ledR7 = led_state[1][6];
+    ledR8 = led_state[1][7];
+    
 }

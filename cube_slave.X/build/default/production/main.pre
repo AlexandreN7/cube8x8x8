@@ -21913,7 +21913,7 @@ char msg[80];
 unsigned char readAddress();
 
 
-# 20 "main.c"
+# 19 "main.c"
 #pragma config RETEN = 0
 #pragma config INTOSCSEL = HIGH
 #pragma config SOSCSEL = DIG
@@ -21974,7 +21974,7 @@ unsigned char readAddress();
 
 #pragma config EBTRB = 0
 
-# 106
+# 105
 char tampon = 0;
 char MASK[8]={0b00000001 , 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000};
 char stock_led[140] = 0;
@@ -21989,7 +21989,6 @@ tampon = RCREG2;
 if (compteur == 128) {
 compteur = 0;
 }
-
 stock_led[compteur] = tampon;
 compteur++;
 }
@@ -22017,11 +22016,8 @@ initPorts();
 initComms();
 int delai=0;
 while (1) {
-
-PORTA = tampon;
-for ( delai = 0; delai<1000; delai++ ){}
-
-# 160
+decodage(0);
+affichage();
 }
 
 }
@@ -22052,14 +22048,7 @@ led_state[1][a]=0;
 
 void init_timer(void) {
 
-T0PS1 = 1;
-T0PS2 = 0;
-PSA = 0;
-T0CS = 0;
-T08BIT = 1;
-TMR0IE = 1;
-PEIE = 1;
-GIE = 1;
+# 186
 }
 
 
@@ -22073,5 +22062,13 @@ PORTBbits.RB3 = led_state[0][5];
 PORTBbits.RB0 = led_state[0][6];
 PORTCbits.RC5 = led_state[0][7];
 
-# 220
+PORTAbits.RA1 = led_state[1][0];
+PORTAbits.RA2 = led_state[1][1];
+PORTCbits.RC0 = led_state[1][2];
+PORTCbits.RC2 = led_state[1][3];
+PORTBbits.RB4 = led_state[1][4];
+PORTBbits.RB2 = led_state[1][5];
+PORTCbits.RC6 = led_state[1][6];
+PORTCbits.RC4 = led_state[1][7];
+
 }
