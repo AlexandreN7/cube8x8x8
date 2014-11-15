@@ -17423,56 +17423,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.h: 4: void initComms();
 [; ;usart.h: 5: void writeStringToUART (const char* msg);
 [; ;usart.h: 6: void writeDataToUART(char);
-"66 main.h
-[v _msg `uc ~T0 @X0 -> 80 `i e ]
-[; ;main.h: 66: char msg[80];
-[; ;main.h: 72: unsigned char readAddress();
-"7 port.c
+"6 port.c
 [v _initPorts `(v ~T0 @X0 1 ef ]
 {
-[; ;port.c: 7: void initPorts(void) {
+[; ;port.c: 6: void initPorts(void) {
 [e :U _initPorts ]
 [f ]
-[; ;port.c: 11: OSCCON= 0x70;
-"11
+[; ;port.c: 10: OSCCON= 0x70;
+"10
 [e = _OSCCON -> -> 112 `i `uc ]
-[; ;port.c: 13: ANCON0 = 0b00000000;
-"13
+[; ;port.c: 12: ANCON0 = 0b00000000;
+"12
 [e = _ANCON0 -> -> 0 `i `uc ]
-[; ;port.c: 14: ADCON1 = 0b00000000;
-"14
+[; ;port.c: 13: ADCON1 = 0b00000000;
+"13
 [e = _ADCON1 -> -> 0 `i `uc ]
-[; ;port.c: 19: PORTA = 0b00000000;
-"19
+[; ;port.c: 18: PORTA = 0b00000000;
+"18
 [e = _PORTA -> -> 0 `i `uc ]
-[; ;port.c: 20: TRISA = 0b00000000;
-"20
+[; ;port.c: 19: TRISA = 0b00000000;
+"19
 [e = _TRISA -> -> 0 `i `uc ]
-[; ;port.c: 22: PORTB = 0b01000000;
-"22
+[; ;port.c: 21: PORTB = 0b01000000;
+"21
 [e = _PORTB -> -> 64 `i `uc ]
-[; ;port.c: 23: TRISB = 0b10000000;
-"23
+[; ;port.c: 22: TRISB = 0b10000000;
+"22
 [e = _TRISB -> -> 128 `i `uc ]
-[; ;port.c: 25: PORTC = 0b00000000;
-"25
+[; ;port.c: 24: PORTC = 0b00000000;
+"24
 [e = _PORTC -> -> 0 `i `uc ]
-[; ;port.c: 26: TRISC = 0b00000000;
-"26
+[; ;port.c: 25: TRISC = 0b00000000;
+"25
 [e = _TRISC -> -> 0 `i `uc ]
-[; ;port.c: 28: GIE = 1;
-"28
+[; ;port.c: 27: GIE = 1;
+"27
 [e = _GIE -> -> 1 `i `b ]
-[; ;port.c: 29: PEIE = 1;
-"29
+[; ;port.c: 28: PEIE = 1;
+"28
 [e = _PEIE -> -> 1 `i `b ]
-[; ;port.c: 30: INTCON =0b11111000;
-"30
+[; ;port.c: 29: INTCON =0b11111000;
+"29
 [e = _INTCON -> -> 248 `i `uc ]
-[; ;port.c: 31: OSCTUNEbits.PLLEN = 1;
-"31
+[; ;port.c: 30: OSCTUNEbits.PLLEN = 1;
+"30
 [e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
-[; ;port.c: 33: }
-"33
+[; ;port.c: 32: }
+"32
 [e :UE 2639 ]
 }

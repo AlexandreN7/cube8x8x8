@@ -21906,13 +21906,7 @@ void initComms();
 void writeStringToUART (const char* msg);
 void writeDataToUART(char);
 
-# 66 "main.h"
-char msg[80];
-
-# 72
-unsigned char readAddress();
-
-# 7 "port.c"
+# 6 "port.c"
 void initPorts(void) {
 
 

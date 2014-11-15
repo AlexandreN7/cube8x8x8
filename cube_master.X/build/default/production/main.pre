@@ -21976,25 +21976,23 @@ unsigned char readAddress();
 
 # 94
 char tampon = 0;
-char stock_led[140] = 0;
 char compteur = 0;
 char flag_reception = 0;
 char it = 0;
 
 void interrupt low_priority low_isr(void) {
+
 if (RC2IF ) {
 tampon = RCREG2;
-
 if (compteur == 128) {
 compteur = 0;
-
 }
-stock_led[compteur] = tampon;
 writeDataToUART(tampon);
 compteur++;
 }
 RC2IF = 0;
 }
+
 
 void interrupt low_priority timer_isr(void) {
 
@@ -22017,8 +22015,6 @@ initPorts();
 initComms();
 
 while (1) {
-
-# 142
 for (i = 0; i < 8; i++) {
 multiplexeur(i);
 PORTAbits.RA0 = 1;
@@ -22026,6 +22022,7 @@ for (j = 0; j < 100; j++) {
 }
 PORTAbits.RA0 = 0;
 for (j = 0; j < 10000; j++) {
+
 }
 }
 
@@ -22042,6 +22039,7 @@ PORTCbits.RC0 = 0;
 PORTCbits.RC1 = 0;
 PORTCbits.RC2 = 0;
 PORTCbits.RC3 = 0;
+
 switch (n) {
 case 0:
 PORTCbits.RC7 = 1;

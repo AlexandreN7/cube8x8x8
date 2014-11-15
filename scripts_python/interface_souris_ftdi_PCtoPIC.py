@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf8 -*-
+
 """
 script interface_souris_ftdi_PCtoPIC.py
  ______  _____      _           _
@@ -27,8 +30,6 @@ except ImportError:
 	from tkinter import *
 
 import os
-import pulseaudio
-
 
 # Une ligne correspond à un PIC
 lignes = 8
@@ -167,8 +168,11 @@ def Envoyer():
 		for k in range(etages) :
 			# 8 PICs = 8 lignes bicolores
 			for i in range (lignes) :
-				dev.write(chr(octets_bleus[k][i]))
-				dev.write(chr(octets_rouges[k][i]))
+                                dev.write(chr(octets_bleus[k][i]))
+                                dev.write(chr(octets_rouges[k][i]))
+
+				#dev.write(chr(octets_bleus[k][i]))
+				#dev.write(chr(octets_rouges[k][i]))
 
 
 def Init():

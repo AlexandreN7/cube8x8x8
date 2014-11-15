@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.33 build 59893 
-                                                                                               Sat Nov 15 15:58:53 2014
+                                                                                               Sat Nov 15 17:16:46 2014
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 59893
      1                           	processor	18F25K80
@@ -13,1460 +13,1418 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 59893
      7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1
      8                           	psect	bssBANK1,global,class=BANK1,space=1,delta=1
      9                           	psect	dataBANK1,global,class=BANK1,space=1,delta=1
-    10                           	psect	bssBANK2,global,class=BANK2,space=1,delta=1
-    11                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
-    12                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
-    13                           	psect	text0,global,reloc=2,class=CODE,delta=1
-    14                           	psect	text1,global,reloc=2,class=CODE,delta=1
-    15                           	psect	text2,global,reloc=2,class=CODE,delta=1
-    16                           	psect	text3,global,reloc=2,class=CODE,delta=1
-    17                           	psect	intcodelo,global,reloc=2,class=CODE,delta=1
-    18                           	psect	text5,global,reloc=2,class=CODE,delta=1
-    19                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
-    20                           	psect	rparam,global,class=COMRAM,space=1,delta=1
-    21  0000                     
-    22                           	psect	idataBANK1
-    23  000380                     __pidataBANK1:
-    24                           	opt stack 0
-    25                           
-    26                           ;initializer for main@F19161
-    27  000380  4D                 	db	77
-    28  000381  41                 	db	65
-    29  000382  53                 	db	83
-    30  000383  54                 	db	84
-    31  000384  45                 	db	69
-    32  000385  52                 	db	82
-    33  000386  20                 	db	32
-    34  000387  49                 	db	73
-    35  000388  53                 	db	83
-    36  000389  20                 	db	32
-    37  00038A  52                 	db	82
-    38  00038B  45                 	db	69
-    39  00038C  41                 	db	65
-    40  00038D  44                 	db	68
-    41  00038E  59                 	db	89
-    42  00038F  20                 	db	32
-    43  000390  0A                 	db	10
-    44  000391  20                 	db	32
-    45  000392  0D                 	db	13
-    46  000393  00                 	db	0
-    47  000394  00                 	db	0
-    48  000395  00                 	db	0
-    49  000396  00                 	db	0
-    50  000397  00                 	db	0
-    51  000398  00                 	db	0
-    52  000399  00                 	db	0
-    53  00039A  00                 	db	0
-    54  00039B  00                 	db	0
-    55  00039C  00                 	db	0
-    56  00039D  00                 	db	0
-    57  00039E  00                 	db	0
-    58  00039F  00                 	db	0
-    59  0003A0  00                 	db	0
-    60  0003A1  00                 	db	0
-    61  0003A2  00                 	db	0
-    62  0003A3  00                 	db	0
-    63  0003A4  00                 	db	0
-    64  0003A5  00                 	db	0
-    65  0003A6  00                 	db	0
-    66  0003A7  00                 	db	0
-    67  0003A8  00                 	db	0
-    68  0003A9  00                 	db	0
-    69  0003AA  00                 	db	0
-    70  0003AB  00                 	db	0
-    71  0003AC  00                 	db	0
-    72  0003AD  00                 	db	0
-    73  0003AE  00                 	db	0
-    74  0003AF  00                 	db	0
-    75  0003B0  00                 	db	0
-    76  0003B1  00                 	db	0
-    77  0003B2  00                 	db	0
-    78  0003B3  00                 	db	0
-    79  0003B4  00                 	db	0
-    80  0003B5  00                 	db	0
-    81  0003B6  00                 	db	0
-    82  0003B7  00                 	db	0
-    83  0003B8  00                 	db	0
-    84  0003B9  00                 	db	0
-    85  0003BA  00                 	db	0
-    86  0003BB  00                 	db	0
-    87  0003BC  00                 	db	0
-    88  0003BD  00                 	db	0
-    89  0003BE  00                 	db	0
-    90  0003BF  00                 	db	0
-    91  0003C0  00                 	db	0
-    92  0003C1  00                 	db	0
-    93  0003C2  00                 	db	0
-    94  0003C3  00                 	db	0
-    95  0003C4  00                 	db	0
-    96  0003C5  00                 	db	0
-    97  0003C6  00                 	db	0
-    98  0003C7  00                 	db	0
-    99  0003C8  00                 	db	0
-   100  0003C9  00                 	db	0
-   101  0003CA  00                 	db	0
-   102  0003CB  00                 	db	0
-   103  0003CC  00                 	db	0
-   104  0003CD  00                 	db	0
-   105  0003CE  00                 	db	0
-   106  0003CF  00                 	db	0
-   107  0000                     _ANCON0	set	3933
-   108  0000                     _BAUDCON2bits	set	4025
-   109  0000                     _INTCON	set	4082
-   110  0000                     _OSCCON	set	4051
-   111  0000                     _OSCTUNEbits	set	3995
-   112  0000                     _PIE3bits	set	4003
-   113  0000                     _PIR3bits	set	4004
-   114  0000                     _PORTA	set	3968
-   115  0000                     _PORTAbits	set	3968
-   116  0000                     _PORTB	set	3969
-   117  0000                     _PORTC	set	3970
-   118  0000                     _PORTCbits	set	3970
-   119  0000                     _RCONbits	set	4048
-   120  0000                     _RCREG2	set	3962
-   121  0000                     _RCSTA2bits	set	4006
-   122  0000                     _SPBRG	set	4015
-   123  0000                     _SPBRG2	set	3963
-   124  0000                     _SPBRGH2	set	3964
-   125  0000                     _TRISA	set	3986
-   126  0000                     _TRISB	set	3987
-   127  0000                     _TRISC	set	3988
-   128  0000                     _TXREG2	set	3961
-   129  0000                     _TXSTA2bits	set	4026
-   130  0000                     _ADON	set	32272
-   131  0000                     _GIE	set	32663
-   132  0000                     _PEIE	set	32662
-   133  0000                     _PSA	set	32427
-   134  0000                     _RC2IF	set	32037
-   135  0000                     _T08BIT	set	32430
-   136  0000                     _T0CS	set	32429
-   137  0000                     _T0PS0	set	32424
-   138  0000                     _T0PS1	set	32425
-   139  0000                     _T0PS2	set	32426
-   140  0000                     _TMR0IE	set	32661
-   141  0000                     _TMR0IF	set	32658
-   142                           
-   143                           ; #config settings
-   144  0000                     
-   145                           	psect	cinit
-   146  0003D0                     __pcinit:
-   147                           	opt stack 0
-   148  0003D0                     start_initialization:
-   149                           	opt stack 0
-   150  0003D0                     __initialization:
-   151                           	opt stack 0
-   152                           
-   153                           ; Clear objects allocated to BANK2 (140 bytes)
-   154  0003D0  EE02  F000         	lfsr	0,__pbssBANK2
-   155  0003D4  0E8C               	movlw	140
-   156  0003D6                     clear_0:
-   157  0003D6  6AEE               	clrf	postinc0,c
-   158  0003D8  06E8               	decf	wreg,f,c
-   159  0003DA  E1FD               	bnz	clear_0
-   160                           
-   161                           ; Clear objects allocated to BANK1 (80 bytes)
-   162  0003DC  EE01  F000         	lfsr	0,__pbssBANK1
-   163  0003E0  0E50               	movlw	80
-   164  0003E2                     clear_1:
-   165  0003E2  6AEE               	clrf	postinc0,c
-   166  0003E4  06E8               	decf	wreg,f,c
-   167  0003E6  E1FD               	bnz	clear_1
-   168                           
-   169                           ; Clear objects allocated to COMRAM (4 bytes)
-   170  0003E8  6A28               	clrf	(__pbssCOMRAM+3)& (0+255),c
-   171  0003EA  6A27               	clrf	(__pbssCOMRAM+2)& (0+255),c
-   172  0003EC  6A26               	clrf	(__pbssCOMRAM+1)& (0+255),c
-   173  0003EE  6A25               	clrf	__pbssCOMRAM& (0+255),c
-   174                           
-   175                           ; Initialize objects allocated to BANK1 (80 bytes)
-   176                           ; load TBLPTR registers with __pidataBANK1
-   177  0003F0  0E80               	movlw	low __pidataBANK1
-   178  0003F2  6EF6               	movwf	tblptrl,c
-   179  0003F4  0E03               	movlw	high __pidataBANK1
-   180  0003F6  6EF7               	movwf	tblptrh,c
-   181  0003F8  0E00               	movlw	low (__pidataBANK1 shr (0+16))
-   182  0003FA  6EF8               	movwf	tblptru,c
-   183  0003FC  EE01  F050         	lfsr	0,__pdataBANK1
-   184  000400  EE10 F050          	lfsr	1,80
-   185  000404                     copy_data0:
-   186  000404  0009               	tblrd		*+
-   187  000406  CFF5 FFEE          	movff	tablat,postinc0
-   188  00040A  50E5               	movf	postdec1,w,c
-   189  00040C  50E1               	movf	fsr1l,w,c
-   190  00040E  E1FA               	bnz	copy_data0
-   191  000410                     end_of_initialization:
-   192                           	opt stack 0
-   193  000410                     __end_of__initialization:
-   194                           	opt stack 0
-   195  000410  0E00               	movlw	low (__Lmediumconst shr (0+16))
-   196  000412  6EF8               	movwf	tblptru,c
-   197  000414  0100               	movlb	0
-   198  000416  EFB6  F000         	goto	_main	;jump to C main() function
-   199                           tblptru	equ	0xFF8
-   200                           tblptrh	equ	0xFF7
-   201                           tblptrl	equ	0xFF6
-   202                           tablat	equ	0xFF5
-   203                           postinc0	equ	0xFEE
-   204                           wreg	equ	0xFE8
-   205                           postdec1	equ	0xFE5
-   206                           fsr1l	equ	0xFE1
-   207                           
-   208                           	psect	bssCOMRAM
-   209  000025                     __pbssCOMRAM:
-   210                           	opt stack 0
-   211  000025                     _compteur:
+    10                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1
+    11                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+    12                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    16                           	psect	intcodelo,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    18                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    19                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    20  0000                     
+    21                           	psect	idataBANK1
+    22  000368                     __pidataBANK1:
+    23                           	opt stack 0
+    24                           
+    25                           ;initializer for main@F19160
+    26  000368  4D                 	db	77
+    27  000369  41                 	db	65
+    28  00036A  53                 	db	83
+    29  00036B  54                 	db	84
+    30  00036C  45                 	db	69
+    31  00036D  52                 	db	82
+    32  00036E  20                 	db	32
+    33  00036F  49                 	db	73
+    34  000370  53                 	db	83
+    35  000371  20                 	db	32
+    36  000372  52                 	db	82
+    37  000373  45                 	db	69
+    38  000374  41                 	db	65
+    39  000375  44                 	db	68
+    40  000376  59                 	db	89
+    41  000377  20                 	db	32
+    42  000378  0A                 	db	10
+    43  000379  20                 	db	32
+    44  00037A  0D                 	db	13
+    45  00037B  00                 	db	0
+    46  00037C  00                 	db	0
+    47  00037D  00                 	db	0
+    48  00037E  00                 	db	0
+    49  00037F  00                 	db	0
+    50  000380  00                 	db	0
+    51  000381  00                 	db	0
+    52  000382  00                 	db	0
+    53  000383  00                 	db	0
+    54  000384  00                 	db	0
+    55  000385  00                 	db	0
+    56  000386  00                 	db	0
+    57  000387  00                 	db	0
+    58  000388  00                 	db	0
+    59  000389  00                 	db	0
+    60  00038A  00                 	db	0
+    61  00038B  00                 	db	0
+    62  00038C  00                 	db	0
+    63  00038D  00                 	db	0
+    64  00038E  00                 	db	0
+    65  00038F  00                 	db	0
+    66  000390  00                 	db	0
+    67  000391  00                 	db	0
+    68  000392  00                 	db	0
+    69  000393  00                 	db	0
+    70  000394  00                 	db	0
+    71  000395  00                 	db	0
+    72  000396  00                 	db	0
+    73  000397  00                 	db	0
+    74  000398  00                 	db	0
+    75  000399  00                 	db	0
+    76  00039A  00                 	db	0
+    77  00039B  00                 	db	0
+    78  00039C  00                 	db	0
+    79  00039D  00                 	db	0
+    80  00039E  00                 	db	0
+    81  00039F  00                 	db	0
+    82  0003A0  00                 	db	0
+    83  0003A1  00                 	db	0
+    84  0003A2  00                 	db	0
+    85  0003A3  00                 	db	0
+    86  0003A4  00                 	db	0
+    87  0003A5  00                 	db	0
+    88  0003A6  00                 	db	0
+    89  0003A7  00                 	db	0
+    90  0003A8  00                 	db	0
+    91  0003A9  00                 	db	0
+    92  0003AA  00                 	db	0
+    93  0003AB  00                 	db	0
+    94  0003AC  00                 	db	0
+    95  0003AD  00                 	db	0
+    96  0003AE  00                 	db	0
+    97  0003AF  00                 	db	0
+    98  0003B0  00                 	db	0
+    99  0003B1  00                 	db	0
+   100  0003B2  00                 	db	0
+   101  0003B3  00                 	db	0
+   102  0003B4  00                 	db	0
+   103  0003B5  00                 	db	0
+   104  0003B6  00                 	db	0
+   105  0003B7  00                 	db	0
+   106  0000                     _ANCON0	set	3933
+   107  0000                     _BAUDCON2bits	set	4025
+   108  0000                     _INTCON	set	4082
+   109  0000                     _OSCCON	set	4051
+   110  0000                     _OSCTUNEbits	set	3995
+   111  0000                     _PIE3bits	set	4003
+   112  0000                     _PIR3bits	set	4004
+   113  0000                     _PORTA	set	3968
+   114  0000                     _PORTAbits	set	3968
+   115  0000                     _PORTB	set	3969
+   116  0000                     _PORTC	set	3970
+   117  0000                     _PORTCbits	set	3970
+   118  0000                     _RCONbits	set	4048
+   119  0000                     _RCREG2	set	3962
+   120  0000                     _RCSTA2bits	set	4006
+   121  0000                     _SPBRG	set	4015
+   122  0000                     _SPBRG2	set	3963
+   123  0000                     _SPBRGH2	set	3964
+   124  0000                     _TRISA	set	3986
+   125  0000                     _TRISB	set	3987
+   126  0000                     _TRISC	set	3988
+   127  0000                     _TXREG2	set	3961
+   128  0000                     _TXSTA2bits	set	4026
+   129  0000                     _ADON	set	32272
+   130  0000                     _GIE	set	32663
+   131  0000                     _PEIE	set	32662
+   132  0000                     _PSA	set	32427
+   133  0000                     _RC2IF	set	32037
+   134  0000                     _T08BIT	set	32430
+   135  0000                     _T0CS	set	32429
+   136  0000                     _T0PS0	set	32424
+   137  0000                     _T0PS1	set	32425
+   138  0000                     _T0PS2	set	32426
+   139  0000                     _TMR0IE	set	32661
+   140  0000                     _TMR0IF	set	32658
+   141                           
+   142                           ; #config settings
+   143  0000                     
+   144                           	psect	cinit
+   145  0003F8                     __pcinit:
+   146                           	opt stack 0
+   147  0003F8                     start_initialization:
+   148                           	opt stack 0
+   149  0003F8                     __initialization:
+   150                           	opt stack 0
+   151                           
+   152                           ; Clear objects allocated to BANK1 (80 bytes)
+   153  0003F8  EE01  F000         	lfsr	0,__pbssBANK1
+   154  0003FC  0E50               	movlw	80
+   155  0003FE                     clear_0:
+   156  0003FE  6AEE               	clrf	postinc0,c
+   157  000400  06E8               	decf	wreg,f,c
+   158  000402  E1FD               	bnz	clear_0
+   159                           
+   160                           ; Clear objects allocated to COMRAM (4 bytes)
+   161  000404  6A28               	clrf	(__pbssCOMRAM+3)& (0+255),c
+   162  000406  6A27               	clrf	(__pbssCOMRAM+2)& (0+255),c
+   163  000408  6A26               	clrf	(__pbssCOMRAM+1)& (0+255),c
+   164  00040A  6A25               	clrf	__pbssCOMRAM& (0+255),c
+   165                           
+   166                           ; Initialize objects allocated to BANK1 (80 bytes)
+   167                           ; load TBLPTR registers with __pidataBANK1
+   168  00040C  0E68               	movlw	low __pidataBANK1
+   169  00040E  6EF6               	movwf	tblptrl,c
+   170  000410  0E03               	movlw	high __pidataBANK1
+   171  000412  6EF7               	movwf	tblptrh,c
+   172  000414  0E00               	movlw	low (__pidataBANK1 shr (0+16))
+   173  000416  6EF8               	movwf	tblptru,c
+   174  000418  EE01  F050         	lfsr	0,__pdataBANK1
+   175  00041C  EE10 F050          	lfsr	1,80
+   176  000420                     copy_data0:
+   177  000420  0009               	tblrd		*+
+   178  000422  CFF5 FFEE          	movff	tablat,postinc0
+   179  000426  50E5               	movf	postdec1,w,c
+   180  000428  50E1               	movf	fsr1l,w,c
+   181  00042A  E1FA               	bnz	copy_data0
+   182  00042C                     end_of_initialization:
+   183                           	opt stack 0
+   184  00042C                     __end_of__initialization:
+   185                           	opt stack 0
+   186  00042C  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   187  00042E  6EF8               	movwf	tblptru,c
+   188  000430  0100               	movlb	0
+   189  000432  EFAA  F000         	goto	_main	;jump to C main() function
+   190                           tblptru	equ	0xFF8
+   191                           tblptrh	equ	0xFF7
+   192                           tblptrl	equ	0xFF6
+   193                           tablat	equ	0xFF5
+   194                           postinc0	equ	0xFEE
+   195                           wreg	equ	0xFE8
+   196                           postdec1	equ	0xFE5
+   197                           fsr1l	equ	0xFE1
+   198                           
+   199                           	psect	bssCOMRAM
+   200  000025                     __pbssCOMRAM:
+   201                           	opt stack 0
+   202  000025                     _compteur:
+   203                           	opt stack 0
+   204  000025                     	ds	1
+   205  000026                     _flag_reception:
+   206                           	opt stack 0
+   207  000026                     	ds	1
+   208  000027                     _it:
+   209                           	opt stack 0
+   210  000027                     	ds	1
+   211  000028                     _tampon:
    212                           	opt stack 0
-   213  000025                     	ds	1
-   214  000026                     _flag_reception:
-   215                           	opt stack 0
-   216  000026                     	ds	1
-   217  000027                     _it:
-   218                           	opt stack 0
-   219  000027                     	ds	1
-   220  000028                     _tampon:
-   221                           	opt stack 0
-   222  000028                     	ds	1
-   223                           tblptru	equ	0xFF8
-   224                           tblptrh	equ	0xFF7
-   225                           tblptrl	equ	0xFF6
-   226                           tablat	equ	0xFF5
-   227                           postinc0	equ	0xFEE
-   228                           wreg	equ	0xFE8
-   229                           postdec1	equ	0xFE5
-   230                           fsr1l	equ	0xFE1
-   231                           
-   232                           	psect	bssBANK1
-   233  000100                     __pbssBANK1:
-   234                           	opt stack 0
-   235  000100                     _msg:
-   236                           	opt stack 0
-   237  000100                     	ds	80
-   238                           tblptru	equ	0xFF8
-   239                           tblptrh	equ	0xFF7
-   240                           tblptrl	equ	0xFF6
-   241                           tablat	equ	0xFF5
-   242                           postinc0	equ	0xFEE
-   243                           wreg	equ	0xFE8
-   244                           postdec1	equ	0xFE5
-   245                           fsr1l	equ	0xFE1
-   246                           
-   247                           	psect	dataBANK1
-   248  000150                     __pdataBANK1:
-   249                           	opt stack 0
-   250  000150                     main@F19161:
-   251                           	opt stack 0
-   252  000150                     	ds	80
-   253                           tblptru	equ	0xFF8
-   254                           tblptrh	equ	0xFF7
-   255                           tblptrl	equ	0xFF6
-   256                           tablat	equ	0xFF5
-   257                           postinc0	equ	0xFEE
-   258                           wreg	equ	0xFE8
-   259                           postdec1	equ	0xFE5
-   260                           fsr1l	equ	0xFE1
-   261                           
-   262                           	psect	bssBANK2
-   263  000200                     __pbssBANK2:
-   264                           	opt stack 0
-   265  000200                     _stock_led:
-   266                           	opt stack 0
-   267  000200                     	ds	140
-   268                           tblptru	equ	0xFF8
-   269                           tblptrh	equ	0xFF7
-   270                           tblptrl	equ	0xFF6
-   271                           tablat	equ	0xFF5
-   272                           postinc0	equ	0xFEE
-   273                           wreg	equ	0xFE8
-   274                           postdec1	equ	0xFE5
-   275                           fsr1l	equ	0xFE1
-   276                           
-   277                           	psect	cstackBANK0
-   278  000060                     __pcstackBANK0:
-   279                           	opt stack 0
-   280  000060                     main@msg1:
-   281                           	opt stack 0
-   282                           
-   283                           ; 80 bytes @ 0x0
-   284  000060                     	ds	80
-   285  0000B0                     main@i:
-   286                           	opt stack 0
-   287                           
-   288                           ; 4 bytes @ 0x50
-   289  0000B0                     	ds	4
-   290  0000B4                     main@j:
-   291                           	opt stack 0
-   292                           
-   293                           ; 4 bytes @ 0x54
-   294  0000B4                     	ds	4
-   295                           tblptru	equ	0xFF8
-   296                           tblptrh	equ	0xFF7
-   297                           tblptrl	equ	0xFF6
-   298                           tablat	equ	0xFF5
-   299                           postinc0	equ	0xFEE
-   300                           wreg	equ	0xFE8
-   301                           postdec1	equ	0xFE5
-   302                           fsr1l	equ	0xFE1
-   303                           
-   304                           	psect	cstackCOMRAM
-   305  000001                     __pcstackCOMRAM:
-   306                           	opt stack 0
-   307  000001                     writeDataToUART@data:
-   308                           	opt stack 0
+   213  000028                     	ds	1
+   214                           tblptru	equ	0xFF8
+   215                           tblptrh	equ	0xFF7
+   216                           tblptrl	equ	0xFF6
+   217                           tablat	equ	0xFF5
+   218                           postinc0	equ	0xFEE
+   219                           wreg	equ	0xFE8
+   220                           postdec1	equ	0xFE5
+   221                           fsr1l	equ	0xFE1
+   222                           
+   223                           	psect	bssBANK1
+   224  000100                     __pbssBANK1:
+   225                           	opt stack 0
+   226  000100                     _msg:
+   227                           	opt stack 0
+   228  000100                     	ds	80
+   229                           tblptru	equ	0xFF8
+   230                           tblptrh	equ	0xFF7
+   231                           tblptrl	equ	0xFF6
+   232                           tablat	equ	0xFF5
+   233                           postinc0	equ	0xFEE
+   234                           wreg	equ	0xFE8
+   235                           postdec1	equ	0xFE5
+   236                           fsr1l	equ	0xFE1
+   237                           
+   238                           	psect	dataBANK1
+   239  000150                     __pdataBANK1:
+   240                           	opt stack 0
+   241  000150                     main@F19160:
+   242                           	opt stack 0
+   243  000150                     	ds	80
+   244                           tblptru	equ	0xFF8
+   245                           tblptrh	equ	0xFF7
+   246                           tblptrl	equ	0xFF6
+   247                           tablat	equ	0xFF5
+   248                           postinc0	equ	0xFEE
+   249                           wreg	equ	0xFE8
+   250                           postdec1	equ	0xFE5
+   251                           fsr1l	equ	0xFE1
+   252                           
+   253                           	psect	cstackBANK0
+   254  000060                     __pcstackBANK0:
+   255                           	opt stack 0
+   256  000060                     main@msg1:
+   257                           	opt stack 0
+   258                           
+   259                           ; 80 bytes @ 0x0
+   260  000060                     	ds	80
+   261  0000B0                     main@i:
+   262                           	opt stack 0
+   263                           
+   264                           ; 4 bytes @ 0x50
+   265  0000B0                     	ds	4
+   266  0000B4                     main@j:
+   267                           	opt stack 0
+   268                           
+   269                           ; 4 bytes @ 0x54
+   270  0000B4                     	ds	4
+   271                           tblptru	equ	0xFF8
+   272                           tblptrh	equ	0xFF7
+   273                           tblptrl	equ	0xFF6
+   274                           tablat	equ	0xFF5
+   275                           postinc0	equ	0xFEE
+   276                           wreg	equ	0xFE8
+   277                           postdec1	equ	0xFE5
+   278                           fsr1l	equ	0xFE1
+   279                           
+   280                           	psect	cstackCOMRAM
+   281  000001                     __pcstackCOMRAM:
+   282                           	opt stack 0
+   283  000001                     writeDataToUART@data:
+   284                           	opt stack 0
+   285                           
+   286                           ; 1 bytes @ 0x0
+   287  000001                     	ds	1
+   288  000002                     ??_low_isr:
+   289                           
+   290                           ; 0 bytes @ 0x1
+   291  000002                     	ds	17
+   292  000013                     ??_timer_isr:
+   293                           
+   294                           ; 0 bytes @ 0x12
+   295  000013                     	ds	17
+   296  000024                     multiplexeur@n:
+   297                           	opt stack 0
+   298                           
+   299                           ; 1 bytes @ 0x23
+   300  000024                     	ds	1
+   301  000025                     tblptru	equ	0xFF8
+   302                           tblptrh	equ	0xFF7
+   303                           tblptrl	equ	0xFF6
+   304                           tablat	equ	0xFF5
+   305                           postinc0	equ	0xFEE
+   306                           wreg	equ	0xFE8
+   307                           postdec1	equ	0xFE5
+   308                           fsr1l	equ	0xFE1
    309                           
-   310                           ; 1 bytes @ 0x0
-   311  000001                     	ds	1
-   312  000002                     ??_low_isr:
-   313                           
-   314                           ; 0 bytes @ 0x1
-   315  000002                     	ds	17
-   316  000013                     ??_timer_isr:
-   317                           
-   318                           ; 0 bytes @ 0x12
-   319  000013                     	ds	17
-   320  000024                     multiplexeur@n:
-   321                           	opt stack 0
-   322                           
-   323                           ; 1 bytes @ 0x23
-   324  000024                     	ds	1
-   325  000025                     tblptru	equ	0xFF8
-   326                           tblptrh	equ	0xFF7
-   327                           tblptrl	equ	0xFF6
-   328                           tablat	equ	0xFF5
-   329                           postinc0	equ	0xFEE
-   330                           wreg	equ	0xFE8
-   331                           postdec1	equ	0xFE5
-   332                           fsr1l	equ	0xFE1
-   333                           
-   334                           ; 0 bytes @ 0x24
-   335 ;;
-   336 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   337 ;;
-   338 ;; *************** function _main *****************
-   339 ;; Defined at:
-   340 ;;		line 127 in file "main.c"
-   341 ;; Parameters:    Size  Location     Type
-   342 ;;		None
-   343 ;; Auto vars:     Size  Location     Type
-   344 ;;  msg1           80    0[BANK0 ] unsigned char [80]
-   345 ;;  j               4   84[BANK0 ] long 
-   346 ;;  i               4   80[BANK0 ] long 
-   347 ;; Return value:  Size  Location     Type
-   348 ;;		None               void
-   349 ;; Registers used:
-   350 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
-   351 ;; Tracked objects:
-   352 ;;		On entry : 0/0
-   353 ;;		On exit  : 0/0
-   354 ;;		Unchanged: 0/0
-   355 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   310                           ; 0 bytes @ 0x24
+   311 ;;
+   312 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   313 ;;
+   314 ;; *************** function _main *****************
+   315 ;; Defined at:
+   316 ;;		line 125 in file "main.c"
+   317 ;; Parameters:    Size  Location     Type
+   318 ;;		None
+   319 ;; Auto vars:     Size  Location     Type
+   320 ;;  msg1           80    0[BANK0 ] unsigned char [80]
+   321 ;;  j               4   84[BANK0 ] long 
+   322 ;;  i               4   80[BANK0 ] long 
+   323 ;; Return value:  Size  Location     Type
+   324 ;;		None               void
+   325 ;; Registers used:
+   326 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+   327 ;; Tracked objects:
+   328 ;;		On entry : 0/0
+   329 ;;		On exit  : 0/0
+   330 ;;		Unchanged: 0/0
+   331 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   356 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   332 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   357 ;;      Locals:         0      88       0       0       0       0       0       0       0       0       0       0       
+   333 ;;      Locals:         0      88       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   358 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   334 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   359 ;;      Totals:         0      88       0       0       0       0       0       0       0       0       0       0       
+   335 ;;      Totals:         0      88       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   360 ;;Total ram usage:       88 bytes
-   361 ;; Hardware stack levels required when called:    3
-   362 ;; This function calls:
-   363 ;;		_initComms
-   364 ;;		_initPorts
-   365 ;;		_multiplexeur
-   366 ;; This function is called by:
-   367 ;;		Startup code after reset
-   368 ;; This function uses a non-reentrant model
-   369 ;;
-   370                           
-   371                           	psect	text0
-   372  00016C                     __ptext0:
-   373                           	opt stack 0
-   374  00016C                     _main:
-   375                           	opt stack 28
-   376                           
-   377                           ;main.c: 128: char msg1[80] = "MASTER IS READY \n \r";
-   378                           
-   379                           ;incstack = 0
-   380  00016C  EE21  F050         	lfsr	2,main@F19161
-   381  000170  EE10  F060         	lfsr	1,main@msg1
-   382  000174  0E50               	movlw	80
-   383  000176                     u171:
-   384  000176  CFDE FFE6          	movff	postinc2,postinc1
-   385  00017A  2EE8               	decfsz	wreg,f,c
-   386  00017C  D7FC               	goto	u171
-   387                           
-   388                           ;main.c: 129: long i = 0;
-   389  00017E  0E00               	movlw	0
-   390  000180  0100               	movlb	0	; () banked
-   391  000182  6FB0               	movwf	main@i& (0+255),b
-   392  000184  0E00               	movlw	0
-   393  000186  0100               	movlb	0	; () banked
-   394  000188  6FB1               	movwf	(main@i+1)& (0+255),b
-   395  00018A  0E00               	movlw	0
-   396  00018C  0100               	movlb	0	; () banked
-   397  00018E  6FB2               	movwf	(main@i+2)& (0+255),b
-   398  000190  0E00               	movlw	0
-   399  000192  0100               	movlb	0	; () banked
-   400  000194  6FB3               	movwf	(main@i+3)& (0+255),b
-   401                           
-   402                           ; BSR set to: 0
-   403                           ;main.c: 130: long j = 0;
-   404  000196  0E00               	movlw	0
-   405  000198  0100               	movlb	0	; () banked
-   406  00019A  6FB4               	movwf	main@j& (0+255),b
-   407  00019C  0E00               	movlw	0
-   408  00019E  0100               	movlb	0	; () banked
-   409  0001A0  6FB5               	movwf	(main@j+1)& (0+255),b
-   410  0001A2  0E00               	movlw	0
-   411  0001A4  0100               	movlb	0	; () banked
-   412  0001A6  6FB6               	movwf	(main@j+2)& (0+255),b
-   413  0001A8  0E00               	movlw	0
-   414  0001AA  0100               	movlb	0	; () banked
-   415  0001AC  6FB7               	movwf	(main@j+3)& (0+255),b
-   416                           
-   417                           ; BSR set to: 0
-   418                           ;main.c: 132: initPorts();
-   419  0001AE  EC2D  F002         	call	_initPorts	;wreg free
-   420                           
-   421                           ;main.c: 133: initComms();
-   422  0001B2  EC0D  F002         	call	_initComms	;wreg free
-   423  0001B6                     l876:
-   424                           
-   425                           ;main.c: 142: for (i = 0; i < 8; i++) {
-   426  0001B6  0E00               	movlw	0
-   427  0001B8  0100               	movlb	0	; () banked
-   428  0001BA  6FB0               	movwf	main@i& (0+255),b
-   429  0001BC  0E00               	movlw	0
-   430  0001BE  0100               	movlb	0	; () banked
-   431  0001C0  6FB1               	movwf	(main@i+1)& (0+255),b
-   432  0001C2  0E00               	movlw	0
-   433  0001C4  0100               	movlb	0	; () banked
-   434  0001C6  6FB2               	movwf	(main@i+2)& (0+255),b
-   435  0001C8  0E00               	movlw	0
-   436  0001CA  0100               	movlb	0	; () banked
-   437  0001CC  6FB3               	movwf	(main@i+3)& (0+255),b
+   336 ;;Total ram usage:       88 bytes
+   337 ;; Hardware stack levels required when called:    3
+   338 ;; This function calls:
+   339 ;;		_initComms
+   340 ;;		_initPorts
+   341 ;;		_multiplexeur
+   342 ;; This function is called by:
+   343 ;;		Startup code after reset
+   344 ;; This function uses a non-reentrant model
+   345 ;;
+   346                           
+   347                           	psect	text0
+   348  000154                     __ptext0:
+   349                           	opt stack 0
+   350  000154                     _main:
+   351                           	opt stack 28
+   352                           
+   353                           ;main.c: 126: char msg1[80] = "MASTER IS READY \n \r";
+   354                           
+   355                           ;incstack = 0
+   356  000154  EE21  F050         	lfsr	2,main@F19160
+   357  000158  EE10  F060         	lfsr	1,main@msg1
+   358  00015C  0E50               	movlw	80
+   359  00015E                     u141:
+   360  00015E  CFDE FFE6          	movff	postinc2,postinc1
+   361  000162  2EE8               	decfsz	wreg,f,c
+   362  000164  D7FC               	goto	u141
+   363                           
+   364                           ;main.c: 127: long i = 0;
+   365  000166  0E00               	movlw	0
+   366  000168  0100               	movlb	0	; () banked
+   367  00016A  6FB0               	movwf	main@i& (0+255),b
+   368  00016C  0E00               	movlw	0
+   369  00016E  0100               	movlb	0	; () banked
+   370  000170  6FB1               	movwf	(main@i+1)& (0+255),b
+   371  000172  0E00               	movlw	0
+   372  000174  0100               	movlb	0	; () banked
+   373  000176  6FB2               	movwf	(main@i+2)& (0+255),b
+   374  000178  0E00               	movlw	0
+   375  00017A  0100               	movlb	0	; () banked
+   376  00017C  6FB3               	movwf	(main@i+3)& (0+255),b
+   377                           
+   378                           ; BSR set to: 0
+   379                           ;main.c: 128: long j = 0;
+   380  00017E  0E00               	movlw	0
+   381  000180  0100               	movlb	0	; () banked
+   382  000182  6FB4               	movwf	main@j& (0+255),b
+   383  000184  0E00               	movlw	0
+   384  000186  0100               	movlb	0	; () banked
+   385  000188  6FB5               	movwf	(main@j+1)& (0+255),b
+   386  00018A  0E00               	movlw	0
+   387  00018C  0100               	movlb	0	; () banked
+   388  00018E  6FB6               	movwf	(main@j+2)& (0+255),b
+   389  000190  0E00               	movlw	0
+   390  000192  0100               	movlb	0	; () banked
+   391  000194  6FB7               	movwf	(main@j+3)& (0+255),b
+   392                           
+   393                           ; BSR set to: 0
+   394                           ;main.c: 130: initPorts();
+   395  000196  EC1B  F002         	call	_initPorts	;wreg free
+   396                           
+   397                           ;main.c: 131: initComms();
+   398  00019A  ECDC  F001         	call	_initComms	;wreg free
+   399  00019E                     l852:
+   400                           
+   401                           ;main.c: 134: for (i = 0; i < 8; i++) {
+   402  00019E  0E00               	movlw	0
+   403  0001A0  0100               	movlb	0	; () banked
+   404  0001A2  6FB0               	movwf	main@i& (0+255),b
+   405  0001A4  0E00               	movlw	0
+   406  0001A6  0100               	movlb	0	; () banked
+   407  0001A8  6FB1               	movwf	(main@i+1)& (0+255),b
+   408  0001AA  0E00               	movlw	0
+   409  0001AC  0100               	movlb	0	; () banked
+   410  0001AE  6FB2               	movwf	(main@i+2)& (0+255),b
+   411  0001B0  0E00               	movlw	0
+   412  0001B2  0100               	movlb	0	; () banked
+   413  0001B4  6FB3               	movwf	(main@i+3)& (0+255),b
+   414                           
+   415                           ; BSR set to: 0
+   416  0001B6  0100               	movlb	0	; () banked
+   417  0001B8  51B3               	movf	(main@i+3)& (0+255),w,b
+   418  0001BA  0A80               	xorlw	128
+   419  0001BC  0F80               	addlw	128
+   420  0001BE  E10B               	bnz	u155
+   421  0001C0  0E00               	movlw	0
+   422  0001C2  0100               	movlb	0	; () banked
+   423  0001C4  5DB2               	subwf	(main@i+2)& (0+255),w,b
+   424  0001C6  E107               	bnz	u155
+   425  0001C8  0E00               	movlw	0
+   426  0001CA  0100               	movlb	0	; () banked
+   427  0001CC  5DB1               	subwf	(main@i+1)& (0+255),w,b
+   428  0001CE  E103               	bnz	u155
+   429  0001D0  0E08               	movlw	8
+   430  0001D2  0100               	movlb	0	; () banked
+   431  0001D4  5DB0               	subwf	main@i& (0+255),w,b
+   432  0001D6                     u155:
+   433  0001D6  B0D8               	btfsc	status,0,c
+   434  0001D8  D7E2               	goto	l852
+   435                           
+   436                           ; BSR set to: 0
+   437                           ;main.c: 135: multiplexeur(i);
    438                           
    439                           ; BSR set to: 0
-   440  0001CE  0100               	movlb	0	; () banked
-   441  0001D0  51B3               	movf	(main@i+3)& (0+255),w,b
-   442  0001D2  0A80               	xorlw	128
-   443  0001D4  0F80               	addlw	128
-   444  0001D6  E10B               	bnz	u185
-   445  0001D8  0E00               	movlw	0
-   446  0001DA  0100               	movlb	0	; () banked
-   447  0001DC  5DB2               	subwf	(main@i+2)& (0+255),w,b
-   448  0001DE  E107               	bnz	u185
-   449  0001E0  0E00               	movlw	0
-   450  0001E2  0100               	movlb	0	; () banked
-   451  0001E4  5DB1               	subwf	(main@i+1)& (0+255),w,b
-   452  0001E6  E103               	bnz	u185
-   453  0001E8  0E08               	movlw	8
-   454  0001EA  0100               	movlb	0	; () banked
-   455  0001EC  5DB0               	subwf	main@i& (0+255),w,b
-   456  0001EE                     u185:
-   457  0001EE  B0D8               	btfsc	status,0,c
-   458  0001F0  D7E2               	goto	l876
-   459                           
-   460                           ; BSR set to: 0
-   461                           ;main.c: 143: multiplexeur(i);
+   440                           
+   441                           ; BSR set to: 0
+   442  0001DA  0100               	movlb	0	; () banked
+   443  0001DC  51B0               	movf	main@i& (0+255),w,b
+   444  0001DE  EC80  F001         	call	_multiplexeur
+   445                           
+   446                           ;main.c: 136: PORTAbits.RA0 = 1;
+   447  0001E2  8080               	bsf	3968,0,c	;volatile
+   448                           
+   449                           ;main.c: 137: for (j = 0; j < 100; j++) {
+   450  0001E4  0E00               	movlw	0
+   451  0001E6  0100               	movlb	0	; () banked
+   452  0001E8  6FB4               	movwf	main@j& (0+255),b
+   453  0001EA  0E00               	movlw	0
+   454  0001EC  0100               	movlb	0	; () banked
+   455  0001EE  6FB5               	movwf	(main@j+1)& (0+255),b
+   456  0001F0  0E00               	movlw	0
+   457  0001F2  0100               	movlb	0	; () banked
+   458  0001F4  6FB6               	movwf	(main@j+2)& (0+255),b
+   459  0001F6  0E00               	movlw	0
+   460  0001F8  0100               	movlb	0	; () banked
+   461  0001FA  6FB7               	movwf	(main@j+3)& (0+255),b
    462                           
    463                           ; BSR set to: 0
-   464                           
-   465                           ; BSR set to: 0
-   466  0001F2  0100               	movlb	0	; () banked
-   467  0001F4  51B0               	movf	main@i& (0+255),w,b
-   468  0001F6  EC8C  F001         	call	_multiplexeur
-   469                           
-   470                           ;main.c: 144: PORTAbits.RA0 = 1;
-   471  0001FA  8080               	bsf	3968,0,c	;volatile
-   472                           
-   473                           ;main.c: 145: for (j = 0; j < 100; j++) {
-   474  0001FC  0E00               	movlw	0
-   475  0001FE  0100               	movlb	0	; () banked
-   476  000200  6FB4               	movwf	main@j& (0+255),b
-   477  000202  0E00               	movlw	0
-   478  000204  0100               	movlb	0	; () banked
-   479  000206  6FB5               	movwf	(main@j+1)& (0+255),b
-   480  000208  0E00               	movlw	0
-   481  00020A  0100               	movlb	0	; () banked
-   482  00020C  6FB6               	movwf	(main@j+2)& (0+255),b
-   483  00020E  0E00               	movlw	0
-   484  000210  0100               	movlb	0	; () banked
-   485  000212  6FB7               	movwf	(main@j+3)& (0+255),b
-   486                           
-   487                           ; BSR set to: 0
-   488  000214  0100               	movlb	0	; () banked
-   489  000216  51B7               	movf	(main@j+3)& (0+255),w,b
-   490  000218  0A80               	xorlw	128
-   491  00021A  0F80               	addlw	128
-   492  00021C  E10B               	bnz	u195
-   493  00021E  0E00               	movlw	0
-   494  000220  0100               	movlb	0	; () banked
-   495  000222  5DB6               	subwf	(main@j+2)& (0+255),w,b
-   496  000224  E107               	bnz	u195
-   497  000226  0E00               	movlw	0
-   498  000228  0100               	movlb	0	; () banked
-   499  00022A  5DB5               	subwf	(main@j+1)& (0+255),w,b
-   500  00022C  E103               	bnz	u195
-   501  00022E  0E64               	movlw	100
-   502  000230  0100               	movlb	0	; () banked
-   503  000232  5DB4               	subwf	main@j& (0+255),w,b
-   504  000234                     u195:
-   505  000234  B0D8               	btfsc	status,0,c
-   506  000236  D01B               	goto	l66
-   507                           
-   508                           ; BSR set to: 0
-   509                           
-   510                           ; BSR set to: 0
-   511                           
-   512                           ; BSR set to: 0
-   513  000238  0E01               	movlw	1
-   514  00023A  0100               	movlb	0	; () banked
-   515  00023C  27B4               	addwf	main@j& (0+255),f,b
-   516  00023E  0E00               	movlw	0
-   517  000240  0100               	movlb	0	; () banked
-   518  000242  23B5               	addwfc	(main@j+1)& (0+255),f,b
-   519  000244  0100               	movlb	0	; () banked
-   520  000246  23B6               	addwfc	(main@j+2)& (0+255),f,b
-   521  000248  0100               	movlb	0	; () banked
-   522  00024A  23B7               	addwfc	(main@j+3)& (0+255),f,b
-   523  00024C  0100               	movlb	0	; () banked
-   524  00024E  51B7               	movf	(main@j+3)& (0+255),w,b
-   525  000250  0A80               	xorlw	128
-   526  000252  0F80               	addlw	128
-   527  000254  E10B               	bnz	u205
-   528  000256  0E00               	movlw	0
-   529  000258  0100               	movlb	0	; () banked
-   530  00025A  5DB6               	subwf	(main@j+2)& (0+255),w,b
-   531  00025C  E107               	bnz	u205
-   532  00025E  0E00               	movlw	0
-   533  000260  0100               	movlb	0	; () banked
-   534  000262  5DB5               	subwf	(main@j+1)& (0+255),w,b
-   535  000264  E103               	bnz	u205
-   536  000266  0E64               	movlw	100
-   537  000268  0100               	movlb	0	; () banked
-   538  00026A  5DB4               	subwf	main@j& (0+255),w,b
-   539  00026C                     u205:
-   540  00026C  D7E3               	goto	u195
-   541  00026E                     l66:
-   542                           
-   543                           ; BSR set to: 0
-   544                           ;main.c: 146: }
-   545                           ;main.c: 147: PORTAbits.RA0 = 0;
-   546  00026E  9080               	bcf	3968,0,c	;volatile
-   547                           
-   548                           ; BSR set to: 0
-   549                           ;main.c: 148: for (j = 0; j < 10000; j++) {
-   550  000270  0E00               	movlw	0
-   551  000272  0100               	movlb	0	; () banked
-   552  000274  6FB4               	movwf	main@j& (0+255),b
-   553  000276  0E00               	movlw	0
-   554  000278  0100               	movlb	0	; () banked
-   555  00027A  6FB5               	movwf	(main@j+1)& (0+255),b
-   556  00027C  0E00               	movlw	0
-   557  00027E  0100               	movlb	0	; () banked
-   558  000280  6FB6               	movwf	(main@j+2)& (0+255),b
-   559  000282  0E00               	movlw	0
-   560  000284  0100               	movlb	0	; () banked
-   561  000286  6FB7               	movwf	(main@j+3)& (0+255),b
-   562                           
-   563                           ; BSR set to: 0
-   564  000288  0100               	movlb	0	; () banked
-   565  00028A  51B7               	movf	(main@j+3)& (0+255),w,b
-   566  00028C  0A80               	xorlw	128
-   567  00028E  0F80               	addlw	128
-   568  000290  E10B               	bnz	u215
-   569  000292  0E00               	movlw	0
-   570  000294  0100               	movlb	0	; () banked
-   571  000296  5DB6               	subwf	(main@j+2)& (0+255),w,b
-   572  000298  E107               	bnz	u215
-   573  00029A  0E27               	movlw	39
-   574  00029C  0100               	movlb	0	; () banked
-   575  00029E  5DB5               	subwf	(main@j+1)& (0+255),w,b
-   576  0002A0  E103               	bnz	u215
-   577  0002A2  0E10               	movlw	16
-   578  0002A4  0100               	movlb	0	; () banked
-   579  0002A6  5DB4               	subwf	main@j& (0+255),w,b
-   580  0002A8                     u215:
-   581  0002A8  B0D8               	btfsc	status,0,c
-   582  0002AA  D01B               	goto	l902
-   583                           
-   584                           ; BSR set to: 0
-   585                           
-   586                           ; BSR set to: 0
-   587                           
-   588                           ; BSR set to: 0
-   589  0002AC  0E01               	movlw	1
-   590  0002AE  0100               	movlb	0	; () banked
-   591  0002B0  27B4               	addwf	main@j& (0+255),f,b
-   592  0002B2  0E00               	movlw	0
-   593  0002B4  0100               	movlb	0	; () banked
-   594  0002B6  23B5               	addwfc	(main@j+1)& (0+255),f,b
-   595  0002B8  0100               	movlb	0	; () banked
-   596  0002BA  23B6               	addwfc	(main@j+2)& (0+255),f,b
-   597  0002BC  0100               	movlb	0	; () banked
-   598  0002BE  23B7               	addwfc	(main@j+3)& (0+255),f,b
-   599  0002C0  0100               	movlb	0	; () banked
-   600  0002C2  51B7               	movf	(main@j+3)& (0+255),w,b
-   601  0002C4  0A80               	xorlw	128
-   602  0002C6  0F80               	addlw	128
-   603  0002C8  E10B               	bnz	u225
-   604  0002CA  0E00               	movlw	0
-   605  0002CC  0100               	movlb	0	; () banked
-   606  0002CE  5DB6               	subwf	(main@j+2)& (0+255),w,b
-   607  0002D0  E107               	bnz	u225
-   608  0002D2  0E27               	movlw	39
-   609  0002D4  0100               	movlb	0	; () banked
-   610  0002D6  5DB5               	subwf	(main@j+1)& (0+255),w,b
-   611  0002D8  E103               	bnz	u225
-   612  0002DA  0E10               	movlw	16
-   613  0002DC  0100               	movlb	0	; () banked
-   614  0002DE  5DB4               	subwf	main@j& (0+255),w,b
-   615  0002E0                     u225:
-   616  0002E0  D7E3               	goto	u215
-   617  0002E2                     l902:
-   618                           
-   619                           ; BSR set to: 0
-   620  0002E2  0E01               	movlw	1
-   621  0002E4  0100               	movlb	0	; () banked
-   622  0002E6  27B0               	addwf	main@i& (0+255),f,b
-   623  0002E8  0E00               	movlw	0
-   624  0002EA  0100               	movlb	0	; () banked
-   625  0002EC  23B1               	addwfc	(main@i+1)& (0+255),f,b
-   626  0002EE  0100               	movlb	0	; () banked
-   627  0002F0  23B2               	addwfc	(main@i+2)& (0+255),f,b
-   628  0002F2  0100               	movlb	0	; () banked
-   629  0002F4  23B3               	addwfc	(main@i+3)& (0+255),f,b
-   630  0002F6  0100               	movlb	0	; () banked
-   631  0002F8  51B3               	movf	(main@i+3)& (0+255),w,b
-   632  0002FA  0A80               	xorlw	128
-   633  0002FC  0F80               	addlw	128
-   634  0002FE  E10B               	bnz	u235
-   635  000300  0E00               	movlw	0
-   636  000302  0100               	movlb	0	; () banked
-   637  000304  5DB2               	subwf	(main@i+2)& (0+255),w,b
-   638  000306  E107               	bnz	u235
-   639  000308  0E00               	movlw	0
-   640  00030A  0100               	movlb	0	; () banked
-   641  00030C  5DB1               	subwf	(main@i+1)& (0+255),w,b
-   642  00030E  E103               	bnz	u235
-   643  000310  0E08               	movlw	8
-   644  000312  0100               	movlb	0	; () banked
-   645  000314  5DB0               	subwf	main@i& (0+255),w,b
-   646  000316                     u235:
-   647  000316  D76B               	goto	u185
-   648  000318                     __end_of_main:
-   649                           	opt stack 0
-   650                           tblptru	equ	0xFF8
-   651                           tblptrh	equ	0xFF7
-   652                           tblptrl	equ	0xFF6
-   653                           tablat	equ	0xFF5
-   654                           postinc0	equ	0xFEE
-   655                           wreg	equ	0xFE8
-   656                           postinc1	equ	0xFE6
-   657                           postdec1	equ	0xFE5
-   658                           fsr1l	equ	0xFE1
-   659                           postinc2	equ	0xFDE
-   660                           status	equ	0xFD8
-   661                           
-   662 ;; *************** function _multiplexeur *****************
-   663 ;; Defined at:
-   664 ;;		line 156 in file "main.c"
-   665 ;; Parameters:    Size  Location     Type
-   666 ;;  n               1    wreg     unsigned char 
-   667 ;; Auto vars:     Size  Location     Type
-   668 ;;  n               1   35[COMRAM] unsigned char 
-   669 ;; Return value:  Size  Location     Type
-   670 ;;		None               void
-   671 ;; Registers used:
-   672 ;;		wreg, status,2, status,0
-   673 ;; Tracked objects:
-   674 ;;		On entry : 0/0
-   675 ;;		On exit  : 0/0
-   676 ;;		Unchanged: 0/0
-   677 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   464  0001FC  0100               	movlb	0	; () banked
+   465  0001FE  51B7               	movf	(main@j+3)& (0+255),w,b
+   466  000200  0A80               	xorlw	128
+   467  000202  0F80               	addlw	128
+   468  000204  E10B               	bnz	u165
+   469  000206  0E00               	movlw	0
+   470  000208  0100               	movlb	0	; () banked
+   471  00020A  5DB6               	subwf	(main@j+2)& (0+255),w,b
+   472  00020C  E107               	bnz	u165
+   473  00020E  0E00               	movlw	0
+   474  000210  0100               	movlb	0	; () banked
+   475  000212  5DB5               	subwf	(main@j+1)& (0+255),w,b
+   476  000214  E103               	bnz	u165
+   477  000216  0E64               	movlw	100
+   478  000218  0100               	movlb	0	; () banked
+   479  00021A  5DB4               	subwf	main@j& (0+255),w,b
+   480  00021C                     u165:
+   481  00021C  B0D8               	btfsc	status,0,c
+   482  00021E  D01B               	goto	l64
+   483                           
+   484                           ; BSR set to: 0
+   485                           
+   486                           ; BSR set to: 0
+   487                           
+   488                           ; BSR set to: 0
+   489  000220  0E01               	movlw	1
+   490  000222  0100               	movlb	0	; () banked
+   491  000224  27B4               	addwf	main@j& (0+255),f,b
+   492  000226  0E00               	movlw	0
+   493  000228  0100               	movlb	0	; () banked
+   494  00022A  23B5               	addwfc	(main@j+1)& (0+255),f,b
+   495  00022C  0100               	movlb	0	; () banked
+   496  00022E  23B6               	addwfc	(main@j+2)& (0+255),f,b
+   497  000230  0100               	movlb	0	; () banked
+   498  000232  23B7               	addwfc	(main@j+3)& (0+255),f,b
+   499  000234  0100               	movlb	0	; () banked
+   500  000236  51B7               	movf	(main@j+3)& (0+255),w,b
+   501  000238  0A80               	xorlw	128
+   502  00023A  0F80               	addlw	128
+   503  00023C  E10B               	bnz	u175
+   504  00023E  0E00               	movlw	0
+   505  000240  0100               	movlb	0	; () banked
+   506  000242  5DB6               	subwf	(main@j+2)& (0+255),w,b
+   507  000244  E107               	bnz	u175
+   508  000246  0E00               	movlw	0
+   509  000248  0100               	movlb	0	; () banked
+   510  00024A  5DB5               	subwf	(main@j+1)& (0+255),w,b
+   511  00024C  E103               	bnz	u175
+   512  00024E  0E64               	movlw	100
+   513  000250  0100               	movlb	0	; () banked
+   514  000252  5DB4               	subwf	main@j& (0+255),w,b
+   515  000254                     u175:
+   516  000254  D7E3               	goto	u165
+   517  000256                     l64:
+   518                           
+   519                           ; BSR set to: 0
+   520                           ;main.c: 138: }
+   521                           ;main.c: 139: PORTAbits.RA0 = 0;
+   522  000256  9080               	bcf	3968,0,c	;volatile
+   523                           
+   524                           ; BSR set to: 0
+   525                           ;main.c: 140: for (j = 0; j < 10000; j++) {
+   526  000258  0E00               	movlw	0
+   527  00025A  0100               	movlb	0	; () banked
+   528  00025C  6FB4               	movwf	main@j& (0+255),b
+   529  00025E  0E00               	movlw	0
+   530  000260  0100               	movlb	0	; () banked
+   531  000262  6FB5               	movwf	(main@j+1)& (0+255),b
+   532  000264  0E00               	movlw	0
+   533  000266  0100               	movlb	0	; () banked
+   534  000268  6FB6               	movwf	(main@j+2)& (0+255),b
+   535  00026A  0E00               	movlw	0
+   536  00026C  0100               	movlb	0	; () banked
+   537  00026E  6FB7               	movwf	(main@j+3)& (0+255),b
+   538                           
+   539                           ; BSR set to: 0
+   540  000270  0100               	movlb	0	; () banked
+   541  000272  51B7               	movf	(main@j+3)& (0+255),w,b
+   542  000274  0A80               	xorlw	128
+   543  000276  0F80               	addlw	128
+   544  000278  E10B               	bnz	u185
+   545  00027A  0E00               	movlw	0
+   546  00027C  0100               	movlb	0	; () banked
+   547  00027E  5DB6               	subwf	(main@j+2)& (0+255),w,b
+   548  000280  E107               	bnz	u185
+   549  000282  0E27               	movlw	39
+   550  000284  0100               	movlb	0	; () banked
+   551  000286  5DB5               	subwf	(main@j+1)& (0+255),w,b
+   552  000288  E103               	bnz	u185
+   553  00028A  0E10               	movlw	16
+   554  00028C  0100               	movlb	0	; () banked
+   555  00028E  5DB4               	subwf	main@j& (0+255),w,b
+   556  000290                     u185:
+   557  000290  B0D8               	btfsc	status,0,c
+   558  000292  D01B               	goto	l878
+   559                           
+   560                           ; BSR set to: 0
+   561                           
+   562                           ; BSR set to: 0
+   563                           
+   564                           ; BSR set to: 0
+   565  000294  0E01               	movlw	1
+   566  000296  0100               	movlb	0	; () banked
+   567  000298  27B4               	addwf	main@j& (0+255),f,b
+   568  00029A  0E00               	movlw	0
+   569  00029C  0100               	movlb	0	; () banked
+   570  00029E  23B5               	addwfc	(main@j+1)& (0+255),f,b
+   571  0002A0  0100               	movlb	0	; () banked
+   572  0002A2  23B6               	addwfc	(main@j+2)& (0+255),f,b
+   573  0002A4  0100               	movlb	0	; () banked
+   574  0002A6  23B7               	addwfc	(main@j+3)& (0+255),f,b
+   575  0002A8  0100               	movlb	0	; () banked
+   576  0002AA  51B7               	movf	(main@j+3)& (0+255),w,b
+   577  0002AC  0A80               	xorlw	128
+   578  0002AE  0F80               	addlw	128
+   579  0002B0  E10B               	bnz	u195
+   580  0002B2  0E00               	movlw	0
+   581  0002B4  0100               	movlb	0	; () banked
+   582  0002B6  5DB6               	subwf	(main@j+2)& (0+255),w,b
+   583  0002B8  E107               	bnz	u195
+   584  0002BA  0E27               	movlw	39
+   585  0002BC  0100               	movlb	0	; () banked
+   586  0002BE  5DB5               	subwf	(main@j+1)& (0+255),w,b
+   587  0002C0  E103               	bnz	u195
+   588  0002C2  0E10               	movlw	16
+   589  0002C4  0100               	movlb	0	; () banked
+   590  0002C6  5DB4               	subwf	main@j& (0+255),w,b
+   591  0002C8                     u195:
+   592  0002C8  D7E3               	goto	u185
+   593  0002CA                     l878:
+   594                           
+   595                           ; BSR set to: 0
+   596  0002CA  0E01               	movlw	1
+   597  0002CC  0100               	movlb	0	; () banked
+   598  0002CE  27B0               	addwf	main@i& (0+255),f,b
+   599  0002D0  0E00               	movlw	0
+   600  0002D2  0100               	movlb	0	; () banked
+   601  0002D4  23B1               	addwfc	(main@i+1)& (0+255),f,b
+   602  0002D6  0100               	movlb	0	; () banked
+   603  0002D8  23B2               	addwfc	(main@i+2)& (0+255),f,b
+   604  0002DA  0100               	movlb	0	; () banked
+   605  0002DC  23B3               	addwfc	(main@i+3)& (0+255),f,b
+   606  0002DE  0100               	movlb	0	; () banked
+   607  0002E0  51B3               	movf	(main@i+3)& (0+255),w,b
+   608  0002E2  0A80               	xorlw	128
+   609  0002E4  0F80               	addlw	128
+   610  0002E6  E10B               	bnz	u205
+   611  0002E8  0E00               	movlw	0
+   612  0002EA  0100               	movlb	0	; () banked
+   613  0002EC  5DB2               	subwf	(main@i+2)& (0+255),w,b
+   614  0002EE  E107               	bnz	u205
+   615  0002F0  0E00               	movlw	0
+   616  0002F2  0100               	movlb	0	; () banked
+   617  0002F4  5DB1               	subwf	(main@i+1)& (0+255),w,b
+   618  0002F6  E103               	bnz	u205
+   619  0002F8  0E08               	movlw	8
+   620  0002FA  0100               	movlb	0	; () banked
+   621  0002FC  5DB0               	subwf	main@i& (0+255),w,b
+   622  0002FE                     u205:
+   623  0002FE  D76B               	goto	u155
+   624  000300                     __end_of_main:
+   625                           	opt stack 0
+   626                           tblptru	equ	0xFF8
+   627                           tblptrh	equ	0xFF7
+   628                           tblptrl	equ	0xFF6
+   629                           tablat	equ	0xFF5
+   630                           postinc0	equ	0xFEE
+   631                           wreg	equ	0xFE8
+   632                           postinc1	equ	0xFE6
+   633                           postdec1	equ	0xFE5
+   634                           fsr1l	equ	0xFE1
+   635                           postinc2	equ	0xFDE
+   636                           status	equ	0xFD8
+   637                           
+   638 ;; *************** function _multiplexeur *****************
+   639 ;; Defined at:
+   640 ;;		line 149 in file "main.c"
+   641 ;; Parameters:    Size  Location     Type
+   642 ;;  n               1    wreg     unsigned char 
+   643 ;; Auto vars:     Size  Location     Type
+   644 ;;  n               1   35[COMRAM] unsigned char 
+   645 ;; Return value:  Size  Location     Type
+   646 ;;		None               void
+   647 ;; Registers used:
+   648 ;;		wreg, status,2, status,0
+   649 ;; Tracked objects:
+   650 ;;		On entry : 0/0
+   651 ;;		On exit  : 0/0
+   652 ;;		Unchanged: 0/0
+   653 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   678 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   654 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   679 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+   655 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   680 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   656 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   681 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+   657 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   682 ;;Total ram usage:        1 bytes
-   683 ;; Hardware stack levels used:    1
-   684 ;; Hardware stack levels required when called:    2
-   685 ;; This function calls:
-   686 ;;		Nothing
-   687 ;; This function is called by:
-   688 ;;		_main
-   689 ;; This function uses a non-reentrant model
-   690 ;;
-   691                           
-   692                           	psect	text1
-   693  000318                     __ptext1:
-   694                           	opt stack 0
-   695  000318                     _multiplexeur:
-   696                           	opt stack 28
-   697                           
-   698                           ; BSR set to: 0
-   699                           ;incstack = 0
-   700                           ;multiplexeur@n stored from wreg
-   701  000318  6E24               	movwf	multiplexeur@n,c
+   658 ;;Total ram usage:        1 bytes
+   659 ;; Hardware stack levels used:    1
+   660 ;; Hardware stack levels required when called:    2
+   661 ;; This function calls:
+   662 ;;		Nothing
+   663 ;; This function is called by:
+   664 ;;		_main
+   665 ;; This function uses a non-reentrant model
+   666 ;;
+   667                           
+   668                           	psect	text1
+   669  000300                     __ptext1:
+   670                           	opt stack 0
+   671  000300                     _multiplexeur:
+   672                           	opt stack 28
+   673                           
+   674                           ; BSR set to: 0
+   675                           ;incstack = 0
+   676                           ;multiplexeur@n stored from wreg
+   677  000300  6E24               	movwf	multiplexeur@n,c
+   678                           
+   679                           ;main.c: 150: PORTCbits.RC7 = 0;
+   680  000302  9E82               	bcf	3970,7,c	;volatile
+   681                           
+   682                           ;main.c: 151: PORTCbits.RC6 = 0;
+   683  000304  9C82               	bcf	3970,6,c	;volatile
+   684                           
+   685                           ;main.c: 152: PORTCbits.RC5 = 0;
+   686  000306  9A82               	bcf	3970,5,c	;volatile
+   687                           
+   688                           ;main.c: 153: PORTCbits.RC4 = 0;
+   689  000308  9882               	bcf	3970,4,c	;volatile
+   690                           
+   691                           ;main.c: 154: PORTCbits.RC0 = 0;
+   692  00030A  9082               	bcf	3970,0,c	;volatile
+   693                           
+   694                           ;main.c: 155: PORTCbits.RC1 = 0;
+   695  00030C  9282               	bcf	3970,1,c	;volatile
+   696                           
+   697                           ;main.c: 156: PORTCbits.RC2 = 0;
+   698  00030E  9482               	bcf	3970,2,c	;volatile
+   699                           
+   700                           ;main.c: 157: PORTCbits.RC3 = 0;
+   701  000310  9682               	bcf	3970,3,c	;volatile
    702                           
-   703                           ;main.c: 157: PORTCbits.RC7 = 0;
-   704  00031A  9E82               	bcf	3970,7,c	;volatile
-   705                           
-   706                           ;main.c: 158: PORTCbits.RC6 = 0;
-   707  00031C  9C82               	bcf	3970,6,c	;volatile
-   708                           
-   709                           ;main.c: 159: PORTCbits.RC5 = 0;
-   710  00031E  9A82               	bcf	3970,5,c	;volatile
-   711                           
-   712                           ;main.c: 160: PORTCbits.RC4 = 0;
-   713  000320  9882               	bcf	3970,4,c	;volatile
-   714                           
-   715                           ;main.c: 161: PORTCbits.RC0 = 0;
-   716  000322  9082               	bcf	3970,0,c	;volatile
-   717                           
-   718                           ;main.c: 162: PORTCbits.RC1 = 0;
-   719  000324  9282               	bcf	3970,1,c	;volatile
+   703                           ;main.c: 159: switch (n) {
+   704  000312  D010               	goto	l840
+   705  000314                     l73:
+   706                           
+   707                           ;main.c: 161: PORTCbits.RC7 = 1;
+   708  000314  8E82               	bsf	3970,7,c	;volatile
+   709                           
+   710                           ;main.c: 162: break;
+   711  000316  0012               	return	
+   712  000318                     l75:
+   713                           
+   714                           ;main.c: 165: PORTCbits.RC6 = 1;
+   715  000318  8C82               	bsf	3970,6,c	;volatile
+   716                           
+   717                           ;main.c: 166: break;
+   718  00031A  0012               	return	
+   719  00031C                     l76:
    720                           
-   721                           ;main.c: 163: PORTCbits.RC2 = 0;
-   722  000326  9482               	bcf	3970,2,c	;volatile
+   721                           ;main.c: 169: PORTCbits.RC5 = 1;
+   722  00031C  8A82               	bsf	3970,5,c	;volatile
    723                           
-   724                           ;main.c: 164: PORTCbits.RC3 = 0;
-   725  000328  9682               	bcf	3970,3,c	;volatile
-   726                           
-   727                           ;main.c: 165: switch (n) {
-   728  00032A  D010               	goto	l848
-   729  00032C                     l75:
+   724                           ;main.c: 170: break;
+   725  00031E  0012               	return	
+   726  000320                     l77:
+   727                           
+   728                           ;main.c: 173: PORTCbits.RC4 = 1;
+   729  000320  8882               	bsf	3970,4,c	;volatile
    730                           
-   731                           ;main.c: 167: PORTCbits.RC7 = 1;
-   732  00032C  8E82               	bsf	3970,7,c	;volatile
-   733                           
-   734                           ;main.c: 168: break;
-   735  00032E  0012               	return	
-   736  000330                     l77:
+   731                           ;main.c: 174: break;
+   732  000322  0012               	return	
+   733  000324                     l78:
+   734                           
+   735                           ;main.c: 177: PORTCbits.RC0 = 1;
+   736  000324  8082               	bsf	3970,0,c	;volatile
    737                           
-   738                           ;main.c: 171: PORTCbits.RC6 = 1;
-   739  000330  8C82               	bsf	3970,6,c	;volatile
-   740                           
-   741                           ;main.c: 172: break;
-   742  000332  0012               	return	
-   743  000334                     l78:
+   738                           ;main.c: 178: break;
+   739  000326  0012               	return	
+   740  000328                     l79:
+   741                           
+   742                           ;main.c: 181: PORTCbits.RC1 = 1;
+   743  000328  8282               	bsf	3970,1,c	;volatile
    744                           
-   745                           ;main.c: 175: PORTCbits.RC5 = 1;
-   746  000334  8A82               	bsf	3970,5,c	;volatile
-   747                           
-   748                           ;main.c: 176: break;
-   749  000336  0012               	return	
-   750  000338                     l79:
+   745                           ;main.c: 182: break;
+   746  00032A  0012               	return	
+   747  00032C                     l80:
+   748                           
+   749                           ;main.c: 185: PORTCbits.RC2 = 1;
+   750  00032C  8482               	bsf	3970,2,c	;volatile
    751                           
-   752                           ;main.c: 179: PORTCbits.RC4 = 1;
-   753  000338  8882               	bsf	3970,4,c	;volatile
-   754                           
-   755                           ;main.c: 180: break;
-   756  00033A  0012               	return	
-   757  00033C                     l80:
+   752                           ;main.c: 186: break;
+   753  00032E  0012               	return	
+   754  000330                     l81:
+   755                           
+   756                           ;main.c: 189: PORTCbits.RC3 = 1;
+   757  000330  8682               	bsf	3970,3,c	;volatile
    758                           
-   759                           ;main.c: 183: PORTCbits.RC0 = 1;
-   760  00033C  8082               	bsf	3970,0,c	;volatile
-   761                           
-   762                           ;main.c: 184: break;
-   763  00033E  0012               	return	
-   764  000340                     l81:
-   765                           
-   766                           ;main.c: 187: PORTCbits.RC1 = 1;
-   767  000340  8282               	bsf	3970,1,c	;volatile
-   768                           
-   769                           ;main.c: 188: break;
-   770  000342  0012               	return	
-   771  000344                     l82:
-   772                           
-   773                           ;main.c: 191: PORTCbits.RC2 = 1;
-   774  000344  8482               	bsf	3970,2,c	;volatile
-   775                           
-   776                           ;main.c: 192: break;
-   777  000346  0012               	return	
-   778  000348                     l83:
-   779                           
-   780                           ;main.c: 195: PORTCbits.RC3 = 1;
-   781  000348  8682               	bsf	3970,3,c	;volatile
-   782                           
-   783                           ;main.c: 196: break;
-   784  00034A  0012               	return	
-   785  00034C                     l848:
-   786  00034C  5024               	movf	multiplexeur@n,w,c
-   787                           
-   788                           ; Switch size 1, requested type "space"
-   789                           ; Number of cases is 8, Range of values is 0 to 7
-   790                           ; switch strategies available:
-   791                           ; Name         Instructions Cycles
-   792                           ; simple_byte           25    13 (average)
-   793                           ;	Chosen strategy is simple_byte
-   794  00034E  0A00               	xorlw	0	; case 0
-   795  000350  B4D8               	btfsc	status,2,c
-   796  000352  D7EC               	goto	l75
-   797  000354  0A01               	xorlw	1	; case 1
-   798  000356  B4D8               	btfsc	status,2,c
-   799  000358  D7EB               	goto	l77
-   800  00035A  0A03               	xorlw	3	; case 2
-   801  00035C  B4D8               	btfsc	status,2,c
-   802  00035E  D7EA               	goto	l78
-   803  000360  0A01               	xorlw	1	; case 3
-   804  000362  B4D8               	btfsc	status,2,c
-   805  000364  D7E9               	goto	l79
-   806  000366  0A07               	xorlw	7	; case 4
-   807  000368  B4D8               	btfsc	status,2,c
-   808  00036A  D7E8               	goto	l80
-   809  00036C  0A01               	xorlw	1	; case 5
-   810  00036E  B4D8               	btfsc	status,2,c
-   811  000370  D7E7               	goto	l81
-   812  000372  0A03               	xorlw	3	; case 6
-   813  000374  B4D8               	btfsc	status,2,c
-   814  000376  D7E6               	goto	l82
-   815  000378  0A01               	xorlw	1	; case 7
-   816  00037A  A4D8               	btfss	status,2,c
-   817  00037C  0012               	return	
-   818  00037E  D7E4               	goto	l83
-   819  000380                     __end_of_multiplexeur:
-   820                           	opt stack 0
-   821                           tblptru	equ	0xFF8
-   822                           tblptrh	equ	0xFF7
-   823                           tblptrl	equ	0xFF6
-   824                           tablat	equ	0xFF5
-   825                           postinc0	equ	0xFEE
-   826                           wreg	equ	0xFE8
-   827                           postinc1	equ	0xFE6
-   828                           postdec1	equ	0xFE5
-   829                           fsr1l	equ	0xFE1
-   830                           postinc2	equ	0xFDE
-   831                           status	equ	0xFD8
-   832                           
-   833 ;; *************** function _initPorts *****************
-   834 ;; Defined at:
-   835 ;;		line 7 in file "port.c"
-   836 ;; Parameters:    Size  Location     Type
-   837 ;;		None
-   838 ;; Auto vars:     Size  Location     Type
-   839 ;;		None
-   840 ;; Return value:  Size  Location     Type
-   841 ;;		None               void
-   842 ;; Registers used:
-   843 ;;		wreg, status,2
-   844 ;; Tracked objects:
-   845 ;;		On entry : 0/0
-   846 ;;		On exit  : 0/0
-   847 ;;		Unchanged: 0/0
-   848 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   759                           ;main.c: 190: break;
+   760  000332  0012               	return	
+   761  000334                     l840:
+   762  000334  5024               	movf	multiplexeur@n,w,c
+   763                           
+   764                           ; Switch size 1, requested type "space"
+   765                           ; Number of cases is 8, Range of values is 0 to 7
+   766                           ; switch strategies available:
+   767                           ; Name         Instructions Cycles
+   768                           ; simple_byte           25    13 (average)
+   769                           ;	Chosen strategy is simple_byte
+   770  000336  0A00               	xorlw	0	; case 0
+   771  000338  B4D8               	btfsc	status,2,c
+   772  00033A  D7EC               	goto	l73
+   773  00033C  0A01               	xorlw	1	; case 1
+   774  00033E  B4D8               	btfsc	status,2,c
+   775  000340  D7EB               	goto	l75
+   776  000342  0A03               	xorlw	3	; case 2
+   777  000344  B4D8               	btfsc	status,2,c
+   778  000346  D7EA               	goto	l76
+   779  000348  0A01               	xorlw	1	; case 3
+   780  00034A  B4D8               	btfsc	status,2,c
+   781  00034C  D7E9               	goto	l77
+   782  00034E  0A07               	xorlw	7	; case 4
+   783  000350  B4D8               	btfsc	status,2,c
+   784  000352  D7E8               	goto	l78
+   785  000354  0A01               	xorlw	1	; case 5
+   786  000356  B4D8               	btfsc	status,2,c
+   787  000358  D7E7               	goto	l79
+   788  00035A  0A03               	xorlw	3	; case 6
+   789  00035C  B4D8               	btfsc	status,2,c
+   790  00035E  D7E6               	goto	l80
+   791  000360  0A01               	xorlw	1	; case 7
+   792  000362  A4D8               	btfss	status,2,c
+   793  000364  0012               	return	
+   794  000366  D7E4               	goto	l81
+   795  000368                     __end_of_multiplexeur:
+   796                           	opt stack 0
+   797                           tblptru	equ	0xFF8
+   798                           tblptrh	equ	0xFF7
+   799                           tblptrl	equ	0xFF6
+   800                           tablat	equ	0xFF5
+   801                           postinc0	equ	0xFEE
+   802                           wreg	equ	0xFE8
+   803                           postinc1	equ	0xFE6
+   804                           postdec1	equ	0xFE5
+   805                           fsr1l	equ	0xFE1
+   806                           postinc2	equ	0xFDE
+   807                           status	equ	0xFD8
+   808                           
+   809 ;; *************** function _initPorts *****************
+   810 ;; Defined at:
+   811 ;;		line 7 in file "port.c"
+   812 ;; Parameters:    Size  Location     Type
+   813 ;;		None
+   814 ;; Auto vars:     Size  Location     Type
+   815 ;;		None
+   816 ;; Return value:  Size  Location     Type
+   817 ;;		None               void
+   818 ;; Registers used:
+   819 ;;		wreg, status,2
+   820 ;; Tracked objects:
+   821 ;;		On entry : 0/0
+   822 ;;		On exit  : 0/0
+   823 ;;		Unchanged: 0/0
+   824 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   849 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   825 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   850 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   826 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   851 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   827 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   852 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   828 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   853 ;;Total ram usage:        0 bytes
-   854 ;; Hardware stack levels used:    1
-   855 ;; Hardware stack levels required when called:    2
-   856 ;; This function calls:
-   857 ;;		Nothing
-   858 ;; This function is called by:
-   859 ;;		_main
-   860 ;; This function uses a non-reentrant model
-   861 ;;
-   862                           
-   863                           	psect	text2
-   864  00045A                     __ptext2:
-   865                           	opt stack 0
-   866  00045A                     _initPorts:
-   867                           	opt stack 28
-   868                           
-   869                           ;port.c: 12: OSCCON = 0x70;
-   870                           
-   871                           ;incstack = 0
-   872  00045A  0E70               	movlw	112
-   873  00045C  6ED3               	movwf	4051,c	;volatile
-   874                           
-   875                           ;port.c: 14: ANCON0 = 0b00000000;
-   876  00045E  0E00               	movlw	0
-   877  000460  010F               	movlb	15	; () banked
-   878  000462  6F5D               	movwf	93,b	;volatile
+   829 ;;Total ram usage:        0 bytes
+   830 ;; Hardware stack levels used:    1
+   831 ;; Hardware stack levels required when called:    2
+   832 ;; This function calls:
+   833 ;;		Nothing
+   834 ;; This function is called by:
+   835 ;;		_main
+   836 ;; This function uses a non-reentrant model
+   837 ;;
+   838                           
+   839                           	psect	text2
+   840  000436                     __ptext2:
+   841                           	opt stack 0
+   842  000436                     _initPorts:
+   843                           	opt stack 28
+   844                           
+   845                           ;port.c: 12: OSCCON = 0x70;
+   846                           
+   847                           ;incstack = 0
+   848  000436  0E70               	movlw	112
+   849  000438  6ED3               	movwf	4051,c	;volatile
+   850                           
+   851                           ;port.c: 14: ANCON0 = 0b00000000;
+   852  00043A  0E00               	movlw	0
+   853  00043C  010F               	movlb	15	; () banked
+   854  00043E  6F5D               	movwf	93,b	;volatile
+   855                           
+   856                           ; BSR set to: 15
+   857                           ;port.c: 17: ADON = 0;
+   858  000440  90C2               	bcf	4034,0,c	;volatile
+   859                           
+   860                           ;port.c: 20: PORTA = 0b00000000;
+   861  000442  0E00               	movlw	0
+   862  000444  6E80               	movwf	3968,c	;volatile
+   863                           
+   864                           ;port.c: 21: TRISA = 0b00000000;
+   865  000446  0E00               	movlw	0
+   866  000448  6E92               	movwf	3986,c	;volatile
+   867                           
+   868                           ;port.c: 23: PORTB = 0b01000000;
+   869  00044A  0E40               	movlw	64
+   870  00044C  6E81               	movwf	3969,c	;volatile
+   871                           
+   872                           ;port.c: 24: TRISB = 0b10000000;
+   873  00044E  0E80               	movlw	128
+   874  000450  6E93               	movwf	3987,c	;volatile
+   875                           
+   876                           ;port.c: 26: PORTC = 0b00000000;
+   877  000452  0E00               	movlw	0
+   878  000454  6E82               	movwf	3970,c	;volatile
    879                           
-   880                           ; BSR set to: 15
-   881                           ;port.c: 17: ADON = 0;
-   882  000464  90C2               	bcf	4034,0,c	;volatile
+   880                           ;port.c: 27: TRISC = 0b00000000;
+   881  000456  0E00               	movlw	0
+   882  000458  6E94               	movwf	3988,c	;volatile
    883                           
-   884                           ;port.c: 20: PORTA = 0b00000000;
-   885  000466  0E00               	movlw	0
-   886  000468  6E80               	movwf	3968,c	;volatile
+   884                           ; BSR set to: 15
+   885                           ;port.c: 30: GIE = 1;
+   886  00045A  8EF2               	bsf	intcon,7,c	;volatile
    887                           
-   888                           ;port.c: 21: TRISA = 0b00000000;
-   889  00046A  0E00               	movlw	0
-   890  00046C  6E92               	movwf	3986,c	;volatile
+   888                           ; BSR set to: 15
+   889                           ;port.c: 31: PEIE = 1;
+   890  00045C  8CF2               	bsf	intcon,6,c	;volatile
    891                           
-   892                           ;port.c: 23: PORTB = 0b01000000;
-   893  00046E  0E40               	movlw	64
-   894  000470  6E81               	movwf	3969,c	;volatile
+   892                           ;port.c: 32: INTCON =0b11000000;
+   893  00045E  0EC0               	movlw	192
+   894  000460  6EF2               	movwf	intcon,c	;volatile
    895                           
-   896                           ;port.c: 24: TRISB = 0b10000000;
-   897  000472  0E80               	movlw	128
-   898  000474  6E93               	movwf	3987,c	;volatile
+   896                           ; BSR set to: 15
+   897                           ;port.c: 34: OSCTUNEbits.PLLEN = 1;
+   898  000462  8C9B               	bsf	3995,6,c	;volatile
    899                           
-   900                           ;port.c: 26: PORTC = 0b00000000;
-   901  000476  0E00               	movlw	0
-   902  000478  6E82               	movwf	3970,c	;volatile
-   903                           
-   904                           ;port.c: 27: TRISC = 0b00000000;
-   905  00047A  0E00               	movlw	0
-   906  00047C  6E94               	movwf	3988,c	;volatile
-   907                           
-   908                           ; BSR set to: 15
-   909                           ;port.c: 30: GIE = 1;
-   910  00047E  8EF2               	bsf	intcon,7,c	;volatile
-   911                           
-   912                           ; BSR set to: 15
-   913                           ;port.c: 31: PEIE = 1;
-   914  000480  8CF2               	bsf	intcon,6,c	;volatile
-   915                           
-   916                           ;port.c: 32: INTCON =0b11000000;
-   917  000482  0EC0               	movlw	192
-   918  000484  6EF2               	movwf	intcon,c	;volatile
-   919                           
-   920                           ; BSR set to: 15
-   921                           ;port.c: 34: OSCTUNEbits.PLLEN = 1;
-   922  000486  8C9B               	bsf	3995,6,c	;volatile
-   923                           
-   924                           ; BSR set to: 15
-   925  000488  0012               	return	
-   926  00048A                     __end_of_initPorts:
-   927                           	opt stack 0
-   928                           tblptru	equ	0xFF8
-   929                           tblptrh	equ	0xFF7
-   930                           tblptrl	equ	0xFF6
-   931                           tablat	equ	0xFF5
-   932                           intcon	equ	0xFF2
-   933                           postinc0	equ	0xFEE
-   934                           wreg	equ	0xFE8
-   935                           postinc1	equ	0xFE6
-   936                           postdec1	equ	0xFE5
-   937                           fsr1l	equ	0xFE1
-   938                           postinc2	equ	0xFDE
-   939                           status	equ	0xFD8
-   940                           
-   941 ;; *************** function _initComms *****************
-   942 ;; Defined at:
-   943 ;;		line 6 in file "usart.c"
-   944 ;; Parameters:    Size  Location     Type
-   945 ;;		None
-   946 ;; Auto vars:     Size  Location     Type
-   947 ;;		None
-   948 ;; Return value:  Size  Location     Type
-   949 ;;		None               void
-   950 ;; Registers used:
-   951 ;;		wreg, status,2
-   952 ;; Tracked objects:
-   953 ;;		On entry : 0/0
-   954 ;;		On exit  : 0/0
-   955 ;;		Unchanged: 0/0
-   956 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   900                           ; BSR set to: 15
+   901  000464  0012               	return	
+   902  000466                     __end_of_initPorts:
+   903                           	opt stack 0
+   904                           tblptru	equ	0xFF8
+   905                           tblptrh	equ	0xFF7
+   906                           tblptrl	equ	0xFF6
+   907                           tablat	equ	0xFF5
+   908                           intcon	equ	0xFF2
+   909                           postinc0	equ	0xFEE
+   910                           wreg	equ	0xFE8
+   911                           postinc1	equ	0xFE6
+   912                           postdec1	equ	0xFE5
+   913                           fsr1l	equ	0xFE1
+   914                           postinc2	equ	0xFDE
+   915                           status	equ	0xFD8
+   916                           
+   917 ;; *************** function _initComms *****************
+   918 ;; Defined at:
+   919 ;;		line 6 in file "usart.c"
+   920 ;; Parameters:    Size  Location     Type
+   921 ;;		None
+   922 ;; Auto vars:     Size  Location     Type
+   923 ;;		None
+   924 ;; Return value:  Size  Location     Type
+   925 ;;		None               void
+   926 ;; Registers used:
+   927 ;;		wreg, status,2
+   928 ;; Tracked objects:
+   929 ;;		On entry : 0/0
+   930 ;;		On exit  : 0/0
+   931 ;;		Unchanged: 0/0
+   932 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-   957 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   933 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   958 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   934 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   959 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   935 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   960 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   936 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-   961 ;;Total ram usage:        0 bytes
-   962 ;; Hardware stack levels used:    1
-   963 ;; Hardware stack levels required when called:    2
-   964 ;; This function calls:
-   965 ;;		Nothing
-   966 ;; This function is called by:
-   967 ;;		_main
-   968 ;; This function uses a non-reentrant model
-   969 ;;
+   937 ;;Total ram usage:        0 bytes
+   938 ;; Hardware stack levels used:    1
+   939 ;; Hardware stack levels required when called:    2
+   940 ;; This function calls:
+   941 ;;		Nothing
+   942 ;; This function is called by:
+   943 ;;		_main
+   944 ;; This function uses a non-reentrant model
+   945 ;;
+   946                           
+   947                           	psect	text3
+   948  0003B8                     __ptext3:
+   949                           	opt stack 0
+   950  0003B8                     _initComms:
+   951                           	opt stack 28
+   952                           
+   953                           ;usart.c: 8: TXSTA2bits.CSRC = 0;
+   954                           
+   955                           ; BSR set to: 15
+   956                           ;incstack = 0
+   957  0003B8  9EBA               	bcf	4026,7,c	;volatile
+   958                           
+   959                           ;usart.c: 9: TXSTA2bits.TX9 = 0;
+   960  0003BA  9CBA               	bcf	4026,6,c	;volatile
+   961                           
+   962                           ;usart.c: 10: TXSTA2bits.TXEN = 1;
+   963  0003BC  8ABA               	bsf	4026,5,c	;volatile
+   964                           
+   965                           ;usart.c: 11: TXSTA2bits.SYNC = 0;
+   966  0003BE  98BA               	bcf	4026,4,c	;volatile
+   967                           
+   968                           ;usart.c: 12: TXSTA2bits.SENDB = 0;
+   969  0003C0  96BA               	bcf	4026,3,c	;volatile
    970                           
-   971                           	psect	text3
-   972  00041A                     __ptext3:
-   973                           	opt stack 0
-   974  00041A                     _initComms:
-   975                           	opt stack 28
+   971                           ;usart.c: 13: TXSTA2bits.BRGH = 1;
+   972  0003C2  84BA               	bsf	4026,2,c	;volatile
+   973                           
+   974                           ;usart.c: 14: TXSTA2bits.TRMT = 1;
+   975  0003C4  82BA               	bsf	4026,1,c	;volatile
    976                           
-   977                           ;usart.c: 8: TXSTA2bits.CSRC = 0;
-   978                           
-   979                           ; BSR set to: 15
-   980                           ;incstack = 0
-   981  00041A  9EBA               	bcf	4026,7,c	;volatile
+   977                           ;usart.c: 15: TXSTA2bits.TX9D = 0;
+   978  0003C6  90BA               	bcf	4026,0,c	;volatile
+   979                           
+   980                           ;usart.c: 17: RCSTA2bits.SPEN = 1;
+   981  0003C8  8EA6               	bsf	4006,7,c	;volatile
    982                           
-   983                           ;usart.c: 9: TXSTA2bits.TX9 = 0;
-   984  00041C  9CBA               	bcf	4026,6,c	;volatile
+   983                           ;usart.c: 18: RCSTA2bits.RX9 = 0;
+   984  0003CA  9CA6               	bcf	4006,6,c	;volatile
    985                           
-   986                           ;usart.c: 10: TXSTA2bits.TXEN = 1;
-   987  00041E  8ABA               	bsf	4026,5,c	;volatile
+   986                           ;usart.c: 19: RCSTA2bits.SREN = 0;
+   987  0003CC  9AA6               	bcf	4006,5,c	;volatile
    988                           
-   989                           ;usart.c: 11: TXSTA2bits.SYNC = 0;
-   990  000420  98BA               	bcf	4026,4,c	;volatile
+   989                           ;usart.c: 20: RCSTA2bits.CREN = 1;
+   990  0003CE  88A6               	bsf	4006,4,c	;volatile
    991                           
-   992                           ;usart.c: 12: TXSTA2bits.SENDB = 0;
-   993  000422  96BA               	bcf	4026,3,c	;volatile
+   992                           ;usart.c: 21: RCSTA2bits.ADDEN = 0;
+   993  0003D0  96A6               	bcf	4006,3,c	;volatile
    994                           
-   995                           ;usart.c: 13: TXSTA2bits.BRGH = 1;
-   996  000424  84BA               	bsf	4026,2,c	;volatile
+   995                           ;usart.c: 22: RCSTA2bits.FERR = 0;
+   996  0003D2  94A6               	bcf	4006,2,c	;volatile
    997                           
-   998                           ;usart.c: 14: TXSTA2bits.TRMT = 1;
-   999  000426  82BA               	bsf	4026,1,c	;volatile
+   998                           ;usart.c: 23: RCSTA2bits.OERR = 0;
+   999  0003D4  92A6               	bcf	4006,1,c	;volatile
   1000                           
-  1001                           ;usart.c: 15: TXSTA2bits.TX9D = 0;
-  1002  000428  90BA               	bcf	4026,0,c	;volatile
+  1001                           ;usart.c: 24: RCSTA2bits.RX9D = 0;
+  1002  0003D6  90A6               	bcf	4006,0,c	;volatile
   1003                           
-  1004                           ;usart.c: 17: RCSTA2bits.SPEN = 1;
-  1005  00042A  8EA6               	bsf	4006,7,c	;volatile
+  1004                           ;usart.c: 26: BAUDCON2bits.ABDOVF = 0;
+  1005  0003D8  9EB9               	bcf	4025,7,c	;volatile
   1006                           
-  1007                           ;usart.c: 18: RCSTA2bits.RX9 = 0;
-  1008  00042C  9CA6               	bcf	4006,6,c	;volatile
+  1007                           ;usart.c: 27: BAUDCON2bits.RCIDL = 1;
+  1008  0003DA  8CB9               	bsf	4025,6,c	;volatile
   1009                           
-  1010                           ;usart.c: 19: RCSTA2bits.SREN = 0;
-  1011  00042E  9AA6               	bcf	4006,5,c	;volatile
+  1010                           ;usart.c: 28: BAUDCON2bits.RXDTP = 0;
+  1011  0003DC  9AB9               	bcf	4025,5,c	;volatile
   1012                           
-  1013                           ;usart.c: 20: RCSTA2bits.CREN = 1;
-  1014  000430  88A6               	bsf	4006,4,c	;volatile
+  1013                           ;usart.c: 29: BAUDCON2bits.TXCKP = 0;
+  1014  0003DE  98B9               	bcf	4025,4,c	;volatile
   1015                           
-  1016                           ;usart.c: 21: RCSTA2bits.ADDEN = 0;
-  1017  000432  96A6               	bcf	4006,3,c	;volatile
+  1016                           ;usart.c: 30: BAUDCON2bits.BRG16 = 1;
+  1017  0003E0  86B9               	bsf	4025,3,c	;volatile
   1018                           
-  1019                           ;usart.c: 22: RCSTA2bits.FERR = 0;
-  1020  000434  94A6               	bcf	4006,2,c	;volatile
+  1019                           ;usart.c: 31: BAUDCON2bits.WUE = 0;
+  1020  0003E2  92B9               	bcf	4025,1,c	;volatile
   1021                           
-  1022                           ;usart.c: 23: RCSTA2bits.OERR = 0;
-  1023  000436  92A6               	bcf	4006,1,c	;volatile
+  1022                           ;usart.c: 32: BAUDCON2bits.ABDEN = 0;
+  1023  0003E4  90B9               	bcf	4025,0,c	;volatile
   1024                           
-  1025                           ;usart.c: 24: RCSTA2bits.RX9D = 0;
-  1026  000438  90A6               	bcf	4006,0,c	;volatile
+  1025                           ;usart.c: 36: PIE3bits.RC2IE = 1;
+  1026  0003E6  8AA3               	bsf	4003,5,c	;volatile
   1027                           
-  1028                           ;usart.c: 26: BAUDCON2bits.ABDOVF = 0;
-  1029  00043A  9EB9               	bcf	4025,7,c	;volatile
+  1028                           ;usart.c: 37: RCONbits.IPEN = 1;
+  1029  0003E8  8ED0               	bsf	4048,7,c	;volatile
   1030                           
-  1031                           ;usart.c: 27: BAUDCON2bits.RCIDL = 1;
-  1032  00043C  8CB9               	bsf	4025,6,c	;volatile
-  1033                           
-  1034                           ;usart.c: 28: BAUDCON2bits.RXDTP = 0;
-  1035  00043E  9AB9               	bcf	4025,5,c	;volatile
-  1036                           
-  1037                           ;usart.c: 29: BAUDCON2bits.TXCKP = 0;
-  1038  000440  98B9               	bcf	4025,4,c	;volatile
-  1039                           
-  1040                           ;usart.c: 30: BAUDCON2bits.BRG16 = 1;
-  1041  000442  86B9               	bsf	4025,3,c	;volatile
-  1042                           
-  1043                           ;usart.c: 31: BAUDCON2bits.WUE = 0;
-  1044  000444  92B9               	bcf	4025,1,c	;volatile
-  1045                           
-  1046                           ;usart.c: 32: BAUDCON2bits.ABDEN = 0;
-  1047  000446  90B9               	bcf	4025,0,c	;volatile
-  1048                           
-  1049                           ;usart.c: 36: PIE3bits.RC2IE = 1;
-  1050  000448  8AA3               	bsf	4003,5,c	;volatile
-  1051                           
-  1052                           ;usart.c: 37: RCONbits.IPEN = 1;
-  1053  00044A  8ED0               	bsf	4048,7,c	;volatile
-  1054                           
-  1055                           ;usart.c: 48: SPBRG = 115;
-  1056  00044C  0E73               	movlw	115
-  1057  00044E  6EAF               	movwf	4015,c	;volatile
-  1058                           
-  1059                           ;usart.c: 49: SPBRGH2 = 0;
-  1060  000450  0E00               	movlw	0
-  1061  000452  6E7C               	movwf	3964,c	;volatile
-  1062                           
-  1063                           ;usart.c: 50: SPBRG2 = 137;
-  1064  000454  0E89               	movlw	137
-  1065  000456  6E7B               	movwf	3963,c	;volatile
-  1066  000458  0012               	return	
-  1067  00045A                     __end_of_initComms:
-  1068                           	opt stack 0
-  1069                           tblptru	equ	0xFF8
-  1070                           tblptrh	equ	0xFF7
-  1071                           tblptrl	equ	0xFF6
-  1072                           tablat	equ	0xFF5
-  1073                           intcon	equ	0xFF2
-  1074                           postinc0	equ	0xFEE
-  1075                           wreg	equ	0xFE8
-  1076                           postinc1	equ	0xFE6
-  1077                           postdec1	equ	0xFE5
-  1078                           fsr1l	equ	0xFE1
-  1079                           postinc2	equ	0xFDE
-  1080                           status	equ	0xFD8
-  1081                           
-  1082 ;; *************** function _low_isr *****************
-  1083 ;; Defined at:
-  1084 ;;		line 100 in file "main.c"
-  1085 ;; Parameters:    Size  Location     Type
-  1086 ;;		None
-  1087 ;; Auto vars:     Size  Location     Type
-  1088 ;;		None
-  1089 ;; Return value:  Size  Location     Type
-  1090 ;;		None               void
-  1091 ;; Registers used:
-  1092 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
-  1093 ;; Tracked objects:
-  1094 ;;		On entry : 0/0
-  1095 ;;		On exit  : 0/0
-  1096 ;;		Unchanged: 0/0
-  1097 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+  1031                           ;usart.c: 48: SPBRG = 115;
+  1032  0003EA  0E73               	movlw	115
+  1033  0003EC  6EAF               	movwf	4015,c	;volatile
+  1034                           
+  1035                           ;usart.c: 49: SPBRGH2 = 0;
+  1036  0003EE  0E00               	movlw	0
+  1037  0003F0  6E7C               	movwf	3964,c	;volatile
+  1038                           
+  1039                           ;usart.c: 50: SPBRG2 = 137;
+  1040  0003F2  0E89               	movlw	137
+  1041  0003F4  6E7B               	movwf	3963,c	;volatile
+  1042  0003F6  0012               	return	
+  1043  0003F8                     __end_of_initComms:
+  1044                           	opt stack 0
+  1045                           tblptru	equ	0xFF8
+  1046                           tblptrh	equ	0xFF7
+  1047                           tblptrl	equ	0xFF6
+  1048                           tablat	equ	0xFF5
+  1049                           intcon	equ	0xFF2
+  1050                           postinc0	equ	0xFEE
+  1051                           wreg	equ	0xFE8
+  1052                           postinc1	equ	0xFE6
+  1053                           postdec1	equ	0xFE5
+  1054                           fsr1l	equ	0xFE1
+  1055                           postinc2	equ	0xFDE
+  1056                           status	equ	0xFD8
+  1057                           
+  1058 ;; *************** function _low_isr *****************
+  1059 ;; Defined at:
+  1060 ;;		line 99 in file "main.c"
+  1061 ;; Parameters:    Size  Location     Type
+  1062 ;;		None
+  1063 ;; Auto vars:     Size  Location     Type
+  1064 ;;		None
+  1065 ;; Return value:  Size  Location     Type
+  1066 ;;		None               void
+  1067 ;; Registers used:
+  1068 ;;		wreg, status,2, status,0, cstack
+  1069 ;; Tracked objects:
+  1070 ;;		On entry : 0/0
+  1071 ;;		On exit  : 0/0
+  1072 ;;		Unchanged: 0/0
+  1073 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-  1098 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1074 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-  1099 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1075 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-  1100 ;;      Temps:         17       0       0       0       0       0       0       0       0       0       0       0       
+  1076 ;;      Temps:         17       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-  1101 ;;      Totals:        17       0       0       0       0       0       0       0       0       0       0       0       
+  1077 ;;      Totals:        17       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-  1102 ;;Total ram usage:       17 bytes
-  1103 ;; Hardware stack levels used:    1
-  1104 ;; Hardware stack levels required when called:    1
-  1105 ;; This function calls:
-  1106 ;;		_writeDataToUART
-  1107 ;; This function is called by:
-  1108 ;;		Interrupt level 1
-  1109 ;; This function uses a non-reentrant model
-  1110 ;;
-  1111                           
-  1112 ;; *************** function _timer_isr *****************
-  1113 ;; Defined at:
-  1114 ;;		line 115 in file "main.c"
-  1115 ;; Parameters:    Size  Location     Type
-  1116 ;;		None
-  1117 ;; Auto vars:     Size  Location     Type
-  1118 ;;		None
-  1119 ;; Return value:  Size  Location     Type
-  1120 ;;		None               void
-  1121 ;; Registers used:
-  1122 ;;		None
-  1123 ;; Tracked objects:
-  1124 ;;		On entry : 0/0
-  1125 ;;		On exit  : 0/0
-  1126 ;;		Unchanged: 0/0
-  1127 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+  1078 ;;Total ram usage:       17 bytes
+  1079 ;; Hardware stack levels used:    1
+  1080 ;; Hardware stack levels required when called:    1
+  1081 ;; This function calls:
+  1082 ;;		_writeDataToUART
+  1083 ;; This function is called by:
+  1084 ;;		Interrupt level 1
+  1085 ;; This function uses a non-reentrant model
+  1086 ;;
+  1087                           
+  1088 ;; *************** function _timer_isr *****************
+  1089 ;; Defined at:
+  1090 ;;		line 113 in file "main.c"
+  1091 ;; Parameters:    Size  Location     Type
+  1092 ;;		None
+  1093 ;; Auto vars:     Size  Location     Type
+  1094 ;;		None
+  1095 ;; Return value:  Size  Location     Type
+  1096 ;;		None               void
+  1097 ;; Registers used:
+  1098 ;;		None
+  1099 ;; Tracked objects:
+  1100 ;;		On entry : 0/0
+  1101 ;;		On exit  : 0/0
+  1102 ;;		Unchanged: 0/0
+  1103 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-  1128 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1104 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-  1129 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1105 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-  1130 ;;      Temps:         17       0       0       0       0       0       0       0       0       0       0       0       
+  1106 ;;      Temps:         17       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-  1131 ;;      Totals:        17       0       0       0       0       0       0       0       0       0       0       0       
+  1107 ;;      Totals:        17       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-  1132 ;;Total ram usage:       17 bytes
-  1133 ;; Hardware stack levels used:    1
-  1134 ;; This function calls:
-  1135 ;;		Nothing
-  1136 ;; This function is called by:
-  1137 ;;		Interrupt level 1
-  1138 ;; This function uses a non-reentrant model
-  1139 ;;
-  1140                           
-  1141                           	psect	intcodelo
-  1142  000018                     __pintcodelo:
-  1143                           	opt stack 0
-  1144  000018                     _low_isr:
-  1145                           	opt stack 28
-  1146                           
-  1147                           ;incstack = 0
-  1148  000018  CFD8 F002          	movff	status,??_low_isr
-  1149  00001C  CFE8 F003          	movff	wreg,??_low_isr+1
-  1150  000020  CFE0 F004          	movff	bsr,??_low_isr+2
-  1151  000024  CFFA F005          	movff	pclath,??_low_isr+3
-  1152  000028  CFFB F006          	movff	pclatu,??_low_isr+4
-  1153  00002C  CFE9 F007          	movff	fsr0l,??_low_isr+5
-  1154  000030  CFEA F008          	movff	fsr0h,??_low_isr+6
-  1155  000034  CFE1 F009          	movff	fsr1l,??_low_isr+7
-  1156  000038  CFE2 F00A          	movff	fsr1h,??_low_isr+8
-  1157  00003C  CFD9 F00B          	movff	fsr2l,??_low_isr+9
-  1158  000040  CFDA F00C          	movff	fsr2h,??_low_isr+10
-  1159  000044  CFF3 F00D          	movff	prodl,??_low_isr+11
-  1160  000048  CFF4 F00E          	movff	prodh,??_low_isr+12
-  1161  00004C  CFF6 F00F          	movff	tblptrl,??_low_isr+13
-  1162  000050  CFF7 F010          	movff	tblptrh,??_low_isr+14
-  1163  000054  CFF8 F011          	movff	tblptru,??_low_isr+15
-  1164  000058  CFF5 F012          	movff	tablat,??_low_isr+16
-  1165                           
-  1166                           ;main.c: 101: if (RC2IF ) {
-  1167  00005C  AAA4               	btfss	4004,5,c	;volatile
-  1168  00005E  D018               	goto	i1l864
-  1169                           
-  1170                           ;main.c: 102: tampon = RCREG2;
-  1171  000060  CF7A F028          	movff	3962,_tampon	;volatile
-  1172                           
-  1173                           ;main.c: 104: if (compteur == 128) {
-  1174  000064  5025               	movf	_compteur,w,c
-  1175  000066  0A80               	xorlw	128
-  1176  000068  A4D8               	btfss	status,2,c
-  1177  00006A  D002               	goto	i1l858
-  1178                           
-  1179                           ;main.c: 105: compteur = 0;
-  1180  00006C  0E00               	movlw	0
-  1181  00006E  6E25               	movwf	_compteur,c
-  1182  000070                     i1l858:
-  1183                           
-  1184                           ;main.c: 107: }
-  1185                           ;main.c: 108: stock_led[compteur] = tampon;
-  1186  000070  5025               	movf	_compteur,w,c
-  1187  000072  0D01               	mullw	1
-  1188  000074  0102               	movlb	2	; () banked
-  1189  000076  0E00               	movlw	low _stock_led
-  1190  000078  24F3               	addwf	prodl,w,c
-  1191  00007A  6ED9               	movwf	fsr2l,c
-  1192  00007C  0102               	movlb	2	; () banked
-  1193  00007E  0E02               	movlw	high _stock_led
-  1194  000080  20F4               	addwfc	prodh,w,c
-  1195  000082  6EDA               	movwf	fsr2h,c
-  1196  000084  C028  FFDF         	movff	_tampon,indf2
-  1197                           
-  1198                           ; BSR set to: 2
-  1199                           ;main.c: 109: writeDataToUART(tampon);
-  1200  000088  5028               	movf	_tampon,w,c
-  1201  00008A  EC45  F002         	call	_writeDataToUART
-  1202                           
-  1203                           ;main.c: 110: compteur++;
-  1204  00008E  2A25               	incf	_compteur,f,c
-  1205  000090                     i1l864:
-  1206                           
-  1207                           ;main.c: 111: }
-  1208                           ;main.c: 112: RC2IF = 0;
-  1209  000090  9AA4               	bcf	4004,5,c	;volatile
-  1210  000092  C012  FFF5         	movff	??_low_isr+16,tablat
-  1211  000096  C011  FFF8         	movff	??_low_isr+15,tblptru
-  1212  00009A  C010  FFF7         	movff	??_low_isr+14,tblptrh
-  1213  00009E  C00F  FFF6         	movff	??_low_isr+13,tblptrl
-  1214  0000A2  C00E  FFF4         	movff	??_low_isr+12,prodh
-  1215  0000A6  C00D  FFF3         	movff	??_low_isr+11,prodl
-  1216  0000AA  C00C  FFDA         	movff	??_low_isr+10,fsr2h
-  1217  0000AE  C00B  FFD9         	movff	??_low_isr+9,fsr2l
-  1218  0000B2  C00A  FFE2         	movff	??_low_isr+8,fsr1h
-  1219  0000B6  C009  FFE1         	movff	??_low_isr+7,fsr1l
-  1220  0000BA  C008  FFEA         	movff	??_low_isr+6,fsr0h
-  1221  0000BE  C007  FFE9         	movff	??_low_isr+5,fsr0l
-  1222  0000C2  C006  FFFB         	movff	??_low_isr+4,pclatu
-  1223  0000C6  C005  FFFA         	movff	??_low_isr+3,pclath
-  1224  0000CA  C004  FFE0         	movff	??_low_isr+2,bsr
-  1225  0000CE  C003  FFE8         	movff	??_low_isr+1,wreg
-  1226  0000D2  C002  FFD8         	movff	??_low_isr,status
-  1227  0000D6  0010               	retfie	
-  1228  0000D8                     __end_of_low_isr:
-  1229                           	opt stack 0
-  1230  0000D8                     _timer_isr:
-  1231                           	opt stack 29
-  1232                           
-  1233                           ;incstack = 0
-  1234  0000D8  CFD8 F013          	movff	status,??_timer_isr
-  1235  0000DC  CFE8 F014          	movff	wreg,??_timer_isr+1
-  1236  0000E0  CFE0 F015          	movff	bsr,??_timer_isr+2
-  1237  0000E4  CFFA F016          	movff	pclath,??_timer_isr+3
-  1238  0000E8  CFFB F017          	movff	pclatu,??_timer_isr+4
-  1239  0000EC  CFE9 F018          	movff	fsr0l,??_timer_isr+5
-  1240  0000F0  CFEA F019          	movff	fsr0h,??_timer_isr+6
-  1241  0000F4  CFE1 F01A          	movff	fsr1l,??_timer_isr+7
-  1242  0000F8  CFE2 F01B          	movff	fsr1h,??_timer_isr+8
-  1243  0000FC  CFD9 F01C          	movff	fsr2l,??_timer_isr+9
-  1244  000100  CFDA F01D          	movff	fsr2h,??_timer_isr+10
-  1245  000104  CFF3 F01E          	movff	prodl,??_timer_isr+11
-  1246  000108  CFF4 F01F          	movff	prodh,??_timer_isr+12
-  1247  00010C  CFF6 F020          	movff	tblptrl,??_timer_isr+13
-  1248  000110  CFF7 F021          	movff	tblptrh,??_timer_isr+14
-  1249  000114  CFF8 F022          	movff	tblptru,??_timer_isr+15
-  1250  000118  CFF5 F023          	movff	tablat,??_timer_isr+16
-  1251                           
-  1252                           ;main.c: 117: if (TMR0IE && TMR0IF) {
-  1253  00011C  BAF2               	btfsc	intcon,5,c	;volatile
-  1254  00011E  D000               	goto	i1l56
-  1255  000120                     i1l56:
-  1256                           
-  1257                           ;main.c: 119: }
-  1258                           ;main.c: 120: TMR0IF = 0;
-  1259  000120  94F2               	bcf	intcon,2,c	;volatile
-  1260  000122  C023  FFF5         	movff	??_timer_isr+16,tablat
-  1261  000126  C022  FFF8         	movff	??_timer_isr+15,tblptru
-  1262  00012A  C021  FFF7         	movff	??_timer_isr+14,tblptrh
-  1263  00012E  C020  FFF6         	movff	??_timer_isr+13,tblptrl
-  1264  000132  C01F  FFF4         	movff	??_timer_isr+12,prodh
-  1265  000136  C01E  FFF3         	movff	??_timer_isr+11,prodl
-  1266  00013A  C01D  FFDA         	movff	??_timer_isr+10,fsr2h
-  1267  00013E  C01C  FFD9         	movff	??_timer_isr+9,fsr2l
-  1268  000142  C01B  FFE2         	movff	??_timer_isr+8,fsr1h
-  1269  000146  C01A  FFE1         	movff	??_timer_isr+7,fsr1l
-  1270  00014A  C019  FFEA         	movff	??_timer_isr+6,fsr0h
-  1271  00014E  C018  FFE9         	movff	??_timer_isr+5,fsr0l
-  1272  000152  C017  FFFB         	movff	??_timer_isr+4,pclatu
-  1273  000156  C016  FFFA         	movff	??_timer_isr+3,pclath
-  1274  00015A  C015  FFE0         	movff	??_timer_isr+2,bsr
-  1275  00015E  C014  FFE8         	movff	??_timer_isr+1,wreg
-  1276  000162  C013  FFD8         	movff	??_timer_isr,status
-  1277  000166  0010               	retfie	
-  1278  000168                     __end_of_timer_isr:
-  1279                           	opt stack 0
-  1280  0000                     pclatu	equ	0xFFB
-  1281                           pclath	equ	0xFFA
-  1282                           tblptru	equ	0xFF8
-  1283                           tblptrh	equ	0xFF7
-  1284                           tblptrl	equ	0xFF6
-  1285                           tablat	equ	0xFF5
-  1286                           prodh	equ	0xFF4
-  1287                           prodl	equ	0xFF3
-  1288                           intcon	equ	0xFF2
-  1289                           postinc0	equ	0xFEE
-  1290                           fsr0h	equ	0xFEA
-  1291                           fsr0l	equ	0xFE9
-  1292                           wreg	equ	0xFE8
-  1293                           postinc1	equ	0xFE6
-  1294                           postdec1	equ	0xFE5
-  1295                           fsr1h	equ	0xFE2
-  1296                           fsr1l	equ	0xFE1
-  1297                           bsr	equ	0xFE0
-  1298                           indf2	equ	0xFDF
-  1299                           postinc2	equ	0xFDE
-  1300                           fsr2h	equ	0xFDA
-  1301                           fsr2l	equ	0xFD9
-  1302                           status	equ	0xFD8
-  1303                           
-  1304 ;; *************** function _writeDataToUART *****************
-  1305 ;; Defined at:
-  1306 ;;		line 62 in file "usart.c"
-  1307 ;; Parameters:    Size  Location     Type
-  1308 ;;  data            1    wreg     unsigned char 
-  1309 ;; Auto vars:     Size  Location     Type
-  1310 ;;  data            1    0[COMRAM] unsigned char 
-  1311 ;; Return value:  Size  Location     Type
-  1312 ;;		None               void
-  1313 ;; Registers used:
-  1314 ;;		wreg
-  1315 ;; Tracked objects:
-  1316 ;;		On entry : 0/0
-  1317 ;;		On exit  : 0/0
-  1318 ;;		Unchanged: 0/0
-  1319 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+  1108 ;;Total ram usage:       17 bytes
+  1109 ;; Hardware stack levels used:    1
+  1110 ;; This function calls:
+  1111 ;;		Nothing
+  1112 ;; This function is called by:
+  1113 ;;		Interrupt level 1
+  1114 ;; This function uses a non-reentrant model
+  1115 ;;
+  1116                           
+  1117                           	psect	intcodelo
+  1118  000018                     __pintcodelo:
+  1119                           	opt stack 0
+  1120  000018                     _low_isr:
+  1121                           	opt stack 28
+  1122                           
+  1123                           ;incstack = 0
+  1124  000018  CFD8 F002          	movff	status,??_low_isr
+  1125  00001C  CFE8 F003          	movff	wreg,??_low_isr+1
+  1126  000020  CFE0 F004          	movff	bsr,??_low_isr+2
+  1127  000024  CFFA F005          	movff	pclath,??_low_isr+3
+  1128  000028  CFFB F006          	movff	pclatu,??_low_isr+4
+  1129  00002C  CFE9 F007          	movff	fsr0l,??_low_isr+5
+  1130  000030  CFEA F008          	movff	fsr0h,??_low_isr+6
+  1131  000034  CFE1 F009          	movff	fsr1l,??_low_isr+7
+  1132  000038  CFE2 F00A          	movff	fsr1h,??_low_isr+8
+  1133  00003C  CFD9 F00B          	movff	fsr2l,??_low_isr+9
+  1134  000040  CFDA F00C          	movff	fsr2h,??_low_isr+10
+  1135  000044  CFF3 F00D          	movff	prodl,??_low_isr+11
+  1136  000048  CFF4 F00E          	movff	prodh,??_low_isr+12
+  1137  00004C  CFF6 F00F          	movff	tblptrl,??_low_isr+13
+  1138  000050  CFF7 F010          	movff	tblptrh,??_low_isr+14
+  1139  000054  CFF8 F011          	movff	tblptru,??_low_isr+15
+  1140  000058  CFF5 F012          	movff	tablat,??_low_isr+16
+  1141                           
+  1142                           ;main.c: 101: if (RC2IF ) {
+  1143  00005C  AAA4               	btfss	4004,5,c	;volatile
+  1144  00005E  D00C               	goto	i1l768
+  1145                           
+  1146                           ;main.c: 102: tampon = RCREG2;
+  1147  000060  CF7A F028          	movff	3962,_tampon	;volatile
+  1148                           
+  1149                           ;main.c: 103: if (compteur == 128) {
+  1150  000064  5025               	movf	_compteur,w,c
+  1151  000066  0A80               	xorlw	128
+  1152  000068  A4D8               	btfss	status,2,c
+  1153  00006A  D002               	goto	i1l764
+  1154                           
+  1155                           ;main.c: 104: compteur = 0;
+  1156  00006C  0E00               	movlw	0
+  1157  00006E  6E25               	movwf	_compteur,c
+  1158  000070                     i1l764:
+  1159                           
+  1160                           ;main.c: 105: }
+  1161                           ;main.c: 106: writeDataToUART(tampon);
+  1162  000070  5028               	movf	_tampon,w,c
+  1163  000072  EC33  F002         	call	_writeDataToUART
+  1164                           
+  1165                           ;main.c: 107: compteur++;
+  1166  000076  2A25               	incf	_compteur,f,c
+  1167  000078                     i1l768:
+  1168                           
+  1169                           ;main.c: 108: }
+  1170                           ;main.c: 109: RC2IF = 0;
+  1171  000078  9AA4               	bcf	4004,5,c	;volatile
+  1172  00007A  C012  FFF5         	movff	??_low_isr+16,tablat
+  1173  00007E  C011  FFF8         	movff	??_low_isr+15,tblptru
+  1174  000082  C010  FFF7         	movff	??_low_isr+14,tblptrh
+  1175  000086  C00F  FFF6         	movff	??_low_isr+13,tblptrl
+  1176  00008A  C00E  FFF4         	movff	??_low_isr+12,prodh
+  1177  00008E  C00D  FFF3         	movff	??_low_isr+11,prodl
+  1178  000092  C00C  FFDA         	movff	??_low_isr+10,fsr2h
+  1179  000096  C00B  FFD9         	movff	??_low_isr+9,fsr2l
+  1180  00009A  C00A  FFE2         	movff	??_low_isr+8,fsr1h
+  1181  00009E  C009  FFE1         	movff	??_low_isr+7,fsr1l
+  1182  0000A2  C008  FFEA         	movff	??_low_isr+6,fsr0h
+  1183  0000A6  C007  FFE9         	movff	??_low_isr+5,fsr0l
+  1184  0000AA  C006  FFFB         	movff	??_low_isr+4,pclatu
+  1185  0000AE  C005  FFFA         	movff	??_low_isr+3,pclath
+  1186  0000B2  C004  FFE0         	movff	??_low_isr+2,bsr
+  1187  0000B6  C003  FFE8         	movff	??_low_isr+1,wreg
+  1188  0000BA  C002  FFD8         	movff	??_low_isr,status
+  1189  0000BE  0010               	retfie	
+  1190  0000C0                     __end_of_low_isr:
+  1191                           	opt stack 0
+  1192  0000C0                     _timer_isr:
+  1193                           	opt stack 29
+  1194                           
+  1195                           ;incstack = 0
+  1196  0000C0  CFD8 F013          	movff	status,??_timer_isr
+  1197  0000C4  CFE8 F014          	movff	wreg,??_timer_isr+1
+  1198  0000C8  CFE0 F015          	movff	bsr,??_timer_isr+2
+  1199  0000CC  CFFA F016          	movff	pclath,??_timer_isr+3
+  1200  0000D0  CFFB F017          	movff	pclatu,??_timer_isr+4
+  1201  0000D4  CFE9 F018          	movff	fsr0l,??_timer_isr+5
+  1202  0000D8  CFEA F019          	movff	fsr0h,??_timer_isr+6
+  1203  0000DC  CFE1 F01A          	movff	fsr1l,??_timer_isr+7
+  1204  0000E0  CFE2 F01B          	movff	fsr1h,??_timer_isr+8
+  1205  0000E4  CFD9 F01C          	movff	fsr2l,??_timer_isr+9
+  1206  0000E8  CFDA F01D          	movff	fsr2h,??_timer_isr+10
+  1207  0000EC  CFF3 F01E          	movff	prodl,??_timer_isr+11
+  1208  0000F0  CFF4 F01F          	movff	prodh,??_timer_isr+12
+  1209  0000F4  CFF6 F020          	movff	tblptrl,??_timer_isr+13
+  1210  0000F8  CFF7 F021          	movff	tblptrh,??_timer_isr+14
+  1211  0000FC  CFF8 F022          	movff	tblptru,??_timer_isr+15
+  1212  000100  CFF5 F023          	movff	tablat,??_timer_isr+16
+  1213                           
+  1214                           ;main.c: 115: if (TMR0IE && TMR0IF) {
+  1215  000104  BAF2               	btfsc	intcon,5,c	;volatile
+  1216  000106  D000               	goto	i1l54
+  1217  000108                     i1l54:
+  1218                           
+  1219                           ;main.c: 117: }
+  1220                           ;main.c: 118: TMR0IF = 0;
+  1221  000108  94F2               	bcf	intcon,2,c	;volatile
+  1222  00010A  C023  FFF5         	movff	??_timer_isr+16,tablat
+  1223  00010E  C022  FFF8         	movff	??_timer_isr+15,tblptru
+  1224  000112  C021  FFF7         	movff	??_timer_isr+14,tblptrh
+  1225  000116  C020  FFF6         	movff	??_timer_isr+13,tblptrl
+  1226  00011A  C01F  FFF4         	movff	??_timer_isr+12,prodh
+  1227  00011E  C01E  FFF3         	movff	??_timer_isr+11,prodl
+  1228  000122  C01D  FFDA         	movff	??_timer_isr+10,fsr2h
+  1229  000126  C01C  FFD9         	movff	??_timer_isr+9,fsr2l
+  1230  00012A  C01B  FFE2         	movff	??_timer_isr+8,fsr1h
+  1231  00012E  C01A  FFE1         	movff	??_timer_isr+7,fsr1l
+  1232  000132  C019  FFEA         	movff	??_timer_isr+6,fsr0h
+  1233  000136  C018  FFE9         	movff	??_timer_isr+5,fsr0l
+  1234  00013A  C017  FFFB         	movff	??_timer_isr+4,pclatu
+  1235  00013E  C016  FFFA         	movff	??_timer_isr+3,pclath
+  1236  000142  C015  FFE0         	movff	??_timer_isr+2,bsr
+  1237  000146  C014  FFE8         	movff	??_timer_isr+1,wreg
+  1238  00014A  C013  FFD8         	movff	??_timer_isr,status
+  1239  00014E  0010               	retfie	
+  1240  000150                     __end_of_timer_isr:
+  1241                           	opt stack 0
+  1242  0000                     pclatu	equ	0xFFB
+  1243                           pclath	equ	0xFFA
+  1244                           tblptru	equ	0xFF8
+  1245                           tblptrh	equ	0xFF7
+  1246                           tblptrl	equ	0xFF6
+  1247                           tablat	equ	0xFF5
+  1248                           prodh	equ	0xFF4
+  1249                           prodl	equ	0xFF3
+  1250                           intcon	equ	0xFF2
+  1251                           postinc0	equ	0xFEE
+  1252                           fsr0h	equ	0xFEA
+  1253                           fsr0l	equ	0xFE9
+  1254                           wreg	equ	0xFE8
+  1255                           postinc1	equ	0xFE6
+  1256                           postdec1	equ	0xFE5
+  1257                           fsr1h	equ	0xFE2
+  1258                           fsr1l	equ	0xFE1
+  1259                           bsr	equ	0xFE0
+  1260                           postinc2	equ	0xFDE
+  1261                           fsr2h	equ	0xFDA
+  1262                           fsr2l	equ	0xFD9
+  1263                           status	equ	0xFD8
+  1264                           
+  1265 ;; *************** function _writeDataToUART *****************
+  1266 ;; Defined at:
+  1267 ;;		line 62 in file "usart.c"
+  1268 ;; Parameters:    Size  Location     Type
+  1269 ;;  data            1    wreg     unsigned char 
+  1270 ;; Auto vars:     Size  Location     Type
+  1271 ;;  data            1    0[COMRAM] unsigned char 
+  1272 ;; Return value:  Size  Location     Type
+  1273 ;;		None               void
+  1274 ;; Registers used:
+  1275 ;;		wreg
+  1276 ;; Tracked objects:
+  1277 ;;		On entry : 0/0
+  1278 ;;		On exit  : 0/0
+  1279 ;;		Unchanged: 0/0
+  1280 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14
-  1320 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1281 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-  1321 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+  1282 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-  1322 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+  1283 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-  1323 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+  1284 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0
-  1324 ;;Total ram usage:        1 bytes
-  1325 ;; Hardware stack levels used:    1
-  1326 ;; This function calls:
-  1327 ;;		Nothing
-  1328 ;; This function is called by:
-  1329 ;;		_low_isr
-  1330 ;; This function uses a non-reentrant model
-  1331 ;;
-  1332                           
-  1333                           	psect	text5
-  1334  00048A                     __ptext5:
-  1335                           	opt stack 0
-  1336  00048A                     _writeDataToUART:
-  1337                           	opt stack 28
-  1338                           
-  1339                           ;incstack = 0
-  1340                           ;writeDataToUART@data stored from wreg
-  1341  00048A  6E01               	movwf	writeDataToUART@data,c
-  1342  00048C                     i1l124:
-  1343  00048C  A8A4               	btfss	4004,4,c	;volatile
-  1344  00048E  D7FE               	goto	i1l124
-  1345                           
-  1346                           ;usart.c: 65: TXREG2 = data;
-  1347  000490  C001  FF79         	movff	writeDataToUART@data,3961	;volatile
-  1348  000494  0012               	return	
-  1349  000496                     __end_of_writeDataToUART:
-  1350                           	opt stack 0
-  1351                           pclatu	equ	0xFFB
-  1352                           pclath	equ	0xFFA
-  1353                           tblptru	equ	0xFF8
-  1354                           tblptrh	equ	0xFF7
-  1355                           tblptrl	equ	0xFF6
-  1356                           tablat	equ	0xFF5
-  1357                           prodh	equ	0xFF4
-  1358                           prodl	equ	0xFF3
-  1359                           intcon	equ	0xFF2
-  1360                           postinc0	equ	0xFEE
-  1361                           fsr0h	equ	0xFEA
-  1362                           fsr0l	equ	0xFE9
-  1363                           wreg	equ	0xFE8
-  1364                           postinc1	equ	0xFE6
-  1365                           postdec1	equ	0xFE5
-  1366                           fsr1h	equ	0xFE2
-  1367                           fsr1l	equ	0xFE1
-  1368                           bsr	equ	0xFE0
-  1369                           indf2	equ	0xFDF
-  1370                           postinc2	equ	0xFDE
-  1371                           fsr2h	equ	0xFDA
-  1372                           fsr2l	equ	0xFD9
-  1373                           status	equ	0xFD8
-  1374                           pclatu	equ	0xFFB
-  1375                           pclath	equ	0xFFA
-  1376                           tblptru	equ	0xFF8
-  1377                           tblptrh	equ	0xFF7
-  1378                           tblptrl	equ	0xFF6
-  1379                           tablat	equ	0xFF5
-  1380                           prodh	equ	0xFF4
-  1381                           prodl	equ	0xFF3
-  1382                           intcon	equ	0xFF2
-  1383                           postinc0	equ	0xFEE
-  1384                           fsr0h	equ	0xFEA
-  1385                           fsr0l	equ	0xFE9
-  1386                           wreg	equ	0xFE8
-  1387                           postinc1	equ	0xFE6
-  1388                           postdec1	equ	0xFE5
-  1389                           fsr1h	equ	0xFE2
-  1390                           fsr1l	equ	0xFE1
-  1391                           bsr	equ	0xFE0
-  1392                           indf2	equ	0xFDF
-  1393                           postinc2	equ	0xFDE
-  1394                           fsr2h	equ	0xFDA
-  1395                           fsr2l	equ	0xFD9
-  1396                           status	equ	0xFD8
-  1397                           
-  1398                           	psect	rparam
-  1399  0000                     pclatu	equ	0xFFB
-  1400                           pclath	equ	0xFFA
-  1401                           tblptru	equ	0xFF8
-  1402                           tblptrh	equ	0xFF7
-  1403                           tblptrl	equ	0xFF6
-  1404                           tablat	equ	0xFF5
-  1405                           prodh	equ	0xFF4
-  1406                           prodl	equ	0xFF3
-  1407                           intcon	equ	0xFF2
-  1408                           postinc0	equ	0xFEE
-  1409                           fsr0h	equ	0xFEA
-  1410                           fsr0l	equ	0xFE9
-  1411                           wreg	equ	0xFE8
-  1412                           postinc1	equ	0xFE6
-  1413                           postdec1	equ	0xFE5
-  1414                           fsr1h	equ	0xFE2
-  1415                           fsr1l	equ	0xFE1
-  1416                           bsr	equ	0xFE0
-  1417                           indf2	equ	0xFDF
-  1418                           postinc2	equ	0xFDE
-  1419                           fsr2h	equ	0xFDA
-  1420                           fsr2l	equ	0xFD9
-  1421                           status	equ	0xFD8
+  1285 ;;Total ram usage:        1 bytes
+  1286 ;; Hardware stack levels used:    1
+  1287 ;; This function calls:
+  1288 ;;		Nothing
+  1289 ;; This function is called by:
+  1290 ;;		_low_isr
+  1291 ;; This function uses a non-reentrant model
+  1292 ;;
+  1293                           
+  1294                           	psect	text5
+  1295  000466                     __ptext5:
+  1296                           	opt stack 0
+  1297  000466                     _writeDataToUART:
+  1298                           	opt stack 28
+  1299                           
+  1300                           ;incstack = 0
+  1301                           ;writeDataToUART@data stored from wreg
+  1302  000466  6E01               	movwf	writeDataToUART@data,c
+  1303  000468                     i1l122:
+  1304  000468  A8A4               	btfss	4004,4,c	;volatile
+  1305  00046A  D7FE               	goto	i1l122
+  1306                           
+  1307                           ;usart.c: 65: TXREG2 = data;
+  1308  00046C  C001  FF79         	movff	writeDataToUART@data,3961	;volatile
+  1309  000470  0012               	return	
+  1310  000472                     __end_of_writeDataToUART:
+  1311                           	opt stack 0
+  1312                           pclatu	equ	0xFFB
+  1313                           pclath	equ	0xFFA
+  1314                           tblptru	equ	0xFF8
+  1315                           tblptrh	equ	0xFF7
+  1316                           tblptrl	equ	0xFF6
+  1317                           tablat	equ	0xFF5
+  1318                           prodh	equ	0xFF4
+  1319                           prodl	equ	0xFF3
+  1320                           intcon	equ	0xFF2
+  1321                           postinc0	equ	0xFEE
+  1322                           fsr0h	equ	0xFEA
+  1323                           fsr0l	equ	0xFE9
+  1324                           wreg	equ	0xFE8
+  1325                           postinc1	equ	0xFE6
+  1326                           postdec1	equ	0xFE5
+  1327                           fsr1h	equ	0xFE2
+  1328                           fsr1l	equ	0xFE1
+  1329                           bsr	equ	0xFE0
+  1330                           postinc2	equ	0xFDE
+  1331                           fsr2h	equ	0xFDA
+  1332                           fsr2l	equ	0xFD9
+  1333                           status	equ	0xFD8
+  1334                           pclatu	equ	0xFFB
+  1335                           pclath	equ	0xFFA
+  1336                           tblptru	equ	0xFF8
+  1337                           tblptrh	equ	0xFF7
+  1338                           tblptrl	equ	0xFF6
+  1339                           tablat	equ	0xFF5
+  1340                           prodh	equ	0xFF4
+  1341                           prodl	equ	0xFF3
+  1342                           intcon	equ	0xFF2
+  1343                           postinc0	equ	0xFEE
+  1344                           fsr0h	equ	0xFEA
+  1345                           fsr0l	equ	0xFE9
+  1346                           wreg	equ	0xFE8
+  1347                           postinc1	equ	0xFE6
+  1348                           postdec1	equ	0xFE5
+  1349                           fsr1h	equ	0xFE2
+  1350                           fsr1l	equ	0xFE1
+  1351                           bsr	equ	0xFE0
+  1352                           postinc2	equ	0xFDE
+  1353                           fsr2h	equ	0xFDA
+  1354                           fsr2l	equ	0xFD9
+  1355                           status	equ	0xFD8
+  1356                           
+  1357                           	psect	rparam
+  1358  0000                     pclatu	equ	0xFFB
+  1359                           pclath	equ	0xFFA
+  1360                           tblptru	equ	0xFF8
+  1361                           tblptrh	equ	0xFF7
+  1362                           tblptrl	equ	0xFF6
+  1363                           tablat	equ	0xFF5
+  1364                           prodh	equ	0xFF4
+  1365                           prodl	equ	0xFF3
+  1366                           intcon	equ	0xFF2
+  1367                           postinc0	equ	0xFEE
+  1368                           fsr0h	equ	0xFEA
+  1369                           fsr0l	equ	0xFE9
+  1370                           wreg	equ	0xFE8
+  1371                           postinc1	equ	0xFE6
+  1372                           postdec1	equ	0xFE5
+  1373                           fsr1h	equ	0xFE2
+  1374                           fsr1l	equ	0xFE1
+  1375                           bsr	equ	0xFE0
+  1376                           postinc2	equ	0xFDE
+  1377                           fsr2h	equ	0xFDA
+  1378                           fsr2l	equ	0xFD9
+  1379                           status	equ	0xFD8
 
 
 Data Sizes:
     Strings     0
     Constant    0
     Data        80
-    BSS         224
+    BSS         84
     Persistent  0
     Stack       0
 
@@ -1475,7 +1433,7 @@ Auto Spaces:
     COMRAM           95     36      40
     BANK0           160     88      88
     BANK1           256      0     160
-    BANK2           256      0     140
+    BANK2           256      0       0
     BANK3           256      0       0
     BANK4           256      0       0
     BANK5           256      0       0
@@ -1707,11 +1665,11 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (2) _low_isr                                             17    17      0      22
+ (2) _low_isr                                             17    17      0      15
                                               1 COMRAM    17    17      0
                     _writeDataToUART
  ---------------------------------------------------------------------------------
- (3) _writeDataToUART                                      1     1      0      22
+ (3) _writeDataToUART                                      1     1      0      15
                                               0 COMRAM     1     1      0
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 3
@@ -1763,7 +1721,7 @@ BANK4              100      0       0      14        0.0%
 BITBANK3           100      0       0      11        0.0%
 BANK3              100      0       0      12        0.0%
 BITBANK2           100      0       0       9        0.0%
-BANK2              100      0      8C      10       54.7%
+BANK2              100      0       0      10        0.0%
 BITBANK1           100      0       0       7        0.0%
 BANK1              100      0      A0       8       62.5%
 BITBANK0            A0      0       0       4        0.0%
@@ -1780,76 +1738,75 @@ BITSFR               0      0       0      40        0.0%
 SFR                  0      0       0      40        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0     1AC       6        0.0%
-DATA                 0      0     1AC       3        0.0%
+ABS                  0      0     120       6        0.0%
+DATA                 0      0     120       3        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.33 build 59893 
-Symbol Table                                                                                   Sat Nov 15 15:58:53 2014
+Symbol Table                                                                                   Sat Nov 15 17:16:46 2014
 
              __CFG_CP0$ON 000000               __CFG_CP1$ON 000000               __CFG_CP2$ON 000000  
-             __CFG_CP3$ON 000000                        l80 033C                        l81 0340  
-                      l82 0344                        l66 026E                        l83 0348  
-                      l75 032C                        l77 0330                        l78 0334  
-                      l79 0338               __CFG_CPB$ON 000000               __CFG_CPD$ON 000000  
+             __CFG_CP3$ON 000000                        l80 032C                        l64 0256  
+                      l81 0330                        l73 0314                        l75 0318  
+                      l76 031C                        l77 0320                        l78 0324  
+                      l79 0328               __CFG_CPB$ON 000000               __CFG_CPD$ON 000000  
                       _it 0027                        bsr 000FE0               __CFG_BORV$3 000000  
-                     l902 02E2                       l848 034C                       l876 01B6  
-                     _GIE 007F97                       u205 026C                       u215 02A8  
-                     u225 02E0                       u235 0316                       u171 0176  
-                     u185 01EE                       u195 0234                       _PSA 007EAB  
-                     _msg 0100                       prod 000FF3                       wreg 000FE8  
-            __CFG_IESO$ON 000000                _TXSTA2bits 000FBA                      _ADON 007E10  
-                    _T0CS 007EAD                      _PEIE 007F96                      i1l56 0120  
-            __CFG_WRT0$ON 000000              __CFG_WRT1$ON 000000              __CFG_WRT2$ON 000000  
-            __CFG_WRT3$ON 000000             __CFG_EBTR0$ON 000000             __CFG_EBTR1$ON 000000  
-           __CFG_EBTR2$ON 000000             __CFG_EBTR3$ON 000000              __CFG_WRTB$ON 000000  
-            __CFG_WRTC$ON 000000              __CFG_WRTD$ON 000000             __CFG_EBTRB$ON 000000  
-                    _main 016C                      fsr0h 000FEA                      fsr1h 000FE2  
-                    fsr0l 000FE9                      fsr2h 000FDA                      fsr1l 000FE1  
-                    indf2 000FDF                      fsr2l 000FD9                      pclat 000FFA  
-                    prodh 000FF4                      prodl 000FF3                      start 0168  
-       ??_writeDataToUART 0001             __CFG_RETEN$ON 000000              _BAUDCON2bits 000FB9  
-                   ?_main 0001                     _T0PS0 007EA8                     _T0PS1 007EA9  
-                   _T0PS2 007EAA                     _RC2IF 007D25                     i1l124 048C  
-                   i1l864 0090                     i1l858 0070                     _SPBRG 000FAF  
-                   _PORTA 000F80                     _PORTB 000F81                     _PORTC 000F82  
-                   _TRISA 000F92                     _TRISB 000F93                     _TRISC 000F94  
-          __CFG_FCMEN$OFF 000000                     main@i 00B0                     main@j 00B4  
-         __end_of_low_isr 00D8                     tablat 000FF5                     status 000FD8  
-           multiplexeur@n 0024            __CFG_MCLRE$OFF 000000           __initialization 03D0  
-            __end_of_main 0318                    ??_main 0025             __activetblptr 000002  
-          __CFG_PLLCFG$ON 000000                    _ANCON0 000F5D                    _T08BIT 007EAE  
-         __CFG_BBSIZ$BB2K 000000            __CFG_WDTEN$OFF 000000                    _INTCON 000FF2  
-                  _RCREG2 000F7A                    _OSCCON 000FD3                    _TMR0IE 007F95  
-                  _TMR0IF 007F92                    _SPBRG2 000F7B                    _TXREG2 000F79  
-          __CFG_PWRTEN$ON 000000            __CFG_XINST$OFF 000000            __CFG_STVREN$ON 000000  
-                  clear_0 03D6                    clear_1 03E2                    _tampon 0028  
+                     l840 0334                       l852 019E                       l878 02CA  
+                     _GIE 007F97                       u205 02FE                       u141 015E  
+                     u155 01D6                       u165 021C                       u175 0254  
+                     u185 0290                       u195 02C8                       _PSA 007EAB  
+                     _msg 0100                       wreg 000FE8              __CFG_IESO$ON 000000  
+              _TXSTA2bits 000FBA                      _ADON 007E10                      _T0CS 007EAD  
+                    _PEIE 007F96                      i1l54 0108              __CFG_WRT0$ON 000000  
+            __CFG_WRT1$ON 000000              __CFG_WRT2$ON 000000              __CFG_WRT3$ON 000000  
+           __CFG_EBTR0$ON 000000             __CFG_EBTR1$ON 000000             __CFG_EBTR2$ON 000000  
+           __CFG_EBTR3$ON 000000              __CFG_WRTB$ON 000000              __CFG_WRTC$ON 000000  
+            __CFG_WRTD$ON 000000             __CFG_EBTRB$ON 000000                      _main 0154  
+                    fsr0h 000FEA                      fsr1h 000FE2                      fsr0l 000FE9  
+                    fsr2h 000FDA                      fsr1l 000FE1                      fsr2l 000FD9  
+                    pclat 000FFA                      prodh 000FF4                      prodl 000FF3  
+                    start 0150         ??_writeDataToUART 0001             __CFG_RETEN$ON 000000  
+            _BAUDCON2bits 000FB9                     ?_main 0001                     _T0PS0 007EA8  
+                   _T0PS1 007EA9                     _T0PS2 007EAA                     _RC2IF 007D25  
+                   i1l122 0468                     i1l764 0070                     i1l768 0078  
+                   _SPBRG 000FAF                     _PORTA 000F80                     _PORTB 000F81  
+                   _PORTC 000F82                     _TRISA 000F92                     _TRISB 000F93  
+                   _TRISC 000F94            __CFG_FCMEN$OFF 000000                     main@i 00B0  
+                   main@j 00B4           __end_of_low_isr 00C0                     tablat 000FF5  
+                   status 000FD8             multiplexeur@n 0024            __CFG_MCLRE$OFF 000000  
+         __initialization 03F8              __end_of_main 0300                    ??_main 0025  
+           __activetblptr 000002            __CFG_PLLCFG$ON 000000                    _ANCON0 000F5D  
+                  _T08BIT 007EAE           __CFG_BBSIZ$BB2K 000000            __CFG_WDTEN$OFF 000000  
+                  _INTCON 000FF2                    _RCREG2 000F7A                    _OSCCON 000FD3  
+                  _TMR0IE 007F95                    _TMR0IF 007F92                    _SPBRG2 000F7B  
+                  _TXREG2 000F79            __CFG_PWRTEN$ON 000000            __CFG_XINST$OFF 000000  
+          __CFG_STVREN$ON 000000                    clear_0 03FE                    _tampon 0028  
                ??_low_isr 0002                    tblptrh 000FF7                    tblptrl 000FF6  
-                  tblptru 000FF8                __accesstop 0060   __end_of__initialization 0410  
-          __pcstackCOMRAM 0001              __pidataBANK1 0380           _writeDataToUART 048A  
-              __pbssBANK1 0100                __pbssBANK2 0200        __size_of_initComms 0040  
-      __size_of_initPorts 0030          __CFG_CANMX$PORTB 000000        __size_of_timer_isr 0090  
-                 _SPBRGH2 000F7C                   __Hparam 0000                   __Lparam 0000  
-                 __pcinit 03D0                   __ramtop 0F00                   __ptext0 016C  
-                 __ptext1 0318                   __ptext2 045A                   __ptext3 041A  
-                 __ptext5 048A   __end_of_writeDataToUART 0496         __end_of_initComms 045A  
-       __end_of_initPorts 048A         __CFG_MSSPMSK$MSK7 000000                   _low_isr 0018  
-    end_of_initialization 0410             __Lmediumconst 0000         __end_of_timer_isr 0168  
-                 postdec1 000FE5                   postinc0 000FEE                   postinc1 000FE6  
-                 postinc2 000FDE                main@F19161 0150                 _PORTAbits 000F80  
-               _PORTCbits 000F82          __CFG_FOSC$INTIO1 000000             ?_multiplexeur 0001  
-        ?_writeDataToUART 0001            ??_multiplexeur 0024       start_initialization 03D0  
-          _flag_reception 0026               __pdataBANK1 0150               __pbssCOMRAM 0025  
-           __pcstackBANK0 0060               __pintcodelo 0018                  ?_low_isr 0001  
-               _initComms 041A                 _initPorts 045A                  _PIE3bits 000FA3  
-    __end_of_multiplexeur 0380                  _PIR3bits 000FA4                  _RCONbits 000FD0  
-               _timer_isr 00D8          __CFG_SOSCSEL$DIG 000000                 _stock_led 0200  
-              ?_initComms 0001                ?_initPorts 0001                 copy_data0 0404  
-                __Hrparam 0000                  __Lrparam 0000        __CFG_BOREN$SBORDIS 000000  
-              ?_timer_isr 0001          __size_of_low_isr 00C0                  _compteur 0025  
-           __size_of_main 01AC                  main@msg1 0060       __CFG_INTOSCSEL$HIGH 000000  
-             _OSCTUNEbits 000F9B               ??_initComms 0024               ??_initPorts 0024  
-__size_of_writeDataToUART 000C                  intlevel1 0000     __size_of_multiplexeur 0068  
-              _RCSTA2bits 000FA6        __CFG_WDTPS$1048576 000000               ??_timer_isr 0013  
-            _multiplexeur 0318       __CFG_BORPWR$ZPBORMV 000000       writeDataToUART@data 0001  
+                  tblptru 000FF8                __accesstop 0060   __end_of__initialization 042C  
+          __pcstackCOMRAM 0001              __pidataBANK1 0368           _writeDataToUART 0466  
+              __pbssBANK1 0100        __size_of_initComms 0040        __size_of_initPorts 0030  
+        __CFG_CANMX$PORTB 000000        __size_of_timer_isr 0090                   _SPBRGH2 000F7C  
+                 __Hparam 0000                   __Lparam 0000                   __pcinit 03F8  
+                 __ramtop 0F00                   __ptext0 0154                   __ptext1 0300  
+                 __ptext2 0436                   __ptext3 03B8                   __ptext5 0466  
+ __end_of_writeDataToUART 0472         __end_of_initComms 03F8         __end_of_initPorts 0466  
+       __CFG_MSSPMSK$MSK7 000000                   _low_isr 0018      end_of_initialization 042C  
+           __Lmediumconst 0000         __end_of_timer_isr 0150                   postdec1 000FE5  
+                 postinc0 000FEE                   postinc1 000FE6                   postinc2 000FDE  
+              main@F19160 0150                 _PORTAbits 000F80                 _PORTCbits 000F82  
+        __CFG_FOSC$INTIO1 000000             ?_multiplexeur 0001          ?_writeDataToUART 0001  
+          ??_multiplexeur 0024       start_initialization 03F8            _flag_reception 0026  
+             __pdataBANK1 0150               __pbssCOMRAM 0025             __pcstackBANK0 0060  
+             __pintcodelo 0018                  ?_low_isr 0001                 _initComms 03B8  
+               _initPorts 0436                  _PIE3bits 000FA3      __end_of_multiplexeur 0368  
+                _PIR3bits 000FA4                  _RCONbits 000FD0                 _timer_isr 00C0  
+        __CFG_SOSCSEL$DIG 000000                ?_initComms 0001                ?_initPorts 0001  
+               copy_data0 0420                  __Hrparam 0000                  __Lrparam 0000  
+      __CFG_BOREN$SBORDIS 000000                ?_timer_isr 0001          __size_of_low_isr 00A8  
+                _compteur 0025             __size_of_main 01AC                  main@msg1 0060  
+     __CFG_INTOSCSEL$HIGH 000000               _OSCTUNEbits 000F9B               ??_initComms 0024  
+             ??_initPorts 0024  __size_of_writeDataToUART 000C                  intlevel1 0000  
+   __size_of_multiplexeur 0068                _RCSTA2bits 000FA6        __CFG_WDTPS$1048576 000000  
+             ??_timer_isr 0013              _multiplexeur 0300       __CFG_BORPWR$ZPBORMV 000000  
+     writeDataToUART@data 0001  
