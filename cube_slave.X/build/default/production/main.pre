@@ -21913,14 +21913,14 @@ char msg[80];
 unsigned char readAddress();
 
 
-# 20 "main.c"
+# 19 "main.c"
 #pragma config RETEN = 0
 #pragma config INTOSCSEL = HIGH
 #pragma config SOSCSEL = DIG
 #pragma config XINST = 0
 
 
-#pragma config FOSC = INTIO1
+#pragma config FOSC = INTIO2
 #pragma config PLLCFG = 1
 #pragma config FCMEN = 0
 #pragma config IESO = 1
@@ -21976,13 +21976,16 @@ unsigned char readAddress();
 
 # 105
 char tampon = 0;
-char stock_led[128] = 0;
+char MASK[8]={0b00000001 , 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000};
+char stock_led[140] = 0;
 int compteur = 0;
+char compteur_clock = 0;
+char state_clock = 0;
+char led_state[2][8] = 0;
 
 void interrupt low_priority high_isr(void) {
-if (RC2IF ) {
+if (RC2IF) {
 tampon = RCREG2;
-
 if (compteur == 128) {
 compteur = 0;
 }
@@ -21992,25 +21995,80 @@ compteur++;
 RC2IF = 0;
 }
 
+
+void interrupt low_priority timer_isr(void) {
+
+if ( TMR0IE && TMR0IF ) {
+}
+TMR0IF = 0;
+}
+
+void decodage(int);
+void init_timer(void);
+void affichage();
+
+
 void main(void) {
-unsigned char address = 0;
-char msg1[80] = "Slave Ready \n \r";
 
 
 
 initPorts();
 initComms();
-
+int delai=0;
 while (1) {
-
-
-
-
-for (int i = 0; i < 100; i++) {
+decodage(0);
+affichage();
 }
 
-PORTA = stock_led[0];
-PORTC = stock_led[0 + 1];
+}
+
+
+void decodage(int n) {
+char a=0;
+for (a=0; a<8;a++)
+{
+if(MASK[a] & stock_led[0 + 16*n])
+{
+led_state[0][a]=1;
+}
+else {
+led_state[0][a]=0;
+}
+
+if(MASK[a] & stock_led[0 + 1 + 16*n])
+{
+led_state[1][a]=1;
+}
+else {
+led_state[1][a]=0;
+}
 }
 }
 
+
+void init_timer(void) {
+
+# 186
+}
+
+
+void affichage() {
+PORTAbits.RA0 = led_state[0][0];
+PORTAbits.RA3 = led_state[0][1];
+PORTAbits.RA6 = led_state[0][2];
+PORTCbits.RC3 = led_state[0][3];
+PORTBbits.RB5 = led_state[0][4];
+PORTBbits.RB3 = led_state[0][5];
+PORTBbits.RB0 = led_state[0][6];
+PORTCbits.RC5 = led_state[0][7];
+
+PORTAbits.RA1 = led_state[1][0];
+PORTAbits.RA2 = led_state[1][1];
+PORTCbits.RC0 = led_state[1][2];
+PORTCbits.RC2 = led_state[1][3];
+PORTBbits.RB4 = led_state[1][4];
+PORTBbits.RB2 = led_state[1][5];
+PORTCbits.RC6 = led_state[1][6];
+PORTCbits.RC4 = led_state[1][7];
+
+}

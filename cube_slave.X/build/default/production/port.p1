@@ -1,8 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "38575 /opt/microchip/xc8/v1.33/include/pic18f25k80.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"40155
-[v _ADON `Vb ~T0 @X0 0 e@32272 ]
+"29347
+[v _ANCON0 `Vuc ~T0 @X0 0 e@3933 ]
+"37162
+[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
 "32440
 [v _PORTA `Vuc ~T0 @X0 0 e@3968 ]
 "33494
@@ -17434,21 +17436,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.c: 11: OSCCON= 0x70;
 "11
 [e = _OSCCON -> -> 112 `i `uc ]
-[; ;port.c: 16: ADON = 1;
-"16
-[e = _ADON -> -> 1 `i `b ]
+[; ;port.c: 13: ANCON0 = 0b00000000;
+"13
+[e = _ANCON0 -> -> 0 `i `uc ]
+[; ;port.c: 14: ADCON1 = 0b00000000;
+"14
+[e = _ADCON1 -> -> 0 `i `uc ]
 [; ;port.c: 19: PORTA = 0b00000000;
 "19
 [e = _PORTA -> -> 0 `i `uc ]
 [; ;port.c: 20: TRISA = 0b00000000;
 "20
 [e = _TRISA -> -> 0 `i `uc ]
-[; ;port.c: 22: PORTB = 0b01001000;
+[; ;port.c: 22: PORTB = 0b01000000;
 "22
-[e = _PORTB -> -> 72 `i `uc ]
-[; ;port.c: 23: TRISB = 0b10010011;
+[e = _PORTB -> -> 64 `i `uc ]
+[; ;port.c: 23: TRISB = 0b10000000;
 "23
-[e = _TRISB -> -> 147 `i `uc ]
+[e = _TRISB -> -> 128 `i `uc ]
 [; ;port.c: 25: PORTC = 0b00000000;
 "25
 [e = _PORTC -> -> 0 `i `uc ]
@@ -17461,9 +17466,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;port.c: 29: PEIE = 1;
 "29
 [e = _PEIE -> -> 1 `i `b ]
-[; ;port.c: 30: INTCON =0b11000000;
+[; ;port.c: 30: INTCON =0b11111000;
 "30
-[e = _INTCON -> -> 192 `i `uc ]
+[e = _INTCON -> -> 248 `i `uc ]
 [; ;port.c: 31: OSCTUNEbits.PLLEN = 1;
 "31
 [e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
