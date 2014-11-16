@@ -1,12 +1,11 @@
-#!/usr/bin/env python
-# -*- coding: utf8 -*-
+#!/usr/bin/env python # -*- coding: utf8 -*-
 
 """
 script interface_souris_ftdi_PCtoPIC.py
  ______  _____      _           _
 |___   || ___ \    | |         | |
     / / | |_/ /___ | |__   ___ | |_
-   / /  |    // _ \| '_ \ / _ \|  _|
+   / /  |    // _ \|  _ \ / _ \|  _|
   / /   | |\ \ (_) | |_) | (_) | |_
  /_/    |_| \_\___/|____/ \___/ \__|
                         7robot.fr
@@ -28,6 +27,9 @@ try:
 except ImportError:
 	# for Python3
 	from tkinter import *
+
+# Gestionnaire de threads
+from threading import Thread
 
 import os
 
@@ -54,6 +56,51 @@ etage_pix_size=6
 # Taille d'un pixel du canevas principal
 pix_size=50
 
+# Variable logique d'envoi des trames (en cours ou pas)
+envoiState=FALSE;
+
+###################################### Thread d'envoi de trame ######################################
+
+class Envoi_Trame(Thread):
+	''' Un objet qui fait ses traitements dans un thread séparé. '''
+	def __init__(self,valeurDeDepart):
+		Thread.__init__(self)
+		self._arret = False
+		self._valeur = valeurDeDepart
+		
+	def run(self):
+		while not self._arret:
+			print ("Yolo")
+			sleep(0.5)
+		print ("Terminé !")
+			
+	def stop(self):
+		self._arret = True
+
+	def resultat(self):
+		return self._valeur
+
+#####################################################################################################
+
+def Envoyer_Trame():
+
+	global envoiState
+	envoiState=~envoiState
+
+	if(envoiState):
+		global envoiTrame
+		envoiTrame = Envoi_Trame(15)
+		envoiTrame.start()  # On démarre le traitement
+	else:
+		envoiTrame.stop() 
+	"""
+	MAJ_Couleurs(0)
+	MAJ_Couleurs(1)	
+
+	Button(Gestion_Trames, text ='Envoyer\nla trame !', command = Envoyer_Trame, height=4, width=8,\
+						fg='purple',cursor='hand1').grid(row=8, column=0, pady=10)
+	Button(Gestion_Trames, text ="Arrêter\nl'envoi", command = Envoyer, height=4, width=8,\
+						fg='brown').grid(row=8, column=1, pady=10)"""
 
 def Change_couleur(i,j):
 
@@ -370,7 +417,8 @@ def Ajouter_Delai():
 
 #####################################################################################################
 #####################################################################################################
-
+#####################################################################################################
+#####################################################################################################
 
 
 
@@ -484,10 +532,9 @@ liste_trame.grid(row=6, column=0, columnspan=2)
 Button(Gestion_Trames, text ='Ajouter', command = Ajouter_Pattern, width=8).grid(row=7, column=0, pady=5)
 Button(Gestion_Trames, text ='Enlever', command = Enlever_Pattern, width=8).grid(row=7, column=1, pady=5)
 
-Button(Gestion_Trames, text ='Envoyer\nla trame !', command = Envoyer, height=4, width=8,\
-						fg='purple',cursor='hand1').grid(row=8, column=0, pady=10)
-Button(Gestion_Trames, text ="Arrêter\nl'envoi", command = Envoyer, height=4, width=8,\
-						fg='brown').grid(row=8, column=1, pady=10)
+Bouton_EnvoiTrames=Button(Gestion_Trames, text ='Envoyer\nla trame !', command = Envoyer_Trame,\
+													height=4, width=20, fg='purple',cursor='hand1')
+Bouton_EnvoiTrames.grid(row=8, column=0, columnspan=2, pady=10)
 #####################################################################################################
 
 # On remplit le canevas principal et les étages de carrés blancs
