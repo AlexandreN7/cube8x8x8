@@ -4,11 +4,11 @@
 script interface_souris_ftdi_PCtoPIC.py
  ______  _____      _           _
 |___   || ___ \    | |         | |
-    / / | |_/ /___ | |__   ___ | |_
+	/ / | |_/ /___ | |__   ___ | |_
    / /  |    // _ \|  _ \ / _ \|  _|
   / /   | |\ \ (_) | |_) | (_) | |_
  /_/    |_| \_\___/|____/ \___/ \__|
-                        7robot.fr
+						7robot.fr
 
 Cube8x8x8
 
@@ -68,7 +68,28 @@ class Envoi_Trame(Thread):
 		self._arret = False
 
 	def run(self):
-		while not self._arret:
+
+		numPattern=0
+
+		while not self._arret:	
+			filename = liste_trame.get(2*numPattern)
+			print(filename)
+			logs = open("Patterns//%s.txt" %filename,"r")
+			for k in range(etages):	
+				for i in range(lignes):
+					for j in range(colonnes):
+						for couleur_pixel in range(5):
+							# L'appel à logs.read(1) fait avancer la lecture d'un caractère :
+							# On se remet à la bonne position avec logs.seek()
+							logs.seek(8*i+j+64*k,0)
+							if logs.read(1) == "%s" %couleur_pixel :
+								matrice_leds[i+8*k][j]=couleur_pixel
+			
+			numPattern+=1
+			if numPattern==liste_trame.size()//2:
+				numPattern=0
+
+
 			Envoyer()
 			sleep(0.5)
 		print ("Terminé !")
@@ -80,21 +101,22 @@ class Envoi_Trame(Thread):
 
 def Envoyer_Trame():
 
-	global envoiState
-	envoiState=~envoiState
+	if 	liste_trame.size()!=0 :
+		global envoiState
+		envoiState=~envoiState
 
-	if(envoiState):
-		Bouton_EnvoiTrames.config(text="Arrêter\nl'envoi",fg='brown')
-		global envoiTrame
-		envoiTrame = Envoi_Trame()
-		envoiTrame.start()  # On démarre l'envoi
-	else:
-		Bouton_EnvoiTrames.config(text='Envoyer\nla trame !',fg='purple')
-		envoiTrame.stop() 	# On arrête l'envoi
-	'''
-	MAJ_Couleurs(0)
-	MAJ_Couleurs(1)	
-	'''
+		if(envoiState):
+			Bouton_EnvoiTrames.config(text="Arrêter\nl'envoi",fg='brown')
+			global envoiTrame
+			envoiTrame = Envoi_Trame()
+			envoiTrame.start()  # On démarre l'envoi
+		else:
+			Bouton_EnvoiTrames.config(text='Envoyer\nla trame !',fg='purple')
+			envoiTrame.stop() 	# On arrête l'envoi
+	else :
+		print('Trame vide...')
+
+
 def Change_couleur(i,j):
 
 	# Incrémentation de la matrice				
@@ -132,8 +154,8 @@ def Clic(event):
 def Touche(event):
 	# Gestion de l'événement Appui sur une touche du clavier
 	touche = event.keysym
-	#print(touche)
-	
+	#print(liste_trame.size())
+
 	if touche=='Escape':
 		Mafenetre.destroy()
 
@@ -212,8 +234,8 @@ def Envoyer():
 					dev.write(chr(octets_bleus[k][i]))
 					dev.write(chr(octets_rouges[k][i]))
 	except Exception:	
-		if envoiState:
-			Envoyer_Trame()
+		#if envoiState:
+		#	Envoyer_Trame()
 		print('FTDI non détecté')
 	
 
@@ -385,8 +407,7 @@ def Save_Popup():
 
 def Supprimer_Pattern():
 	print("%s" %delai_field.get())
-	os.remove("Patterns//%s.txt" %liste_save.get(liste_save.curselection()))	
-
+	os.remove("Patterns//%s.txt" %liste_save.get(liste_save.curselection()))
 	Actualiser_patterns()
 
 def Ajouter_Pattern():
@@ -401,13 +422,12 @@ def Ajouter_Pattern():
 			liste_trame.insert(END, "(10000 ms)")	
 
 		
-
-
 def Enlever_Pattern():
 	if liste_trame.curselection() != ():
-		liste_trame.delete(liste_trame.curselection())
+		n=liste_trame.curselection()[0]
+		liste_trame.delete(2*(n//2),2*(n//2)+1)
 
-def Ajouter_Delai():
+def Modif_Delai():
 	print("%s" %delai_field.get())
 
 
@@ -501,7 +521,7 @@ Gestion_Trames.grid(row=0, column=7, rowspan=3, padx=10)
 
 
 Button(Gestion_Trames, text ='Supprimer pattern \n /!\\ Suppression définitive /!\\', fg="red",\
- 							width=21, command = Supprimer_Pattern).grid(row=0, column=0, columnspan=2, pady=5)
+							width=21, command = Supprimer_Pattern).grid(row=0, column=0, columnspan=2, pady=5)
 Label(Gestion_Trames, text="Patterns disponibles :").grid(row=1, column=0, columnspan=2)
 liste_save = Listbox(Gestion_Trames, width=24, height=5)
 liste_save.grid(row=2, column=0, columnspan=2, rowspan=2)
@@ -517,7 +537,7 @@ Fleche_bas.grid(row=3, column=2)
 photo_flechebas = PhotoImage(file="fleche_bas.png")
 Fleche_bas.create_image(0, 0, image=photo_flechebas, anchor=NW)
 
-Button(Gestion_Trames, text ='Delai :', command = Ajouter_Delai, width=7).grid(row=4, column=0, pady=5)
+Button(Gestion_Trames, text ='Delai :', command = Modif_Delai, width=7).grid(row=4, column=0, pady=5)
 delai_field= Entry(Gestion_Trames, width=9)
 delai_field.grid(row=4, column=1, pady=5)
 
