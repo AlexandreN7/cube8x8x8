@@ -62,23 +62,19 @@ envoiState=FALSE;
 ###################################### Thread d'envoi de trame ######################################
 
 class Envoi_Trame(Thread):
-	''' Un objet qui fait ses traitements dans un thread séparé. '''
-	def __init__(self,valeurDeDepart):
+	''' Envoi des trames dans un thread séparé. '''
+	def __init__(self):
 		Thread.__init__(self)
 		self._arret = False
-		self._valeur = valeurDeDepart
-		
+
 	def run(self):
 		while not self._arret:
-			print ("Yolo")
+			print ("#LD")
 			sleep(0.5)
 		print ("Terminé !")
-			
+
 	def stop(self):
 		self._arret = True
-
-	def resultat(self):
-		return self._valeur
 
 #####################################################################################################
 
@@ -88,11 +84,13 @@ def Envoyer_Trame():
 	envoiState=~envoiState
 
 	if(envoiState):
+		Bouton_EnvoiTrames.config(text="Arrêter\nl'envoi",fg='brown')
 		global envoiTrame
-		envoiTrame = Envoi_Trame(15)
-		envoiTrame.start()  # On démarre le traitement
+		envoiTrame = Envoi_Trame()
+		envoiTrame.start()  # On démarre l'envoi
 	else:
-		envoiTrame.stop() 
+		Bouton_EnvoiTrames.config(text='Envoyer\nla trame !',fg='purple')
+		envoiTrame.stop() 	# On arrête l'envoi
 	"""
 	MAJ_Couleurs(0)
 	MAJ_Couleurs(1)	
