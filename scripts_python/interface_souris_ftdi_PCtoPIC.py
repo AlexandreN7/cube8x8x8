@@ -12,7 +12,7 @@ script interface_souris_ftdi_PCtoPIC.py
 
 Cube8x8x8
 
-Created by Robin Beilvert and Alexandre Proux and felix is watching
+Created by Robin Beilvert, 3 lines written by Alexandre Proux and Felix is watching
 """
 
 # Bibliothèques pour ftdi, calculs et gestion du temps
@@ -69,7 +69,7 @@ class Envoi_Trame(Thread):
 
 	def run(self):
 		while not self._arret:
-			print ("#LD")
+			Envoyer()
 			sleep(0.5)
 		print ("Terminé !")
 
@@ -91,15 +91,10 @@ def Envoyer_Trame():
 	else:
 		Bouton_EnvoiTrames.config(text='Envoyer\nla trame !',fg='purple')
 		envoiTrame.stop() 	# On arrête l'envoi
-	"""
+	'''
 	MAJ_Couleurs(0)
 	MAJ_Couleurs(1)	
-
-	Button(Gestion_Trames, text ='Envoyer\nla trame !', command = Envoyer_Trame, height=4, width=8,\
-						fg='purple',cursor='hand1').grid(row=8, column=0, pady=10)
-	Button(Gestion_Trames, text ="Arrêter\nl'envoi", command = Envoyer, height=4, width=8,\
-						fg='brown').grid(row=8, column=1, pady=10)"""
-
+	'''
 def Change_couleur(i,j):
 
 	# Incrémentation de la matrice				
@@ -199,25 +194,28 @@ def Envoyer():
 					octets_bleus[k][i] = octets_bleus[k][i]+2**j
 
 
-	print ("On verifie les octets de l'etage 0 envoyes aux deux premiers PICs :")
-	print ("Premier octet rouge = %s" % bin(octets_rouges[0][0]))
-	print ("Premier octet bleu = %s" % bin(octets_bleus[0][0]))
+	#print ("On verifie les octets envoyés aux PICs :")
+	#print ("Premier octet bleu = %s" % bin(octets_bleus[0][0]))	
+	#print ("Premier octet rouge = %s" % bin(octets_rouges[0][0]))
+	#print ("Second octet bleu = %s" % bin(octets_bleus[0][1]))	
 	#print ("Second octet rouge = %s" % bin(octets_rouges[0][1]))
-	#print ("Second octet bleu = %s" % bin(octets_bleus[0][1]))
 
-	# On envoie la sauce !
-	with Device (mode = 't') as dev:
-		dev.baudrate = 115200
+	try:
+		# On envoie la sauce !
+		with Device (mode = 't') as dev:
+			dev.baudrate = 115200
 
-		# 8 étages
-		for k in range(etages) :
-			# 8 PICs = 8 lignes bicolores
-			for i in range (lignes) :
-                                dev.write(chr(octets_bleus[k][i]))
-                                dev.write(chr(octets_rouges[k][i]))
-
-				#dev.write(chr(octets_bleus[k][i]))
-				#dev.write(chr(octets_rouges[k][i]))
+			# 8 étages
+			for k in range(etages) :
+				# 8 PICs = 8 lignes bicolores
+				for i in range (lignes) :
+					dev.write(chr(octets_bleus[k][i]))
+					dev.write(chr(octets_rouges[k][i]))
+	except Exception:	
+		if envoiState:
+			Envoyer_Trame()
+		print('FTDI non détecté')
+	
 
 
 def Init():
