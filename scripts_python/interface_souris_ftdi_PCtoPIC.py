@@ -91,7 +91,11 @@ class Envoi_Trame(Thread):
 
 
 			Envoyer()
-			sleep(0.5)
+
+			# On attend le bon délai entre deux patterns
+			delaistring=liste_trame.get(2*(numPattern//2)+1)
+			sleep(int(delaistring[1:len(delaistring)-4])/1000)
+
 		print ("Terminé !")
 
 	def stop(self):
@@ -428,7 +432,10 @@ def Enlever_Pattern():
 		liste_trame.delete(2*(n//2),2*(n//2)+1)
 
 def Modif_Delai():
-	print("%s" %delai_field.get())
+	if liste_trame.curselection() != ():
+		n=liste_trame.curselection()[0]
+		liste_trame.delete(2*(n//2)+1)
+		liste_trame.insert(2*(n//2)+1, "(%s ms)" %delai_field.get())		
 
 
 #####################################################################################################
