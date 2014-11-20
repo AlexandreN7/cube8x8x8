@@ -96,7 +96,7 @@ char compteur = 0;
 char flag_reception = 0;
 char it = 0;
 
-void interrupt low_priority low_isr(void) { // interruption de l'UART
+void interrupt low_priority high_isr(void) { // interruption de l'UART
 
     if (RC2IF /*&& PIE3bits.TX2IE*/) {
         tampon = RCREG2;
@@ -195,9 +195,9 @@ void multiplexeur(char n) {
 
 void init_timer(void) {
     //Setup Timer0
-    T0PS0 = 0; //Prescaler is divide by 256
+    T0PS0 = 1; //Prescaler is divide by 256 => longuest delay of the timer
     T0PS1 = 1;
-    T0PS2 = 0;
+    T0PS2 = 1;
     PSA = 0; //Timer Clock Source is from Prescaler
     T0CS = 0; //Prescaler gets clock from FCPU
     T08BIT = 1; //8 BIT MODE

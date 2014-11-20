@@ -105,7 +105,7 @@
 
 char tampon = 0;
 char MASK[8]={0b00000001 , 0b00000010, 0b00000100, 0b00001000, 0b00010000, 0b00100000, 0b01000000, 0b10000000};
-char stock_led[140] = 0;
+char stock_led[18] = 0;
 int compteur = 0;
 char compteur_clock = 0;
 char state_clock = 0;
@@ -114,7 +114,7 @@ char led_state[2][8] = 0; // Ligne 0 : Bleu, Ligne 1 : Rouge
 void interrupt low_priority high_isr(void) {
 	if (RC2IF) {
 		tampon = RCREG2;                //a chaque interruption
-		if (compteur == 128) {          //on stock la valeur de
+		if (compteur == 16) {          //on stock la valeur de
                     compteur = 0;               //RCREG2 dans un tableau
 		}
 		stock_led[compteur] = tampon;
@@ -175,19 +175,6 @@ void decodage(int n) {
 }
 
 
-void init_timer(void) {
-//	Setup Timer0		T0PS0 = 0; //Prescaler is divide by 256
-//	T0PS1 = 1;
-//	T0PS2 = 0;
-//	PSA = 0; //Timer Clock Source is from Prescaler
-//	T0CS = 0; //Prescaler gets clock from FCPU
-//	T08BIT = 1; //8 BIT MODE
-//	TMR0IE = 1; //Enable TIMER0 Interrupt
-//	PEIE = 1; //Enable Peripheral Interrupt
-//	GIE = 1; //Enable INTs globally
-}
-
-
 void affichage() {
     ledB1 = led_state[0][0];
     ledB2 = led_state[0][1];
@@ -208,3 +195,20 @@ void affichage() {
     ledR8 = led_state[1][7];
     
 }
+
+
+
+
+void init_timer(void) {
+//	Setup Timer0		T0PS0 = 0; //Prescaler is divide by 256
+//	T0PS1 = 1;
+//	T0PS2 = 0;
+//	PSA = 0; //Timer Clock Source is from Prescaler
+//	T0CS = 0; //Prescaler gets clock from FCPU
+//	T08BIT = 1; //8 BIT MODE
+//	TMR0IE = 1; //Enable TIMER0 Interrupt
+//	PEIE = 1; //Enable Peripheral Interrupt
+//	GIE = 1; //Enable INTs globally
+}
+
+
